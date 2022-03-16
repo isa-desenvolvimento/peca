@@ -11,6 +11,26 @@ const routes = [
     name: 'Home',
     component: () => import('@/screens/Home.vue'),
   },
+  {
+    path: '/extract',
+    name: 'Extract',
+    component: () => import('@/screens/Extract.vue'),
+  },
+  {
+    path: '/product',
+    name: 'Product',
+    component: () => import('@/screens/Product.vue'),
+  },
+  {
+    path: '/tela2',
+    name: 'tela2',
+    component: () => import('@/screens/tela2.vue'),
+  },
+  {
+    path: '/tela3',
+    name: 'tela3',
+    component: () => import('@/screens/tela3.vue'),
+  },
 ]
 
 const router = createRouter({
