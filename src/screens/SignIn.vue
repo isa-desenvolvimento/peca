@@ -1,5 +1,5 @@
 <template>
-  <Login 
+  <Login
     logo="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
     :description="$t('SIGN_IN_TO_YOUR_ACCOUNT')"
     :inputName="$t('EMAIL_ADRESSIVE')"
@@ -9,7 +9,7 @@
     v-if="emailShow"
     v-model="email"
   />
-  <Login 
+  <Login
     logo="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
     :description="$t('SIGN_IN_TO_YOUR_ACCOUNT')"
     :inputName="$t('PASSWORD')"
@@ -22,32 +22,32 @@
 </template>
 
 <script>
-import Login from '@/template/Login.vue'
+import Login from "@/template/Login.vue";
 
 export default {
   data() {
-    return { 
+    return {
       emailShow: true,
-      email: '',
-      password: ''
-    }
+      email: "",
+      password: "",
+    };
   },
   components: {
-    Login
+    Login,
   },
   methods: {
-   submitCPF(e) {
-     e.preventDefault()
-     this.emailShow = false
-     console.log(this.email);
-   },
-   login(e) {
-     e.preventDefault()
-    console.log(this.password);
-     this.$store.dispatch('auth/login', this.password).then(() => {
-       this.$router.push('/')
-     })
-   }
-  }
-}
+    submitCPF(e) {
+      e.preventDefault();
+      this.emailShow = false;
+      console.log(this.email);
+    },
+    login(e) {
+      e.preventDefault();
+      console.log(this.password);
+      this.$store.dispatch("auth/login", this.password).then(() => {
+        this.$router.push("/");
+      });
+    },
+  },
+};
 </script>
