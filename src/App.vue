@@ -1,6 +1,6 @@
 <template>
   <transition v-if="loggedIn">
-    <div>Login true</div>
+    <home />
   </transition>
   <transition v-else>
     <sign-in />
@@ -9,9 +9,10 @@
 
 <script>
 import SignIn from '@/screens/SignIn.vue'
+import Home from '@/screens/Home.vue'
 
 export default {
-  components: { SignIn },
+  components: { SignIn, Home },
   computed: {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn

@@ -4,5 +4,6 @@
   "PASSWORD": "Password",
   "REMEMBER_USER": "Remember me",
   "FORGOT_YOUR_PASSWORD": "Forgot your password?",
-  "SIGN_IN": "Sign in"
+  "SIGN_IN": "Sign in",
+  "BUTTON": "Button"
 }
