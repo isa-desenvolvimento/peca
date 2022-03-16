@@ -1,8 +1,46 @@
-# Vue 3 + Vite
+<h1 align="center">
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+💬 INTRANET D.MINER 💬	
 
-## Recommended IDE Setup
+</h1>
+<p align="center">🚀  Sistema . 
+</p>
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
-# peca
+### 🏆 Aplicação [Demo]()
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com/), [Node.js - v16.9.1](https://nodejs.org/en/), [Vue3](https://v3.vuejs.org/) .
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+### 🎲 Rodando o Front
+
+```
+# Clone este repositório
+$ git clone git@github.com:isa-desenvolvimento/peca.git
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd peca
+
+# Instale as dependências
+$ yarn install
+
+# Execute a aplicação em modo de desenvolvimento
+$ yarn dev
+
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
+
+```
+
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Vue3](https://v3.vuejs.org/)
+- [Vite](https://vitejs.dev/) 
+- [Vuex](https://vuex.vuejs.org/) 
+- [i18n](https://vue-i18n.intlify.dev/) 
+- [Tailwindcss](https://tailwindcss.com/) 
+- [Commitlint](https://commitlint.js.org/)
+- [Husky](https://www.husky.com.br/)
