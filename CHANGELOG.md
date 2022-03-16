@@ -19,3 +19,4 @@ Controle de versão baseado em [Semantic Versioning](https://semver.org/spec/v2.
 ### REF
 
 https://vueschool.io/articles/vuejs-tutorials/eslint-and-prettier-with-vite-and-vue-js-3/
+https://dev.to/vitordevsp/padronizacao-de-commit-com-commitlint-husky-e-commitizen-3g1n
