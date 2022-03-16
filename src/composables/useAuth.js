@@ -8,7 +8,7 @@ export default function useAuth() {
       return auth
     }
 
-     throw 400
+    throw 400
   }
 
   const logoutUse = () => {
@@ -18,6 +18,6 @@ export default function useAuth() {
 
   return {
     login,
-    logoutUse
+    logoutUse,
   }
 }

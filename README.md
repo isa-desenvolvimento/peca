@@ -1,6 +1,6 @@
 <h1 align="center">
 
-💬 PEÇA RARA 💬	
+💬 PEÇA RARA 💬
 
 </h1>
 <p align="center">🚀  Sistema . 
@@ -38,9 +38,9 @@ $ yarn dev
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Vue3](https://v3.vuejs.org/)
-- [Vite](https://vitejs.dev/) 
-- [Vuex](https://vuex.vuejs.org/) 
-- [i18n](https://vue-i18n.intlify.dev/) 
-- [Tailwindcss](https://tailwindcss.com/) 
+- [Vite](https://vitejs.dev/)
+- [Vuex](https://vuex.vuejs.org/)
+- [i18n](https://vue-i18n.intlify.dev/)
+- [Tailwindcss](https://tailwindcss.com/)
 - [Commitlint](https://commitlint.js.org/)
 - [Husky](https://www.husky.com.br/)

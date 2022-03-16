@@ -49,11 +49,11 @@
 </template>
 
 <script>
-import { LockClosedIcon } from "@heroicons/vue/solid";
+import { LockClosedIcon } from '@heroicons/vue/solid'
 
 export default {
-  data() {
-    return { value: "" };
+  components: {
+    LockClosedIcon,
   },
   props: {
     logo: { type: String, required: true },
@@ -63,8 +63,8 @@ export default {
     btnName: { type: String, required: true },
     submit: { type: Function, required: true },
   },
-  components: {
-    LockClosedIcon,
+  data() {
+    return { value: '' }
   },
-};
+}
 </script>

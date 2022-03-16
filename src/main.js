@@ -9,8 +9,8 @@ import i18n from './i18n'
 import './index.css'
 
 createApp(App)
-.use(router)
-.use(store)
-.use(VueAxios, axios)
-.use(i18n)
-.mount('#app')
+  .use(router)
+  .use(store)
+  .use(VueAxios, axios)
+  .use(i18n)
+  .mount('#app')

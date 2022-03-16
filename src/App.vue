@@ -1,24 +1,21 @@
 <template>
-  <transition name="fade" v-if="loggedIn">
-    <div>
-      Login true
-    </div>
+  <transition v-if="loggedIn">
+    <div>Login true</div>
   </transition>
-  <transition name="fade" v-else>
-    <Login />
+  <transition v-else>
+    <sign-in />
   </transition>
 </template>
 
-
 <script>
-import Login from "@/screens/Login.vue"
+import SignIn from '@/screens/Login.vue'
 
 export default {
-  components: { Login },
+  components: { SignIn },
   computed: {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn
-    }
+    },
   },
 }
 </script>

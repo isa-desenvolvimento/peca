@@ -1,12 +1,12 @@
-import useAuth from "@/composables/useAuth";
+import useAuth from '@/composables/useAuth'
 
-const userLocalStorage = sessionStorage.user && JSON.parse(sessionStorage.user);
+const userLocalStorage = sessionStorage.user && JSON.parse(sessionStorage.user)
 
 const initialState = userLocalStorage
   ? { status: { loggedIn: true } }
-  : { status: { loggedIn: false } };
+  : { status: { loggedIn: false } }
 
-const { login, logoutUse } = useAuth();
+const { login, logoutUse } = useAuth()
 
 export const auth = {
   namespaced: true,
@@ -15,34 +15,33 @@ export const auth = {
     login({ commit }, value) {
       return login(value).then(
         (user) => {
-          commit("loginSuccess", user);
-          return Promise.resolve(user);
+          commit('loginSuccess', user)
+          return Promise.resolve(user)
         },
         (error) => {
-          console.log(error);
-          commit("loginFailure");
-          return Promise.reject(error);
+          commit('loginFailure')
+          return Promise.reject(error)
         }
-      );
+      )
     },
     logout({ commit }) {
-      logoutUse();
-      commit("logoutSuccess");
+      logoutUse()
+      commit('logoutSuccess')
     },
   },
   mutations: {
     loginSuccess(state) {
-      state.status.loggedIn = true;
+      state.status.loggedIn = true
     },
     loginFailure(state) {
-      state.status.loggedIn = false;
+      state.status.loggedIn = false
     },
     logoutSuccess() {
       this.state.auth = {
         status: {
           loggedIn: false,
         },
-      };
+      }
     },
   },
-};
+}

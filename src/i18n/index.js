@@ -7,11 +7,11 @@ const messages = {
   //     hello: 'hello world'
   //   }
   // },
-  pt: PT
+  pt: PT,
 }
 
 const i18n = createI18n({
-  locale: 'pt', 
+  locale: 'pt',
   fallbackLocale: 'pt',
   messages,
 })

@@ -10,7 +10,7 @@ Controle de versão baseado em [Semantic Versioning](https://semver.org/spec/v2.
 ### Changed
 
 - Estrutura inicial básica do projeto vue 3
-- Implementa i18n - PT/BR 
+- Implementa i18n - PT/BR
 - Implementa Router
 - Implementa Tailwind
 - Implementa Vuex
