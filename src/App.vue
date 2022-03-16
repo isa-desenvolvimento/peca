@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import SignIn from '@/screens/Login.vue'
+import SignIn from '@/screens/SignIn.vue'
 
 export default {
   components: { SignIn },
