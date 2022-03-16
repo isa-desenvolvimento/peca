@@ -11,7 +11,8 @@
     "prepare": "husky install",
     "commit": "git-cz",
     "serve": "vite preview --port 8080",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "vite build"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
