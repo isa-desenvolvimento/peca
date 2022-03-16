@@ -15,3 +15,7 @@ Controle de versão baseado em [Semantic Versioning](https://semver.org/spec/v2.
 - Implementa Tailwind
 - Implementa Vuex
 - Implementa Login
+
+### REF
+
+https://vueschool.io/articles/vuejs-tutorials/eslint-and-prettier-with-vite-and-vue-js-3/
