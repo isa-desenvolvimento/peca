@@ -1,6 +1,6 @@
 <h1 align="center">
 
-💬 INTRANET D.MINER 💬	
+💬 PEÇA RARA 💬	
 
 </h1>
 <p align="center">🚀  Sistema . 
