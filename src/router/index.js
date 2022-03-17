@@ -31,6 +31,11 @@ const routes = [
     name: 'tela3',
     component: () => import('@/screens/tela3.vue'),
   },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: () => import('@/screens/signup.vue'),
+  },
 ]
 
 const router = createRouter({
