@@ -33,8 +33,8 @@ const routes = [
   },
   {
     path: '/signup',
-    name: 'Signup',
-    component: () => import('@/screens/Signup.vue'),
+    name: 'SignUp',
+    component: () => import('@/screens/SignUp.vue'),
   },
 ]
 
