@@ -6,6 +6,7 @@
     input-type="text"
     :btn-name="$t('OK')"
     :submit="submitCPF"
+    mask="###.###.###-##"
   />
   <Login
     v-else
@@ -14,6 +15,7 @@
     input-type="password"
     :btn-name="$t('SIGN_IN')"
     :submit="login"
+    mask=""
   />
 </template>
 

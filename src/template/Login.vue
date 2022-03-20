@@ -16,6 +16,7 @@
               <label for="email-address">{{ inputName }}</label>
               <input
                 :id="inputName"
+                v-mask="mask"
                 :name="inputType"
                 :type="inputType"
                 :autocomplete="inputType"
@@ -46,6 +47,7 @@ export default {
     inputName: { type: String, required: true },
     inputType: { type: String, required: true },
     btnName: { type: String, required: true },
+    mask: { type: String, required: false },
     submit: { type: Function, required: true },
   },
   data() {
