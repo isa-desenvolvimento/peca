@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @layer utilities {
+  .logo-mobile {
+    background-image: url('@/assets/logo_completa_monile.png');
+  }
+} */

@@ -1,4 +1,4 @@
-// import { http_api } from "./http";
+import { http_api } from './http'
 
 export const fetchtList = async (type, value) => {
   //const response = await http_api.post('/api/auth/login', item)

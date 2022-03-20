@@ -1,9 +1,10 @@
 import axios from 'axios'
 
 export const http_api = axios.create({
-  baseURL: 'http://localhost:8081/api/',
+  baseURL: 'https://prbko.pecararabrecho.com.br',
   headers: {
     'Content-Type': 'application/json',
+    Accept: 'application/json',
   },
 })
 

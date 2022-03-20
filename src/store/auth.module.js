@@ -3,8 +3,8 @@ import useAuth from '@/composables/useAuth'
 const userLocalStorage = sessionStorage.user && JSON.parse(sessionStorage.user)
 
 const initialState = userLocalStorage
-  ? { status: { loggedIn: true } }
-  : { status: { loggedIn: false } }
+  ? { status: { loggedIn: true, publicPages: false } }
+  : { status: { loggedIn: false, publicPages: false } }
 
 const { login, logoutUse } = useAuth()
 
@@ -15,11 +15,11 @@ export const auth = {
     login({ commit }, value) {
       return login(value).then(
         (user) => {
-          commit('loginSuccess', user)
+          commit('success', user)
           return Promise.resolve(user)
         },
         (error) => {
-          commit('loginFailure')
+          commit('failure')
           return Promise.reject(error)
         }
       )
@@ -30,10 +30,10 @@ export const auth = {
     },
   },
   mutations: {
-    loginSuccess(state) {
+    success(state) {
       state.status.loggedIn = true
     },
-    loginFailure(state) {
+    failure(state) {
       state.status.loggedIn = false
     },
     logoutSuccess() {

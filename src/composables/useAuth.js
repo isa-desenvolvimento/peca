@@ -1,4 +1,4 @@
-import { fetchtAuth } from '@/api/auth'
+import { fetchtAuth, fetchtValidDoc } from '@/api/auth'
 
 export default function useAuth() {
   const login = async (user) => {
@@ -11,13 +11,18 @@ export default function useAuth() {
     throw 400
   }
 
+  const validDoc = async (doc) => {
+    return await fetchtValidDoc(doc)
+  }
+
   const logoutUse = () => {
-    localStorage.clear()
+    sessionStorage.clear()
     return 200
   }
 
   return {
     login,
     logoutUse,
+    validDoc,
   }
 }

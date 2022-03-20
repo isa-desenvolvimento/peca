@@ -1,10 +1,44 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+export const PUBLIC_PAGES = [
+  '/login',
+  '/feedback',
+  '/damn-we-are-sad',
+  '/register',
+  '/lack-little',
+  '/welcome',
+]
+
 const routes = [
   {
     path: '/login',
     name: 'Login',
     component: () => import('@/screens/SignIn.vue'),
+  },
+  {
+    path: '/feedback',
+    name: 'Feedback',
+    component: () => import('@/screens/NotUser.vue'),
+  },
+  {
+    path: '/damn-we-are-sad',
+    name: 'Damn We Are Sad',
+    component: () => import('@/screens/DamnWeAreSad.vue'),
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('@/screens/Register.vue'),
+  },
+  {
+    path: '/lack-little',
+    name: 'Lack Little',
+    component: () => import('@/screens/LackLittle.vue'),
+  },
+  {
+    path: '/welcome',
+    name: 'Welcome',
+    component: () => import('@/screens/Welcome.vue'),
   },
   {
     path: '/',
@@ -44,8 +78,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/login']
-  const authRequired = !publicPages.includes(to.path)
+  const authRequired = !PUBLIC_PAGES.includes(to.path)
   const loggedIn = sessionStorage.getItem('user')
 
   if (authRequired && !loggedIn) {

@@ -1,19 +1,15 @@
 <template>
   <Login
-    v-if="emailShow"
-    v-model="email"
-    logo="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-    :description="$t('SIGN_IN_TO_YOUR_ACCOUNT')"
-    :input-name="$t('EMAIL_ADRESSIVE')"
-    input-type="email"
-    :btn-name="$t('SIGN_IN')"
+    v-if="apelido"
+    v-model="cpf"
+    :input-name="$t('CPF')"
+    input-type="text"
+    :btn-name="$t('OK')"
     :submit="submitCPF"
   />
   <Login
     v-else
     v-model="password"
-    logo="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-    :description="$t('SIGN_IN_TO_YOUR_ACCOUNT')"
     :input-name="$t('PASSWORD')"
     input-type="password"
     :btn-name="$t('SIGN_IN')"
@@ -23,29 +19,43 @@
 
 <script>
 import Login from '@/template/Login.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     Login,
   },
-  data() {
+
+  setup() {
     return {
-      emailShow: true,
-      email: '',
+      cpf: '',
       password: '',
+      logoMobile: '/assets/logo_completa_monile.png',
     }
   },
+  computed: mapState({
+    apelido: (state) => state.user.apelido || true,
+    error: (state) =>
+      state.user.error.includes(this.$t('MESSAGE.ERROR_NOT_REGISTER')),
+  }),
   methods: {
     submitCPF(e) {
       e.preventDefault()
-      this.emailShow = false
-      console.log(this.email)
+      debugger
+      this.$store
+        .dispatch('user/postValidDoc', { doc: this.cpf })
+        .catch((err) => {
+          if (err.includes(this.$t('MESSAGE.ERROR_NOT_REGISTER')))
+            this.$store.dispatch('auth/postValidDoc', { doc: this.cpf })
+
+          this.$router.push('/feedback')
+        })
     },
     login(e) {
       e.preventDefault()
       console.log(this.password)
-      this.$store.dispatch('auth/login', this.password).then(() => {
-        this.$router.push('/')
+      this.$store.dispatch('auth/login', this.password).catch(() => {
+        if (this.error) this.$router.push('/feedback')
       })
     },
   },

@@ -1,4 +1,4 @@
-// import { http_api } from "./http";
+import { http_api } from './http'
 
 export const fetchtAuth = async () => {
   //const response = await http_api.post('/api/auth/login', item)
@@ -10,4 +10,10 @@ export const fetchtAuth = async () => {
   }
 
   return response.status == 200 && response.data
+}
+
+export const fetchtValidDoc = async (doc) => {
+  const response = await http_api.post('/mobile', doc)
+  // return response.message == this.$t('OK') && response.data
+  return response.data
 }
