@@ -43,7 +43,6 @@ export default {
   methods: {
     submitCPF(e) {
       e.preventDefault()
-      debugger
       this.$store
         .dispatch('user/postValidDoc', { doc: this.cpf })
         .catch((err) => {
