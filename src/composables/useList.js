@@ -1,11 +1,11 @@
-import { fetchtList } from '@/api/request'
+import { fetchtDrop } from '@/api/request'
 
 export default function useList() {
-  const getListApi = async (type, value) => {
-    return await fetchtList(type, value)
+  const getDropdown = async (type, value) => {
+    return await fetchtDrop(type, value)
   }
 
   return {
-    getListApi,
+    getDropdown,
   }
 }

@@ -47,16 +47,17 @@
 <script>
 import FeedBack from '@/template/FeedBack.vue'
 // import { useRoute } from 'vue-router'
-// import { mapState } from 'vuex'
 
 export default {
   components: { FeedBack },
   setup() {
     // const route = useRoute()
-    // const { email, tel } = route.query
+    // const { email, tel } = route.params
 
-    const email = 'dhahsdausdhk@gmail.com'
-    const tel = '(11) 9 9917-1744'
+    const { email, tel } = JSON.parse(sessionStorage.getItem('fornecedor'))
+
+    // const email = 'dhahsdausdhk@gmail.com'
+    // const tel = '(11) 9 9917-1744'
     const arrEmail = email.toUpperCase().split('@')
     let formatEmail = arrEmail[0].slice(0, 3)
 
@@ -79,21 +80,5 @@ export default {
       formatTel,
     }
   },
-  // computed: mapState({
-  //   formatEmail: (state) => {
-  //     const arrEmail = state.form.fornecedor.email.split('@')
-  //     let formatEmail = ''
-  //     arrEmail[0].map(() => {
-  //       formatEmail = formatEmail + '*'
-  //     })
-  //   },
-  //   formatTel: (state) => {
-  //     const arrTel = state.form.fornecedor.tel.split('-')
-  //     let formatTel = ''
-  //     arrTel[0].map(() => {
-  //       formatTel = formatTel + '*'
-  //     })
-  //   },
-  // }),
 }
 </script>

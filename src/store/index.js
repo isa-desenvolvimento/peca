@@ -3,6 +3,7 @@ import { auth } from './auth.module'
 import { list } from './list.module'
 import { user } from './user.module'
 import { form } from './form.module'
+import { dropdown } from './dropdown.module'
 
 const store = createStore({
   modules: {
@@ -10,6 +11,7 @@ const store = createStore({
     list,
     user,
     form,
+    dropdown,
   },
 })
 

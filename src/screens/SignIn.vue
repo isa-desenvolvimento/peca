@@ -15,7 +15,9 @@
     input-type="password"
     :btn-name="$t('SIGN_IN')"
     :submit="login"
-    mask=""
+    :has-logo="false"
+    :title="`${$t('HELLO')} ${apelido}!`"
+    :description="$t('YOUR_PASSWORD_ACCESS')"
   />
 </template>
 
@@ -36,7 +38,7 @@ export default {
     }
   },
   computed: mapState({
-    apelido: (state) => state.user.apelido || true,
+    apelido: (state) => state.user.apelido || 'andressa',
     error: (state) =>
       state.user.error.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')),
   }),
@@ -45,10 +47,12 @@ export default {
       e.preventDefault()
       this.$store
         .dispatch('user/postValidDoc', { doc: this.cpf })
+        .then(() => {})
         .catch((err) => {
           if (err.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')))
             this.$store.dispatch('auth/postValidDoc', { doc: this.cpf })
 
+          sessionStorage.doc = this.cpf
           this.$router.push('/feedback')
         })
     },
