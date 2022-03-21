@@ -38,7 +38,7 @@ export default {
   computed: mapState({
     apelido: (state) => state.user.apelido || true,
     error: (state) =>
-      state.user.error.includes(this.$t('MESSAGE.ERROR_NOT_REGISTER')),
+      state.user.error.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')),
   }),
   methods: {
     submitCPF(e) {
@@ -46,7 +46,7 @@ export default {
       this.$store
         .dispatch('user/postValidDoc', { doc: this.cpf })
         .catch((err) => {
-          if (err.includes(this.$t('MESSAGE.ERROR_NOT_REGISTER')))
+          if (err.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')))
             this.$store.dispatch('auth/postValidDoc', { doc: this.cpf })
 
           this.$router.push('/feedback')

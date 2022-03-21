@@ -16,124 +16,124 @@
             class="text-center text-white grid justify-center grid grid-flow-row-dense grid-cols-4"
           >
             <input
+              v-model="value.nome"
               name="name"
               type="text"
               required
               class="appearance-none col-span-4 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('NAME')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
 
             <input
+              v-model="value.doc"
               v-mask="'###.###.###-##'"
               name="cpf"
               type="text"
               required
               class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('CPF')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
 
             <input
-              v-mask="'##.###.###'"
-              name="cpf"
+              v-model="value.rg"
+              v-mask="'########'"
+              name="rg"
               type="text"
               required
               class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('RG')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
 
             <input
+              v-model="value.data_nascimento"
               v-mask="'##/##/####'"
               name="dt_birthday"
-              type="date"
+              type="text"
               required
               class="appearance-none w-full uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('BIRTHDAY')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
             <input
+              v-model="value.tel"
               v-mask="'(##) # ####-####'"
-              name="dt_birthday"
+              name="tel"
               type="tel"
               required
               class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('TELEPHONE')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
 
             <input
-              name="dt_birthday"
+              v-model="value.email"
+              name="email"
               type="email"
               required
               class="appearance-none col-span-4 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('EMAIL')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
             <input
-              v-mask="'#####-###'"
+              v-model="value.cep"
+              v-mask="'##.###-###'"
               name="cep"
               type="text"
               required
               class="appearance-none col-span-2 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('CEP')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
 
             <input
+              v-model="value.cidade"
               name="city"
               type="text"
               required
               class="appearance-none uppercase col-span-1 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('CITY')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
 
             <input
+              v-model="value.uf"
               name="uf"
               type="text"
               maxlength="2"
               required
               class="appearance-none uppercase col-span-1 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('UF')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
 
             <input
-              name="uf"
+              v-model="value.logradouro"
+              name="logradouro"
               type="text"
               required
               class="appearance-none uppercase col-span-4 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('PLACE')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
 
             <input
+              v-model="value.complemento"
               name="complement"
               type="text"
               required
               class="appearance-none uppercase col-span-4 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('COMPLEMENT')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
 
             <input
+              v-model="value.num"
               name="number"
               type="text"
               required
               class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('NUMBER')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
 
             <input
+              v-model="value.bairro"
               name="district"
               type="text"
               required
               class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('DISTRICT')"
-              @change="$emit('update:modelValue', $event.target.value)"
             />
           </div>
         </div>
@@ -153,6 +153,58 @@
 
 <script>
 export default {
-  components: {},
+  data() {
+    return {
+      value: {
+        doc: '',
+        nome: '',
+        sobrenome: '',
+        rg: '',
+        data_nascimento: null,
+        tel: '',
+        cel: '',
+        email: '',
+        logradouro: '',
+        num: '',
+        complemento: '',
+        bairro: '',
+        cidade: '',
+        uf: '',
+        cep: '',
+        banco: '',
+        agencia: '',
+        conta: '',
+      },
+    }
+  },
+  methods: {
+    submit(e) {
+      e.preventDefault()
+
+      this.$store
+        .dispatch('form/create', {
+          value: this.value,
+          type: 'fornecedor',
+        })
+        .then(() => {
+          this.$router.push({
+            path: '/lack-little',
+            query: {
+              email: this.email,
+              tel: this.tel,
+            },
+          })
+        })
+        .catch(() => {
+          this.$router.push({
+            path: '/lack-little',
+            query: {
+              email: this.email,
+              tel: this.tel,
+            },
+          })
+        })
+    },
+  },
 }
 </script>

@@ -6,6 +6,7 @@ export const PUBLIC_PAGES = [
   '/damn-we-are-sad',
   '/register',
   '/lack-little',
+  '/token',
   '/welcome',
 ]
 
@@ -34,6 +35,11 @@ const routes = [
     path: '/lack-little',
     name: 'Lack Little',
     component: () => import('@/screens/LackLittle.vue'),
+  },
+  {
+    path: '/token',
+    name: 'Token',
+    component: () => import('@/screens/Token.vue'),
   },
   {
     path: '/welcome',

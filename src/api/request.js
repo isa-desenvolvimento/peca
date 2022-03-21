@@ -17,3 +17,8 @@ export const fetchtList = async (type, value) => {
 
   return response.status == 200 && response.data
 }
+
+export const fetchtCreate = async (type, value) => {
+  const response = await http_api.post(`/mobile/${type}/add`, value)
+  return response.message == this.$t('OK') && response.data
+}

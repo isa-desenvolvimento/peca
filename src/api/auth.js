@@ -15,5 +15,5 @@ export const fetchtAuth = async () => {
 export const fetchtValidDoc = async (doc) => {
   const response = await http_api.post('/mobile', doc)
   // return response.message == this.$t('OK') && response.data
-  return response.data
+  return response.message == this.$t('OK') && response.data
 }

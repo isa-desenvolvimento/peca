@@ -22,6 +22,7 @@ export default {
     },
   },
   created() {
+    window.$t = this.$t
     this.$watch(
       () => this.$route.params,
       () => {
