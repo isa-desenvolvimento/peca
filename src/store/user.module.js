@@ -18,8 +18,8 @@ export const user = {
     postValidDoc({ commit }, value) {
       return validDoc(value).then(
         (payload) => {
-          commit('success', payload)
-          return Promise.resolve(payload)
+          commit('success', payload.data)
+          return Promise.resolve(payload.data)
         },
         (error) => {
           commit('failure', error.response.data.errors)
@@ -33,8 +33,9 @@ export const user = {
   },
   mutations: {
     success(state, payload) {
+      const { apelido } = payload
       sessionStorage.user = JSON.stringify(payload)
-      state.user = payload
+      state.apelido = apelido
     },
     failure(state, payload) {
       state.error = payload

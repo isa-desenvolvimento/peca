@@ -1,7 +1,7 @@
 <template>
   <Login
-    v-if="apelido"
-    v-model="cpf"
+    v-if="!apelido"
+    v-model="doc"
     :input-name="$t('CPF')"
     input-type="text"
     :btn-name="$t('OK')"
@@ -10,7 +10,7 @@
   />
   <Login
     v-else
-    v-model="password"
+    v-model="pwd"
     :input-name="$t('PASSWORD')"
     input-type="password"
     :btn-name="$t('SIGN_IN')"
@@ -32,13 +32,15 @@ export default {
 
   setup() {
     return {
-      cpf: '',
-      password: '',
+      doc: '',
+      pwd: '',
       logoMobile: '/assets/logo_completa_monile.png',
     }
   },
   computed: mapState({
-    apelido: (state) => state.user.apelido || 'andressa',
+    apelido: (state) => {
+      return state.user.apelido || ''
+    },
     error: (state) =>
       state.user.error.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')),
   }),
@@ -46,22 +48,29 @@ export default {
     submitCPF(e) {
       e.preventDefault()
       this.$store
-        .dispatch('user/postValidDoc', { doc: this.cpf })
+        .dispatch('user/postValidDoc', { doc: this.doc })
         .then(() => {})
         .catch((err) => {
           if (err.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')))
-            this.$store.dispatch('auth/postValidDoc', { doc: this.cpf })
+            this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
 
-          sessionStorage.doc = this.cpf
+          sessionStorage.doc = this.doc
           this.$router.push('/feedback')
         })
     },
     login(e) {
       e.preventDefault()
-      console.log(this.password)
-      this.$store.dispatch('auth/login', this.password).catch(() => {
-        if (this.error) this.$router.push('/feedback')
-      })
+      this.$store
+        .dispatch('auth/login', {
+          doc: sessionStorage.doc,
+          pwd: this.pwd,
+        })
+        .then(() => {
+          this.$router.push('/')
+        })
+        .catch(() => {
+          if (this.error) this.$router.push('/feedback')
+        })
     },
   },
 }

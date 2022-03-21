@@ -8,6 +8,7 @@ export const PUBLIC_PAGES = [
   '/lack-little',
   '/token',
   '/welcome',
+  '/',
 ]
 
 const routes = [

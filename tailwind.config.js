@@ -37,6 +37,7 @@ module.exports = {
       backgroundImage: () => ({
         'background-default':
           "url('https://rollingstone.uol.com.br/media/_versions/rick-morty-temporada-4_widelg.jpg')",
+        'home-mobile': "url('@/assets/bg_home_mobile.jpeg')",
         'logo-mobile': "url('@/assets/logo_completa_mobile.png')",
       }),
     },
