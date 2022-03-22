@@ -63,14 +63,14 @@ const routes = [
     component: () => import('@/screens/Product.vue'),
   },
   {
-    path: '/tela2',
-    name: 'tela2',
-    component: () => import('@/screens/tela2.vue'),
+    path: '/devolution',
+    name: 'DEVOLUTION',
+    component: () => import('@/screens/Devolution.vue'),
   },
   {
-    path: '/tela3',
-    name: 'tela3',
-    component: () => import('@/screens/tela3.vue'),
+    path: '/contract',
+    name: 'CONTRACT',
+    component: () => import('@/screens/Contract.vue'),
   },
   {
     path: '/signup',
