@@ -1,21 +1,18 @@
 <template>
-  <carousel-list :slides="slides" type="product" />
+  <translation name="fade">
+    <CarouselList type="estoque" />
+  </translation>
 </template>
 
 <script>
 import CarouselList from '@/template/CarouselList.vue'
+import { useStore } from 'vuex'
 
 export default {
   components: { CarouselList },
-  data() {
-    return {
-      slides: [
-        { title: 'teste1' },
-        { title: 'teste2' },
-        { title: 'teste3' },
-        { title: 'teste4' },
-      ],
-    }
+  setup() {
+    const { dispatch } = useStore()
+    dispatch('list/getList', 'estoque')
   },
 }
 </script>

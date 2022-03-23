@@ -8,8 +8,6 @@ export const PUBLIC_PAGES = [
   '/lack-little',
   '/token',
   '/welcome',
-  '/',
-  '/extract',
 ]
 
 const routes = [
@@ -87,7 +85,8 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const authRequired = !PUBLIC_PAGES.includes(to.path)
-  const loggedIn = sessionStorage.getItem('user')
+  const user = JSON.parse(sessionStorage.getItem('user'))
+  const loggedIn = user?.token && !!user.token
 
   if (authRequired && !loggedIn) {
     next('/login')

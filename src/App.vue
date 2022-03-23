@@ -10,6 +10,7 @@
 <script>
 import SignIn from '@/screens/SignIn.vue'
 import { PUBLIC_PAGES } from '@/router'
+import { setupAxiosToken } from '@/api/http.js'
 
 export default {
   components: { SignIn },
@@ -29,6 +30,11 @@ export default {
         this.isPublicPages =
           PUBLIC_PAGES.includes(this.$route.path) &&
           this.$route.path !== '/login'
+
+        if (this.loggedIn) {
+          const user = JSON.parse(sessionStorage.getItem('user'))
+          setupAxiosToken(user.token)
+        }
       }
     )
   },

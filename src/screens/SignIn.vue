@@ -24,6 +24,7 @@
 <script>
 import Login from '@/template/Login.vue'
 import { mapState } from 'vuex'
+import { useRouter } from 'vue-router'
 
 export default {
   components: {
@@ -31,7 +32,10 @@ export default {
   },
 
   setup() {
+    const router = useRouter()
+
     return {
+      router,
       doc: '',
       pwd: '',
       logoMobile: '/assets/logo_completa_monile.png',
@@ -42,6 +46,7 @@ export default {
       return state.user.apelido || ''
     },
     error: (state) =>
+      state.user?.error &&
       state.user.error.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')),
   }),
   methods: {
@@ -49,27 +54,30 @@ export default {
       e.preventDefault()
       this.$store
         .dispatch('user/postValidDoc', { doc: this.doc })
-        .then(() => {})
+        .then(() => {
+          sessionStorage.doc = this.doc
+        })
         .catch((err) => {
           if (err.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')))
             this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
 
           sessionStorage.doc = this.doc
-          this.$router.push('/feedback')
+          this.router.push('/feedback')
         })
     },
     login(e) {
       e.preventDefault()
+
       this.$store
         .dispatch('auth/login', {
-          doc: sessionStorage.doc,
+          doc: this.doc || sessionStorage.doc,
           pwd: this.pwd,
         })
         .then(() => {
-          this.$router.push('/')
+          this.router.push({ path: '/' })
         })
         .catch(() => {
-          if (this.error) this.$router.push('/feedback')
+          if (this.error) this.router.push('/feedback')
         })
     },
   },

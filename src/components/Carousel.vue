@@ -3,13 +3,13 @@
     <Slide v-for="slide in slides" :key="slide">
       <div
         class="carousel__item bg-red text-white w-full grid grid-cols-3 place-content-center"
-        @click="onclick"
+        @click="() => onclick(slide.id)"
       >
         <div
-          class="mx-auto h-10 w-10 bg-contain bg-no-repeat bg-center text-white text-sm col-span-3 "
+          class="mx-auto h-10 w-10 bg-contain bg-no-repeat bg-center text-white text-sm col-span-3"
           :class="icon"
         ></div>
-        <div class="col-span-3">{{ slide.title }}</div>
+        <div class="col-span-3">{{ slide.nome }}</div>
       </div>
     </Slide>
 
@@ -25,15 +25,15 @@ import { Carousel, Navigation, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
 export default {
-  props: {
-    slides: { type: Array },
-    onclick: { type: Function },
-    icon: { type: String, required: true, default: 'con-marcador-menu' },
-  },
   components: {
     Carousel,
     Slide,
     Navigation,
+  },
+  props: {
+    slides: { type: Array },
+    onclick: { type: Function },
+    icon: { type: String, required: true, default: 'con-marcador-menu' },
   },
 }
 </script>

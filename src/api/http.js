@@ -2,6 +2,7 @@ import axios from 'axios'
 
 export const http_api = axios.create({
   // baseURL: 'https://prbko.pecararabrecho.com.br',
+  //baseURL: 'https://prbko.dev.lpbc.com.br',
   baseURL: 'https://prbko.dev.lpbc.com.br',
   headers: {
     'Content-Type': 'application/json',
@@ -20,7 +21,7 @@ export const setupAxiosToken = (token) => {
   http_api.interceptors.request.use(
     (config) => {
       if (token) {
-        config.headers['x-access-token'] = token
+        config.headers['Authorization'] = `Bearer ${token}`
       }
       return config
     },

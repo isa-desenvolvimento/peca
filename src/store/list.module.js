@@ -1,19 +1,32 @@
 import useList from '@/composables/useList'
 
-const listSession = sessionStorage.list && JSON.parse(sessionStorage.list)
-const initialState = listSession || []
+const initialState = {}
 
-const { getListApi } = useList()
+const { getLojas, getList } = useList()
 
 export const list = {
   namespaced: true,
   state: initialState,
   actions: {
-    getList({ commit }, { value, type }) {
-      return getListApi(type, value).then(
+    getLojas({ commit }, type) {
+      const user = JSON.parse(sessionStorage.getItem('user'))
+      return getLojas(type, user.token).then(
         (payload) => {
-          commit('sucess', payload)
-          return Promise.resolve(payload)
+          commit('sucess', { payload: payload.data, type: 'lojas' })
+          return Promise.resolve(payload.data)
+        },
+        (error) => {
+          commit('failure')
+          return Promise.reject(error)
+        }
+      )
+    },
+    getList({ commit }, type) {
+      const user = JSON.parse(sessionStorage.getItem('user'))
+      return getList(type, user.token).then(
+        (payload) => {
+          commit('sucess', { payload: payload.data, type })
+          return Promise.resolve(payload.data)
         },
         (error) => {
           commit('failure')
@@ -23,8 +36,9 @@ export const list = {
     },
   },
   mutations: {
-    sucess(state, payload) {
-      state.list = payload
+    sucess(state, { payload, type }) {
+      sessionStorage.setItem(type, payload)
+      state[type] = payload
     },
     failure(state) {
       state.list = []

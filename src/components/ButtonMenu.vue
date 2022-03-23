@@ -1,6 +1,6 @@
 <template>
   <button
-    class="py-7 p-5 max-w-md bg-yellow text-white opacity-90 rounded-md shadow-xl items-center hover:bg-white-100 text-center"
+    class="py-7 p-5 max-w-md bg-yellow text-white opacity-90 rounded-md shadow-xl items-center hover:bg-white-100 text-center drop-shadow-2xl"
     :class="classe"
     @click="onclick"
   >

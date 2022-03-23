@@ -1,20 +1,11 @@
 import { http_api, http_cep } from './http'
 
-export const fetchtList = async (type, value) => {
-  //const response = await http_api.post('/api/auth/login', item)
-  const response = {
-    status: 200,
-    data: [
-      {
-        header: type.toUpperCase(),
-        title: value.title,
-        description: 'teste',
-        btnTitle: 'Sobre',
-        footer: 'teste',
-      },
-    ],
-  }
-
+export const fetchLojas = async (type) => {
+  const response = await http_api(`/mobile/lojas/${type}`)
+  return response.status == 200 && response.data
+}
+export const fetchList = async (type) => {
+  const response = await http_api(`/mobile/${type}`)
   return response.status == 200 && response.data
 }
 

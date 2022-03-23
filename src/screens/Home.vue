@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-home-mobile bg-cover bg-no-repeat bg-center bg-scroll h-screen"
+    class="bg-home-mobile bg-cover bg-no-repeat bg-center bg-scroll h-screen overflow-hidden"
   >
     <div
       class="mx-auto h-28 w-auto bg-logo-mobile bg-contain bg-no-repeat bg-left text-white"
