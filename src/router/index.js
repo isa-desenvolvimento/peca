@@ -9,6 +9,7 @@ export const PUBLIC_PAGES = [
   '/token',
   '/welcome',
   '/',
+  '/extract',
 ]
 
 const routes = [

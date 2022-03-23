@@ -15,6 +15,7 @@ module.exports = {
       orange: '#fef1e2',
       green: '#13ce66',
       yellow: '#ffa301',
+      'yellow-ligth': '#fedba1',
       'gray-dark': '#273444',
       gray: '#8492a6',
       'gray-light': '#d3dce6',
@@ -31,6 +32,9 @@ module.exports = {
       lg: '5rem',
     },
     extend: {
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
+      },
       lineHeight: {
         sm: '5rem',
       },
@@ -41,13 +45,14 @@ module.exports = {
         'logo-mobile': "url('@/assets/logo_completa_mobile.png')",
 
         'icon-contrato': "url('@/assets/icons/menu_contrato.png')",
+        'icon-marcador-menu': "url('@/assets/icons/marcador_menu.png')",
         'icon-devolucao': "url('@/assets/icons/menu_devolucao.png')",
         'icon-extrato': "url('@/assets/icons/menu_extrato.png')",
         'icon-produto': "url('@/assets/icons/menu_produtos.png')",
         'icon-calendar': "url('@/assets/icons/calendar.png')",
         'icon-clipboard': "url('@/assets/icons/clipboard.png')",
         'icon-easy-close': "url('@/assets/icons/eye_close_bkp.png')",
-        'icon-easy': "url('@/assets/icons/eye_open_bkp.pngg')",
+        'icon-easy': "url('@/assets/icons/eye_open_bkp.png')",
       }),
     },
   },
