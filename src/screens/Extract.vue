@@ -4,12 +4,16 @@
       <div class="flex gap-4 row-span-1">
         <div>
           <button
-            class="btn bg-gray opacity-20 h-12 w-12 p-2 rounded-full bg-cover bg-no-repeat bg-center bg-icon-extrato"
+            class="h-12 w-12 p-2 rounded-full max-w-md rounded-md items-center inline-block hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out text-center bg-contain bg-no-repeat bg-center text-white bg-icon-back"
+            :class="classe"
+            @click="onclick"
           ></button>
         </div>
         <div>
           <button
-            class="btn bg-gray opacity-20 h-12 w-12 p-2 rounded-full bg-cover bg-no-repeat bg-center bg-icon-extrato"
+            class="h-12 w-12 p-2 rounded-full max-w-md rounded-md items-center inline-block hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out text-center bg-contain bg-no-repeat bg-center text-white bg-icon-home"
+            :class="classe"
+            @click="onclick"
           ></button>
         </div>
         <div
@@ -27,7 +31,12 @@
         />
         <Balance />
         <Tabe :tabs="tabs" @click="getFilter" />
-        <List v-for="lists in extracts" :key="lists" :lists="lists.lists"  :title="lists.title"/>
+        <List
+          v-for="lists in extracts"
+          :key="lists"
+          :lists="lists.lists"
+          :title="lists.title"
+        />
       </div>
     </div>
   </translation>
@@ -55,34 +64,36 @@ export default {
         { title: 'teste3' },
         { title: 'teste4' },
       ],
-      extracts: [{
-        title: 'MARÇO 2022',
-        lists: [
-          {
-            title: '7 MAR',
-            items: [
-              {
-                title: 'R$ 556,00',
-                description:
-                  'DFVEST XADREZ/VERMELHO ROSA TRANSPASSADO RICHARDS 42',
-                iconPlus: true,
-              },
-              {
-                title: 'R$ 46.00',
-                description:
-                  'DFVEST XADREZ/VERMELHO ROSA TRANSPASSADO RICHARDS 42',
-                iconPlus: true,
-              },
-              {
-                title: 'R$ 46.00',
-                description:
-                  'DFVEST XADREZ/VERMELHO ROSA TRANSPASSADO RICHARDS 42',
-                iconPlus: false,
-              },
-            ],
-          },
-        ],
-      }],
+      extracts: [
+        {
+          title: 'MARÇO 2022',
+          lists: [
+            {
+              title: '7 MAR',
+              items: [
+                {
+                  title: 'R$ 556,00',
+                  description:
+                    'DFVEST XADREZ/VERMELHO ROSA TRANSPASSADO RICHARDS 42',
+                  iconPlus: true,
+                },
+                {
+                  title: 'R$ 46.00',
+                  description:
+                    'DFVEST XADREZ/VERMELHO ROSA TRANSPASSADO RICHARDS 42',
+                  iconPlus: true,
+                },
+                {
+                  title: 'R$ 46.00',
+                  description:
+                    'DFVEST XADREZ/VERMELHO ROSA TRANSPASSADO RICHARDS 42',
+                  iconPlus: false,
+                },
+              ],
+            },
+          ],
+        },
+      ],
     }
   },
   methods: {

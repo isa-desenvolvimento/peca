@@ -6,7 +6,7 @@
         @click="onclick"
       >
         <div
-          class="mx-auto h-10 w-10 bg-contain bg-no-repeat bg-center text-white text-sm col-span-3"
+          class="mx-auto h-10 w-10 bg-contain bg-no-repeat bg-center text-white text-sm col-span-3 "
           :class="icon"
         ></div>
         <div class="col-span-3">{{ slide.title }}</div>
