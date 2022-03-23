@@ -51,6 +51,22 @@ export default {
   padding: 10px;
 }
 
+.carousel {
+  position: inherit;
+}
+
+.carousel__prev {
+  top: 25%;
+  left: 1rem;
+  /* transform: translate(-50%, -50%); */
+}
+
+.carousel__next {
+  top: 25%;
+  right: 1rem;
+  /* transform: translate(-50%, -50%); */
+}
+
 .carousel__slide--active > div {
   transform: scale(1.1);
 }

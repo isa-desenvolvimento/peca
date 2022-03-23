@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <div class="overflow-hidden row-span-6">
+      <div class="overflow-hidden row-span-7 my-8">
         <Carousel
           :slides="slides"
           icon="bg-icon-marcador-menu"
@@ -27,8 +27,7 @@
         />
         <Balance />
         <Tabe :tabs="tabs" @click="getFilter" />
-        <List />
-
+        <List v-for="lists in extracts" :key="lists" :lists="lists.lists"  :title="lists.title"/>
       </div>
     </div>
   </translation>
@@ -56,6 +55,34 @@ export default {
         { title: 'teste3' },
         { title: 'teste4' },
       ],
+      extracts: [{
+        title: 'MARÇO 2022',
+        lists: [
+          {
+            title: '7 MAR',
+            items: [
+              {
+                title: 'R$ 556,00',
+                description:
+                  'DFVEST XADREZ/VERMELHO ROSA TRANSPASSADO RICHARDS 42',
+                iconPlus: true,
+              },
+              {
+                title: 'R$ 46.00',
+                description:
+                  'DFVEST XADREZ/VERMELHO ROSA TRANSPASSADO RICHARDS 42',
+                iconPlus: true,
+              },
+              {
+                title: 'R$ 46.00',
+                description:
+                  'DFVEST XADREZ/VERMELHO ROSA TRANSPASSADO RICHARDS 42',
+                iconPlus: false,
+              },
+            ],
+          },
+        ],
+      }],
     }
   },
   methods: {
