@@ -76,11 +76,6 @@ const routes = [
     name: 'CONTRACT',
     component: () => import('@/screens/Contract.vue'),
   },
-  {
-    path: '/signup',
-    name: 'SignUp',
-    component: () => import('@/screens/SignUp.vue'),
-  },
 ]
 
 const router = createRouter({

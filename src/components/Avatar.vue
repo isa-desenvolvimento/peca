@@ -1,9 +1,9 @@
 <template>
   <div>
     <vue-avatar
+      ref="vueavatar"
       :width="400"
       :height="400"
-      ref="vueavatar"
       @vue-avatar-editor:image-ready="onImageReady"
     >
     </vue-avatar>

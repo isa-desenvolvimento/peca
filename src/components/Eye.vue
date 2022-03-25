@@ -1,12 +1,12 @@
 <template>
-  <div @click="toggle" class="self-center">
+  <div class="self-center" @click="toggle">
     <div
-      class="mx-auto h-3 w-10 bg-icon-easy bg-contain bg-no-repeat bg-center text-white transition-linear duration-100"
       v-if="visible"
+      class="mx-auto h-3 w-10 bg-icon-easy bg-contain bg-no-repeat bg-center text-white transition-linear duration-100"
     ></div>
     <div
-      class="mx-auto h-3 w-10 bg-icon-easy-close bg-contain bg-no-repeat bg-center text-white transition-linear duration-100"
       v-else
+      class="mx-auto h-3 w-10 bg-icon-easy-close bg-contain bg-no-repeat bg-center text-white transition-linear duration-100"
     ></div>
   </div>
 </template>
