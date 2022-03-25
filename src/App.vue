@@ -1,10 +1,10 @@
 <template>
-  <transition v-if="loggedIn || isPublicPages" name="fade">
+  <div v-if="loggedIn || isPublicPages" name="fade">
     <router-view />
-  </transition>
-  <transition v-else>
+  </div>
+  <div v-else>
     <sign-in />
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -23,7 +23,6 @@ export default {
     },
   },
   created() {
-    window.$t = this.$t
     this.$watch(
       () => this.$route.params,
       () => {

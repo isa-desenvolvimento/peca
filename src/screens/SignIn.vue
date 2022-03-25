@@ -18,6 +18,7 @@
     :has-logo="false"
     :title="`${$t('HELLO')} ${apelido}!`"
     :description="$t('YOUR_PASSWORD_ACCESS')"
+    mask=""
   />
 </template>
 
