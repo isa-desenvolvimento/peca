@@ -7,16 +7,16 @@
       </h4>
       <div class="grid grid-cols-4 text-left justify-items-start">
         <eye
-          @toggle="this.balance_on_visible = !this.balance_on_visible"
           class="ml-[-.7rem]"
+          @toggle="balance_on_visible = !balance_on_visible"
         />
         <span
-          class="col-span-3 text-left text-yellow"
           v-if="balance_on_visible"
+          class="col-span-3 text-left text-yellow"
         >
           {{ balance_on }}
         </span>
-        <span class="col-span-1 text-left text-yellow" v-else>-</span>
+        <span v-else class="col-span-1 text-left text-yellow">-</span>
       </div>
     </div>
     <div class="col-span-1 text-right">
@@ -24,14 +24,14 @@
         {{ $t('BALANCE_OFF') }}
       </h4>
       <div class="grid grid-cols-2 justify-end text-right justify-items-end">
-        <eye @toggle="this.balance_off_visible = !this.balance_off_visible" />
+        <eye @toggle="balance_off_visible = !balance_off_visible" />
         <span
-          class="col-span-1 text-left text-yellow"
           v-if="balance_off_visible"
+          class="col-span-1 text-left text-yellow"
         >
           {{ balance_off }}
         </span>
-        <span class="col-span-1 text-left text-yellow" v-else>-</span>
+        <span v-else class="col-span-1 text-left text-yellow">-</span>
       </div>
     </div>
     <button

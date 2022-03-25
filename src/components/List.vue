@@ -19,7 +19,7 @@
         :key="item"
         :title="item.title"
         :description="item.description"
-        :iconPlus="item.iconPlus"
+        :icon-plus="item.iconPlus"
       />
     </div>
   </div>

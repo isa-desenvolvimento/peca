@@ -32,6 +32,11 @@ const routes = [
     component: () => import('@/screens/Register.vue'),
   },
   {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('@/screens/Profile.vue'),
+  },
+  {
     path: '/lack-little',
     name: 'Lack Little',
     component: () => import('@/screens/LackLittle.vue'),

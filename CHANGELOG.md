@@ -15,6 +15,20 @@ Controle de versão baseado em [Semantic Versioning](https://semver.org/spec/v2.
 - Implementa Tailwind
 - Implementa Vuex
 - Implementa Login
+- Implementa Toast
+
+### Screens
+
+- Layout Login email
+- Layout Login SENHA
+- Layout Cadastro de fornecedor
+- Layout Não fornecedor
+- Layout Mensagem
+- Layout Home
+- Layout Extrato
+- Layout Devolução
+- Layout Contrato
+- Layout Produto
 
 ### REF
 
