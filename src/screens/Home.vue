@@ -3,13 +3,11 @@
     class="bg-home-mobile bg-cover bg-no-repeat bg-center bg-scroll h-screen overflow-hidden"
   >
     <div
-      class="mx-auto h-24 w-auto bg-logo-mobile bg-contain bg-no-repeat bg-left text-white"
+      class="mx-auto h-24 w-full bg-logo-mobile bg-contain bg-no-repeat bg-left text-white"
     >
-      <file-avatar
-        :value="avatar"
-        classe="w-20 h-20 m-4 ml-auto"
-        @click="$router.push('/profile')"
-      />
+      <div @click="() => $router.push('/profile')">
+        <file-avatar :value="avatar" classe="w-20 h-20 my-4 ml-auto mr-4" />
+      </div>
     </div>
 
     <div class="h-screen w-max m-auto grid">

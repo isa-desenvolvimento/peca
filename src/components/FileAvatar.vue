@@ -1,25 +1,23 @@
 <template>
-  <div class="container">
-    <div
-      class="bg-contain bg-cover bg-no-repeat bg-center rounded-full mb-10 cursor-pointer"
-      :style="{ 'background-image': `url(${previewImage})` }"
-      :class="classe"
-      @click="isEditable && selectImage()"
-    ></div>
-    <input
-      ref="fileInput"
-      type="file"
-      class="hidden"
-      @input="isEditable && pickFile()"
-    />
-    <h3
-      v-if="isEditable"
-      class="text-yellow text-sm w-full text-center mt-[-2rem]"
-      @click="selectImage"
-    >
-      {{ $t('CHANGE_PHOTO_PROFILE') }}
-    </h3>
-  </div>
+  <div
+    class="bg-contain bg-cover bg-no-repeat w-full bg-center rounded-full mb-10 cursor-pointer"
+    :style="{ 'background-image': `url(${previewImage})` }"
+    :class="classe"
+    @click="isEditable && selectImage()"
+  ></div>
+  <input
+    ref="fileInput"
+    type="file"
+    class="hidden"
+    @input="isEditable && pickFile()"
+  />
+  <h3
+    v-if="isEditable"
+    class="text-yellow text-sm w-full text-center mt-[-2rem]"
+    @click="selectImage"
+  >
+    {{ $t('CHANGE_PHOTO_PROFILE') }}
+  </h3>
 </template>
 
 <script>

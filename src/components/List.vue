@@ -2,12 +2,12 @@
   <div
     v-for="(list, index) in lists"
     :key="index"
-    class="overflow-y-auto max-h-96"
+    class="overflow-y-auto max-h-96 mt-8"
   >
-    <h4 class="text-red text-xs opacity-20 text-left uppercase">
+    <h4 class="text-red text-xs opacity-30 text-left uppercase">
       {{ list.grupo }}
     </h4>
-    <hr class="col-span-2 text-yellow opacity-25 my-4" />
+    <hr class="col-span-2 text-yellow opacity-20 my-4" />
     <div
       v-for="periodo in list?.periodos"
       :key="periodo"
@@ -18,7 +18,7 @@
         class="col-span-1 text-sm text-yellow text-center uppercase"
         :class="`row-span-${periodo?.items?.length}`"
       >
-        {{ periodo.day }} {{ periodo.month }}
+        {{ periodo.dia }} {{ periodo.mes }}
       </div>
       <div :class="`col-span-7 row-span-${periodo?.items?.length}`">
         <TitleSub
@@ -27,6 +27,7 @@
           :title="item.valor"
           :description="item.descricao ? item.descricao : ''"
           :icon-plus="item.valor >= 0"
+          is-money
         />
       </div>
     </div>

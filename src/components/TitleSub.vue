@@ -1,6 +1,6 @@
 <template>
   <div class="col-span-6 ml-5">
-    <div>
+    <div v-if="isMoney">
       <span v-if="iconPlus" class="text-green text-xs"> + </span>
       <span v-else class="text-red text-xs"> - </span>
 
@@ -20,6 +20,7 @@ export default {
   props: {
     title: { type: String, required: true },
     iconPlus: { type: Boolean, required: false, default: false },
+    isMoney: { type: Boolean, required: false, default: false },
     description: { type: String, required: false },
   },
 }

@@ -11,13 +11,6 @@
         />
         <Balance v-if="hasBalance" :type="type" :balance="lists?.saldoatual" />
 
-        <TitleSub
-          v-else
-          title="item.valor"
-          description="item.descricao ? item.descricao : ''"
-          class="my-4"
-        />
-
         <Tabe @click="(filter) => setFilter('periodo', filter)" />
         <List :lists="lists?.movimentos" />
       </div>
@@ -32,13 +25,12 @@ import Balance from '@/components/Balance.vue'
 import Tabe from '@/components/Tab.vue'
 import List from '@/components/List.vue'
 import { periodoDate } from '@/util/date'
-import TitleSub from '@/components/TitleSub.vue'
 
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 export default {
-  components: { Carousel, Balance, Tabe, List, Header, TitleSub },
+  components: { Carousel, Balance, Tabe, List, Header },
   props: {
     type: { type: String, required: true },
     title: { type: String, required: true },

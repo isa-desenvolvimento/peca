@@ -1,5 +1,5 @@
 <template>
-  <CarouselList type="extrato" :title="$t('EXTRACT_VENDA')" />
+  <CarouselList type="extrato" :title="$t('EXTRACT_VENDA')" has-balance />
 </template>
 
 <script>
