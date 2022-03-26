@@ -1,26 +1,30 @@
 <template>
-  <h4 class="text-red text-xs opacity-25 text-left">{{ title }}</h4>
-  <hr class="col-span-2 text-yellow opacity-25 my-4" />
-  <div
-    v-for="(list, index) in lists.lists"
-    :key="index"
-    class="grid grid-cols-8 my-8"
-    :class="`grid-rows-${list?.items.length}`"
-  >
+  <div v-for="(list, index) in lists" :key="index">
+    <h4 class="text-red text-xs opacity-25 text-left">{{ list.grupo }}</h4>
+    <hr class="col-span-2 text-yellow opacity-25 my-4" />
     <div
-      class="col-span-1 text-sm text-yellow text-center uppercase"
-      :class="`row-span-${list?.items.length}`"
+      v-for="periodo in list?.periodos"
+      :key="periodo"
+      class="grid grid-cols-8 my-8"
+      :class="`grid-rows-${periodo?.items?.length}`"
     >
-      {{ list.title }}
-    </div>
-    <div :class="`col-span-7 row-span-${list?.items.length}`">
-      <TitleSub
-        v-for="item in list?.items"
-        :key="item"
-        :title="item.title"
-        :description="item.description"
-        :icon-plus="item.iconPlus"
-      />
+      <div
+        class="col-span-1 text-sm text-yellow text-center uppercase"
+        :class="`row-span-${periodo?.items?.length}`"
+      >
+        {{ periodo.day }} {{ periodo.month }}
+      </div>
+      <div :class="`col-span-7 row-span-${periodo?.items?.length}`">
+        <TitleSub
+          v-for="item in periodo?.items"
+          :key="item.id"
+          :title="item.valor"
+          :description="
+            item.descricao ? `${item.loja} - ${item.descricao}` : item.loja
+          "
+          :icon-plus="item.valor >= 0"
+        />
+      </div>
     </div>
   </div>
 

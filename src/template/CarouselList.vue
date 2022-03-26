@@ -10,8 +10,8 @@
           :onclick="(slide) => getList(slide)"
         />
         <Balance :type="type" :balance="lists?.saldoatual" />
-        <Tabe :tabs="tabs" @click="(filter) => getFilter(filter)" />
-        <List :lists="lists" />
+        <Tabe @click="(filter) => getFilter(filter)" />
+        <List :lists="lists?.movimentos" />
       </div>
     </div>
   </translation>
