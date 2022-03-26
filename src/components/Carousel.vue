@@ -19,8 +19,8 @@
       </div>
     </Slide>
 
-    <template #addons>
-      <Navigation />
+    <template #addons="{ slidesCount }">
+      <Navigation v-if="slidesCount > 1" />
     </template>
   </Carousel>
 </template>

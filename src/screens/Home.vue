@@ -9,7 +9,7 @@
         src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
         class="rounded-full w-20 ml-auto item-center p-2 m-4"
         alt="Avatar"
-        @click="$router.push('PROFILE')"
+        @click="$router.push('/profile')"
       />
     </div>
 

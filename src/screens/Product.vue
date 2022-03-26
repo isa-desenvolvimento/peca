@@ -1,5 +1,5 @@
 <template>
-  <CarouselList type="estoque" :title="$t('PRODUCT')" />
+  <CarouselList type="estoque" :title="$t('MY_PRODUCT')" />
 </template>
 
 <script>

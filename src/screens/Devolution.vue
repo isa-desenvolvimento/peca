@@ -1,6 +1,6 @@
 <template>
   <translation name="fade">
-    <CarouselList type="devolucao" />
+    <CarouselList type="devolucao" :title="$t('PENDING_RETURNS')" />
   </translation>
 </template>
 

@@ -54,10 +54,18 @@ export default {
   },
   mounted() {
     const tab0 = document.getElementById(`button_tap_0`)
-    if (tab0) {
-      tab0.focus()
-      tab0.click()
-    }
+
+    const interval = setInterval(() => {
+      if (tab0 && this.lojas?.length) {
+        clearInterval(interval)
+
+        this.setPeriodo(this.periodo)
+        this.setId(this.lojas[0].id)
+
+        tab0.click()
+        tab0.focus()
+      }
+    }, 100)
   },
   methods: {
     setFilter(item, value) {
