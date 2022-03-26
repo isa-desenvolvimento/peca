@@ -39,16 +39,16 @@ export default {
     const { dispatch } = useStore()
     const id_loja = null
     const periodo = periodoDate(7)
+    const isFirst = true
 
     dispatch('list/getLojas', props.type)
-    return { router, id_loja, periodo, dispatch }
+    return { router, id_loja, periodo, dispatch, isFirst }
   },
   computed: {
     lojas() {
       const lojass = this.$store.state.list?.lojas
       if (lojass && lojass.length) {
         this.setId(lojass[0].id)
-
         this.getFilter()
       }
       return lojass
@@ -67,6 +67,7 @@ export default {
           this.setPeriodo(value)
           break
       }
+      this.isFirst = true
       this.getFilter()
     },
     setId(id) {
@@ -76,7 +77,8 @@ export default {
       this.periodo = periodo
     },
     getFilter() {
-      if (this.periodo.data_inicio && this.periodo.data_fim) {
+      if (this.isFirst && this.periodo.data_inicio && this.periodo.data_fim) {
+        this.isFirst = false
         this.dispatch('list/getFilter', {
           type: this.type,
           id_loja: this.id_loja,

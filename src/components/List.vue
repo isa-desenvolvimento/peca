@@ -21,9 +21,7 @@
           v-for="item in periodo?.items"
           :key="item.id"
           :title="item.valor"
-          :description="
-            item.descricao ? `${item.loja} - ${item.descricao}` : item.loja
-          "
+          :description="item.descricao ? item.descricao : ''"
           :icon-plus="item.valor >= 0"
         />
       </div>
