@@ -3,7 +3,7 @@
     <div class="bg-orange h-screen grid grid-rows-7 p-8 relative">
       <Header :title="title" />
 
-      <div class="overflow-hidden row-span-7 my-8">
+      <div class="overflow-hidden row-span-6 my-8">
         <Carousel
           :slides="lojas"
           icon="bg-icon-marcador-menu"
@@ -46,28 +46,31 @@ export default {
   },
   computed: {
     lojas() {
-      const lojass = this.$store.state.list?.lojas
-      if (lojass && lojass.length) {
-        this.setId(lojass[0].id)
-        this.getFilter()
-      }
-      return lojass
+      return this.$store.state.list?.lojas
     },
     lists() {
       return this.$store.state.list[this.type]
     },
   },
+  mounted() {
+    const tab0 = document.getElementById(`button_tap_0`)
+    if (tab0) {
+      tab0.focus()
+      tab0.click()
+    }
+  },
   methods: {
     setFilter(item, value) {
       switch (item) {
         case 'id':
+          this.isFirst = true
           this.setId(value)
           break
         default:
+          this.isFirst = true
           this.setPeriodo(value)
           break
       }
-      this.isFirst = true
       this.getFilter()
     },
     setId(id) {

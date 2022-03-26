@@ -1,7 +1,5 @@
 <template>
-  <translation name="fade">
-    <CarouselList type="estoque" />
-  </translation>
+  <CarouselList type="estoque" :title="$t('PRODUCT')" />
 </template>
 
 <script>

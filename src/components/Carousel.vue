@@ -1,5 +1,11 @@
 <template>
-  <Carousel :items-to-show="3" :wrap-around="true">
+  <Carousel
+    :items-to-show="3"
+    :wrap-around="true"
+    :style="{
+      position: slides?.length > 1 ? 'inherit !important' : 'relative',
+    }"
+  >
     <Slide v-for="slide in slides" :key="slide">
       <div
         class="carousel__item bg-red text-white w-full grid grid-cols-3 place-content-center"
@@ -49,10 +55,6 @@ export default {
 
 .carousel__slide {
   padding: 10px;
-}
-
-.carousel {
-  position: inherit;
 }
 
 .carousel__prev {
