@@ -28,7 +28,7 @@ export const form = {
       return update(type, value).then(
         (payload) => {
           commit('sucess', payload)
-          messagesFetch('sucess', window.$t.SUCCESS_UPDATE)
+          messagesFetch('success', window.$t('MESSAGE.SUCCESS_UPDATE'))
           return Promise.resolve(payload)
         },
         (error) => {

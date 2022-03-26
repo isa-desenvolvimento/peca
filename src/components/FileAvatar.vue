@@ -1,12 +1,19 @@
 <template>
   <div class="container">
     <div
-      class="bg-contain bg-cover bg-no-repeat bg-center w-48 h-48 rounded-full m-auto mb-10 cursor-pointer"
+      class="bg-contain bg-cover bg-no-repeat bg-center rounded-full mb-10 cursor-pointer"
       :style="{ 'background-image': `url(${previewImage})` }"
-      @click="selectImage"
+      :class="classe"
+      @click="isEditable && selectImage()"
     ></div>
-    <input ref="fileInput" type="file" class="hidden" @input="pickFile" />
+    <input
+      ref="fileInput"
+      type="file"
+      class="hidden"
+      @input="isEditable && pickFile()"
+    />
     <h3
+      v-if="isEditable"
       class="text-yellow text-sm w-full text-center mt-[-2rem]"
       @click="selectImage"
     >
@@ -21,6 +28,8 @@ import { ref } from 'vue'
 export default {
   props: {
     value: { type: String, required: false },
+    classe: { type: String, required: false, default: 'w-48 h-48 m-auto' },
+    isEditable: { type: Boolean, required: false, default: false },
   },
   setup() {
     const fileInput = ref([])

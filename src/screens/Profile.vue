@@ -10,9 +10,13 @@
         @submit="submit"
       >
         <div class="mx-auto">
-          <file-avatar v-model="value.profile_img" :value="value.profile_img" />
+          <file-avatar
+            v-model="user.profile_img"
+            :value="user?.profile_img"
+            is-editable
+          />
           <h3 class="text-red text-md w-full text-center font-bold my-8">
-            {{ user.apelido }}
+            {{ user?.nome_fornecedor }}
           </h3>
 
           <div
@@ -25,7 +29,7 @@
             </div>
 
             <input
-              v-model="value.dados_fornecedor.endereco.end_cep"
+              v-model="user.dados_fornecedor.endereco.end_cep"
               v-mask="'#####-###'"
               name="cep"
               type="text"
@@ -36,7 +40,7 @@
             />
 
             <input
-              v-model="value.dados_fornecedor.endereco.end_logradouro"
+              v-model="user.dados_fornecedor.endereco.end_logradouro"
               name="logradouro"
               type="text"
               required
@@ -45,7 +49,7 @@
             />
 
             <!-- <select
-              v-model="value.cidade"
+              v-model="user.cidade"
               :placeholder="$t('CITY')"
               class="form-select form-select-sm appearance-none col-span-4 block w-full appearance-none uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               aria-label=".form-select-sm example"
@@ -60,7 +64,7 @@
             </select> -->
 
             <input
-              v-model="value.dados_fornecedor.endereco.end_uf_cidade_id"
+              v-model="user.dados_fornecedor.endereco.end_uf_cidade_id"
               name="city"
               type="text"
               required
@@ -69,7 +73,7 @@
             />
 
             <!-- <select
-              v-model="value.uf"
+              v-model="user.uf"
               :placeholder="$t('UF')"
               class="form-select form-select-sm appearance-none col-span-4 block w-full appearance-none uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               aria-label=".form-select-sm example"
@@ -81,7 +85,7 @@
             </select> -->
 
             <input
-              v-model="value.dados_fornecedor.endereco.end_uf_id"
+              v-model="user.dados_fornecedor.endereco.end_uf_id"
               name="uf"
               type="text"
               maxlength="2"
@@ -91,7 +95,7 @@
             />
 
             <input
-              v-model="value.dados_fornecedor.endereco.end_complemento"
+              v-model="user.dados_fornecedor.endereco.end_complemento"
               name="complement"
               type="text"
               required
@@ -100,7 +104,7 @@
             />
 
             <input
-              v-model="value.dados_fornecedor.endereco.end_num"
+              v-model="user.dados_fornecedor.endereco.end_nr"
               name="number"
               type="text"
               required
@@ -109,7 +113,7 @@
             />
 
             <input
-              v-model="value.dados_fornecedor.endereco.end_bairro"
+              v-model="user.dados_fornecedor.endereco.end_bairro"
               name="district"
               type="text"
               required
@@ -124,7 +128,7 @@
             </div>
 
             <select
-              v-model="value.dados_fornecedor.dados_bancarios.banco_id"
+              v-model="user.dados_fornecedor.dados_bancarios.banco_id"
               class="form-select form-select-sm appearance-none col-span-4 block w-full appearance-none uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               aria-label=".form-select-sm example"
             >
@@ -134,7 +138,7 @@
             </select>
 
             <input
-              v-model="value.dados_fornecedor.dados_bancarios.banco_ag"
+              v-model="user.dados_fornecedor.dados_bancarios.banco_ag"
               v-mask="'####-#'"
               name="ag"
               type="text"
@@ -144,7 +148,7 @@
             />
 
             <input
-              v-model="value.dados_fornecedor.dados_bancarios.banco_cc"
+              v-model="user.dados_fornecedor.dados_bancarios.banco_cc"
               v-mask="'######-#'"
               name="conta"
               type="text"
@@ -172,6 +176,8 @@
 import { mapState, useStore } from 'vuex'
 import FileAvatar from '@/components/FileAvatar.vue'
 import Header from '@/components/Header.vue'
+
+import { URL } from '@/api/http.js'
 
 export default {
   components: { FileAvatar, Header },
@@ -219,8 +225,16 @@ export default {
       return state.dropdown.cidades || []
     },
     user: (state) => {
-      debugger
-      return state.list.auth || {}
+      if (state.list.auth) {
+        const fornecedor = { ...state.list.auth }
+        const link = fornecedor?.profile_img.slice(0, 9)
+        if (link === '/storage/') {
+          fornecedor.profile_img = URL + fornecedor.profile_img
+        }
+        return fornecedor
+      }
+
+      return []
     },
   }),
 
@@ -240,8 +254,13 @@ export default {
     submit(e) {
       e.preventDefault()
 
+      const data = {
+        profile_img: this.user.profile_img,
+        dados_fornecedor: this.user.dados_fornecedor,
+      }
+
       this.dispatch('form/update', {
-        value: this.value,
+        value: data,
       })
     },
   },

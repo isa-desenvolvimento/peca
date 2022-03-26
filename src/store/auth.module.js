@@ -16,6 +16,7 @@ export const auth = {
       return login(value).then(
         (user) => {
           commit('success', user)
+
           return Promise.resolve(user)
         },
         (error) => {

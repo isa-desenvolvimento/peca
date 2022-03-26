@@ -28,7 +28,6 @@ export const fetchtUpdate = async (type, value) => {
 
   const response = await http_api.post(URL, value)
 
-  debugger
   if (response.status !== 200) messagesFetch('danger', response.status)
 
   return response.status == 200 && response.message

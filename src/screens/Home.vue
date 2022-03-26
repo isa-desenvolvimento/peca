@@ -5,10 +5,9 @@
     <div
       class="mx-auto h-24 w-auto bg-logo-mobile bg-contain bg-no-repeat bg-left text-white"
     >
-      <img
-        src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-        class="rounded-full w-20 ml-auto item-center p-2 m-4"
-        alt="Avatar"
+      <file-avatar
+        :value="avatar"
+        classe="w-20 h-20 m-4 ml-auto"
         @click="$router.push('/profile')"
       />
     </div>
@@ -48,9 +47,25 @@
 
 <script>
 import ButtonMenu from '@/components/ButtonMenu.vue'
+import { URL } from '@/api/http.js'
+import FileAvatar from '@/components/FileAvatar.vue'
+
+import { useStore } from 'vuex'
+
 export default {
   components: {
     ButtonMenu,
+    FileAvatar,
+  },
+  setup() {
+    const { dispatch } = useStore()
+
+    dispatch('list/getList', 'auth')
+  },
+  computed: {
+    avatar() {
+      return URL + this.$store.state.list?.auth.profile_img
+    },
   },
   methods: {
     goToNext(screen) {
