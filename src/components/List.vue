@@ -1,6 +1,8 @@
 <template>
   <div v-for="(list, index) in lists" :key="index">
-    <h4 class="text-red text-xs opacity-25 text-left">{{ list.grupo }}</h4>
+    <h4 class="text-red text-xs opacity-20 text-left uppercase">
+      {{ list.grupo }}
+    </h4>
     <hr class="col-span-2 text-yellow opacity-25 my-4" />
     <div
       v-for="periodo in list?.periodos"

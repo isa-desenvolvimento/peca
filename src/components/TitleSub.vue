@@ -4,7 +4,7 @@
       <span v-if="iconPlus" class="text-green text-xs"> + </span>
       <span v-else class="text-red text-xs"> - </span>
 
-      <span class="text-red text-sm font-bold"> {{ title }} </span>
+      <span class="text-red text-sm font-bold"> {{ `R$ ${title || 0}` }} </span>
     </div>
     <span class="text-red text-xs leading-3 break-words">
       {{ description }}

@@ -169,7 +169,6 @@
 </template>
 
 <script>
-import { ref } from 'vue'
 import { mapState, useStore } from 'vuex'
 import FileAvatar from '@/components/FileAvatar.vue'
 import Header from '@/components/Header.vue'
@@ -177,58 +176,36 @@ import Header from '@/components/Header.vue'
 export default {
   components: { FileAvatar, Header },
   setup() {
-    // const value = ref({
-    //   doc: sessionStorage.doc,
-    //   nome: '',
-    //   sobrenome: '',
-    //   rg: '',
-    //   data_nascimento: null,
-    //   tel: '',
-    //   cel: '',
-    //   email: '',
-    //   logradouro: '',
-    //   num: '',
-    //   complemento: '',
-    //   bairro: '',
-    //   cidade: '',
-    //   uf: '',
-    //   cep: '',
-    //   banco: '',
-    //   agencia: '',
-    //   conta: '',
-    // })
-    //dados_fornecedor
-    // profile_img
+    const { dispatch } = useStore()
 
-    const value = ref({
-      profile_img: 'https://mdbcdn.b-cdn.net/img/new/avatars/2.webp',
-      dados_fornecedor: {
-        endereco: {
-          end_logradouro: 'RUA ANTÔNIO VIEIRA FILHO',
-          end_nr: '0',
-          end_complemento: 'QUADRA 06 LOTE 18',
-          end_bairro: 'SETOR LESTE',
-          end_uf_cidade_id: '1017',
-          end_uf_id: '9',
-          end_cep: '72803360',
-        },
-        dados_bancarios: {
-          banco_id: '1',
-          banco_tipo_conta_id: '1',
-          banco_ag: '12033',
-          banco_cc: '8502595',
-          cod_operacao: '051',
-          chave_pix: '85541710120',
-        },
-      },
-    })
-    const store = useStore()
-    store.dispatch('dropdown/getDropdown', 'bancos')
-    store.dispatch('dropdown/getDropdown', 'ufs')
+    // const value = ref({
+    //   profile_img: 'https://mdbcdn.b-cdn.net/img/new/avatars/2.webp',
+    //   dados_fornecedor: {
+    //     endereco: {
+    //       end_logradouro: 'RUA ANTÔNIO VIEIRA FILHO',
+    //       end_nr: '0',
+    //       end_complemento: 'QUADRA 06 LOTE 18',
+    //       end_bairro: 'SETOR LESTE',
+    //       end_uf_cidade_id: '1017',
+    //       end_uf_id: '9',
+    //       end_cep: '72803360',
+    //     },
+    //     dados_bancarios: {
+    //       banco_id: '1',
+    //       banco_tipo_conta_id: '1',
+    //       banco_ag: '12033',
+    //       banco_cc: '8502595',
+    //       cod_operacao: '051',
+    //       chave_pix: '85541710120',
+    //     },
+    //   },
+    // })
+    dispatch('list/getList', 'auth')
+    dispatch('dropdown/getDropdown', 'bancos')
+    dispatch('dropdown/getDropdown', 'ufs')
 
     return {
-      dispatch: store.dispatch,
-      value,
+      dispatch,
     }
   },
   computed: mapState({
@@ -242,7 +219,8 @@ export default {
       return state.dropdown.cidades || []
     },
     user: (state) => {
-      return state.user || ''
+      debugger
+      return state.list.auth || {}
     },
   }),
 
