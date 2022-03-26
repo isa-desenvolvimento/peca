@@ -1,9 +1,7 @@
 <template>
-  <div class="bg-orange h-screen grid items-center">
+  <div class="bg-orange h-screen grid p-8">
+    <Header :title="$t('PROFILE')" />
     <div class="w-full mx-auto" uppercase>
-      <h3 class="mx-auto text-red text-base w-[17rem] text-left font-bold">
-        {{ $t('YOUR_REGISTER') }}
-      </h3>
       <form
         class="overflow-y-auto"
         uppercase
@@ -11,20 +9,23 @@
         method="POST"
         @submit="submit"
       >
-        <div class="w-4/5 mx-auto">
-          <file-avatar value="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"/>
+        <div class="mx-auto">
+          <file-avatar v-model="value.profile_img" :value="value.profile_img" />
+          <h3 class="text-red text-md w-full text-center font-bold my-8">
+            {{ user.apelido }}
+          </h3>
+
           <div
             class="text-center text-white grid justify-center grid grid-flow-row-dense grid-cols-4"
           >
-
             <div
-              class="appearance-none col-span-4 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red text-left font-bold"
+              class="appearance-none col-span-4 uppercase bg-orange py-2 border-red placeholder-red text-red text-left"
             >
               {{ $t('ADDRESS') }}
             </div>
 
             <input
-              v-model="value.cep"
+              v-model="value.dados_fornecedor.endereco.end_cep"
               v-mask="'#####-###'"
               name="cep"
               type="text"
@@ -35,7 +36,7 @@
             />
 
             <input
-              v-model="value.logradouro"
+              v-model="value.dados_fornecedor.endereco.end_logradouro"
               name="logradouro"
               type="text"
               required
@@ -59,7 +60,7 @@
             </select> -->
 
             <input
-              v-model="value.cidade"
+              v-model="value.dados_fornecedor.endereco.end_uf_cidade_id"
               name="city"
               type="text"
               required
@@ -80,7 +81,7 @@
             </select> -->
 
             <input
-              v-model="value.uf"
+              v-model="value.dados_fornecedor.endereco.end_uf_id"
               name="uf"
               type="text"
               maxlength="2"
@@ -90,7 +91,7 @@
             />
 
             <input
-              v-model="value.complemento"
+              v-model="value.dados_fornecedor.endereco.end_complemento"
               name="complement"
               type="text"
               required
@@ -99,7 +100,7 @@
             />
 
             <input
-              v-model="value.num"
+              v-model="value.dados_fornecedor.endereco.end_num"
               name="number"
               type="text"
               required
@@ -108,7 +109,7 @@
             />
 
             <input
-              v-model="value.bairro"
+              v-model="value.dados_fornecedor.endereco.end_bairro"
               name="district"
               type="text"
               required
@@ -117,13 +118,13 @@
             />
 
             <div
-              class="appearance-none col-span-4 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red text-left font-bold"
+              class="appearance-none col-span-4 uppercase bg-orange py-2 border-red placeholder-red text-red text-left"
             >
               {{ $t('BANK_DATA') }}
             </div>
 
             <select
-              v-model="value.banco"
+              v-model="value.dados_fornecedor.dados_bancarios.banco_id"
               class="form-select form-select-sm appearance-none col-span-4 block w-full appearance-none uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               aria-label=".form-select-sm example"
             >
@@ -133,7 +134,7 @@
             </select>
 
             <input
-              v-model="value.agencia"
+              v-model="value.dados_fornecedor.dados_bancarios.banco_ag"
               v-mask="'####-#'"
               name="ag"
               type="text"
@@ -143,7 +144,7 @@
             />
 
             <input
-              v-model="value.conta"
+              v-model="value.dados_fornecedor.dados_bancarios.banco_cc"
               v-mask="'######-#'"
               name="conta"
               type="text"
@@ -159,7 +160,7 @@
             type="submit"
             class="appearance-none uppercase bg-red mx-auto group relative w-20 leading-normal flex justify-center mt-8 py-2 px-16 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            {{ $t('CONTINUE') }}
+            {{ $t('UPDATE') }}
           </button>
         </div>
       </form>
@@ -170,11 +171,11 @@
 <script>
 import { ref } from 'vue'
 import { mapState, useStore } from 'vuex'
-import { dateFormartUS } from '@/util/date'
 import FileAvatar from '@/components/FileAvatar.vue'
+import Header from '@/components/Header.vue'
 
 export default {
-  components: { FileAvatar },
+  components: { FileAvatar, Header },
   setup() {
     // const value = ref({
     //   doc: sessionStorage.doc,
@@ -196,25 +197,30 @@ export default {
     //   agencia: '',
     //   conta: '',
     // })
+    //dados_fornecedor
+    // profile_img
+
     const value = ref({
-      doc: '046.083.004-80',
-      nome: 'Andressa',
-      sobrenome: 'Novaes',
-      rg: '42409649',
-      data_nascimento: '11/11/1111',
-      tel: '(21) 3 4108-933',
-      cel: '(61) 9 9917-1744',
-      email: 'izzaandressa@gmail.com',
-      logradouro: 'Avenida Parque Águas Claras',
-      num: '45',
-      complemento: 'Ed. Macaúba',
-      bairro: 'Aguas claras',
-      cidade: 'RIO DE JANEIRO',
-      uf: 'df',
-      cep: '22.783-116',
-      banco: '1',
-      agencia: '1222-2',
-      conta: '122233-2',
+      profile_img: 'https://mdbcdn.b-cdn.net/img/new/avatars/2.webp',
+      dados_fornecedor: {
+        endereco: {
+          end_logradouro: 'RUA ANTÔNIO VIEIRA FILHO',
+          end_nr: '0',
+          end_complemento: 'QUADRA 06 LOTE 18',
+          end_bairro: 'SETOR LESTE',
+          end_uf_cidade_id: '1017',
+          end_uf_id: '9',
+          end_cep: '72803360',
+        },
+        dados_bancarios: {
+          banco_id: '1',
+          banco_tipo_conta_id: '1',
+          banco_ag: '12033',
+          banco_cc: '8502595',
+          cod_operacao: '051',
+          chave_pix: '85541710120',
+        },
+      },
     })
     const store = useStore()
     store.dispatch('dropdown/getDropdown', 'bancos')
@@ -235,6 +241,9 @@ export default {
     dropdownCidade: (state) => {
       return state.dropdown.cidades || []
     },
+    user: (state) => {
+      return state.user || ''
+    },
   }),
 
   methods: {
@@ -253,33 +262,9 @@ export default {
     submit(e) {
       e.preventDefault()
 
-      const val = {
-        ...this.value,
-        data_nascimento: dateFormartUS(this.value.data_nascimento),
-        uf: this.value.uf.code,
-      }
-
-      this.dispatch('form/create', {
-        value: val,
-        type: 'fornecedor',
+      this.dispatch('form/update', {
+        value: this.value,
       })
-        .then(() => {
-          this.$router.push({
-            path: '/lack-little',
-            params: {
-              email: this.email,
-              tel: this.tel,
-            },
-          })
-        })
-        .catch(() => {
-          sessionStorage.setItem(
-            'fornecedor',
-            JSON.stringify({ email: this.value.email, tel: this.value.tel })
-          )
-
-          this.$router.push('/lack-little')
-        })
     },
   },
 }

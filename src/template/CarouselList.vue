@@ -1,7 +1,7 @@
 <template>
   <translation name="fade">
     <div class="bg-orange h-screen grid grid-rows-7 p-8 relative">
-      <Header :type="title" />
+      <Header :title="title" />
 
       <div class="overflow-hidden row-span-7 my-8">
         <Carousel
@@ -9,7 +9,7 @@
           icon="bg-icon-marcador-menu"
           :onclick="(slide) => getList(slide)"
         />
-        <Balance />
+        <Balance :type="type" :balance="lists?.saldoatual" />
         <Tabe :tabs="tabs" @click="(filter) => getFilter(filter)" />
         <List :lists="lists" />
       </div>
@@ -25,6 +25,7 @@ import Tabe from '@/components/Tab.vue'
 import List from '@/components/List.vue'
 
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 export default {
   components: { Carousel, Balance, Tabe, List, Header },
@@ -32,8 +33,11 @@ export default {
     type: { type: String, required: true },
     title: { type: String, required: true },
   },
-  setup() {
+  setup(props) {
     const router = useRouter()
+    const { dispatch } = useStore()
+
+    dispatch('list/getLojas', props.type)
 
     return { router }
   },
@@ -42,7 +46,7 @@ export default {
       return this.$store.state.list.lojas
     },
     lists() {
-      return this.$store.state.list.movimentacoes
+      return this.$store.state.list[this.type]
     },
   },
   methods: {

@@ -10,6 +10,9 @@
   "PRODUCT": "Produto",
   "TELA2": "TELA2",
   "TELA3": "TELA3",
+  "PROFILE": "PERFIL",
+  "CHANGE_PHOTO_PROFILE": "ALTERAR A FOTO DO PERFIL",
+  "UPDATE": "ATUALIZAR",
   "CPF": "CPF",
   "SEND": "Enviar",
   "OK": "OK",
@@ -18,7 +21,7 @@
   "NAME": "NOME",
   "LAST_NAME": "SOBRENOME",
   "RG": "Nº RG",
-  "ADDRESS": "ENDEREÇO",
+  "ADDRESS": "DADOS DO ENDEREÇO",
   "CEP": "CEP",
   "CITY": "CIDADE",
   "UF": "UF",
@@ -66,6 +69,7 @@
   "YOUR_PASSWORD_ACCESS": "INFORME A SUA SENHA DE ACESSO",
   "MESSAGE": {
     "DANGER_NOT_REGISTER": "Fornecedor não tem cadastro em nenhuma loja.",
-    "DANGER_PASSWORD_CONFIRM": "SENHAS NÃO COINCIDEM"
+    "DANGER_PASSWORD_CONFIRM": "SENHAS NÃO COINCIDEM",
+    "SUCCESS_UPDATE": "Atualizado com sucesso!"
   }
 }

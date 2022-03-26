@@ -27,5 +27,8 @@ export default {
   props: {
     title: { type: String, required: true },
   },
+  created() {
+    console.log(this.title)
+  },
 }
 </script>

@@ -1,4 +1,5 @@
 import { http_api, http_cep } from './http'
+import { messagesFetch } from '@/util/toast.js'
 
 export const fetchLojas = async (type) => {
   const response = await http_api(`/mobile/lojas/${type}`)
@@ -12,6 +13,17 @@ export const fetchList = async (type) => {
 export const fetchtCreate = async (type, value) => {
   const response = await http_api.post(`/mobile/${type}/add`, value)
   return response.status == 200 && response.data
+}
+
+export const fetchtUpdate = async (type, value) => {
+  const URL = type ? `/mobile/${type}/update` : `/mobile/update`
+
+  const response = await http_api.post(URL, value)
+
+  debugger
+  if (response.status !== 200) messagesFetch('danger', response.status)
+
+  return response.status == 200 && response.message
 }
 
 export const fetchtDrop = async (type) => {

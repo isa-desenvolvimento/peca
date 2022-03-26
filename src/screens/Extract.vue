@@ -1,6 +1,6 @@
 <template>
   <translation name="fade">
-    <CarouselList type="extrato" />
+    <CarouselList type="extrato" :title="$t('EXTRACT_VENDA')" />
   </translation>
 </template>
 

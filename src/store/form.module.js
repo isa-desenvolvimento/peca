@@ -6,7 +6,7 @@ const initialState = {
   errors: [],
 }
 
-const { create } = useForm()
+const { create, update } = useForm()
 
 export const form = {
   namespaced: true,
@@ -16,7 +16,19 @@ export const form = {
       return create(type, value).then(
         (payload) => {
           commit('sucess', payload)
-          sessionStorage['type'] = value
+          return Promise.resolve(payload)
+        },
+        (error) => {
+          commit('failure', error.response.data.errors)
+          return Promise.reject(error)
+        }
+      )
+    },
+    update({ commit }, { value, type }) {
+      return update(type, value).then(
+        (payload) => {
+          commit('sucess', payload)
+          messagesFetch('sucess', window.$t.SUCCESS_UPDATE)
           return Promise.resolve(payload)
         },
         (error) => {
@@ -34,6 +46,8 @@ export const form = {
   },
   mutations: {
     sucess(state, payload) {
+      sessionStorage['type'] = JSON.stringify(payload)
+
       state.data = payload
     },
     failure(state, payload) {

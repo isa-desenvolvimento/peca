@@ -14,7 +14,7 @@
           v-if="balance_on_visible"
           class="col-span-3 text-left text-yellow"
         >
-          {{ balance_on }}
+          {{ `R$ ${balance?.disponivel}` }}
         </span>
         <span v-else class="col-span-1 text-left text-yellow">-</span>
       </div>
@@ -29,7 +29,7 @@
           v-if="balance_off_visible"
           class="col-span-1 text-left text-yellow"
         >
-          {{ balance_off }}
+          {{ `R$ ${balance?.bloqueado}` }}
         </span>
         <span v-else class="col-span-1 text-left text-yellow">-</span>
       </div>
@@ -55,12 +55,11 @@ export default {
     description: { type: String, required: false },
     classe: { type: String, required: true },
     icon: { type: String, required: true },
+    balance: { type: Object, required: true },
     onclick: { type: Function, required: true },
   },
   data() {
     return {
-      balance_on: `R$ ${'3500'}`,
-      balance_off: `R$ ${'3500'}`,
       balance_on_visible: true,
       balance_off_visible: true,
     }
