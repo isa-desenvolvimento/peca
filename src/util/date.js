@@ -19,3 +19,15 @@ const month = {
   11: 'Novembro',
   12: 'Dezembro',
 }
+
+export const periodoDate = (periodo) => {
+  const dateNow = moment()
+  dateNow.subtract(periodo, 'days')
+
+  const date = moment().format(FORMAT_DATE)
+
+  return {
+    data_inicio: dateNow.format(FORMAT_DATE),
+    data_fim: date,
+  }
+}

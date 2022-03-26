@@ -5,8 +5,16 @@ export const fetchLojas = async (type) => {
   const response = await http_api(`/mobile/lojas/${type}`)
   return response.status == 200 && response.data
 }
+
 export const fetchList = async (type) => {
   const response = await http_api(`/mobile/${type}`)
+  return response.status == 200 && response.data
+}
+
+export const fetchFilter = async ({ type, id_loja, data_inicio, data_fim }) => {
+  const response = await http_api(
+    `/mobile/${type}/${id_loja}?data_inicio=${data_inicio}&data_fim=${data_fim}`
+  )
   return response.status == 200 && response.data
 }
 

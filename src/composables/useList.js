@@ -1,4 +1,4 @@
-import { fetchtDrop, fetchLojas, fetchList } from '@/api/request'
+import { fetchtDrop, fetchLojas, fetchList, fetchFilter } from '@/api/request'
 
 export default function useList() {
   const getDropdown = async (type, value) => {
@@ -13,9 +13,14 @@ export default function useList() {
     return await fetchList(type)
   }
 
+  const getFilter = async (value) => {
+    return await fetchFilter(value)
+  }
+
   return {
     getDropdown,
     getLojas,
     getList,
+    getFilter,
   }
 }

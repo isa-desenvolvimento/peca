@@ -7,10 +7,10 @@
         <Carousel
           :slides="lojas"
           icon="bg-icon-marcador-menu"
-          :onclick="(slide) => getList(slide)"
+          :onclick="(slide) => setFilter('id', slide)"
         />
         <Balance :type="type" :balance="lists?.saldoatual" />
-        <Tabe @click="(filter) => getFilter(filter)" />
+        <Tabe @click="(filter) => setFilter('periodo', filter)" />
         <List :lists="lists?.movimentos" />
       </div>
     </div>
@@ -23,6 +23,7 @@ import Header from '@/components/Header.vue'
 import Balance from '@/components/Balance.vue'
 import Tabe from '@/components/Tab.vue'
 import List from '@/components/List.vue'
+import { periodoDate } from '@/util/date'
 
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
@@ -36,22 +37,52 @@ export default {
   setup(props) {
     const router = useRouter()
     const { dispatch } = useStore()
+    const id_loja = null
+    const periodo = periodoDate(7)
 
     dispatch('list/getLojas', props.type)
-
-    return { router }
+    return { router, id_loja, periodo, dispatch }
   },
   computed: {
     lojas() {
-      return this.$store.state.list.lojas
+      const lojass = this.$store.state.list?.lojas
+      if (lojass && lojass.length) {
+        this.setId(lojass[0].id)
+
+        this.getFilter()
+      }
+      return lojass
     },
     lists() {
       return this.$store.state.list[this.type]
     },
   },
   methods: {
-    getFilter(filter) {
-      this.$store.dispatch('list/getList', { type: this.type, filter: filter })
+    setFilter(item, value) {
+      switch (item) {
+        case 'id':
+          this.setId(value)
+          break
+        default:
+          this.setPeriodo(value)
+          break
+      }
+      this.getFilter()
+    },
+    setId(id) {
+      this.id_loja = id
+    },
+    setPeriodo(periodo) {
+      this.periodo = periodo
+    },
+    getFilter() {
+      if (this.periodo.data_inicio && this.periodo.data_fim) {
+        this.dispatch('list/getFilter', {
+          type: this.type,
+          id_loja: this.id_loja,
+          ...this.periodo,
+        })
+      }
     },
   },
 }
