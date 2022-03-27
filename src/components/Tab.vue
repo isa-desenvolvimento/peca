@@ -17,14 +17,14 @@
           class="inline-block px-3 py-2 bg-orange text-red font-medium text-sm leading-snug uppercase focus:bg-yellow-ligth focus:outline-none focus:ring-0 active:bg-yellow-ligth active:text-red transition duration-150 ease-in-out"
           data-bs-toggle="modal"
           data-bs-target="#modalPeriod"
-          @click="() => getOthers()"
+          @click="(e) => getOthers(e)"
         >
           {{ $t('OTHERS') }}
         </button>
       </div>
     </div>
   </div>
-  <Modal />
+  <Modal :id_loja="id_loja" :type="type" />
 </template>
 
 <script>
@@ -33,6 +33,10 @@ import Modal from '@/components/Modal.vue'
 
 export default {
   components: { Modal },
+  props: {
+    id_loja: { type: String, required: true },
+    type: { type: String, required: true },
+  },
   setup() {
     return {
       tabs: [7, 15, 30],
@@ -42,8 +46,8 @@ export default {
     getPeriodo(periodo) {
       this.$emit('click', periodoDate(periodo))
     },
-    getOthers() {
-      this.$emit('click', periodoDate(45))
+    getOthers(periodo) {
+      this.$emit('click', periodo)
     },
   },
 }

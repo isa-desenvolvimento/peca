@@ -12,17 +12,17 @@
       v-for="periodo in list?.periodos"
       :key="periodo"
       class="grid grid-cols-8 my-8"
-      :class="`grid-rows-${periodo?.items?.length}`"
+      :class="`grid-rows-${periodo?.itens?.length}`"
     >
       <div
         class="col-span-1 text-sm text-yellow text-center uppercase"
-        :class="`row-span-${periodo?.items?.length}`"
+        :class="`row-span-${periodo?.itens?.length}`"
       >
         {{ periodo.dia }} {{ periodo.mes }}
       </div>
-      <div :class="`col-span-7 row-span-${periodo?.items?.length}`">
+      <div :class="`col-span-7 row-span-${periodo?.itens?.length}`">
         <TitleSub
-          v-for="item in periodo?.items"
+          v-for="item in periodo?.itens"
           :key="item.id"
           :title="item.valor"
           :description="item.descricao ? item.descricao : ''"

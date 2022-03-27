@@ -10,7 +10,7 @@
       <form
         action="#"
         class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-orange bg-clip-padding rounded-md outline-none text-current"
-        @submit="apply"
+        @submit="(e) => apply(e)"
       >
         <div
           class="modal-header col-span-1 flex flex-shrink-0 items-center justify-between p-4 border-b border-white rounded-t-md"
@@ -32,7 +32,7 @@
           <div class="col-span-1">
             <label class="text-red">{{ $t('FROM') }}</label>
             <input
-              v-model="value.de"
+              v-model="value.data_inicio"
               name="date_from"
               type="date"
               required
@@ -43,7 +43,7 @@
           <div class="col-span-1">
             <label class="text-red">{{ $t('UNTIL') }}</label>
             <input
-              v-model="value.ate"
+              v-model="value.data_fim"
               :min="value.de"
               name="date_until"
               type="date"
@@ -76,11 +76,15 @@
 
 <script>
 export default {
+  props: {
+    id_loja: { type: String, required: true },
+    type: { type: String, required: true },
+  },
   setup() {
     return {
       value: {
-        de: null,
-        ate: null,
+        data_inicio: null,
+        data_fim: null,
       },
       min: null,
     }
@@ -88,13 +92,17 @@ export default {
   methods: {
     clear() {
       this.value = {
-        de: null,
-        ate: null,
+        data_inicio: null,
+        data_fim: null,
       }
     },
     apply(e) {
       e.preventDefault()
-      console.log(this.value)
+      this.$store.dispatch('list/getFilter', {
+        type: this.type,
+        id_loja: this.id_loja,
+        ...this.value,
+      })
     },
   },
 }

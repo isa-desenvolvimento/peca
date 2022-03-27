@@ -23,6 +23,8 @@
 
         <Tabe
           v-if="hasPeriodo"
+          :id_loja="id_loja"
+          :type="type"
           @click="(filter) => setFilter('periodo', filter)"
         />
         <List :lists="lists?.movimentos" />
