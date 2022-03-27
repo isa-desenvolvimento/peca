@@ -1,11 +1,11 @@
 <template>
-  <CarouselList type="estoque" :title="$t('MY_PRODUCT')" />
+  <CarouselListText type="estoque" :title="$t('MY_PRODUCT')" estoque="1" />
 </template>
 
 <script>
-import CarouselList from '@/template/CarouselList.vue'
+import CarouselListText from '@/template/CarouselListText.vue'
 
 export default {
-  components: { CarouselList },
+  components: { CarouselListText },
 }
 </script>

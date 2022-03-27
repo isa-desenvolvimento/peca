@@ -2,7 +2,7 @@ import useList from '@/composables/useList'
 
 const initialState = {}
 
-const { getLojas, getList, getFilter } = useList()
+const { getLojas, getList, getFilter, getListEstoque } = useList()
 
 export const list = {
   namespaced: true,
@@ -34,6 +34,18 @@ export const list = {
     },
     getFilter({ commit }, value) {
       return getFilter(value).then(
+        (payload) => {
+          commit('sucess', { payload: payload.data, type: value.type })
+          return Promise.resolve(payload.data)
+        },
+        (error) => {
+          commit('failure')
+          return Promise.reject(error)
+        }
+      )
+    },
+    getListEstoque({ commit }, value) {
+      return getListEstoque(value).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: value.type })
           return Promise.resolve(payload.data)

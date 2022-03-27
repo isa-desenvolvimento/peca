@@ -10,13 +10,15 @@
           :onclick="(slide) => setFilter('id', slide)"
           :type="type"
         />
+
+        <hr v-if="!hasBalance" class="col-span-2 text-yellow opacity-20 my-4" />
         <Balance v-if="hasBalance" :type="type" :balance="lists?.saldoatual" />
 
         <TitleSub
           v-else
           title="item.valor"
           description="item.descricao ? item.descricao : ''"
-          class="my-4"
+          class="my-6"
         />
 
         <Tabe
@@ -53,8 +55,8 @@ export default {
     const router = useRouter()
     const { dispatch } = useStore()
     const id_loja = null
-    const periodo = periodoDate(7)
     const isFirst = true
+    const periodo = {}
 
     dispatch('list/getLojas', props.type)
     return { router, id_loja, periodo, dispatch, isFirst }
@@ -74,7 +76,11 @@ export default {
       if (tab0 && this.lojas?.length) {
         clearInterval(interval)
 
-        this.setPeriodo(this.periodo)
+        if (this.type === 'extrato') {
+          const _dates = periodoDate(7)
+          this.setPeriodo(_dates)
+        }
+
         this.setId(this.lojas[0].id)
 
         tab0.click()
@@ -83,6 +89,16 @@ export default {
     }, 100)
   },
   methods: {
+    format() {
+      switch (this.type) {
+        case 'extrato':
+          return this.lists?.movimentos
+        case 'estoque':
+          return this.lists?.estoque
+        default:
+          break
+      }
+    },
     setFilter(item, value) {
       switch (item) {
         case 'id':
