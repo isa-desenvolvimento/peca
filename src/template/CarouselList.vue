@@ -8,6 +8,7 @@
           :slides="lojas"
           icon="bg-icon-marcador-menu"
           :onclick="(slide) => setFilter('id', slide)"
+          :type="type"
         />
         <Balance v-if="hasBalance" :type="type" :balance="lists?.saldoatual" />
 
@@ -18,7 +19,10 @@
           class="my-4"
         />
 
-        <Tabe @click="(filter) => setFilter('periodo', filter)" />
+        <Tabe
+          v-if="hasPeriodo"
+          @click="(filter) => setFilter('periodo', filter)"
+        />
         <List :lists="lists?.movimentos" />
       </div>
     </div>
@@ -43,6 +47,7 @@ export default {
     type: { type: String, required: true },
     title: { type: String, required: true },
     hasBalance: { type: Boolean, required: false, default: false },
+    hasPeriodo: { type: Boolean, required: false, default: false },
   },
   setup(props) {
     const router = useRouter()

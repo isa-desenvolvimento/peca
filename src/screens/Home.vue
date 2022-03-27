@@ -5,7 +5,7 @@
     <div
       class="mx-auto h-24 w-full bg-logo-mobile bg-contain bg-no-repeat bg-left text-white"
     >
-      <div @click="() => $router.push('/profile')">
+      <div @click="() => goToNext('/profile')">
         <file-avatar :value="avatar" classe="w-20 h-20 my-4 ml-auto mr-4" />
       </div>
     </div>

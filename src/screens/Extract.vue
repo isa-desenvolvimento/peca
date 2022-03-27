@@ -1,5 +1,10 @@
 <template>
-  <CarouselList type="extrato" :title="$t('EXTRACT_VENDA')" has-balance />
+  <CarouselList
+    type="extrato"
+    :title="$t('EXTRACT_VENDA')"
+    has-balance
+    has-periodo
+  />
 </template>
 
 <script>

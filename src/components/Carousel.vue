@@ -8,7 +8,7 @@
   >
     <Slide v-for="slide in slides" :key="slide">
       <div
-        class="carousel__item bg-red text-white w-full grid grid-cols-3 place-content-center"
+        class="carousel__item bg-red text-white w-full grid grid-cols-3 place-content-center py-2"
         @click="() => onclick(slide.id)"
       >
         <div
@@ -16,6 +16,13 @@
           :class="icon"
         ></div>
         <div class="col-span-3">{{ slide.nome }}</div>
+        <hr
+          v-if="slide.valor_consolidado"
+          class="col-span-3 text-yellow opacity-25 my-4 opacity-25"
+        />
+        <div v-if="slide.valor_consolidado" class="col-span-3 opacity-25">
+          {{ format(slide.valor_consolidado) }}
+        </div>
       </div>
     </Slide>
 
@@ -39,7 +46,20 @@ export default {
   props: {
     slides: { type: Array },
     onclick: { type: Function },
+    type: { type: String },
     icon: { type: String, required: true, default: 'con-marcador-menu' },
+  },
+  methods: {
+    format(value) {
+      switch (this.type) {
+        case 'extrato':
+          return `R$ ${value.toFixed(2)}`
+        case 'estoque':
+          return `${value} peça(s)`
+        default:
+          break
+      }
+    },
   },
 }
 </script>
