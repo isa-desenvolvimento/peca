@@ -59,7 +59,7 @@ module.exports = {
         'icon-easy': "url('@/assets/icons/eye_open_bkp.svg')",
         'icon-home': "url('@/assets/icons/home.svg')",
         'icon-back': "url('@/assets/icons/back.svg')",
-        'icon-prancheta': "url('@/assets/icons/prancheta.png')",
+        'icon-prancheta': "url('@/assets/prancheta.svg')",
       }),
     },
   },

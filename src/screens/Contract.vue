@@ -5,16 +5,14 @@
     <h3 class="text-base w-60 mt-8 my-2 text-red text-left">
       {{ $t('CONTRACT_ON') }}
     </h3>
-    <div class="flex justify-center">
-      <div class="rounded-md border border-red w-96 text-red">
-        <button-item
-          v-for="(item, key) in list"
-          :key="key"
-          :name="item.nome_fantasia"
-          icon="bg-icon-prancheta"
-          @click="download(item.arquivo)"
-        />
-      </div>
+    <div class="flex justify-center mt-10">
+      <button-item
+        v-for="(item, key) in list"
+        :key="key"
+        :name="item.nome_fantasia"
+        icon="bg-icon-prancheta"
+        @click="download(item.arquivo)"
+      />
     </div>
   </div>
 </template>
