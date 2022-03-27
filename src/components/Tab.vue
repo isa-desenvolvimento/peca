@@ -15,6 +15,8 @@
         <button
           type="button"
           class="inline-block px-3 py-2 bg-orange text-red font-medium text-sm leading-snug uppercase focus:bg-yellow-ligth focus:outline-none focus:ring-0 active:bg-yellow-ligth active:text-red transition duration-150 ease-in-out"
+          data-bs-toggle="modal"
+          data-bs-target="#modalPeriod"
           @click="() => getOthers()"
         >
           {{ $t('OTHERS') }}
@@ -22,12 +24,15 @@
       </div>
     </div>
   </div>
+  <Modal />
 </template>
 
 <script>
 import { periodoDate } from '@/util/date'
+import Modal from '@/components/Modal.vue'
 
 export default {
+  components: { Modal },
   setup() {
     return {
       tabs: [7, 15, 30],

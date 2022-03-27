@@ -40,3 +40,8 @@ export default {
   },
 }
 </script>
+<style>
+::-webkit-calendar-picker-indicator {
+  background-image: url('@/assets/calendar.svg');
+}
+</style>
