@@ -20,7 +20,10 @@
       >
         {{ periodo.dia }} {{ periodo.mes }}
       </div>
-      <div :class="`col-span-7 row-span-${periodo?.itens?.length}`">
+      <div
+        :class="`col-span-7 row-span-${periodo?.itens?.length}`"
+        @click="onclick"
+      >
         <TitleSub
           v-for="item in periodo?.itens"
           :key="item.id"
@@ -28,7 +31,6 @@
           :description="item.descricao ? item.descricao : ''"
           :icon-plus="item.valor >= 0"
           is-money
-          @click="onclick ? onclick : null"
         />
       </div>
     </div>

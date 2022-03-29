@@ -3,31 +3,34 @@
     <div class="bg-orange h-screen grid grid-rows-7 p-8 relative">
       <Header :title="title" />
 
-      <div v-if="hasCarousel" class="overflow-hidden row-span-6 my-8">
+      <div class="overflow-hidden row-span-6 my-8">
         <Carousel
+          v-if="hasCarousel"
           :slides="lojas"
           icon="bg-icon-marcador-menu"
           :onclick="(slide) => setFilter('id', slide)"
           :type="type"
         />
 
-        <hr class="col-span-2 text-yellow opacity-20 my-4" />
-        <span v-if="lists?.estoque.length" class="text-red text-sm font-bold">
-          {{ $t('IN_STOCK') }}
-        </span>
-        <span v-else class="text-red text-sm font-regular">
-          {{ $t('THERE_ARE_NO_PRODUCTS') }}
-        </span>
-        <div
-          v-if="!lists?.estoque.length"
-          @click="$router.push('products-outhers')"
-        >
-          <span class="text-red text-sm font-bold">
-            {{ $t('SOLD_RETURNED_CANCELED') }}
+        <hr v-if="hasCarousel" class="col-span-2 text-yellow opacity-20 my-4" />
+        <div v-for="(list, index) in lists" :key="index">
+          <span v-if="lists?.estoque.length" class="text-red text-sm font-bold">
+            {{ $t(index.toUpperCase()) }}
           </span>
-        </div>
+          <span v-else class="text-red text-sm font-regular">
+            {{ $t('THERE_ARE_NO_PRODUCTS') }}
+          </span>
+          <div
+            v-if="!lists?.estoque.length"
+            @click="$router.push('products-outhers')"
+          >
+            <span class="text-red text-sm font-bold">
+              {{ $t('SOLD_RETURNED_CANCELED') }}
+            </span>
+          </div>
 
-        <List :lists="lists?.estoque" :onclick="setItem" />
+          <List :lists="list" :onclick="setItem" />
+        </div>
       </div>
     </div>
   </translation>
@@ -38,7 +41,7 @@ import Carousel from '@/components/Carousel.vue'
 import Header from '@/components/Header.vue'
 import List from '@/components/List.vue'
 
-// import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 
 export default {
@@ -50,18 +53,16 @@ export default {
     hasCarousel: { type: Boolean, required: false, default: true },
   },
   setup(props) {
-    // const route = useRoute()
-    debugger
-    // const id_loja = route.params.id_loja || null
-    const id_loja = null
+    const route = useRoute()
+    const id_loja = route.params.id_loja || null
 
     const { dispatch } = useStore()
 
     if (id_loja) {
-      this.dispatch('list/getListEstoque', {
-        type: this.type,
-        id_loja: this.id_loja,
-        estoque: this.estoque,
+      dispatch('list/getListEstoque', {
+        type: props.type,
+        id_loja: id_loja,
+        estoque: props.estoque,
       })
     } else {
       dispatch('list/getLojas', props.type)
@@ -100,7 +101,7 @@ export default {
     },
 
     setItem() {
-      this.$router.push({ path: 'outhers-product', params: { id_loja: 2 } })
+      this.$router.push(`/product/${this.id_loja}`)
     },
   },
 }

@@ -67,8 +67,8 @@ const routes = [
     component: () => import('@/screens/Product.vue'),
   },
   {
-    path: '/outhers-product',
-    name: 'Product',
+    path: '/product/:id_loja',
+    name: 'Product Outhers',
     component: () => import('@/screens/OuthersProduct.vue'),
   },
   {
