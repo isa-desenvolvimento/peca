@@ -13,7 +13,11 @@
         />
 
         <hr v-if="hasCarousel" class="col-span-2 text-yellow opacity-20 my-4" />
-        <div v-for="(list, index) in lists" :key="index">
+        <div
+          v-for="(list, index) in lists"
+          :key="index"
+          class="overflow-y-auto max-h-[calc(20vh - 2rem)]"
+        >
           <span v-if="lists?.estoque.length" class="text-red text-sm font-bold">
             {{ $t(index.toUpperCase()) }}
           </span>

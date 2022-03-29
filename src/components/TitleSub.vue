@@ -1,5 +1,5 @@
 <template>
-  <div class="col-span-6 ml-5">
+  <div class="col-span-6 ml-5 row-span-1">
     <div v-if="isMoney">
       <span v-if="iconPlus" class="text-green text-xs"> + </span>
       <span v-else class="text-red text-xs"> - </span>
