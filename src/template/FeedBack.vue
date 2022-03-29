@@ -2,12 +2,12 @@
   <translation name="slide-fade" :duration="{ enter: 500, leave: 800 }">
     <div
       :class="background"
-      class="h-screen flex items-center justify-center w-full"
+      class="h-screen flex items-end justify-center w-full"
     >
-      <div class="grid w-full">
+      <div class="grid w-full mb-40">
         <div class="grid mx-auto">
-          <h1 :class="color" class="text-lg leading-sm mx-auto">{{ title }}</h1>
-          <h3 :class="color" class="text-sm w-60 mx-auto">{{ description }}</h3>
+          <Title :title="title" :classe="color" />
+          <Description :classe="color"> {{ description }}</Description>
         </div>
 
         <slot name="body"></slot>
@@ -17,12 +17,15 @@
 </template>
 
 <script>
+import Title from '@/components/Title.vue'
+import Description from '@/components/Description.vue'
 export default {
+  components: { Title, Description },
   props: {
     title: { type: String, required: true },
     description: { type: String, required: true },
     background: { type: String, required: false, default: 'bg-white' },
-    color: { type: String, required: false, default: 'text-white' },
+    color: { type: String, required: false, default: 'text-orange' },
   },
 }
 </script>

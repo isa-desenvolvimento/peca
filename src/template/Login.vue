@@ -22,7 +22,9 @@
         </div>
       </div>
       <form class="mt-8 space-y-6" action="#" method="POST" @submit="submit">
-        <div class="text-center text-white grid justify-center">
+        <div
+          class="font-manrope font-bold text-center text-white grid justify-center"
+        >
           <label for="email-address">{{ inputName }}</label>
           <input
             v-if="mask"

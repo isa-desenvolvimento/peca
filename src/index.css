@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* @layer utilities {
-  .logo-mobile {
-    background-image: url('@/assets/logo_completa_monile.png');
+@layer base {
+  @font-face {
+    font-family: 'Gotham Black';
+    font-weight: 400;
+    src: url(assets/fonts/Gotham-Black/GothamBlack.ttf) format('ttf');
   }
-} */
+}

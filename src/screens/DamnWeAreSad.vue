@@ -5,20 +5,23 @@
     background="bg-pink"
   >
     <template #body>
-      <h3 class="mx-auto text-white text-base w-[17rem] text-left mt-6">
+      <Description
+        classe="mx-auto text-orange text-base w-[17rem] text-left mt-6 mb-60 font-bold"
+      >
         {{ $t('BUT_IF_YOU_CHANGE_YOUR_IDEA_IS_TO') }}
         <a href="#" class="underline underline-offset-1">
           {{ $t('CLICK_HERE') }}
         </a>
-      </h3>
+      </Description>
     </template>
   </feed-back>
 </template>
 
 <script>
 import FeedBack from '@/template/FeedBack.vue'
+import Description from '@/components/Description.vue'
 
 export default {
-  components: { FeedBack },
+  components: { FeedBack, Description },
 }
 </script>

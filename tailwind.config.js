@@ -24,10 +24,6 @@ module.exports = {
       gray: '#8492a6',
       'gray-light': '#d3dce6',
     },
-    fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
-    },
     fontSize: {
       xs: '.75rem',
       sm: '.875rem',
@@ -36,6 +32,10 @@ module.exports = {
       lg: '5rem',
     },
     extend: {
+      fontFamily: {
+        gotham: ['Gotham'],
+        manrope: ['Manrope', 'sans-serif'],
+      },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',
       },
@@ -63,5 +63,9 @@ module.exports = {
       }),
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('tw-elements/dist/plugin')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('tw-elements/dist/plugin'),
+    require('@tailwindcss/typography'),
+  ],
 }
