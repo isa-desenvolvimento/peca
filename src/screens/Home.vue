@@ -26,14 +26,20 @@
           :onclick="() => goToNext('/product')"
           icon="bg-icon-produto"
         />
+
+        <Popper
+          :content="$t('UNAVAILABLE')"
+          class="col-span-2 text-red text-manrope"
+        >
+          <ButtonMenu
+            classe="col-span-2 "
+            :name="$t('DEVOLUTION')"
+            icon="bg-icon-devolucao"
+            disabled
+          />
+        </Popper>
         <ButtonMenu
-          classe="col-span-2"
-          :name="$t('DEVOLUTION')"
-          :onclick="() => goToNext('/devolution')"
-          icon="bg-icon-devolucao"
-        />
-        <ButtonMenu
-          classe="col-span-2"
+          classe="col-span-2 "
           :name="$t('CONTRACT')"
           :onclick="() => goToNext('/contract')"
           icon="bg-icon-contrato"
@@ -47,6 +53,7 @@
 import ButtonMenu from '@/components/ButtonMenu.vue'
 import { URL } from '@/api/http.js'
 import FileAvatar from '@/components/FileAvatar.vue'
+import Popper from 'vue3-popper'
 
 import { useStore } from 'vuex'
 
@@ -54,6 +61,7 @@ export default {
   components: {
     ButtonMenu,
     FileAvatar,
+    Popper,
   },
   setup() {
     const { dispatch } = useStore()
@@ -72,3 +80,22 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+:deep(.popper) {
+  background: var(--bg-orange);
+  padding: 20px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-family: Manrope;
+}
+
+:deep(.popper #arrow::before) {
+  background: var(--bg-orange);
+}
+
+:deep(.popper:hover),
+:deep(.popper:hover > #arrow::before) {
+  background: var(--bg-orange);
+}
+</style>

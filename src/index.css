@@ -9,4 +9,15 @@
     font-weight: 400;
     src: url(assets/fonts/Gotham-Black/GothamBlack.ttf) format('ttf');
   }
+
+  :root {
+    --bg-white: #ffffff;
+    --bg-red: #c63f3b;
+    --bg-pink: #e5898f;
+    --bg-orange: #fef1e2;
+    --bg-green: #13ce66;
+    --bg-yellow: #ffa301;
+    --bg-yellow-ligth: #fedba1;
+    --bg-gray: #8492a6;
+  }
 }

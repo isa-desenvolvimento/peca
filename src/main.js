@@ -3,6 +3,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueTheMask from 'vue-the-mask'
 import moshaToast from 'mosha-vue-toastify'
+import Popper from 'vue3-popper'
 
 import App from './App.vue'
 import router from './router'
@@ -17,6 +18,7 @@ createApp(App)
   .use(router)
   .use(store)
   .use(moshaToast)
+  .component('Popper', Popper)
   .use(VueTheMask)
   .use(VueAxios, axios)
   .use(i18n)
