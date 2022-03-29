@@ -67,6 +67,11 @@ const routes = [
     component: () => import('@/screens/Product.vue'),
   },
   {
+    path: '/outhers-product',
+    name: 'Product',
+    component: () => import('@/screens/OuthersProduct.vue'),
+  },
+  {
     path: '/devolution',
     name: 'DEVOLUTION',
     component: () => import('@/screens/Devolution.vue'),

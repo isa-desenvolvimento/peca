@@ -62,7 +62,7 @@ export default {
   },
   computed: {
     avatar() {
-      return URL + this.$store.state.list?.auth.profile_img
+      return URL + this.$store.state.list.auth.profile_img
     },
   },
   methods: {

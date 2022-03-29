@@ -3,7 +3,7 @@
     <div class="bg-orange h-screen grid grid-rows-7 p-8 relative">
       <Header :title="title" />
 
-      <div class="overflow-hidden row-span-6 my-8">
+      <div v-if="hasCarousel" class="overflow-hidden row-span-6 my-8">
         <Carousel
           :slides="lojas"
           icon="bg-icon-marcador-menu"
@@ -27,7 +27,7 @@
           </span>
         </div>
 
-        <List :lists="lists?.estoque" />
+        <List :lists="lists?.estoque" :onclick="setItem" />
       </div>
     </div>
   </translation>
@@ -38,7 +38,7 @@ import Carousel from '@/components/Carousel.vue'
 import Header from '@/components/Header.vue'
 import List from '@/components/List.vue'
 
-import { useRouter } from 'vue-router'
+// import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 
 export default {
@@ -47,14 +47,27 @@ export default {
     type: { type: String, required: true },
     title: { type: String, required: true },
     estoque: { type: String, required: true },
+    hasCarousel: { type: Boolean, required: false, default: true },
   },
   setup(props) {
-    const router = useRouter()
-    const { dispatch } = useStore()
+    // const route = useRoute()
+    debugger
+    // const id_loja = route.params.id_loja || null
     const id_loja = null
 
-    dispatch('list/getLojas', props.type)
-    return { router, id_loja, dispatch }
+    const { dispatch } = useStore()
+
+    if (id_loja) {
+      this.dispatch('list/getListEstoque', {
+        type: this.type,
+        id_loja: this.id_loja,
+        estoque: this.estoque,
+      })
+    } else {
+      dispatch('list/getLojas', props.type)
+    }
+
+    return { id_loja, dispatch }
   },
   computed: {
     lojas() {
@@ -84,6 +97,10 @@ export default {
         id_loja: this.id_loja,
         estoque: this.estoque,
       })
+    },
+
+    setItem() {
+      this.$router.push({ path: 'outhers-product', params: { id_loja: 2 } })
     },
   },
 }

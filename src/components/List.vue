@@ -28,6 +28,7 @@
           :description="item.descricao ? item.descricao : ''"
           :icon-plus="item.valor >= 0"
           is-money
+          @click="onclick ? onclick : null"
         />
       </div>
     </div>
@@ -57,6 +58,7 @@ export default {
   props: {
     title: { type: String, required: true },
     lists: { type: String, required: true },
+    onclick: { type: Function, required: false },
   },
 }
 </script>
