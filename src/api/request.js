@@ -46,7 +46,7 @@ export const fetchtDrop = async (type) => {
 }
 
 export const fetchtCityDropdown = async (uf) => {
-  const response = await http_api('/mobile/cidades', { uf_id: uf })
+  const response = await http_api(`/mobile/cidades/${uf}`)
   return response.status == 200 && response.data
 }
 
