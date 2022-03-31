@@ -2,7 +2,7 @@
   <feed-back
     :title="$t('LACK_LITTLE')"
     :description="$t('SEND_TOKEN')"
-    background="bg-yellow"
+    background="bg-yellow px-12"
   >
     <template #body>
       <div class="mx-auto text-white mt-20">
@@ -10,13 +10,17 @@
           <input
             id="email"
             type="checkbox"
-            class="appearance-none checked:bg-red checked:text-red mr-2 border-none focus:border-red"
+            checked
+            disabled
+            class="appearance-none checked:bg-red checked:text-red mr-2 border-none focus:border-red text-manrope"
           />
-          <label class="flex flex-row items-center cursor-pointer">
+          <label
+            class="flex flex-row items-center cursor-pointer font-manrope text-sm"
+          >
             {{ formatEmail }}
           </label>
         </div>
-        <div class="flex">
+        <!-- <div class="flex">
           <input
             id="email"
             type="checkbox"
@@ -25,18 +29,24 @@
           <label class="flex flex-row items-center cursor-pointer">
             {{ formatTel }}
           </label>
-        </div>
+        </div> -->
       </div>
       <button
-        type="submit"
-        class="appearance-none rounded w-24 bg-white text-red mx-auto group relative leading-normal flex justify-center mt-12 py-1 px-5 text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        type="button"
+        class="appearance-none rounded w-32 font-manrope uppercase font-bold bg-white text-red mx-auto group relative leading-normal flex justify-center my-8 mt-10 py-2 px-5 text-xs font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        @click="submit"
       >
         {{ $t('SEND') }}
       </button>
 
-      <h3 class="mx-auto text-white text-base w-[17rem] text-center mt-6">
+      <h3
+        class="mx-auto text-white text-sm w-[15rem] text-center mt-6 font-manrope"
+      >
         {{ $t('DOES_YOUR_DATA_NOT_MATCH') }}
-        <a href="#" class="underline underline-offset-1">
+        <a
+          href="/register"
+          class="underline underline-offset-1 font-manrope font-bold"
+        >
           {{ $t('CLICK_HERE') }}
         </a>
       </h3>
@@ -79,6 +89,22 @@ export default {
       formatEmail,
       formatTel,
     }
+  },
+  methods: {
+    submit(e) {
+      e.preventDefault()
+
+      const doc = this.$store.state.user.doc || sessionStorage.getItem('doc')
+
+      this.$store
+        .dispatch('form/create', {
+          value: { doc, notAdd: true },
+          type: 'newpwd',
+        })
+        .then(() => {
+          this.$router.push('/send-email')
+        })
+    },
   },
 }
 </script>

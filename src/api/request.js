@@ -26,7 +26,10 @@ export const fetchFilter = async ({ type, id_loja, data_inicio, data_fim }) => {
 }
 
 export const fetchtCreate = async (type, value) => {
-  const response = await http_api.post(`/mobile/${type}/add`, value)
+  const URL = value?.notAdd ? `/mobile/${type}` : `/mobile/${type}/add`
+  if (value?.notAdd) delete value.notAdd
+
+  const response = await http_api.post(URL, value)
   return response.status == 200 && response.data
 }
 
