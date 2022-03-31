@@ -7,9 +7,7 @@
       <div class="grid w-full mb-40">
         <div class="grid mx-auto">
           <Title :title="title" :classe="color" />
-          <Description classe="text-orange text-base">
-            {{ description }}</Description
-          >
+          <Description :classe="color"> {{ description }}</Description>
         </div>
         <slot name="body"></slot>
       </div>

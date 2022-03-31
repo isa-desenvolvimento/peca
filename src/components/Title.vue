@@ -32,7 +32,7 @@
 export default {
   props: {
     title: { type: String, required: true },
-    classe: { type: String, required: false, default: 'text-white' },
+    classe: { type: String, required: false, default: 'text-orange' },
   },
 }
 </script>

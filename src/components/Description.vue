@@ -7,7 +7,11 @@
 <script>
 export default {
   props: {
-    classe: { type: String, required: false },
+    classe: {
+      type: String,
+      required: false,
+      default: 'text-orange text-base',
+    },
   },
 }
 </script>
