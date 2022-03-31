@@ -1,7 +1,9 @@
 <template>
-  <div class="bg-orange h-screen grid items-center">
-    <div class="w-full mx-auto" uppercase>
-      <h3 class="mx-auto text-red text-base w-[17rem] text-left font-bold">
+  <div class="bg-orange h-screen grid items-center w-full">
+    <div class="mx-auto" uppercase>
+      <h3
+        class="text-red text-md font-gotham w-[17rem] text-left font-bold ml-10"
+      >
         {{ $t('YOUR_REGISTER') }}
       </h3>
       <form
@@ -16,7 +18,7 @@
             class="text-center text-white grid justify-center grid grid-flow-row-dense grid-cols-4"
           >
             <div
-              class="appearance-none col-span-4 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red text-left font-bold"
+              class="appearance-none col-span-4 mt-4 uppercase bg-orange py-2 border-red placeholder-red text-red text-left font-bold"
             >
               {{ $t('PERSONAL_DATA') }}
             </div>
@@ -96,7 +98,7 @@
             />
 
             <div
-              class="appearance-none col-span-4 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red text-left font-bold"
+              class="appearance-none col-span-4 uppercase mt-4 bg-orange py-2 border-red placeholder-red text-red text-left font-bold"
             >
               {{ $t('ADDRESS') }}
             </div>
@@ -195,7 +197,7 @@
             />
 
             <div
-              class="appearance-none col-span-4 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red text-left font-bold"
+              class="appearance-none col-span-4 uppercase mt-4 bg-orange py-2 border-red placeholder-red text-red text-left font-bold"
             >
               {{ $t('BANK_DATA') }}
             </div>
