@@ -1,6 +1,30 @@
 <template>
-  <h1 :class="classe" class="text-lg leading-sm mx-auto font-gotham font-bold">
+  <div v-if="title === $t('OOPS')" class="flex justify-start">
+    <h1
+      class="text-6xl leading-10 font-gotham font-bold uppercase"
+      :class="classe"
+    >
+      O
+    </h1>
+
+    <h1
+      class="text-lg leading-10 font-gotham font-bold uppercase w-full"
+      :class="classe"
+    >
+      {{ title }}
+
+      <div class="flex"><slot /></div>
+    </h1>
+  </div>
+
+  <h1
+    v-else
+    class="text-lg leading-10 font-gotham font-bold uppercase w-full"
+    :class="classe"
+  >
     {{ title }}
+
+    <div class="flex"><slot /></div>
   </h1>
 </template>
 

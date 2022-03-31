@@ -7,9 +7,10 @@
       <div class="grid w-full mb-40">
         <div class="grid mx-auto">
           <Title :title="title" :classe="color" />
-          <Description :classe="color"> {{ description }}</Description>
+          <Description classe="text-orange text-base">
+            {{ description }}</Description
+          >
         </div>
-
         <slot name="body"></slot>
       </div>
     </div>
@@ -23,6 +24,7 @@ export default {
   components: { Title, Description },
   props: {
     title: { type: String, required: true },
+    subtitle: { type: String, required: true },
     description: { type: String, required: true },
     background: { type: String, required: false, default: 'bg-white' },
     color: { type: String, required: false, default: 'text-orange' },

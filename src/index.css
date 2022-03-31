@@ -1,15 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: 'Gotham Black';
-    font-weight: 400;
-    src: url(assets/fonts/Gotham-Black/GothamBlack.ttf) format('ttf');
-  }
-
   :root {
     --bg-white: #ffffff;
     --bg-red: #c63f3b;
@@ -21,3 +16,13 @@
     --bg-gray: #8492a6;
   }
 }
+
+@font-face {
+  font-family: 'Gotham-Black';
+  src: url('@/assets/fonts/Gotham-Black/GothamBlack.ttf');
+}
+
+/* @font-face {
+  font-family: 'Manrope';
+  src: url('@/assets/fonts/Manrope/Manrope-ExtraLight.ttf');
+} */

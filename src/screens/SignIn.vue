@@ -13,10 +13,11 @@
     v-model="pwd"
     :input-name="$t('PASSWORD')"
     input-type="password"
-    :btn-name="$t('SIGN_IN')"
+    :btn-name="$t('OK')"
     :submit="login"
     :has-logo="false"
-    :title="`${$t('HELLO')} ${apelido}!`"
+    :title="$t('HELLO')"
+    :subtitle="` ${apelido}!`"
     :description="$t('YOUR_PASSWORD_ACCESS')"
     mask=""
   />

@@ -1,5 +1,5 @@
 <template>
-  <h3 class="w-60 font-manrope m-auto" :class="classe">
+  <h3 class="w-60 font-manrope" :class="classe">
     <slot />
   </h3>
 </template>

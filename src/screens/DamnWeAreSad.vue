@@ -6,12 +6,14 @@
   >
     <template #body>
       <Description
-        classe="mx-auto text-orange text-base w-[17rem] text-left mt-6 mb-60 font-bold"
+        classe="text-orange text-sm w-full text-left mt-6 mb-60 mx-auto"
       >
-        {{ $t('BUT_IF_YOU_CHANGE_YOUR_IDEA_IS_TO') }}
-        <a href="#" class="underline underline-offset-1">
-          {{ $t('CLICK_HERE') }}
-        </a>
+        <div class="w-[13rem]">
+          {{ $t('BUT_IF_YOU_CHANGE_YOUR_IDEA_IS_TO') }}
+          <a href="/login" class="underline underline-offset-1">
+            {{ $t('CLICK_HERE') }}
+          </a>
+        </div>
       </Description>
     </template>
   </feed-back>

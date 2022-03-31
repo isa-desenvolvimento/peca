@@ -1,5 +1,5 @@
 <template>
-  <div v-for="(list, index) in computedObj" :key="index" class="mt-8">
+  <div v-for="(list, index) in lists" :key="index" class="mt-8">
     <template v-if="index <= 1">
       <h4 class="text-red text-xs opacity-30 text-left uppercase">
         {{ list.grupo }}
@@ -17,7 +17,7 @@
           {{ periodo.dia }} {{ periodo.mes }}
         </div>
         <div
-          :class="`col-span-7 grid-rows-${periodo?.itens?.length}`"
+          :class="`col-span-7 grid-rows-${periodo?.itens.length}`"
           @click="onclick"
         >
           <TitleSub
@@ -45,7 +45,7 @@
   >
     <path
       class="origin-center"
-      :class="limit !== lists.length ? 'rotate-180' : ''"
+      :class="limit !== lists?.length ? 'rotate-180' : ''"
       fill="currentColor"
       d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
     ></path>
@@ -64,11 +64,11 @@ export default {
   data() {
     return { limit: 1 }
   },
-  computed: {
-    computedObj() {
-      return this.limit ? this.lists.slice(0, this.limit) : this.lists
-    },
-  },
+  // computed: {
+  //   computedObj() {
+  //     return this.limit ? this.lists.slice(0, this.limit) : this.lists
+  //   },
+  // },
   methods: {
     showmore() {
       this.limit = this.limit === this.lists.length ? 1 : this.lists.length

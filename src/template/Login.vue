@@ -12,12 +12,8 @@
 
         <div v-else class="grid w-full">
           <div class="grid mx-auto">
-            <h1 class="text-lg leading-sm mx-auto text-white">
-              {{ title }}
-            </h1>
-            <h3 class="text-sm w-60 mx-auto text-white">
-              {{ description }}
-            </h3>
+            <Title :title="title" :classe="color"> {{ subtitle }} </Title>
+            <Description :classe="color"> {{ description }}</Description>
           </div>
         </div>
       </div>
@@ -53,7 +49,7 @@
         <div>
           <button
             type="submit"
-            class="appearance-none bg-pink mx-auto group relative w-auto leading-normal flex justify-center mt-8 py-1 px-5 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="appearance-none bg-pink mx-auto group relative w-auto leading-normal flex justify-center mt-8 py-1 px-5 text-sm font-manrope font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             {{ btnName }}
           </button>
@@ -64,7 +60,12 @@
 </template>
 
 <script>
+import Title from '@/components/Title.vue'
+import Description from '@/components/Description.vue'
+
 export default {
+  components: { Title, Description },
+
   props: {
     inputName: { type: String, required: true },
     inputType: { type: String, required: true },
@@ -72,11 +73,12 @@ export default {
     mask: { type: String, required: false },
     hasLogo: { type: Boolean, required: false, default: true },
     title: { type: String, required: false },
+    subtitle: { type: String, required: false },
     description: { type: String, required: false },
     submit: { type: Function, required: true },
   },
   data() {
-    return { value: '' }
+    return { value: '', color: 'text-white' }
   },
 }
 </script>

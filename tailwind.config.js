@@ -29,11 +29,12 @@ module.exports = {
       sm: '.875rem',
       base: '1rem',
       md: '1.5rem',
-      lg: '5rem',
+      lg: '3rem',
+      '6xl': '3.75rem',
     },
     extend: {
       fontFamily: {
-        gotham: ['Gotham'],
+        gotham: ['Gotham-Black'],
         manrope: ['Manrope', 'sans-serif'],
       },
       animation: {
