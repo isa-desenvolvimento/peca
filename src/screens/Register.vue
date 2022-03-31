@@ -28,7 +28,7 @@
               name="cpf"
               type="text"
               required
-              class="appearance-none uppercase col-span-4 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-4 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('CPF')"
             />
 
@@ -37,7 +37,7 @@
               name="name"
               type="text"
               required
-              class="appearance-none col-span-2 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none col-span-2 uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('NAME')"
             />
 
@@ -46,7 +46,7 @@
               name="sobrenome"
               type="text"
               required
-              class="appearance-none col-span-2 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none col-span-2 uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('LAST_NAME')"
             />
 
@@ -56,7 +56,7 @@
               name="rg"
               type="text"
               required
-              class="appearance-none uppercase col-span-4 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-4 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('RG')"
             />
 
@@ -66,7 +66,7 @@
               name="dt_birthday"
               type="text"
               required
-              class="appearance-none w-full uppercase col-span-4 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none w-full uppercase col-span-4 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('BIRTHDAY')"
             />
             <input
@@ -75,7 +75,7 @@
               name="tel"
               type="tel"
               required
-              class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-2 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('TELEPHONE')"
             />
             <input
@@ -84,7 +84,7 @@
               name="cel"
               type="tel"
               required
-              class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-2 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('CELPHONE')"
             />
 
@@ -93,7 +93,7 @@
               name="email"
               type="email"
               required
-              class="appearance-none col-span-4 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none col-span-4 uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('EMAIL')"
             />
 
@@ -109,7 +109,7 @@
               name="cep"
               type="text"
               required
-              class="appearance-none col-span-2 uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none col-span-2 uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('CEP')"
               @change="getAddress"
             />
@@ -119,14 +119,14 @@
               name="logradouro"
               type="text"
               required
-              class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-2 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('PLACE')"
             />
 
             <!-- <select
               v-model="value.cidade"
               :placeholder="$t('CITY')"
-              class="form-select form-select-sm appearance-none col-span-4 block w-full appearance-none uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="form-select form-select-sm appearance-none col-span-4 block w-full appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               aria-label=".form-select-sm example"
             >
               <option
@@ -143,14 +143,14 @@
               name="city"
               type="text"
               required
-              class="appearance-none uppercase col-span-3 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-3 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('CITY')"
             />
 
             <!-- <select
               v-model="value.uf"
               :placeholder="$t('UF')"
-              class="form-select form-select-sm appearance-none col-span-4 block w-full appearance-none uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="form-select form-select-sm appearance-none col-span-4 block w-full appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               aria-label=".form-select-sm example"
               @change="getCities"
             >
@@ -165,7 +165,7 @@
               type="text"
               maxlength="2"
               required
-              class="appearance-none uppercase col-span-1 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-1 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('UF')"
             />
 
@@ -174,7 +174,7 @@
               name="complement"
               type="text"
               required
-              class="appearance-none uppercase col-span-4 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-4 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('COMPLEMENT')"
             />
 
@@ -183,7 +183,7 @@
               name="number"
               type="text"
               required
-              class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-2 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('NUMBER')"
             />
 
@@ -192,7 +192,7 @@
               name="district"
               type="text"
               required
-              class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-2 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('DISTRICT')"
             />
 
@@ -204,7 +204,7 @@
 
             <select
               v-model="value.banco"
-              class="form-select form-select-sm appearance-none col-span-4 block w-full appearance-none uppercase border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="form-select form-select-sm appearance-none col-span-4 block w-full font-manrope appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               aria-label=".form-select-sm example"
             >
               <option v-for="op in dropdownBanco" :key="op.id" :value="op.id">
@@ -218,7 +218,7 @@
               name="ag"
               type="text"
               required
-              class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-2 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('AGENCY')"
             />
 
@@ -228,7 +228,7 @@
               name="conta"
               type="text"
               required
-              class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase col-span-2 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('ACCOUNT')"
             />
           </div>
@@ -237,7 +237,7 @@
         <div>
           <button
             type="submit"
-            class="appearance-none uppercase bg-red mx-auto group relative w-20 leading-normal flex justify-center mt-8 py-2 px-16 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="appearance-none uppercase font-manrope font-bold bg-red mx-auto group relative w-20 leading-normal flex justify-center mt-8 py-2 px-16 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             {{ $t('CONTINUE') }}
           </button>
