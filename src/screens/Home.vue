@@ -10,8 +10,12 @@
       </div>
     </div>
 
-    <div class="h-screen w-max m-auto grid place-content-center items-center">
-      <div class="grid grid-cols-4 h-4/5 grid-rows-6 gap-4 justify-between">
+    <div
+      class="h-screen w-full m-auto lg:justify-end lg:grid-cols-4 grid place-content-center items-center"
+    >
+      <div
+        class="grid grid-cols-4 h-4/5 grid-rows-6 gap-4 justify-between lg:col-start-3"
+      >
         <ButtonMenu
           classe="col-span-2 row-start-1 row-end-3"
           :name="$t('EXTRATC')"
