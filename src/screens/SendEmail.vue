@@ -1,6 +1,10 @@
 <template>
-  <translation name="slide-fade" :duration="{ enter: 500, leave: 800 }">
-    <div class="h-screen flex items-center bg-pink pl-12 lg:pl-0">
+  <transition
+    name="slide-fade"
+    :duration="{ enter: 500, leave: 800 }"
+    class="delay-75"
+  >
+    <div class="h-screen grid items-center bg-pink pl-12 sm:h-screen sm:w-full">
       <div class="grid lg:justify-center lg:mx-auto">
         <Title :title="$t('SEND_EMAIL')" classe="text-orange lg:ml-8" />
         <Description
@@ -10,7 +14,7 @@
         </Description>
       </div>
     </div>
-  </translation>
+  </transition>
 </template>
 
 <script>
