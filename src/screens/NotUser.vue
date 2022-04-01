@@ -9,7 +9,7 @@
           />
 
           <Description
-            classe="lg:mx-auto  col-row-2 text-orange  leading-[1rem] text-base w-60 text-left mt-[-1rem] lg:mt-2"
+            classe="lg:mx-auto  col-row-2 text-orange  leading-[1rem] text-base w-80 text-left mt-[-1rem] lg:mt-2"
           >
             {{ $t('NOT_SUPPLIER') }}</Description
           >

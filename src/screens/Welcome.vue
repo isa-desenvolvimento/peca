@@ -1,19 +1,17 @@
 <template>
-  <div class="mx-auto px-12 bg-orange h-screen grid justify-center">
-    <feed-back
-      :title="$t('WELCOME')"
-      :description="$t('UHUL')"
-      background="bg-orange"
-      color="text-red w-auto"
-      classe="grid w-full "
-    >
-      <template #body>
+  <translation name="slide-fade" :duration="{ enter: 500, leave: 800 }">
+    <div class="h-screen grid items-center bg-orange pl-12 lg:pl-0">
+      <div class="grid justify-center lg:mx-auto">
+        <Title :title="$t('WELCOME')" classe="text-red " />
+        <Description classe="text-red text-sm  w-72 text-left  font-manrope">
+          {{ $t('UHUL') }}
+        </Description>
         <form
           action="#"
           class="mx-auto text-center mt-10 mb-60 w-[15rem]"
           @submit="submit"
         >
-          <label class="mx-auto text-red font-bold text-center">{{
+          <label class="mx-auto text-red font-bold text-center font-manrope">{{
             $t('REGISTER_PASSWORD')
           }}</label>
           <div class="flex">
@@ -38,22 +36,22 @@
           <div>
             <button
               type="submit"
-              class="appearance-none rounded-md uppercase bg-red mx-auto group relative w-20 leading-normal flex justify-center mt-8 py-1 px-16 text-sm font-manrope text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="appearance-none rounded-md uppercase bg-red mx-auto group relative w-20 leading-normal flex justify-center mt-8 py-1 px-16 text-xs font-manrope text-orange bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               {{ $t('CONTINUE') }}
             </button>
           </div>
         </form>
-      </template>
-    </feed-back>
-  </div>
+      </div>
+    </div>
+  </translation>
 </template>
 
 <script>
-import FeedBack from '@/template/FeedBack.vue'
-
+import Description from '@/components/Description.vue'
+import Title from '@/components/Title.vue'
 export default {
-  components: { FeedBack },
+  components: { Description, Title },
   data() {
     return {
       value: { password: '', confirm: '' },
