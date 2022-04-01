@@ -1,13 +1,18 @@
 <template>
-  <div class="mx-auto px-12 bg-orange h-screen item-center">
+  <div class="mx-auto px-12 bg-orange h-screen grid justify-center">
     <feed-back
       :title="$t('WELCOME')"
       :description="$t('UHUL')"
       background="bg-orange"
-      color="text-red"
+      color="text-red "
+      classe="grid w-full lg:mb-0"
     >
       <template #body>
-        <form action="#" class="mx-auto text-white mt-20" @submit="submit">
+        <form
+          action="#"
+          class="mx-auto text-center mt-10 mb-60 w-[15rem]"
+          @submit="submit"
+        >
           <label class="mx-auto text-red font-bold text-center">{{
             $t('REGISTER_PASSWORD')
           }}</label>
@@ -16,7 +21,7 @@
               id="PASSWORD"
               v-model="value.password"
               type="password"
-              class="appearance-none bg-orange border-red text-red placeholder-red text-center text-xs w-full"
+              class="appearance-none bg-orange font-manrope border-red text-red placeholder-red text-center text-xs w-full"
               :placeholder="$t('PASSWORD')"
             />
           </div>
@@ -26,14 +31,14 @@
               v-model="value.confirm"
               :placeholder="$t('CONFIRME_PASSWORD')"
               type="password"
-              class="appearance-none bg-orange border-red text-red placeholder-red text-center text-xs w-full"
+              class="appearance-none bg-orange font-manrope border-red text-red placeholder-red text-center text-xs w-full"
               @change="validPassword"
             />
           </div>
           <div>
             <button
               type="submit"
-              class="appearance-none uppercase bg-red mx-auto group relative w-20 leading-normal flex justify-center mt-8 py-2 px-16 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="appearance-none rounded-md uppercase bg-red mx-auto group relative w-20 leading-normal flex justify-center mt-8 py-1 px-16 text-sm font-manrope text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               {{ $t('CONTINUE') }}
             </button>

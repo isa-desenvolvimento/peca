@@ -2,7 +2,7 @@
   <button
     aria-current="true"
     type="button"
-    class="inline-block leading-tight hover:bg-opacity-5 text-center px-6 py-2 w-full rounded-t-lg bg-blue-600 cursor-pointer grid grid-rows-2 items-center hover:bg-yellow-light focus:bg-yellow-light"
+    class="inline-block leading-tight hover:bg-opacity-5 text-center px-6 py-2 w-full rounded-t-lg bg-blue-600 cursor-pointer grid items-center hover:bg-yellow-light focus:bg-yellow-light"
   >
     <div
       class="h-24 w-auto bg-contain bg-no-repeat bg-center text-red"

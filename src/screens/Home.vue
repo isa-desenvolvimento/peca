@@ -10,36 +10,30 @@
       </div>
     </div>
 
-    <div class="h-screen w-max m-auto grid">
-      <div
-        class="grid grid-cols-4 gap-3 place-content-center items-center mt-[-9rem]"
-      >
+    <div class="h-screen w-max m-auto grid place-content-center items-center">
+      <div class="grid grid-cols-4 h-4/5 grid-rows-6 gap-4 justify-between">
         <ButtonMenu
-          classe="col-span-2"
+          classe="col-span-2 row-start-1 row-end-3"
           :name="$t('EXTRATC')"
           :onclick="() => goToNext('/extract')"
           icon="bg-icon-extrato"
         />
         <ButtonMenu
-          classe="col-span-2"
+          classe="col-span-2 row-start-1 row-end-4"
           :name="$t('PRODUCT')"
           :onclick="() => goToNext('/product')"
           icon="bg-icon-produto"
         />
 
-        <Popper
-          :content="$t('UNAVAILABLE')"
-          class="col-span-2 text-red text-manrope"
-        >
-          <ButtonMenu
-            classe="col-span-2 "
-            :name="$t('DEVOLUTION')"
-            icon="bg-icon-devolucao"
-            disabled
-          />
-        </Popper>
         <ButtonMenu
-          classe="col-span-2 "
+          classe="col-span-2 row-start-3 row-end-5 "
+          :name="$t('DEVOLUTION')"
+          icon="bg-icon-devolucao"
+          :onclick="() => goToNext('/devolution')"
+          disabled
+        />
+        <ButtonMenu
+          classe="col-span-2 row-start-4 row-end-5 pt-2 pb-4"
           :name="$t('CONTRACT')"
           :onclick="() => goToNext('/contract')"
           icon="bg-icon-contrato"
@@ -53,7 +47,6 @@
 import ButtonMenu from '@/components/ButtonMenu.vue'
 import { URL } from '@/api/http.js'
 import FileAvatar from '@/components/FileAvatar.vue'
-import Popper from 'vue3-popper'
 
 import { useStore } from 'vuex'
 
@@ -61,7 +54,6 @@ export default {
   components: {
     ButtonMenu,
     FileAvatar,
-    Popper,
   },
   setup() {
     const { dispatch } = useStore()

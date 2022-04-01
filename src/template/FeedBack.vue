@@ -4,8 +4,8 @@
       :class="background"
       class="h-screen flex items-end justify-center w-full"
     >
-      <div class="grid w-full mb-40">
-        <div class="grid mx-auto">
+      <div :class="classe">
+        <div class="grid ml-20 lg:gap-10 lg:mx-auto">
           <Title :title="title" :classe="color" />
           <Description :classe="color"> {{ description }}</Description>
         </div>
@@ -26,6 +26,11 @@ export default {
     description: { type: String, required: true },
     background: { type: String, required: false, default: 'bg-white' },
     color: { type: String, required: false, default: 'text-orange' },
+    classe: {
+      type: String,
+      required: false,
+      default: 'grid w-full mb-40 lg:mb-0',
+    },
   },
 }
 </script>

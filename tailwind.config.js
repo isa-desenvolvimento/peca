@@ -30,7 +30,8 @@ module.exports = {
       base: '1rem',
       md: '1.5rem',
       lg: '3rem',
-      '6xl': '3.75rem',
+      '6xl': '4.5rem',
+      '8xl': '7rem',
     },
     extend: {
       fontFamily: {
