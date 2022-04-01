@@ -146,7 +146,7 @@
             <select
               v-model="value.uf"
               :placeholder="$t('UF')"
-              class="form-select form-select-sm appearance-none font-manrope col-span-1 block w-full appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="form-select form-select-sm placeholder-red appearance-none font-manrope col-span-1 block w-full appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               aria-label=".form-select-sm example"
               @change="() => getCities(value.uf.id)"
             >
@@ -233,7 +233,7 @@
         <div>
           <button
             type="submit"
-            class="appearance-none uppercase font-manrope font-bold bg-red mx-auto group relative w-20 leading-normal flex justify-center mt-8 py-2 px-16 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="appearance-none rounded-md uppercase font-manrope font-bold bg-red mx-auto group relative leading-normal flex justify-center mt-8 py-2 px-10 text-xs text-orange bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             {{ $t('CONTINUE') }}
           </button>
