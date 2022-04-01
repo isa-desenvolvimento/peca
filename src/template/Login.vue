@@ -53,7 +53,7 @@
         <div>
           <button
             type="submit"
-            class="appearance-none bg-pink mx-auto group relative w-auto leading-normal flex justify-center mt-8 py-1 px-5 text-sm font-manrope font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="appearance-none rounded-md bg-pink mx-auto group relative w-auto leading-normal flex justify-center mt-8 py-1 px-5 text-sm font-manrope font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             {{ btnName }}
           </button>

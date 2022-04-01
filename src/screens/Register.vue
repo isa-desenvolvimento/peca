@@ -18,7 +18,7 @@
             class="text-center text-white grid justify-center grid grid-flow-row-dense grid-cols-4"
           >
             <div
-              class="appearance-none col-span-4 mt-4 uppercase bg-orange py-2 border-red placeholder-red text-red text-left font-bold"
+              class="appearance-none col-span-4 mt-4 uppercase bg-orange font-manrope py-2 border-red placeholder-red text-red text-left font-bold"
             >
               {{ $t('PERSONAL_DATA') }}
             </div>
@@ -98,7 +98,7 @@
             />
 
             <div
-              class="appearance-none col-span-4 uppercase mt-4 bg-orange py-2 border-red placeholder-red text-red text-left font-bold"
+              class="appearance-none col-span-4 uppercase mt-4 bg-orange py-2 border-red font-manrope placeholder-red text-red text-left font-bold"
             >
               {{ $t('ADDRESS') }}
             </div>
@@ -193,7 +193,7 @@
             />
 
             <div
-              class="appearance-none col-span-4 uppercase mt-4 bg-orange py-2 border-red placeholder-red text-red text-left font-bold"
+              class="appearance-none col-span-4 font-manrope uppercase mt-4 bg-orange py-2 border-red placeholder-red text-red text-left font-bold"
             >
               {{ $t('BANK_DATA') }}
             </div>
