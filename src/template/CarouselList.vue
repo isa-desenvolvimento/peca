@@ -3,7 +3,9 @@
     <div class="bg-orange h-screen grid grid-rows-7 p-8 relative">
       <Header :title="title" />
 
-      <div class="overflow-hidden row-span-6 my-8">
+      <div
+        class="overflow-hidden row-span-6 my-8 md:w-6/12 md:mx-auto relative"
+      >
         <Carousel
           :slides="lojas"
           icon="bg-icon-marcador-menu"

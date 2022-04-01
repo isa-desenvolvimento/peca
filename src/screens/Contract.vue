@@ -2,14 +2,14 @@
   <div class="bg-orange h-screen overflow-hidden p-4">
     <Header :title="$t('CONTRACT')" />
 
-    <h3 class="text-base w-60 mt-8 my-2 text-red text-left">
+    <h3 class="text-base w-60 mt-8 my-2 text-red">
       {{ $t('CONTRACT_ON') }}
     </h3>
-    <div class="flex justify-center mt-10">
+    <div class="grid grid-cols-3 justify-center mt-10 md:w-6/12 md:mx-auto">
       <button-item
         v-for="(item, key) in list"
         :key="key"
-        :name="item.nome_fantasia"
+        :title="item.nome_fantasia"
         icon="bg-icon-prancheta"
         @click="download(item.arquivo)"
       />
