@@ -14,15 +14,11 @@ module.exports = {
     colors: {
       white: '#FFFFFF',
       red: '#c63f3b',
-      purple: '#7e5bef',
-      pink: '#e5898f',
-      orange: '#fef1e2',
+      pink: '#e4898e',
+      orange: '#fff0e1',
       green: '#13ce66',
-      yellow: '#ffa301',
+      yellow: '#ffa300',
       'yellow-ligth': '#fedba1',
-      'gray-dark': '#273444',
-      gray: '#8492a6',
-      'gray-light': '#d3dce6',
     },
     fontSize: {
       xs: '.75rem',

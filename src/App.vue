@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loggedIn || isPublicPages" name="fade">
+  <div v-if="loggedIn || isPublicPages" name="fade" class="bg-orange">
     <router-view />
   </div>
   <div v-else>

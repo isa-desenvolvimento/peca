@@ -2,14 +2,17 @@
   <div class="h-screen grid items-center w-full bg-orange ease-in duration-300">
     <div class="grid justify-center mx-auto">
       <div class="">
-        <Title :title="$t('WELCOME')" classe="text-red " />
+        <Title
+          :title="$t('WELCOME')"
+          classe="text-red w-80 text-lg leading-[2.5rem]"
+        />
         <Description classe="text-red text-sm  w-72 text-left  font-manrope">
           {{ $t('UHUL') }}
         </Description>
       </div>
       <form
         action="#"
-        class="mx-auto grid text-center mt-10 mb-60 w-[15rem]"
+        class="mx-auto grid text-center mt-10 w-[15rem]"
         @submit="submit"
       >
         <label class="mx-auto text-red font-bold text-center font-manrope">{{
