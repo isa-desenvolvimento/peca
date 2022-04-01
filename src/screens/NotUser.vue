@@ -16,7 +16,7 @@
         </div>
         <div class="grid gap-40 lg:gap-10 lg:mx-auto">
           <Description
-            classe="lg:mx-auto  ml-20 col-row-2 leading-[1rem] text-orange text-base w-60 text-left mt-6 "
+            classe="lg:mx-auto  ml-20 lg:ml-0 col-row-2 leading-[1rem] text-orange text-base w-60 text-left mt-6 "
           >
             {{ $t('WANT_TO_BECOME_A_SUPPLIER') }}
           </Description>
