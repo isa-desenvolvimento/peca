@@ -12,10 +12,10 @@
 
         <div v-else class="grid w-full">
           <div class="grid mx-auto">
-            <Title :title="title" class="text-orange ml-16">
+            <Title :title="title" class="text-orange mx-auto">
               {{ subtitle }}
             </Title>
-            <Description classe="mx-auto text-white">
+            <Description classe="mx-auto text-orange">
               {{ description }}</Description
             >
           </div>

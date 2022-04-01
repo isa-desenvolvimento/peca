@@ -1,18 +1,26 @@
 <template>
-  <feed-back
-    :title="$t('OOPS')"
-    :description="$t('NOT_SUPPLIER')"
-    background="bg-red"
-  >
-    <template #body>
-      <div class="grid gap-40 lg:gap-10 lg:mx-auto lg:mb-60">
-        <Description
-          classe="lg:mx-auto  ml-20 col-row-2 text-orange text-base w-60 text-left mt-6 "
-        >
-          {{ $t('WANT_TO_BECOME_A_SUPPLIER') }}
-        </Description>
+  <transition name="slide-fade" :duration="{ enter: 500, leave: 800 }">
+    <div class="h-screen grid items-center w-full bg-red">
+      <div class="lg:mx-auto">
+        <div class="grid gap-2 lg:mx-auto ml-20">
+          <Title
+            :title="$t('OOPS')"
+            classe="lg:mx-auto  leading-[3rem] col-row-2 text-orange text-base text-left mt-6"
+          />
 
-        <transition name="fade">
+          <Description
+            classe="lg:mx-auto  col-row-2 text-orange  leading-[1rem] text-base w-60 text-left mt-[-1rem] lg:mt-2"
+          >
+            {{ $t('NOT_SUPPLIER') }}</Description
+          >
+        </div>
+        <div class="grid gap-40 lg:gap-10 lg:mx-auto">
+          <Description
+            classe="lg:mx-auto  ml-20 col-row-2 leading-[1rem] text-orange text-base w-60 text-left mt-6 "
+          >
+            {{ $t('WANT_TO_BECOME_A_SUPPLIER') }}
+          </Description>
+
           <div class="flex justify-between col-row-4 lg:grid lg:justify-start">
             <div class="w-full">
               <button
@@ -33,17 +41,17 @@
               </button>
             </div>
           </div>
-        </transition>
+        </div>
       </div>
-    </template>
-  </feed-back>
+    </div>
+  </transition>
 </template>
 
 <script>
+import Title from '@/components/Title.vue'
 import Description from '@/components/Description.vue'
-import FeedBack from '@/template/FeedBack.vue'
 
 export default {
-  components: { FeedBack, Description },
+  components: { Title, Description },
 }
 </script>
