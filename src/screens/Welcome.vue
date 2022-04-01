@@ -4,8 +4,8 @@
       :title="$t('WELCOME')"
       :description="$t('UHUL')"
       background="bg-orange"
-      color="text-red "
-      classe="grid w-full lg:mb-0"
+      color="text-red w-auto"
+      classe="grid w-full "
     >
       <template #body>
         <form

@@ -1,23 +1,26 @@
 <template>
-  <feed-back title="" description="" background="bg-yellow">
-    <template #body>
-      <Title :title="$t('SEND_EMAIL')" classe="text-orange w-[17rem] mx-auto" />
-
-      <Description
-        classe="text-orange text-sm w-full text-left mt-6 mb-60 mx-auto"
-      >
-        {{ $t('VERIFY_SEND_EMAIL') }}
-      </Description>
-    </template>
-  </feed-back>
+  <translation name="slide-fade" :duration="{ enter: 500, leave: 800 }">
+    <div class="h-screen flex items-center bg-pink pl-12 lg:pl-0">
+      <div class="grid lg:justify-center lg:mx-auto">
+        <Title
+          :title="$t('SEND_EMAIL')"
+          classe="text-orange lg:text-center lg:ml-8"
+        />
+        <Description
+          classe="text-orange text-sm  w-full text-left lg:mx-auto font-manrope  mt-[-.5rem] "
+        >
+          {{ $t('VERIFY_SEND_EMAIL') }}
+        </Description>
+      </div>
+    </div>
+  </translation>
 </template>
 
 <script>
-import FeedBack from '@/template/FeedBack.vue'
 import Description from '@/components/Description.vue'
 import Title from '@/components/Title.vue'
 
 export default {
-  components: { FeedBack, Description, Title },
+  components: { Description, Title },
 }
 </script>

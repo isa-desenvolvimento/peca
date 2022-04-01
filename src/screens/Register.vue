@@ -350,6 +350,11 @@ export default {
         type: 'fornecedor',
       })
         .then(() => {
+          sessionStorage.setItem(
+            'fornecedor',
+            JSON.stringify({ email: this.value.email, tel: this.value.tel })
+          )
+
           this.$router.push({
             path: '/lack-little',
             params: {

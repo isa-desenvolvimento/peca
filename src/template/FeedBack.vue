@@ -5,7 +5,7 @@
       class="h-screen flex items-end justify-center w-full"
     >
       <div :class="classe">
-        <div class="grid ml-20 lg:gap-10 lg:mx-auto">
+        <div class="grid ml-20 gap-2 lg:mx-auto">
           <Title :title="title" :classe="color" />
           <Description :classe="color"> {{ description }}</Description>
         </div>
