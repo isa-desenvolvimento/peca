@@ -21,7 +21,7 @@
   </div>
   <div v-else class="w-full">
     <h1
-      class="text-6xl leading-[4rem] font-gotham font-bold uppercase w-[30rem]"
+      class="text-6xl leading-[4rem] font-gotham font-bold uppercase"
       :class="classe"
     >
       {{ title }}

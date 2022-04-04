@@ -1,8 +1,8 @@
 <template>
   <div
-    class="h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-yellow"
+    class="h-screen grid items-center w-full bg-yellow ease-in duration-300"
   >
-    <div class="max-w-md w-full">
+    <div class="max-w-md w-full mx-auto">
       <div class="mx-auto">
         <!-- <img class="mx-auto h-12 w-auto" :src="logo" alt="Workflow" /> -->
         <div
@@ -12,10 +12,14 @@
 
         <div v-else class="grid w-full">
           <div class="grid mx-auto">
-            <Title :title="title" class="text-orange mx-auto">
-              {{ subtitle }}
+                  <Title
+        :title="title"
+        classe="text-orange   text-lg leading-[2.5rem]  lg:text-6xl lg:leading-[3.5rem] w-full "
+      >
+
+             <div class="break-word w-20">  {{ subtitle }} </div>
             </Title>
-            <Description classe="mx-auto text-orange">
+            <Description classe="text-orange text-sm w-full text-left lg:mx-auto font-manrope mt-2">
               {{ description }}</Description
             >
           </div>
