@@ -33,7 +33,7 @@
         </div>
         <button
           type="button"
-          class="appearance-none rounded w-40 font-manrope uppercase font-bold bg-white text-red mx-auto group relative leading-normal flex justify-center my-8 mt-10 py-2 px-5 text-xs font-medium "
+          class="appearance-none rounded w-40 font-manrope uppercase font-bold bg-white text-red mx-auto group relative leading-normal flex justify-center my-8 mt-10 py-2 px-5 text-xs font-medium"
           @click="submit"
         >
           {{ $t('SEND') }}

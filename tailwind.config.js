@@ -11,13 +11,13 @@ module.exports = {
       lg: '976px',
       xl: '1440px',
     },
-    maxHeight: {
-      '1/2': '50%',
-    },
     colors: {
       white: '#FFFFFF',
       red: '#c63f3b',
       pink: '#e4898e',
+      pink2: '#e28689',
+      pink3: '#e18487',
+      pink4: '#f1999c',
       orange: '#fff0e1',
       green: '#13ce66',
       yellow: '#ffa300',
@@ -44,9 +44,8 @@ module.exports = {
         sm: '5rem',
       },
       backgroundImage: () => ({
-        'background-default':
-          "url('https://rollingstone.uol.com.br/media/_versions/rick-morty-temporada-4_widelg.jpg')",
         'home-mobile': "url('@/assets/bg_home_mobile.jpeg')",
+        'home-image': "url('@/assets/bg_home.jpg')",
         'logo-mobile': "url('@/assets/logo_completa_mobile.png')",
 
         'icon-contrato': "url('@/assets/icons/menu_contrato.png')",

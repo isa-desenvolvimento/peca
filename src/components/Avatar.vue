@@ -18,7 +18,7 @@ export default {
     VueAvatar,
   },
   props: {
-    value: { type: String, required: true }
+    value: { type: String, required: true },
   },
   methods: {
     created() {
