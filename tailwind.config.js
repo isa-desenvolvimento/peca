@@ -11,6 +11,9 @@ module.exports = {
       lg: '976px',
       xl: '1440px',
     },
+    maxHeight: {
+      '1/2': '50%',
+    },
     colors: {
       white: '#FFFFFF',
       red: '#c63f3b',

@@ -9,7 +9,7 @@ export const PUBLIC_PAGES = [
   '/send-email',
   '/token',
   '/welcome',
-  '/saque',
+  '/termo',
 ]
 
 const routes = [
@@ -37,6 +37,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: () => import('@/screens/Profile.vue'),
+  },
+  {
+    path: '/termo',
+    name: 'Termo',
+    component: () => import('@/screens/TermOfUse.vue'),
   },
   {
     path: '/lack-little',
