@@ -9,6 +9,7 @@ export const PUBLIC_PAGES = [
   '/send-email',
   '/token',
   '/welcome',
+  '/saque',
 ]
 
 const routes = [
@@ -66,6 +67,11 @@ const routes = [
     path: '/extract',
     name: 'Extract',
     component: () => import('@/screens/Extract.vue'),
+  },
+  {
+    path: '/saque',
+    name: 'Saque',
+    component: () => import('@/screens/Saque.vue'),
   },
   {
     path: '/product',
