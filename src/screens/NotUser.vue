@@ -26,7 +26,7 @@
           <div class="w-full">
             <button
               type="button"
-              class="appearance-none lg:rounded-md rounded-r-md bg-orange uppercase font-manrope mx-auto group relative ml-0 w-9/12 lg:w-48 leading-normal flex justify-end lg:justify-end py-5 px-5 lg:py-3 text-sm font-bold text-red hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="appearance-none lg:rounded-md rounded-r-md bg-orange uppercase font-manrope mx-auto group relative ml-0 w-9/12 lg:w-48 leading-normal flex justify-end lg:justify-end py-5 px-5 lg:py-3 text-sm font-bold text-red"
               @click="$router.push('/damn-we-are-sad')"
             >
               {{ $t('NOT') }}
@@ -35,7 +35,7 @@
           <div class="w-full">
             <button
               type="button"
-              class="appearance-none lg:rounded-md rounded-l-md bg-orange uppercase font-manrope mx-auto group relative mr-0 w-9/12 lg:w-48 lg:mt-4 leading-normal flex justify-start lg:justify-end py-5 px-5 lg:py-3 text-sm font-bold text-red hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="appearance-none lg:rounded-md rounded-l-md bg-orange uppercase font-manrope mx-auto group relative mr-0 w-9/12 lg:w-48 lg:mt-4 leading-normal flex justify-start lg:justify-end py-5 px-5 lg:py-3 text-sm font-bold text-red"
               @click="$router.push('/register')"
             >
               {{ $t('YES') }}

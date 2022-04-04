@@ -11,6 +11,7 @@
           icon="bg-icon-marcador-menu"
           :onclick="(slide) => setFilter('id', slide)"
           :type="type"
+          color="bg-red"
         />
 
         <hr v-if="!hasBalance" class="col-span-2 text-yellow opacity-20 my-4" />

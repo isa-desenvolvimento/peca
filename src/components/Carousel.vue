@@ -8,7 +8,8 @@
   >
     <Slide v-for="slide in slides" :key="slide">
       <div
-        class="carousel__item bg-red text-white w-full grid grid-cols-3 place-content-center py-2"
+        class="carousel__item text-white w-full grid grid-cols-3 place-content-center py-2"
+        :class="color"
         @click="() => onclick(slide.id)"
       >
         <div
@@ -47,6 +48,7 @@ export default {
     slides: { type: Array },
     onclick: { type: Function },
     type: { type: String },
+    color: { type: String },
     icon: { type: String, required: true, default: 'con-marcador-menu' },
   },
   methods: {

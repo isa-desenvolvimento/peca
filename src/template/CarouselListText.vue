@@ -12,6 +12,7 @@
           icon="bg-icon-marcador-menu"
           :onclick="(slide) => setFilter('id', slide)"
           :type="type"
+          color="bg-yellow"
         />
 
         <hr v-if="hasCarousel" class="col-span-2 text-yellow opacity-20 my-4" />
