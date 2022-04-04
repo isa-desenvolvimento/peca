@@ -375,3 +375,23 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: solid 1px var(--bg-red);
+  -webkit-text-fill-color: var(--bg-red);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+  color: var(--bg-red);
+}
+</style>
