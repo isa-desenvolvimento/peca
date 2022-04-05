@@ -26,7 +26,7 @@ import { ref } from 'vue'
 export default {
   props: {
     value: { type: String, required: false },
-    classe: { type: String, required: false, default: 'w-48 h-48 m-auto' },
+    classe: { type: String, required: false, default: 'w-32 h-32 m-auto' },
     isEditable: { type: Boolean, required: false, default: false },
   },
   setup() {

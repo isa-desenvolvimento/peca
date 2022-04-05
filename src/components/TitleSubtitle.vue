@@ -1,11 +1,11 @@
 <template>
   <div class="grid grid-rows-2">
-    <span class="text-red text-sm font-medium uppercase row-span-1 font-manrope">
+    <span class="text-red text-sm font-bold uppercase row-span-1 font-manrope">
       {{ title }}
     </span>
     <span
       v-if="subtitle"
-      class="text-red text-xs font-light leading-3 break-words font-manrope"
+      class="text-red text-xs font-light leading-3 break-words rounded-md  "
     >
       {{ subtitle }}
     </span>

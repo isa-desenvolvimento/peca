@@ -15,7 +15,7 @@
             :value="user?.profile_img"
             is-editable
           />
-          <h3 class="text-red text-md w-full text-center font-bold my-8 font-manrope">
+          <h3 class="text-red text-md w-full text-center font-bold my-8 font-manrope leading-[1.3rem]">
             {{ user?.nome_fornecedor }}
           </h3>
 
