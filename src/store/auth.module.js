@@ -27,6 +27,7 @@ export const auth = {
     },
     logout({ commit }) {
       logoutUse()
+      this.dispatch('user/logout')
       commit('logoutSuccess')
     },
   },
@@ -43,6 +44,7 @@ export const auth = {
           loggedIn: false,
         },
       }
+      this.state.user = {}
     },
   },
 }

@@ -168,6 +168,13 @@
           >
             {{ $t('UPDATE') }}
           </button>
+          <button
+            type="button"
+            @click="logout"
+            class="appearance-none rounded-md uppercase font-manrope font-bold bg-red mx-auto group relative leading-normal flex justify-center mt-4 py-2 px-10 text-xs text-orange focus:outline-none"
+          >
+            {{ $t('LOGOFF') }}
+          </button>
         </div>
       </form>
     </div>
@@ -254,6 +261,12 @@ export default {
         this.value.cidade = response.city
         this.value.complemento = response.district
       })
+    },
+    logout(e) {
+      e.preventDefault()
+
+      this.dispatch('auth/logout')
+      this.$router.push('/login')
     },
 
     submit(e) {
