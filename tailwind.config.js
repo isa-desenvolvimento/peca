@@ -11,6 +11,14 @@ module.exports = {
       lg: '976px',
       xl: '1440px',
     },
+    backgroundPosition: {
+      bottom: 'bottom',
+      center: 'center',
+      left: 'left',
+      'left-center': '20%',
+      right: 'right',
+      top: 'top',
+    },
     colors: {
       white: '#FFFFFF',
       red: '#c63f3b',
@@ -44,8 +52,7 @@ module.exports = {
         sm: '5rem',
       },
       backgroundImage: () => ({
-        'home-mobile': "url('@/assets/bg_home_mobile.jpeg')",
-        'home-image': "url('@/assets/bg_home.jpg')",
+        'home-mobile': "url('@/assets/bg_home.png')",
         'logo-mobile': "url('@/assets/logo_completa_mobile.png')",
 
         'icon-contrato': "url('@/assets/icons/menu_contrato.png')",

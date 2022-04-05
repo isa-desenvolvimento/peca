@@ -1,12 +1,12 @@
 <template>
   <div
-    class="bg-home-mobile md:bg-home-image bg-contain w-full bg-no-repeat bg-center  lg:bg-left bg-scroll h-screen overflow-hidden "
+    class="grid item-center bg-home-mobile  bg-contain w-full bg-no-repeat bg-center lg:bg-left-center bg-scroll h-screen overflow-hidden ease-in duration-30"
   >
     <div
       class="mx-auto h-24 w-full bg-logo-mobile bg-contain bg-no-repeat bg-left text-white"
     >
       <div @click="() => goToNext('/profile')">
-        <file-avatar :value="avatar" classe="w-20 h-20 my-4 ml-auto mr-4" />
+        <file-avatar :value="avatar" classe="w-10 h-10 my-4 ml-auto mr-4" />
       </div>
     </div>
 
