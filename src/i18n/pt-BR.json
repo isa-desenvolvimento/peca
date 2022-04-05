@@ -101,6 +101,7 @@
     "DANGER_NOT_PAWSSORD": "Usuário ainda não criou seu usuário para acesso ao sistema. Novo Link enviado por email ao usuário.",
     "DANGER_PASSWORD_CONFIRM": "SENHAS NÃO COINCIDEM",
     "SUCCESS_UPDATE": "Atualizado com sucesso!",
+    "SUCCESS_CREATE": "Cadastrado com sucesso!",
     "SUCCESS_WITHDRAWAL": "Operação realizada! Em até 7 dias você receberá na conta corrente cadastrada"
   }
 }

@@ -257,6 +257,8 @@ import { ref } from 'vue'
 import { mapState, useStore } from 'vuex'
 import { stringFormartUS } from '@/util/date'
 
+import { messagesFetch } from '@/util/toast.js'
+
 export default {
   setup() {
     const value = ref({
@@ -363,6 +365,7 @@ export default {
           JSON.stringify({ email: this.value.email, tel: this.value.tel })
         )
 
+        messagesFetch('success', this.$t('MESSAGE.SUCCESS_CREATE')) 
         this.$router.push({
           path: '/termo',
           params: {
