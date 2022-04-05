@@ -27,6 +27,7 @@
 import Login from '@/template/Login.vue'
 import { mapState } from 'vuex'
 import { useRouter } from 'vue-router'
+import { messagesFetch } from '@/util/toast.js'
 
 export default {
   components: {
@@ -60,11 +61,13 @@ export default {
           sessionStorage.doc = this.doc
         })
         .catch((err) => {
-          if (err.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')))
-            this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
+          err.map((err) => messagesFetch('danger', err))
 
-          sessionStorage.doc = this.doc
-          this.router.push('/feedback')
+          if (err.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER'))) {
+            this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
+            this.router.push('/feedback')
+            sessionStorage.doc = this.doc
+          }
         })
     },
     login(e) {
