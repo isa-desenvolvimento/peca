@@ -80,7 +80,7 @@
             />
             <input
               v-model="value.cel"
-              v-mask="'(##) ####-####'"
+              v-mask="'(##) # ####-####'"
               name="cel"
               type="tel"
               required
