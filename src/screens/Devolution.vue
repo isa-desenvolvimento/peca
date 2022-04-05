@@ -1,18 +1,15 @@
 <template>
-  <translation name="fade">
-    <CarouselList type="devolucao" :title="$t('PENDING_RETURNS')" />
-  </translation>
+  <CarouselListText
+    type="devolucao"
+    :title="$t('PENDING_RETURNS')"
+    estoque="1"
+  />
 </template>
 
 <script>
-import CarouselList from '@/template/CarouselList.vue'
-import { useStore } from 'vuex'
+import CarouselListText from '@/template/CarouselListText.vue'
 
 export default {
-  components: { CarouselList },
-  setup() {
-    const { dispatch } = useStore()
-    dispatch('list/getList', 'devolucao')
-  },
+  components: { CarouselListText },
 }
 </script>

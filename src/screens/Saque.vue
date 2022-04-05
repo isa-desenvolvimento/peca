@@ -61,12 +61,12 @@
           <div class="grid grid-cols-4">
             <TitleSubtitle
               :title="$t('TRANSFER_RATE')"
-              :subtitle="list?.fornecedor?.banco_tipo_conta_desc"
+              :subtitle="list?.fornecedor?.taxa_banco.toFixed(2)"
               class="col-span-2"
             />
             <TitleSubtitle
               :title="$t('BALANCE_ON')"
-              :subtitle="fornecedor?.saldo_disponivel"
+              :subtitle="fornecedor?.saldo_disponivel.toFixed(2)"
               class="col-span-2"
             />
           </div>
@@ -109,6 +109,7 @@ import Header from '@/components/Header.vue'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import TitleSubtitle from '@/components/TitleSubtitle.vue'
+import { messagesFetch } from '@/util/toast.js'
 
 export default {
   components: { Header, TitleSubtitle },
@@ -146,7 +147,34 @@ export default {
         type: `saque/pontual/${this.loja}`,
         value: withDrawalValue,
       })
+        .then(() => {
+          messagesFetch('success', this.$t('MESSAGE.SUCCESS_WITHDRAWAL'))
+          this.$router.push('/extract')
+        })
+        .catch((error) => {
+          error.response.data.errors.map((err) => messagesFetch('danger', err))
+        })
     },
   },
 }
 </script>
+
+<style scoped>
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: solid 1px var(--bg-red);
+  -webkit-text-fill-color: var(--bg-red);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+  color: var(--bg-red);
+}
+</style>

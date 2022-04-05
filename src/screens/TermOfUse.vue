@@ -9,14 +9,14 @@
         </div>
 
         <div
-          class="font-manrope border text-red font-light text-sm break-words p-2 overflow-auto "
+          class="font-manrope border text-red font-light text-sm break-words p-2 overflow-auto"
         >
           <div>
             <Markdown :source="fileContentTermo" />
             <Markdown :source="fileContentPolitica" />
           </div>
         </div>
-                <div
+        <div
           class="font-manrope text-red font-light text-center text-sm break-words p-2 overflow-auto mb-20 mt-10"
         >
           {{ $t('TO_BE_CONTINUE') }}
@@ -25,7 +25,8 @@
         <div class="fixed bottom-10 lef-0 right-0 w-full grid justify-center">
           <button
             type="button"
-            class="appearance-none rounded-md uppercase font-manrope font-bold bg-red leading-normal justify-center py-2 px-10 text-xs text-orange hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="appearance-none rounded-md uppercase font-manrope font-bold bg-red leading-normal justify-center py-2 px-10 text-xs text-orange"
+            @click="$router.push('/')"
           >
             {{ $t('CONTINUE') }}
           </button>

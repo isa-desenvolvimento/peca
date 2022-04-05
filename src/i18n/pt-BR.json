@@ -97,6 +97,7 @@
   "MESSAGE": {
     "DANGER_NOT_REGISTER": "Fornecedor não tem cadastro em nenhuma loja.",
     "DANGER_PASSWORD_CONFIRM": "SENHAS NÃO COINCIDEM",
-    "SUCCESS_UPDATE": "Atualizado com sucesso!"
+    "SUCCESS_UPDATE": "Atualizado com sucesso!",
+    "SUCCESS_WITHDRAWAL": "Operação realizada! Em até 7 dias você receberá na conta corrente cadastrada"
   }
 }

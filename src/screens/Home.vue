@@ -34,7 +34,6 @@
           :name="$t('DEVOLUTION')"
           icon="bg-icon-devolucao"
           :onclick="() => goToNext('/devolution')"
-          disabled
         />
         <ButtonMenu
           classe="col-span-2 row-start-4 row-end-5 pt-2 pb-4"
