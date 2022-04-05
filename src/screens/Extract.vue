@@ -13,5 +13,8 @@ import CarouselList from '@/template/CarouselList.vue'
 
 export default {
   components: { CarouselList },
+  setup() {
+    document.title = 'Clube Peça Rara | Extrato'
+  },
 }
 </script>

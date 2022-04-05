@@ -1,7 +1,7 @@
 <template>
   <div class="bg-orange h-screen grid p-8">
     <Header :title="$t('PROFILE')" />
-    <div class=" mx-auto" uppercase>
+    <div class="mx-auto" uppercase>
       <form
         class="overflow-y-auto"
         uppercase
@@ -15,7 +15,9 @@
             :value="user?.profile_img"
             is-editable
           />
-          <h3 class="text-red text-md w-full text-center font-bold my-8 font-manrope leading-[1.3rem]">
+          <h3
+            class="text-red text-md w-full text-center font-bold my-8 font-manrope leading-[1.3rem]"
+          >
             {{ user?.nome_fornecedor }}
           </h3>
 
@@ -181,7 +183,10 @@ import { URL } from '@/api/http.js'
 
 export default {
   components: { FileAvatar, Header },
+
   setup() {
+    document.title = 'Clube Peça Rara | Perfil'
+
     const { dispatch } = useStore()
 
     // const value = ref({

@@ -14,7 +14,10 @@
           color="bg-red"
         />
 
-        <hr v-if="!hasBalance" class="col-span-2 text-yellow text-manrope text-xs opacity-20 my-4" />
+        <hr
+          v-if="!hasBalance"
+          class="col-span-2 text-yellow text-manrope text-xs opacity-20 my-4"
+        />
         <Balance
           v-if="hasBalance"
           :type="type"

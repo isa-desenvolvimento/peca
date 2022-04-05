@@ -5,7 +5,7 @@
     </span>
     <span
       v-if="subtitle"
-      class="text-red text-xs font-light leading-3 break-words rounded-md  "
+      class="text-red text-xs font-light leading-3 break-words rounded-md"
     >
       {{ subtitle }}
     </span>

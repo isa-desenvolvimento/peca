@@ -20,7 +20,9 @@
       </div>
     </div>
     <div class="col-span-1 text-right">
-      <h4 class="text-left text-yellow text-base col-span-1 text-right font-manrope">
+      <h4
+        class="text-left text-yellow text-base col-span-1 text-right font-manrope"
+      >
         {{ $t('BALANCE_OFF') }}
       </h4>
       <div class="grid grid-cols-2 justify-end text-right justify-items-end">

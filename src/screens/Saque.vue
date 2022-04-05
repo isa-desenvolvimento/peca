@@ -66,7 +66,9 @@
             />
             <TitleSubtitle
               :title="$t('BALANCE_ON')"
-              :subtitle="`R$ ${fornecedor?.saldo_disponivel?.saldo_liberado.toFixed(2) ?? 0.00}`"
+              :subtitle="`R$ ${
+                fornecedor?.saldo_disponivel?.saldo_liberado.toFixed(2) ?? 0.0
+              }`"
               class="col-span-2"
             />
           </div>
@@ -117,7 +119,10 @@ export default {
     title: { type: String, required: true },
     hasCarousel: { type: Boolean, required: false, default: true },
   },
+
   setup() {
+    document.title = 'Clube Peça Rara | Devolução'
+
     const route = useRoute()
     const loja = route.params.loja || null
     const type = `saque/pontual/${loja}`

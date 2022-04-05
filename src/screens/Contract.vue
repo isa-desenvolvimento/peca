@@ -26,6 +26,8 @@ import { URL } from '@/api/http.js'
 export default {
   components: { ButtonItem, Header },
   setup() {
+    document.title = 'Clube Peça Rara | Contrato'
+
     const { dispatch } = useStore()
     dispatch('list/getList', 'contrato')
   },

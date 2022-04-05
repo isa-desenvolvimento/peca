@@ -60,6 +60,7 @@ export default {
   },
   setup() {
     const { dispatch } = useStore()
+    document.title = 'Clube Peça Rara | Home'
 
     dispatch('list/getList', 'auth')
   },
