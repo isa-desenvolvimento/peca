@@ -59,7 +59,7 @@ export default {
   props: {
     type: { type: String, required: true },
     title: { type: String, required: true },
-    estoque: { type: String, required: true},
+    estoque: { type: String, required: true },
     hasCarousel: { type: Boolean, required: false, default: true },
   },
   setup(props) {

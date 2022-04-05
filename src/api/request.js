@@ -12,7 +12,9 @@ export const fetchList = async (type) => {
 }
 
 export const fetchListEstoque = async ({ type, id_loja, estoque }) => {
-  const url = estoque ?   `/mobile/${type}/${type}?loja=${id_loja}&estoque=${estoque}` : `/mobile/${type}?loja=${id_loja}`
+  const url = estoque
+    ? `/mobile/${type}/${type}?loja=${id_loja}&estoque=${estoque}`
+    : `/mobile/${type}?loja=${id_loja}`
   const response = await http_api(url)
   return response.status == 200 && response.data
 }
