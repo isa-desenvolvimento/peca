@@ -13,7 +13,7 @@
   />
   <h3
     v-if="isEditable"
-    class="text-yellow text-sm w-full text-center mt-[-2rem]"
+    class="text-yellow text-sm w-full text-center mt-[-2rem] font-manrope"
     @click="selectImage"
   >
     {{ $t('CHANGE_PHOTO_PROFILE') }}

@@ -21,7 +21,7 @@
           :key="index"
           class="overflow-y-auto max-h-[calc(20vh - 2rem)]"
         >
-          <span v-if="lists?.estoque.length" class="text-red text-sm font-bold">
+          <span v-if="lists?.estoque.length" class="text-red text-sm font-bold font-manrope">
             {{ $t(index.toUpperCase()) }}
           </span>
           <span v-else class="text-red text-sm font-regular">
