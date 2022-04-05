@@ -15,7 +15,7 @@
         />
 
         <hr v-if="!hasBalance" class="col-span-2 text-yellow opacity-20 my-4" />
-        <Balance v-if="hasBalance" :type="type" :balance="lists?.saldoatual" />
+        <Balance v-if="hasBalance" :type="type" :balance="lists?.saldoatual"  :onclick="()=> onclickWithDraw(this.id_loja)"/>
 
         <TitleSub
           v-else
@@ -55,6 +55,7 @@ export default {
     title: { type: String, required: true },
     hasBalance: { type: Boolean, required: false, default: false },
     hasPeriodo: { type: Boolean, required: false, default: false },
+    onclickWithDraw: { type: Function, required: false },
   },
   setup(props) {
     const router = useRouter()

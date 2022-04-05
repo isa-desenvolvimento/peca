@@ -13,60 +13,62 @@
             {{ $t('DATA') }}
           </div>
 
-          <TitleSubtitle :title="$t('STORE')" :subtitle="value.loja" />
-          <TitleSubtitle :title="$t('NAME')" :subtitle="value.nome" />
-          <TitleSubtitle :title="$t('BANK')" :subtitle="value.banco" />
+          <TitleSubtitle :title="$t('STORE')" :subtitle="list?.fornecedor?.loja" />
+          <TitleSubtitle :title="$t('NAME')" :subtitle="list?.fornecedor?.nome_completo" />
+          <TitleSubtitle :title="$t('BANK')" :subtitle="list?.fornecedor?.banco_nome" />
 
-          <div class="grid grid-cols-4">
+          <div class="grid grid-cols-9 gap-1">
             <TitleSubtitle
               :title="$t('TYPE_ACCOUNT')"
-              :subtitle="value.tipo_conta"
+              :subtitle="list?.fornecedor?.banco_tipo_conta_desc"
+              class="col-span-2"
             />
             <TitleSubtitle
               :title="$t('OPERATION')"
-              :subtitle="value.operacao"
+              :subtitle="list?.fornecedor?.cod_operacao"
+              class="col-span-3"
             />
-            <TitleSubtitle :title="$t('AGENCY')" :subtitle="value.agencia" />
-            <TitleSubtitle :title="$t('ACCOUNT')" :subtitle="value.conta" />
+            <TitleSubtitle :title="$t('AGENCY')" :subtitle="list?.fornecedor?.banco_ag"  class="col-span-2"/>
+            <TitleSubtitle :title="$t('ACCOUNT')" :subtitle="list?.fornecedor?.banco_cc" class="col-span-2"/>
           </div>
         </section>
         <hr class="col-span-2 text-yellow opacity-25 my-2" />
 
-        <section class>
+        <section>
           <div
             class="col-span-4 mt-4 uppercase bg-orange font-manrope py-2 border-red placeholder-red text-red text-left text-md font-bold"
           >
-            {{ $t('WITHDRAWAL') }}
+            {{ $t('BALANCE') }}
           </div>
 
           <div class="grid grid-cols-4">
             <TitleSubtitle
               :title="$t('TRANSFER_RATE')"
-              :subtitle="value.tipo_conta"
+              :subtitle="list?.fornecedor?.banco_tipo_conta_desc"
               class="col-span-2"
             />
             <TitleSubtitle
               :title="$t('BALANCE_ON')"
-              :subtitle="value.operacao"
+              :subtitle="fornecedor?.saldo_disponivel"
               class="col-span-2"
             />
           </div>
 
-          <form>
+          <form action="#" @submit="withDrawal">
             <TitleSubtitle
               :title="$t('AMOUNT_TO_WITHDRAW')"
               subtitle=""
               class="col-span-2"
             />
             <input
-              v-model="value.saque"
+              v-model="saque"
               v-mask="'R$ ####,##'"
               name="money"
               type="num"
               required
               placeholder="R$ 0,00"
               class="appearance-none uppercase w-full border bg-orange font-manrope mt-[-2rem] px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
-              @input="value.saque.toFixed(2)"
+              @input="saque.toFixed(2)"
             />
 
             <div>
@@ -94,56 +96,40 @@ import TitleSubtitle from '@/components/TitleSubtitle.vue'
 export default {
   components: { Header, TitleSubtitle },
   props: {
-    type: { type: String, required: true },
     title: { type: String, required: true },
-    estoque: { type: String, required: true },
     hasCarousel: { type: Boolean, required: false, default: true },
   },
   setup() {
     const route = useRoute()
-    const id_loja = route.params.id_loja || null
+    const loja = route.params.loja || null
+    const type = `saque/pontual/${loja}`
 
     const { dispatch } = useStore()
+    dispatch('list/getList', type)
 
-    const value = {
-      loja: 'hdkuhsakda',
-      nome: 'haukdhakda',
-      banco: 'haukdhakda',
-      tipo_conta: 'haukdhakda',
-      operacao: 'haukdhakda',
-      agencia: 'haukdhakda',
-      conta: 'haukdhakda',
-      saque: 0,
-    }
-
-    return { id_loja, dispatch, value }
+    return { loja, dispatch, type, saque: null }
   },
   computed: {
-    lojas() {
-      return this.$store.state.list?.lojas
-    },
-    lists() {
-      return this.$store.state.list[this.type]
+    list() {
+      return this.$store.state.list[this.type] 
     },
   },
 
   methods: {
-    setId(id) {
-      this.id_loja = id
-      this.getFilter()
-    },
+    withDrawal(e) {
+      e.preventDefault()
 
-    getFilter() {
-      this.dispatch('list/getListEstoque', {
-        type: this.type,
-        id_loja: this.id_loja,
-        estoque: this.estoque,
+      const withDrawalValue =  {
+        loja: parseInt(this.loja),
+        value: this.saque.split('R$ ')[1],
+        notAdd: true
+      }
+
+      this.dispatch('form/create', {
+        type: `saque/pontual/${this.loja}`,
+        value: withDrawalValue,
       })
-    },
-
-    setItem() {
-      this.$router.push(`/product/${this.id_loja}`)
-    },
+    }
   },
 }
 </script>

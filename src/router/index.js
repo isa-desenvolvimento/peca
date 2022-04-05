@@ -74,7 +74,7 @@ const routes = [
     component: () => import('@/screens/Extract.vue'),
   },
   {
-    path: '/saque',
+    path: '/saque/:loja',
     name: 'Saque',
     component: () => import('@/screens/Saque.vue'),
   },

@@ -39,7 +39,7 @@
       :class="classe"
       @click="onclick"
     >
-      {{ $t('SAC') }}
+      {{ $t('WITHDRAWAL') }}
     </button>
     <hr class="col-span-2 text-yellow opacity-25 my-4" />
   </div>
