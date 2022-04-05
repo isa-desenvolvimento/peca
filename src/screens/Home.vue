@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid item-center bg-home-mobile  bg-contain w-full bg-no-repeat bg-center lg:bg-left-center bg-scroll h-screen overflow-hidden ease-in duration-30"
+    class="grid item-center bg-home-mobile bg-contain w-full bg-no-repeat bg-center lg:bg-left-center bg-scroll h-screen overflow-hidden ease-in duration-30"
   >
     <div
       class="mx-auto h-24 w-full bg-logo-mobile bg-contain bg-no-repeat bg-left text-white"

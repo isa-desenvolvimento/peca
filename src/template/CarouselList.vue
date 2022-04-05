@@ -15,7 +15,12 @@
         />
 
         <hr v-if="!hasBalance" class="col-span-2 text-yellow opacity-20 my-4" />
-        <Balance v-if="hasBalance" :type="type" :balance="lists?.saldoatual"  :onclick="()=> onclickWithDraw(this.id_loja)"/>
+        <Balance
+          v-if="hasBalance"
+          :type="type"
+          :balance="lists?.saldoatual"
+          :onclick="() => onclickWithDraw(this.id_loja)"
+        />
 
         <TitleSub
           v-else

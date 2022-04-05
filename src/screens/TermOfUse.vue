@@ -9,11 +9,17 @@
         </div>
 
         <div
-          class="font-manrope border text-red font-light text-sm break-words p-2 overflow-auto mb-20"
+          class="font-manrope border text-red font-light text-sm break-words p-2 overflow-auto "
         >
           <div>
-            <Markdown :source="termo" />
+            <Markdown :source="fileContentTermo" />
+            <Markdown :source="fileContentPolitica" />
           </div>
+        </div>
+                <div
+          class="font-manrope text-red font-light text-center text-sm break-words p-2 overflow-auto mb-20 mt-10"
+        >
+          {{ $t('TO_BE_CONTINUE') }}
         </div>
 
         <div class="fixed bottom-10 lef-0 right-0 w-full grid justify-center">
@@ -21,7 +27,7 @@
             type="button"
             class="appearance-none rounded-md uppercase font-manrope font-bold bg-red leading-normal justify-center py-2 px-10 text-xs text-orange hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            {{ $t('CONFIRME') }}
+            {{ $t('CONTINUE') }}
           </button>
         </div>
       </div>
@@ -31,20 +37,26 @@
 
 <script>
 import Markdown from 'vue3-markdown-it'
-import { useStore } from 'vuex'
+import Termo from '@/assets/Termo.md'
+import Politica from '@/assets/Termo.md'
 
 export default {
   components: {
     Markdown,
   },
-  setup() {
-    const { dispatch } = useStore()
-
-    dispatch('list/getList', 'termo')
+  data() {
+    return {
+      fileContentTermo: '',
+      fileContentPolitica: '',
+    }
   },
-  computed: {
-    termo() {
-      return this.$store.state.list?.termo
+  mounted() {
+    this.getMDFile()
+  },
+  methods: {
+    getMDFile() {
+      this.fileContentTermo = Termo
+      this.fileContentPolitica = Politica
     },
   },
 }

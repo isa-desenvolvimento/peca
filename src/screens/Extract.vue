@@ -4,7 +4,7 @@
     :title="$t('EXTRACT_VENDA')"
     has-balance
     has-periodo
-    :onclickWithDraw="(loja)=> $router.push(`/saque/${loja}`)"
+    :onclickWithDraw="(loja) => $router.push(`/saque/${loja}`)"
   />
 </template>
 

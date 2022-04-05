@@ -13,9 +13,18 @@
             {{ $t('DATA') }}
           </div>
 
-          <TitleSubtitle :title="$t('STORE')" :subtitle="list?.fornecedor?.loja" />
-          <TitleSubtitle :title="$t('NAME')" :subtitle="list?.fornecedor?.nome_completo" />
-          <TitleSubtitle :title="$t('BANK')" :subtitle="list?.fornecedor?.banco_nome" />
+          <TitleSubtitle
+            :title="$t('STORE')"
+            :subtitle="list?.fornecedor?.loja"
+          />
+          <TitleSubtitle
+            :title="$t('NAME')"
+            :subtitle="list?.fornecedor?.nome_completo"
+          />
+          <TitleSubtitle
+            :title="$t('BANK')"
+            :subtitle="list?.fornecedor?.banco_nome"
+          />
 
           <div class="grid grid-cols-9 gap-1">
             <TitleSubtitle
@@ -28,8 +37,16 @@
               :subtitle="list?.fornecedor?.cod_operacao"
               class="col-span-3"
             />
-            <TitleSubtitle :title="$t('AGENCY')" :subtitle="list?.fornecedor?.banco_ag"  class="col-span-2"/>
-            <TitleSubtitle :title="$t('ACCOUNT')" :subtitle="list?.fornecedor?.banco_cc" class="col-span-2"/>
+            <TitleSubtitle
+              :title="$t('AGENCY')"
+              :subtitle="list?.fornecedor?.banco_ag"
+              class="col-span-2"
+            />
+            <TitleSubtitle
+              :title="$t('ACCOUNT')"
+              :subtitle="list?.fornecedor?.banco_cc"
+              class="col-span-2"
+            />
           </div>
         </section>
         <hr class="col-span-2 text-yellow opacity-25 my-2" />
@@ -111,7 +128,7 @@ export default {
   },
   computed: {
     list() {
-      return this.$store.state.list[this.type] 
+      return this.$store.state.list[this.type]
     },
   },
 
@@ -119,17 +136,17 @@ export default {
     withDrawal(e) {
       e.preventDefault()
 
-      const withDrawalValue =  {
+      const withDrawalValue = {
         loja: parseInt(this.loja),
         value: this.saque.split('R$ ')[1],
-        notAdd: true
+        notAdd: true,
       }
 
       this.dispatch('form/create', {
         type: `saque/pontual/${this.loja}`,
         value: withDrawalValue,
       })
-    }
+    },
   },
 }
 </script>

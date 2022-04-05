@@ -1,5 +1,9 @@
 <template>
-  <div v-if="loggedIn || isPublicPages" name="fade" class="bg-gradient-to-t from-pink3 via-pink2 to-pink4 ">
+  <div
+    v-if="loggedIn || isPublicPages"
+    name="fade"
+    class="bg-gradient-to-t from-pink3 via-pink2 to-pink4"
+  >
     <router-view />
   </div>
   <div v-else>
