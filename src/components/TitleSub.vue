@@ -4,11 +4,11 @@
       <span v-if="iconPlus" class="text-green text-xs"> + </span>
       <span v-else class="text-red text-xs"> - </span>
 
-      <span class="text-red text-sm font-bold">
+      <span class="text-red text-sm font-bold font-manrope">
         {{ `R$ ${Math.abs(title).toFixed(2) || 0}` }}
       </span>
     </div>
-    <span class="text-red text-xs leading-3 break-words">
+    <span class="text-red text-xs leading-3 break-words font-manrope">
       {{ description }}
     </span>
     <hr class="col-span-2 text-yellow opacity-25 my-2" />

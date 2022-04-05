@@ -1,7 +1,7 @@
 <template>
   <div v-for="(list, index) in lists" :key="index" class="mt-8">
     <template v-if="index <= 1">
-      <h4 class="text-red text-xs opacity-30 text-left uppercase">
+      <h4 class="text-red text-xs opacity-30 text-left uppercase font-manrope">
         {{ list.grupo }}
       </h4>
       <hr class="col-span-2 text-yellow opacity-20 my-4" />
@@ -11,7 +11,7 @@
         class="grid grid-cols-8 my-8"
       >
         <div
-          class="col-span-1 text-sm text-yellow text-center uppercase"
+          class="col-span-1 text-sm text-yellow text-center uppercase font-manrope"
           :class="`row-span-${periodo?.itens?.length}`"
         >
           {{ periodo.dia }} {{ periodo.mes }}

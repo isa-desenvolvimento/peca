@@ -15,7 +15,7 @@
       ></button>
     </div>
     <div
-      class="h-10 ml-auto text-yellow text-md font-bold w-40 text-right leading-6 uppercase"
+      class="h-10 ml-auto text-yellow text-md font-bold w-40 text-right leading-6 uppercase font-manrope"
     >
       {{ title }}
     </div>

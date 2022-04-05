@@ -5,7 +5,7 @@
         <button
           :id="`button_tap_${index}`"
           type="button"
-          class="inline-block px-3 py-2 bg-orange text-red font-medium text-sm leading-snug uppercase focus:bg-yellow-ligth focus:outline-none focus:ring-0 active:bg-yellow-ligth active:text-red transition duration-150 ease-in-out"
+          class="inline-block px-3 py-2 bg-orange text-red font-medium  font-manrope text-sm leading-snug uppercase focus:bg-yellow-ligth focus:outline-none focus:ring-0 active:bg-yellow-ligth active:text-red transition duration-150 ease-in-out"
           @click="() => getPeriodo(tab)"
         >
           {{ tab }} {{ $t('DAY') }}
@@ -14,7 +14,7 @@
       <div>
         <button
           type="button"
-          class="inline-block px-3 py-2 bg-orange text-red font-medium text-sm leading-snug uppercase focus:bg-yellow-ligth focus:outline-none focus:ring-0 active:bg-yellow-ligth active:text-red transition duration-150 ease-in-out"
+          class="inline-block px-3 py-2 bg-orange text-red font-medium font-manrope text-sm leading-snug uppercase focus:bg-yellow-ligth focus:outline-none focus:ring-0 active:bg-yellow-ligth active:text-red transition duration-150 ease-in-out"
           data-bs-toggle="modal"
           data-bs-target="#modalPeriod"
           @click="(e) => getOthers(e)"

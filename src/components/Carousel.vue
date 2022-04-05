@@ -8,20 +8,20 @@
   >
     <Slide v-for="slide in slides" :key="slide">
       <div
-        class="carousel__item text-white w-full grid grid-cols-3 place-content-center py-2"
+        class="carousel__item w-full grid grid-cols-3 place-content-center py-2"
         :class="color"
         @click="() => onclick(slide.id)"
       >
         <div
-          class="mx-auto h-10 w-10 bg-contain bg-no-repeat bg-center text-white text-sm col-span-3"
+          class="mx-auto h-10 w-10 bg-contain bg-no-repeat bg-center col-span-3"
           :class="icon"
         ></div>
-        <div class="col-span-3">{{ slide.nome }}</div>
+        <div class="col-span-3  text-orange font-manrope text-xs">{{ slide.nome }}</div>
         <hr
           v-if="slide.valor_consolidado"
           class="col-span-3 text-yellow opacity-25 my-4 opacity-25"
         />
-        <div v-if="slide.valor_consolidado" class="col-span-3 opacity-25">
+        <div v-if="slide.valor_consolidado" class="col-span-3 opacity-25  text-orange font-manrope text-xs">
           {{ format(slide.valor_consolidado) }}
         </div>
       </div>
