@@ -26,7 +26,7 @@
           <button
             type="button"
             class="appearance-none rounded-md uppercase font-manrope font-bold bg-red leading-normal justify-center py-2 px-10 text-xs text-orange"
-            @click="$router.push('/')"
+            @click="$router.push('/lack-little')"
           >
             {{ $t('CONTINUE') }}
           </button>

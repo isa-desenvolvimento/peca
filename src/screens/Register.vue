@@ -356,20 +356,12 @@ export default {
           )
 
           this.$router.push({
-            path: '/lack-little',
+            path: '/termo',
             params: {
               email: this.email,
               tel: this.tel,
             },
           })
-        })
-        .catch(() => {
-          sessionStorage.setItem(
-            'fornecedor',
-            JSON.stringify({ email: this.value.email, tel: this.value.tel })
-          )
-
-          this.$router.push('/lack-little')
         })
     },
   },
