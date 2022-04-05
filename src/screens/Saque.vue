@@ -121,7 +121,7 @@ export default {
   },
 
   setup() {
-    document.title = 'Clube Peça Rara | Devolução'
+    document.title = 'Clube Peça Rara | Saque'
 
     const route = useRoute()
     const loja = route.params.loja || null

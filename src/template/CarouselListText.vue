@@ -22,7 +22,7 @@
           class="overflow-y-auto max-h-[calc(20vh - 2rem)]"
         >
           <span
-            v-if="lists?.estoque.length"
+            v-if="lists?.movimentos.length"
             class="text-red text-sm font-bold font-manrope"
           >
             {{ $t(index.toUpperCase()) }}
@@ -31,7 +31,7 @@
             {{ $t('THERE_ARE_NO_PRODUCTS') }}
           </span>
           <div
-            v-if="!lists?.estoque.length"
+            v-if="!lists?.movimentos.length"
             @click="$router.push('products-outhers')"
           >
             <span class="text-red text-sm font-bold">
@@ -59,7 +59,7 @@ export default {
   props: {
     type: { type: String, required: true },
     title: { type: String, required: true },
-    estoque: { type: String, required: true },
+    estoque: { type: String, required: true},
     hasCarousel: { type: Boolean, required: false, default: true },
   },
   setup(props) {

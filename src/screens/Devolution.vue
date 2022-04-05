@@ -2,7 +2,7 @@
   <CarouselListText
     type="devolucao"
     :title="$t('PENDING_RETURNS')"
-    estoque="1"
+    :estoque="null"
   />
 </template>
 
