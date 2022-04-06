@@ -1,11 +1,11 @@
 <template>
   <translation name="fade">
-    <div class="bg-orange h-screen grid grid-rows-7 p-8 relative">
+    <div
+      class="bg-orange h-screen grid grid-rows-7 p-8 relative overflow-y-auto"
+    >
       <Header :title="title" />
 
-      <div
-        class="overflow-hidden row-span-6 my-8 md:w-6/12 md:mx-auto relative"
-      >
+      <div class="row-span-6 my-8 md:w-6/12 md:mx-auto relative">
         <Carousel
           v-if="hasCarousel"
           :slides="lojas"
@@ -16,11 +16,7 @@
         />
 
         <hr v-if="hasCarousel" class="col-span-2 text-yellow opacity-20 my-4" />
-        <div
-          v-for="(list, index) in lists"
-          :key="index"
-          class="overflow-y-auto max-h-[calc(20vh - 2rem)]"
-        >
+        <div v-for="(list, index) in lists" :key="index">
           <span
             v-if="lists?.movimentos.length"
             class="text-red text-sm font-bold font-manrope"
@@ -30,16 +26,18 @@
           <span v-else class="text-red text-sm font-regular">
             {{ $t('THERE_ARE_NO_PRODUCTS') }}
           </span>
-          <div
-            v-if="!lists?.movimentos.length"
-            @click="$router.push('products-outhers')"
-          >
-            <span class="text-red text-sm font-bold">
-              {{ $t('SOLD_RETURNED_CANCELED') }}
-            </span>
-          </div>
 
           <List :lists="list" :onclick="setItem" />
+        </div>
+
+        <div
+          v-if="estoque == 1"
+          class="mt-8 cursor-pointer"
+          @click="$router.push(`/product/${id_loja}`)"
+        >
+          <span class="text-red text-sm font-bold">
+            {{ $t('SOLD_RETURNED_CANCELED') }}
+          </span>
         </div>
       </div>
     </div>
