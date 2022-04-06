@@ -20,9 +20,10 @@
         />
         <Balance
           v-if="hasBalance"
+          :id="id_loja"
           :type="type"
           :balance="lists?.saldoatual"
-          :onclick="() => onclickWithDraw(this.id_loja)"
+          :onclick="() => onclickWithDraw(id_loja)"
         />
 
         <TitleSub

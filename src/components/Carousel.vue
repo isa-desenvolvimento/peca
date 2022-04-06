@@ -100,7 +100,7 @@ export default {
   transform: scale(1.1);
 }
 
-.carousel__slide--visible > div:not(.carousel__slide--active > div) {
+.carousel__slide > div:not(.carousel__slide--active > div) {
   /* background-color: #c63f3b; */
   opacity: 20%;
   transition: opacity 0.5s linear;
