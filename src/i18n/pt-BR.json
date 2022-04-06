@@ -98,6 +98,7 @@
   "THERE_ARE_NO_PRODUCTS": "NÃO HÁ PRODUTOS DISPONÍVEIS EM ESTOQUE",
   "SOLD_RETURNED_CANCELED": "VENDIDOS/DEVOLVIDOS/CANCELADOS >",
   "YOUR_PASSWORD_ACCESS": "INFORME A SUA SENHA DE ACESSO",
+  "YOUR_PASSWORD_ACCESS_NOT": "ESQUECEU SUA SENHA?",
   "MESSAGE": {
     "DANGER_NOT_REGISTER": "Fornecedor não tem cadastro em nenhuma loja.",
     "DANGER_NOT_PAWSSORD": "Usuário ainda não criou seu usuário para acesso ao sistema. Novo Link enviado por email ao usuário.",
@@ -105,6 +106,7 @@
     "SUCCESS_UPDATE": "Atualizado com sucesso!",
     "SUCCESS_CREATE": "Cadastrado com sucesso!",
     "DANGER_PASSWORD_INVALID": "Senha inválida!",
+    "SUCCESS_PASSWORD": "Senha resetada com sucesso!",
     "SUCCESS_WITHDRAWAL": "Operação realizada! Em até 7 dias você receberá na conta corrente cadastrada"
   }
 }

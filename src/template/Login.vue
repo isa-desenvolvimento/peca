@@ -73,6 +73,12 @@
           >
             {{ btnName }}
           </button>
+          <Description
+            v-if="inputType === 'password'"
+            classe="text-orange text-xs w-full text-center mx-auto font-manrope mt-10 font-bold cursor:pointer"
+          >
+            <a href="#" @click="reset"> {{ subdescription }} </a></Description
+          >
         </div>
       </form>
     </div>
@@ -96,7 +102,9 @@ export default {
     title: { type: String, required: false },
     subtitle: { type: String, required: false },
     description: { type: String, required: false },
+    subdescription: { type: String, required: false },
     submit: { type: Function, required: true },
+    reset: { type: Function, required: true },
   },
   data() {
     return { value: '', color: 'text-white', inputType2: '' }

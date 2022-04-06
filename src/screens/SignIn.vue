@@ -19,6 +19,8 @@
     :title="$t('HELLO')"
     :subtitle="` ${apelido}!`"
     :description="$t('YOUR_PASSWORD_ACCESS')"
+    :subdescription="$t('YOUR_PASSWORD_ACCESS_NOT')"
+    :reset="reset"
   />
 </template>
 
@@ -83,6 +85,19 @@ export default {
         .catch(() =>
           messagesFetch('danger', window.$t('MESSAGE.DANGER_PASSWORD_INVALID'))
         )
+    },
+    reset() {
+      this.$store
+        .dispatch('form/create', {
+          type: 'reset',
+          value: {
+            doc: sessionStorage.doc,
+            notAdd: true,
+          },
+        })
+        .then(() => {
+          messagesFetch('success', window.$t('MESSAGE.SUCCESS_PASSWORD'))
+        })
     },
   },
 }
