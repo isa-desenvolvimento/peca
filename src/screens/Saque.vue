@@ -86,7 +86,7 @@
               type="num"
               required
               placeholder="R$ 0,00"
-              class="appearance-none uppercase w-full border bg-orange font-manrope mt-[-2rem] px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              class="appearance-none uppercase w-full lg:w-60 border bg-orange font-manrope mt-[-2rem] px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               @input="saque.toFixed(2)"
             />
 
