@@ -24,7 +24,7 @@
             v-for="item in periodo?.itens"
             :key="item.id"
             :title="item.valor"
-            :description="item.descricao ? item.descricao : ''"
+            :description="formtDescription(item.descricao, item.loja)"
             :icon-plus="item.valor >= 0"
             is-money
           />
@@ -70,6 +70,9 @@ export default {
   //   },
   // },
   methods: {
+    formtDescription(description, store) {
+      return `${store} - ${description}`
+    },
     showmore() {
       this.limit = this.limit === this.lists.length ? 1 : this.lists.length
     },
