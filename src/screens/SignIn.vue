@@ -96,8 +96,8 @@ export default {
           },
         })
         .then(() => {
-          this.router.push('/lack-little')
-          // messagesFetch('success', window.$t('MESSAGE.SUCCESS_PASSWORD'))
+          this.router.push('/send-email')
+          messagesFetch('success', window.$t('MESSAGE.SUCCESS_PASSWORD'))
         })
     },
   },
