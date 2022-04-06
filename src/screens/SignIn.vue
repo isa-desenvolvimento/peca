@@ -80,8 +80,8 @@ export default {
         .then(() => {
           this.router.push({ path: '/' })
         })
-        .catch(() => {
-          if (this.error) this.router.push('/feedback')
+        .catch((err) => {
+          err.map((err) => messagesFetch('danger', err))
         })
     },
   },
