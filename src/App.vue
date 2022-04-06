@@ -29,7 +29,7 @@ export default {
       return this.$store.state.auth.status.loggedIn
     },
     loading() {
-      return true
+      return this.$store.state.form.loading
     },
   },
   created() {
