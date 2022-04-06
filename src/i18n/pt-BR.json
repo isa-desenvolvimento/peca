@@ -102,6 +102,7 @@
     "DANGER_PASSWORD_CONFIRM": "SENHAS NÃO COINCIDEM",
     "SUCCESS_UPDATE": "Atualizado com sucesso!",
     "SUCCESS_CREATE": "Cadastrado com sucesso!",
+    "DANGER_PASSWORD_INVALID": "Senha inválida!",
     "SUCCESS_WITHDRAWAL": "Operação realizada! Em até 7 dias você receberá na conta corrente cadastrada"
   }
 }

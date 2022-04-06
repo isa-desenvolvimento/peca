@@ -80,9 +80,9 @@ export default {
         .then(() => {
           this.router.push({ path: '/' })
         })
-        .catch((err) => {
-          err.map((err) => messagesFetch('danger', err))
-        })
+        .catch(() =>
+          messagesFetch('danger', window.$t('MESSAGE.DANGER_PASSWORD_INVALID'))
+        )
     },
   },
 }
