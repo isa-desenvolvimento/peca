@@ -35,7 +35,7 @@
 
         <Tabe
           v-if="hasPeriodo"
-          :id_loja="id_loja"
+          :id-loja="id_loja"
           :type="type"
           @click="(filter) => setFilter('periodo', filter)"
         />
@@ -99,7 +99,7 @@ export default {
         this.setId(this.lojas[0].id)
 
         tab0.click()
-        tab0.focus()
+        // tab0.focus()
       }
     }, 100)
   },
@@ -115,8 +115,11 @@ export default {
       }
     },
     setFilter(item, value) {
+      // const tab0 = document.getElementById(`button_tap_0`)
+
       switch (item) {
         case 'id':
+          // tab0.focus()
           this.isFirst = true
           this.setId(value)
           break

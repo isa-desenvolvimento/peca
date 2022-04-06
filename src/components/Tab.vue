@@ -1,30 +1,52 @@
 <template>
   <div class="mb-3">
-    <div class="inline-flex justify-between w-full first:active" role="group">
-      <div v-for="(tab, index) in tabs" :key="tab" :aria-current="index === 0">
-        <button
-          :id="`button_tap_${index}`"
-          type="button"
-          class="inline-block px-3 py-2 bg-orange text-red font-medium font-manrope text-sm leading-snug uppercase focus:bg-yellow-ligth focus:outline-none focus:ring-0 active:bg-yellow-ligth active:text-red transition duration-150 ease-in-out"
-          @click="() => getPeriodo(tab)"
+    <div class="inline-flex justify-between w-full" role="group">
+      <ul
+        id="tabs-tab3"
+        class="nav nav-tabs list-none inline-flex justify-between w-full"
+        role="tablist"
+      >
+        <li
+          v-for="(tab, index) in tabs"
+          :key="tab"
+          class="nav-item text-red font-manrope text-xs font-bold focus:bg-yellow-ligth focus:text-red active:text-red"
+          role="presentation"
+          :aria-current="index === 0"
         >
-          {{ tab }} {{ $t('DAY') }}
-        </button>
-      </div>
-      <div>
-        <button
-          type="button"
-          class="inline-block px-3 py-2 bg-orange text-red font-medium font-manrope text-sm leading-snug uppercase focus:bg-yellow-ligth focus:outline-none focus:ring-0 active:bg-yellow-ligth active:text-red transition duration-150 ease-in-out"
-          data-bs-toggle="modal"
-          data-bs-target="#modalPeriod"
-          @click="(e) => getOthers(e)"
+          <a
+            :id="`button_tap_${index}`"
+            href="#"
+            class="nav-link w-full break-normal block text-red font-manrope text-sm leading-snug uppercase font-bold leading-tight uppercase py-3 my-2 px-4"
+            data-bs-toggle="pill"
+            :data-bs-target="`button_tap_${index}`"
+            role="tab"
+            :aria-controls="`button_tap_${index}`"
+            :aria-selected="index === 0"
+            @click="() => getPeriodo(tab)"
+          >
+            {{ tab }} {{ $t('DAY') }}</a
+          >
+        </li>
+        <li
+          class="nav-item text-red font-manrope text-xs font-bold focus:bg-yellow-ligth focus:text-red active:text-red"
+          role="presentation"
         >
-          {{ $t('OTHERS') }}
-        </button>
-      </div>
+          <a
+            id="button_tap"
+            href="#"
+            class="nav-link w-full break-normal block text-red font-manrope text-sm leading-snug uppercase font-bold leading-tight uppercase py-3 my-2 px-2"
+            data-bs-toggle="pill"
+            data-bs-target="button_tap"
+            role="tab"
+            @click="(e) => getOthers(e)"
+          >
+            {{ $t('OTHERS') }}
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
-  <Modal :id_loja="id_loja" :type="type" />
+  <Modal :id-loja="idLoja" :type="type" />
 </template>
 
 <script>
@@ -34,7 +56,7 @@ import Modal from '@/components/Modal.vue'
 export default {
   components: { Modal },
   props: {
-    id_loja: { type: String, required: true },
+    idLoja: { type: String, required: true },
     type: { type: String, required: true },
   },
   setup() {
@@ -52,3 +74,18 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.nav-tabs .nav-link.active {
+  color: var(--bg-red);
+  border-color: transparent;
+  background-color: var(--bg-yellow-ligth);
+  font-family: Manrope;
+  font-weight: bold;
+}
+
+.nav-tabs .nav-link {
+  color: var(--bg-red);
+  border-color: transparent;
+}
+</style>

@@ -77,7 +77,7 @@
 <script>
 export default {
   props: {
-    id_loja: { type: String, required: true },
+    idLoja: { type: String, required: true },
     type: { type: String, required: true },
   },
   setup() {
@@ -100,7 +100,7 @@ export default {
       e.preventDefault()
       this.$store.dispatch('list/getFilter', {
         type: this.type,
-        id_loja: this.id_loja,
+        id_loja: this.idLoja,
         ...this.value,
       })
     },
