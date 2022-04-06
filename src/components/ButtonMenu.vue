@@ -5,7 +5,7 @@
     @click="onclick"
   >
     <div
-      class="mx-auto h-[1.5rem] w-auto bg-contain bg-no-repeat bg-center text-white"
+      class="mx-auto h-[2.5rem] w-auto bg-contain bg-no-repeat bg-center text-white"
       :class="icon"
     ></div>
 

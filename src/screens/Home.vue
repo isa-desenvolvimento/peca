@@ -36,7 +36,7 @@
           :onclick="() => goToNext('/devolution')"
         />
         <ButtonMenu
-          classe="col-span-2 row-start-4 row-end-5 pt-2 pb-4"
+          classe="col-span-2 row-start-4 row-end-5 pt-2 pb-8"
           :name="$t('CONTRACT')"
           :onclick="() => goToNext('/contract')"
           icon="bg-icon-contrato"
