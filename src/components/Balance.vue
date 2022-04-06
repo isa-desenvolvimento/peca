@@ -67,8 +67,8 @@ export default {
   },
   data() {
     return {
-      balance_on_visible: true,
-      balance_off_visible: true,
+      balance_on_visible: false,
+      balance_off_visible: false,
     }
   },
 }
