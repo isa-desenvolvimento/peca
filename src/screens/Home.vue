@@ -1,9 +1,9 @@
 <template>
   <div
-    class="grid item-center bg-home-mobile bg-contain w-full bg-no-repeat bg-center lg:bg-left-center bg-scroll h-screen overflow-hidden ease-in duration-30"
+    class="grid grid-rows-3 item-center bg-home-mobile bg-contain w-full bg-no-repeat bg-center lg:bg-left-center bg-scroll h-screen overflow-hidden ease-in duration-30"
   >
     <div
-      class="mx-auto h-24 w-[75%] bg-logo-mobile bg-contain bg-no-repeat bg-left text-white mt-8"
+      class="mx-auto h-24 w-[75%] bg-logo-mobile bg-contain bg-no-repeat bg-left text-white mt-8 row-start-1"
     >
       <div class="ml-auto w-20" @click="() => goToNext('/profile')">
         <file-avatar :value="avatar" classe="w-12 h-12 my-6 ml-auto" />
@@ -11,32 +11,32 @@
     </div>
 
     <div
-      class="h-screen w-full m-auto lg:justify-end lg:grid-cols-4 grid place-content-center items-center"
+      class="h-screen w-full m-auto lg:justify-end lg:grid-cols-4 grid place-content-center items-center row-start-2"
     >
       <div
-        class="grid grid-cols-4 h-4/5 grid-rows-6 gap-4 justify-between lg:col-start-3"
+        class="grid grid-cols-4 h-3/5 grid-rows-8 gap-4 justify-between lg:col-start-3 lg:w-[80%]"
       >
         <ButtonMenu
-          classe="col-span-2 row-start-1 row-end-3"
+          classe="col-span-2 row-start-1 row-end-4"
           :name="$t('EXTRATC')"
           :onclick="() => goToNext('/extract')"
           icon="bg-icon-extrato"
         />
         <ButtonMenu
-          classe="col-span-2 row-start-1 row-end-4"
+          classe="col-span-2 row-start-1 row-end-6"
           :name="$t('PRODUCT')"
           :onclick="() => goToNext('/product')"
           icon="bg-icon-produto"
         />
 
         <ButtonMenu
-          classe="col-span-2 row-start-3 row-end-5 "
+          classe="col-span-2 row-start-4 row-end-7"
           :name="$t('DEVOLUTION')"
           icon="bg-icon-devolucao"
           :onclick="() => goToNext('/devolution')"
         />
         <ButtonMenu
-          classe="col-span-2 row-start-4 row-end-5 pt-2 pb-8"
+          classe="col-span-2 row-span-1 row-start-6 row-end-7 pt-2 pb-4"
           :name="$t('CONTRACT')"
           :onclick="() => goToNext('/contract')"
           icon="bg-icon-contrato"
