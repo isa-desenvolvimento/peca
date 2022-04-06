@@ -21,11 +21,11 @@
         </div>
         <hr
           v-if="slide.valor_consolidado"
-          class="col-span-3 text-yellow opacity-25 my-4 opacity-25"
+          class="col-span-3 text-yellow my-4 opacity-15"
         />
         <div
           v-if="slide.valor_consolidado"
-          class="col-span-3 opacity-25 text-orange font-manrope text-xs"
+          class="col-span-3 opacity-15 text-orange font-manrope text-xs"
         >
           {{ format(slide.valor_consolidado) }}
         </div>
@@ -61,10 +61,8 @@ export default {
       switch (this.type) {
         case 'extrato':
           return `R$ ${value.toFixed(2)}`
-        case 'estoque':
-          return `${value} peça(s)`
         default:
-          break
+          return `${value} peça(s)`
       }
     },
   },

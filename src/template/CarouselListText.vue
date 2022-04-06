@@ -12,7 +12,7 @@
           icon="bg-icon-marcador-menu"
           :onclick="(slide) => setFilter('id', slide)"
           :type="type"
-          color="bg-yellow"
+          :color="color"
         />
 
         <hr v-if="hasCarousel" class="col-span-2 text-yellow opacity-20 my-4" />
@@ -57,6 +57,7 @@ export default {
   props: {
     type: { type: String, required: true },
     title: { type: String, required: true },
+    color: { type: String, required: true },
     estoque: { type: String, required: true },
     hasCarousel: { type: Boolean, required: false, default: true },
   },

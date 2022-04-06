@@ -4,6 +4,7 @@
     :title="$t('MY_PRODUCT')"
     estoque="0"
     :has-carousel="false"
+    color="bg-yellow"
   />
 </template>
 

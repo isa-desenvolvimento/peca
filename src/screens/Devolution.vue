@@ -3,6 +3,7 @@
     type="devolucao"
     :title="$t('PENDING_RETURNS')"
     :estoque="null"
+    color="bg-red"
   />
 </template>
 
