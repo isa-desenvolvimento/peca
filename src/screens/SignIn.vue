@@ -96,6 +96,7 @@ export default {
           },
         })
         .then(() => {
+          this.router.push('/send-email')
           messagesFetch('success', window.$t('MESSAGE.SUCCESS_PASSWORD'))
         })
     },
