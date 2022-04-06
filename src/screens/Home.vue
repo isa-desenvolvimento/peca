@@ -5,7 +5,7 @@
     <div
       class="mx-auto h-24 w-[75%] bg-logo-mobile bg-contain bg-no-repeat bg-left text-white mt-8"
     >
-      <div @click="() => goToNext('/profile')">
+      <div class="ml-auto w-20" @click="() => goToNext('/profile')">
         <file-avatar :value="avatar" classe="w-12 h-12 my-6 ml-auto" />
       </div>
     </div>
