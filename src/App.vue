@@ -1,11 +1,12 @@
 <template>
   <div
-    v-if="loggedIn || isPublicPages"
+    v-if="loggedIn || (isPublicPages && !loading)"
     name="fade"
     class="bg-gradient-to-t from-pink3 via-pink2 to-pink4"
   >
     <router-view />
   </div>
+  <Loading v-else-if="loading" />
   <div v-else>
     <sign-in />
   </div>
@@ -16,14 +17,19 @@ import SignIn from '@/screens/SignIn.vue'
 import { PUBLIC_PAGES } from '@/router'
 import { setupAxiosToken } from '@/api/http.js'
 
+import Loading from '@/components/Loading.vue'
+
 export default {
-  components: { SignIn },
+  components: { SignIn, Loading },
   data() {
     return { isPublicPages: false }
   },
   computed: {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn
+    },
+    loading() {
+      return true
     },
   },
   created() {

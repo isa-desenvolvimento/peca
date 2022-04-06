@@ -4,6 +4,7 @@ import { messagesFetch } from '@/util/toast.js'
 const initialState = {
   data: [],
   errors: [],
+  loading: false,
 }
 
 const { create, update } = useForm()
@@ -43,6 +44,9 @@ export const form = {
       )
       commit('toast', payload)
     },
+    isLoading({ commit }) {
+      commit('loading')
+    },
   },
   mutations: {
     sucess(state, payload) {
@@ -55,6 +59,9 @@ export const form = {
     },
     toast(state, payload) {
       messagesFetch(payload.status, payload.message)
+    },
+    loading(state) {
+      state.loading = !state.loading
     },
   },
 }
