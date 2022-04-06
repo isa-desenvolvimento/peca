@@ -5,14 +5,14 @@
       <h4 class="text-yellow text-base font-manrope">
         {{ $t('BALANCE_ON') }}
       </h4>
-      <div class="grid grid-cols-4 text-left justify-items-start">
+      <div class="grid grid-cols-8 text-left justify-items-start">
         <eye
-          class="ml-[-.7rem]"
+          class="ml-[-.7rem] lg:ml-0 col-span-1 lg:col-start-1"
           @toggle="balance_on_visible = !balance_on_visible"
         />
         <span
           v-if="balance_on_visible"
-          class="col-span-3 text-left text-yellow font-manrope"
+          class="col-span-4 col-start-3 lg:col-start-2 text-left text-yellow font-manrope"
         >
           {{ `R$ ${balance?.disponivel}` }}
         </span>
@@ -25,11 +25,14 @@
       >
         {{ $t('BALANCE_OFF') }}
       </h4>
-      <div class="grid grid-cols-2 justify-end text-right justify-items-end">
-        <eye @toggle="balance_off_visible = !balance_off_visible" />
+      <div class="grid grid-cols-8 justify-end text-right justify-items-end">
+        <eye
+          class="col-span-4 lg:col-start-4"
+          @toggle="balance_off_visible = !balance_off_visible"
+        />
         <span
           v-if="balance_off_visible"
-          class="col-span-1 text-left text-yellow font-manrope"
+          class="col-span-4 lg:col-start-8 text-left text-yellow font-manrope"
         >
           {{ `R$ ${balance?.bloqueado}` }}
         </span>
