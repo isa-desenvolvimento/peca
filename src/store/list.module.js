@@ -9,9 +9,12 @@ export const list = {
   state: initialState,
   actions: {
     getLojas({ commit }, type) {
+      this.dispatch('form/loading')
       return getLojas(type).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: 'lojas' })
+          this.dispatch('form/loading')
+
           return Promise.resolve(payload.data)
         },
         (error) => {
@@ -21,9 +24,13 @@ export const list = {
       )
     },
     getList({ commit }, type) {
+      this.dispatch('form/loading')
+
       return getList(type).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type })
+          this.dispatch('form/loading')
+
           return Promise.resolve(payload.data)
         },
         (error) => {
@@ -33,9 +40,13 @@ export const list = {
       )
     },
     getFilter({ commit }, value) {
+      this.dispatch('form/loading')
+
       return getFilter(value).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: value.type })
+          this.dispatch('form/loading')
+
           return Promise.resolve(payload.data)
         },
         (error) => {
@@ -45,9 +56,13 @@ export const list = {
       )
     },
     getListEstoque({ commit }, value) {
+      this.dispatch('form/loading')
+
       return getListEstoque(value).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: value.type })
+          this.dispatch('form/loading')
+
           return Promise.resolve(payload.data)
         },
         (error) => {

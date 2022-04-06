@@ -14,9 +14,13 @@ export const form = {
   state: initialState,
   actions: {
     create({ commit }, { value, type }) {
+      this.dispatch('form/loading')
+
       return create(type, value).then(
         (payload) => {
           commit('sucess', payload)
+          this.dispatch('form/loading')
+
           return Promise.resolve(payload)
         },
         (error) => {
@@ -26,9 +30,13 @@ export const form = {
       )
     },
     update({ commit }, { value, type }) {
+      this.dispatch('form/loading')
+
       return update(type, value).then(
         (payload) => {
           commit('sucess', payload)
+          this.dispatch('form/loading')
+
           messagesFetch('success', window.$t('MESSAGE.SUCCESS_UPDATE'))
           return Promise.resolve(payload)
         },
