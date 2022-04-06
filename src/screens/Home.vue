@@ -3,10 +3,10 @@
     class="grid item-center bg-home-mobile bg-contain w-full bg-no-repeat bg-center lg:bg-left-center bg-scroll h-screen overflow-hidden ease-in duration-30"
   >
     <div
-      class="mx-auto h-24 w-full bg-logo-mobile bg-contain bg-no-repeat bg-left text-white"
+      class="mx-auto h-24 w-[75%] bg-logo-mobile bg-contain bg-no-repeat bg-left text-white mt-8"
     >
       <div @click="() => goToNext('/profile')">
-        <file-avatar :value="avatar" classe="w-10 h-10 my-4 ml-auto mr-4" />
+        <file-avatar :value="avatar" classe="w-12 h-12 my-6 ml-auto" />
       </div>
     </div>
 
