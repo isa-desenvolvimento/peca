@@ -24,7 +24,13 @@
           </div>
         </div>
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST" @submit="submit">
+      <form
+        class="mt-8 space-y-6"
+        action="#"
+        method="POST"
+        @submit="submit"
+        @keyup.enter="submit"
+      >
         <div
           class="font-manrope font-bold text-center text-white grid justify-center"
         >
@@ -54,8 +60,8 @@
 
             <eye
               v-if="inputType === 'password'"
-              @toggle="toggle"
               class="bg-white col-span-2"
+              @toggle="toggle"
             />
           </div>
         </div>
@@ -93,7 +99,7 @@ export default {
     submit: { type: Function, required: true },
   },
   data() {
-    return { value: '', color: 'text-white', inputType2: ''}
+    return { value: '', color: 'text-white', inputType2: '' }
   },
   created() {
     this.inputType2 = this.inputType
@@ -101,7 +107,7 @@ export default {
   methods: {
     toggle() {
       this.inputType2 = this.inputType2 === 'password' ? 'text' : 'password'
-    }
-  }
+    },
+  },
 }
 </script>
