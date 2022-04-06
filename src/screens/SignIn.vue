@@ -19,7 +19,6 @@
     :title="$t('HELLO')"
     :subtitle="` ${apelido}!`"
     :description="$t('YOUR_PASSWORD_ACCESS')"
-    mask=""
   />
 </template>
 

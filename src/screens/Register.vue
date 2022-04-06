@@ -365,7 +365,7 @@ export default {
           JSON.stringify({ email: this.value.email, tel: this.value.tel })
         )
 
-        messagesFetch('success', this.$t('MESSAGE.SUCCESS_CREATE')) 
+        messagesFetch('success', this.$t('MESSAGE.SUCCESS_CREATE'))
         this.$router.push({
           path: '/termo',
           params: {

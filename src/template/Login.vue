@@ -41,16 +41,23 @@
             @change="$emit('update:modelValue', $event.target.value)"
           />
 
-          <input
-            v-else
-            :id="inputName"
-            :name="inputType"
-            :type="inputType"
-            :autocomplete="inputType"
-            required=""
-            class="appearance-none border bg-yellow w-60 px-3 py-2 border-white placeholder-white text-white focus:outline-none focus:border-white sm:text-sm"
-            @change="$emit('update:modelValue', $event.target.value)"
-          />
+          <div v-else class="bg-white w-60 grid grid-cols-8">
+            <input
+              :id="inputName"
+              :name="inputType"
+              :type="inputType2"
+              :autocomplete="inputType"
+              required=""
+              class="appearance-none border bg-yellow col-span-6 px-3 py-2 border-white placeholder-white text-white focus:outline-none focus:border-white sm:text-sm"
+              @change="$emit('update:modelValue', $event.target.value)"
+            />
+
+            <eye
+              v-if="inputType === 'password'"
+              @toggle="toggle"
+              class="bg-white col-span-2"
+            />
+          </div>
         </div>
 
         <div>
@@ -69,9 +76,10 @@
 <script>
 import Title from '@/components/Title.vue'
 import Description from '@/components/Description.vue'
+import Eye from '@/components/Eye.vue'
 
 export default {
-  components: { Title, Description },
+  components: { Title, Description, Eye },
 
   props: {
     inputName: { type: String, required: true },
@@ -85,7 +93,15 @@ export default {
     submit: { type: Function, required: true },
   },
   data() {
-    return { value: '', color: 'text-white' }
+    return { value: '', color: 'text-white', inputType2: ''}
   },
+  created() {
+    this.inputType2 = this.inputType
+  },
+  methods: {
+    toggle() {
+      this.inputType2 = this.inputType2 === 'password' ? 'text' : 'password'
+    }
+  }
 }
 </script>
