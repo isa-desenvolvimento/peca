@@ -35,9 +35,9 @@
             id="button_tap"
             href="#"
             class="nav-link w-full break-normal block text-red font-manrope text-sm leading-snug uppercase font-bold leading-tight uppercase py-3 my-2 px-2"
-            data-bs-toggle="pill"
-            data-bs-target="button_tap"
+            data-bs-toggle="modal"
             role="tab"
+            data-bs-target="#modalPeriod"
             @click="(e) => getOthers(e)"
           >
             {{ $t('OTHERS') }}

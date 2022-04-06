@@ -1,6 +1,6 @@
 <template>
   <div
-    id="modalPeriod"
+    id="modalTaxa"
     class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
@@ -19,38 +19,11 @@
             id="exampleModalLabel"
             class="text-xl font-medium leading-normal text-red"
           >
-            {{ $t('PERIOD') }}
+            {{ $t('CONFIRMATION') }}
           </h5>
-          <button
-            type="button"
-            class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
         </div>
-        <div class="modal-body relative p-4 grid grid-cols-2 gap-2">
-          <div class="col-span-1">
-            <label class="text-red">{{ $t('FROM') }}</label>
-            <input
-              v-model="value.data_inicio"
-              name="date_from"
-              type="date"
-              required
-              class="appearance-none w-full uppercase col-span-4 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
-            />
-          </div>
-
-          <div class="col-span-1">
-            <label class="text-red">{{ $t('UNTIL') }}</label>
-            <input
-              v-model="value.data_fim"
-              :min="value.de"
-              name="date_until"
-              type="date"
-              required
-              class="appearance-none w-full uppercase col-span-4 border bg-orange px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
-            />
-          </div>
+        <div class="modal-body relative p-4 text-red font-medium font-manrope">
+          Será cobrado uma taxa de {{ taxa }} para realizar o saque.
         </div>
         <div
           class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-white rounded-b-md"
@@ -60,13 +33,15 @@
             data-bs-dismiss="modal"
             class="px-6 py-2.5 bg-red text-orange font-manrope rounded-md font-bold text-xs leading-tight uppercase rounded hover:bg-blue-700 focus:outline-none transition duration-150 ease-in-out ml-1"
           >
-            {{ $t('APPLY') }}
+            {{ $t('OK') }}
           </button>
           <button
             type="button"
+            data-bs-dismiss="modal"
+            aria-label="Close"
             class="px-6 py-2.5 bg-transparent text-red font-manrope font-bold text-xs leading-tight uppercase rounded hover:bg-purple-700 focus:outline-none focus:ring-0transition duration-150 ease-in-out"
           >
-            {{ $t('CLEAR') }}
+            {{ $t('CANCEL') }}
           </button>
         </div>
       </form>
@@ -77,8 +52,7 @@
 <script>
 export default {
   props: {
-    idLoja: { type: String, required: true },
-    type: { type: String, required: true },
+    taxa: { type: String, required: true },
   },
   setup() {
     return {
@@ -90,19 +64,9 @@ export default {
     }
   },
   methods: {
-    clear() {
-      this.value = {
-        data_inicio: null,
-        data_fim: null,
-      }
-    },
     apply(e) {
       e.preventDefault()
-      this.$store.dispatch('list/getFilter', {
-        type: this.type,
-        id_loja: this.idLoja,
-        ...this.value,
-      })
+      this.$emit('withDrawal', e)
     },
   },
 }
