@@ -21,7 +21,7 @@
         </div>
         <hr
           v-if="slide.valor_consolidado"
-          class="col-span-3 text-yellow my-4 opacity-15"
+          class="col-span-3 text-yellow-ligth my-4 opacity-25"
         />
         <div
           v-if="slide.valor_consolidado"
