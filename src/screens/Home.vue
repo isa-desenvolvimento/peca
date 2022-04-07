@@ -3,7 +3,7 @@
     class="grid grid-rows-3 item-center bg-home-mobile bg-contain w-full bg-no-repeat bg-center lg:bg-left-center bg-scroll h-screen overflow-hidden ease-in duration-30"
   >
     <div
-      class="mx-auto h-24 w-[75%] bg-logo-mobile bg-contain bg-no-repeat bg-left text-white mt-8 row-start-1"
+      class="mx-auto h-24 w-[75%] bg-logo-mobile bg-contain bg-no-repeat bg-left text-white mt-8 row-span-1"
     >
       <div class="ml-auto w-20" @click="() => goToNext('/profile')">
         <file-avatar :value="avatar" classe="w-12 h-12 my-6 ml-auto" />
@@ -11,11 +11,14 @@
     </div>
 
     <div
-      class="h-screen w-full m-auto lg:justify-end lg:grid-cols-4 grid place-content-center items-center row-start-2"
+      class="w-full m-auto lg:justify-end lg:grid-cols-4 grid place-content-center items-center row-start-2 row-end-8"
     >
       <div
-        class="grid grid-cols-4 h-3/5 grid-rows-8 gap-4 justify-between lg:col-start-3 lg:w-[80%]"
+        class="grid grid-cols-4 grid-rows-8 gap-4 justify-between lg:col-start-3 lg:w-[80%]"
       >
+        <!-- <div
+        class="grid grid-cols-4 h-3/5 grid-rows-8 gap-4 justify-between lg:col-start-3 lg:w-[80%]"
+      > -->
         <ButtonMenu
           classe="col-span-2 row-start-1 row-end-4"
           :name="$t('EXTRATC')"
