@@ -35,12 +35,14 @@
             id="button_tap"
             href="#"
             class="nav-link w-full break-normal block text-red font-manrope text-sm leading-snug uppercase font-bold leading-tight uppercase py-3 my-2 px-2"
-            data-bs-toggle="modal"
+            data-bs-toggle="pill"
             role="tab"
             data-bs-target="#modalPeriod"
             @click="(e) => getOthers(e)"
           >
-            {{ $t('OTHERS') }}
+            <a data-bs-toggle="modal" data-bs-target="#modalPeriod">
+              {{ $t('OTHERS') }}
+            </a>
           </a>
         </li>
       </ul>
