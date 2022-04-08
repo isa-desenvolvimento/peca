@@ -46,12 +46,11 @@
 } */
 
 ::-webkit-scrollbar {
-  width: 1px;
+  width: 2px;
 }
 
 ::-webkit-scrollbar-track {
   background: transparent;
-  margin-left: 2px;
 }
 
 ::-webkit-scrollbar-track:hover {
@@ -60,7 +59,7 @@
 
 ::-webkit-scrollbar-thumb {
   background: var(--bg-yellow-ligth);
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
