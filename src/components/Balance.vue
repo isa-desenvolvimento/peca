@@ -27,12 +27,12 @@
       </h4>
       <div class="grid grid-cols-8 justify-end text-right justify-items-end">
         <eye
-          class="col-span-4 lg:col-start-4"
+          class="col-span-1 col-start-3 lg:col-start-6"
           @toggle="balance_off_visible = !balance_off_visible"
         />
         <span
           v-if="balance_off_visible"
-          class="col-span-4 lg:col-start-8 text-left text-yellow font-manrope"
+          class="col-span-4 col-start-4 lg:col-start-7 text-left text-yellow font-manrope"
         >
           {{ `R$ ${balance?.bloqueado || '0,00'}` }}
         </span>
