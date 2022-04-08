@@ -1,6 +1,6 @@
 <template>
   <button
-    class="p-5 bg-yellow e opacity-90 rounded-md shadow-xl items-center hover:bg-white-100 text-center drop-shadow-2xl disabled:opacity-75 disabled:cursor-not-allowed"
+    class="p-5 bg-yellow e opacity-90 rounded-md  shadow-[7px_7px_9px_rgb(71,2,2,35%)] items-center hover:bg-white-100 text-center disabled:opacity-75 disabled:cursor-not-allowed"
     :class="classe"
     @click="onclick"
   >

@@ -23,6 +23,7 @@ module.exports = {
       white: '#FFFFFF',
       transparent: '#00ffff00',
       red: '#c63f3b',
+      'red-light': '#47020259',
       pink: '#e4898e',
       pink2: '#e28689',
       pink3: '#e18487',
