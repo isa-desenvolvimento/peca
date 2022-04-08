@@ -1,16 +1,17 @@
 <template>
   <Carousel
+    ref="nav"
     :items-to-show="3"
     :wrap-around="true"
     :style="{
       position: slides?.length > 1 ? 'inherit !important' : 'relative',
     }"
   >
-    <Slide v-for="slide in slides" :key="slide">
+    <Slide v-for="(slide, index) in slides" :key="slide">
       <div
         class="carousel__item w-full grid grid-cols-3 place-content-center py-2"
         :class="color"
-        @click="() => onclick(slide.id)"
+        @click="() => onClickSlide(slide, index)"
       >
         <div
           class="mx-auto h-10 w-10 bg-contain bg-no-repeat bg-center col-span-3"
@@ -51,6 +52,7 @@
 
 <script>
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
+import { inject } from 'vue'
 
 import 'vue3-carousel/dist/carousel.css'
 
@@ -67,6 +69,11 @@ export default {
     color: { type: String },
     icon: { type: String, required: true, default: 'con-marcador-menu' },
   },
+  setup() {
+    const nav = inject('nav', {})
+
+    return { nav }
+  },
   methods: {
     format(value) {
       switch (this.type) {
@@ -75,6 +82,10 @@ export default {
         default:
           return `${value} peça(s)`
       }
+    },
+    onClickSlide(slide, index) {
+      this.nav.slideTo(index)
+      this.onclick(slide.id)
     },
   },
 }
