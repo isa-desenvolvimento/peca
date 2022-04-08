@@ -116,7 +116,7 @@ export default {
       if (
         this.lists?.movimentos.length > 1 ||
         this.lists?.movimentos[0].periodos.length > 2 ||
-        this.lists?.movimentos.periodos[0].items.length > 2
+        this.lists?.movimentos[0].periodos[0].itens.length > 2
       ) {
         return true
       }
