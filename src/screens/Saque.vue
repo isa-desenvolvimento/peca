@@ -58,13 +58,16 @@
         <div class="grid grid-cols-4">
           <TitleSubtitle
             :title="$t('TRANSFER_RATE')"
-            :subtitle="`R$ ${list?.fornecedor?.taxa_banco.toFixed(2) ?? 0}`"
+            :subtitle="`R$ ${
+              list?.fornecedor?.taxa_banco.toFixed(2) || '0,00'
+            }`"
             class="col-span-2"
           />
           <TitleSubtitle
             :title="$t('BALANCE_ON')"
             :subtitle="`R$ ${
-              fornecedor?.sado_disponivel?.saldo_liberado.toFixed(2) ?? 0.0
+              list.fornecedor?.sado_disponivel?.saldo_liberado.toFixed(2) ||
+              '0,00'
             }`"
             class="col-span-2"
           />
