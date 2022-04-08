@@ -102,7 +102,7 @@
   </div>
   <ModalConfirmation
     :taxa="`R$ ${list?.fornecedor?.taxa_banco.toFixed(2) ?? 0}`"
-    @withDrawal="withDrawal"
+    :with-drawal="withDrawal"
   />
 </template>
 

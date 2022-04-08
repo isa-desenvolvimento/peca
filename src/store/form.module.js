@@ -14,12 +14,12 @@ export const form = {
   state: initialState,
   actions: {
     create({ commit }, { value, type }) {
-      commit('form/loading')
+      commit('loading')
 
       return create(type, value).then(
         (payload) => {
           commit('sucess', payload)
-          commit('form/loading')
+          commit('loading')
 
           return Promise.resolve(payload)
         },
@@ -30,12 +30,12 @@ export const form = {
       )
     },
     update({ commit }, { value, type }) {
-      commit('form/loading')
+      commit('loading')
 
       return update(type, value).then(
         (payload) => {
           commit('sucess', payload)
-          commit('form/loading')
+          commit('loading')
 
           messagesFetch('success', window.$t('MESSAGE.SUCCESS_UPDATE'))
           return Promise.resolve(payload)

@@ -10,7 +10,7 @@
       <form
         action="#"
         class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-orange bg-clip-padding rounded-md outline-none text-current"
-        @submit="(e) => apply(e)"
+        @submit="withDrawal"
       >
         <div
           class="modal-header col-span-1 flex flex-shrink-0 items-center justify-between p-4 border-b border-white rounded-t-md"
@@ -53,6 +53,7 @@
 export default {
   props: {
     taxa: { type: String, required: true },
+    withDrawal: { type: Function, required: true },
   },
   setup() {
     return {
@@ -62,12 +63,6 @@ export default {
       },
       min: null,
     }
-  },
-  methods: {
-    apply(e) {
-      e.preventDefault()
-      this.$emit('withDrawal', e)
-    },
   },
 }
 </script>
