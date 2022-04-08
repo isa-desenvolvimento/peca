@@ -88,13 +88,15 @@
           @input="disable"
         />
 
-        <div>
+        <div class="text-center mt-8">
+          <TitleSubtitle :title="$t('NOT_ACCOUNT')" />
+
           <button
             :disabled="disabled"
             type="submit"
             data-bs-target="#modalTaxa"
             data-bs-toggle="modal"
-            class="appearance-none rounded-md uppercase font-manrope font-bold bg-red mx-auto group relative leading-normal flex justify-center mt-8 py-2 px-10 text-xs text-orange disabled:opacity-50 disabled:cursor-not-allowed"
+            class="appearance-none rounded-md uppercase font-manrope font-bold bg-red mx-auto group relative leading-normal flex justify-center py-2 px-10 text-xs text-orange disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {{ $t('REQUEST_TRANSFER') }}
           </button>
