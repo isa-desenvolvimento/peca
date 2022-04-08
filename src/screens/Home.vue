@@ -8,7 +8,7 @@
       <div class="ml-auto w-20" @click="() => goToNext('/profile')">
         <file-avatar
           :value="avatar"
-          classe="w-12 h-12 my-6 ml-auto md:w-18 md:h-18 lg:w-12 lg:h-12"
+          classe="w-12 h-12 my-6 ml-auto md:w-20 md:h-20 lg:w-12 lg:h-12"
         />
       </div>
     </div>
