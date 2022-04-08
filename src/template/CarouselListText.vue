@@ -5,7 +5,7 @@
     >
       <Header :title="title" />
 
-      <div class="row-span-6 my-8 md:w-6/12 md:mx-auto">
+      <div class="row-span-6 my-8 md:w-6/12 md:mx-auto relative">
         <Carousel
           v-if="hasCarousel"
           id="jump_to_me"
