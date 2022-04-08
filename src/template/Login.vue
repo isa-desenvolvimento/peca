@@ -29,7 +29,7 @@
         action="#"
         method="POST"
         @submit="submit"
-        @keyup.enter="submit"
+        @keyup.enter="() => submit()"
       >
         <div
           class="font-manrope font-bold text-center text-white grid justify-center"
