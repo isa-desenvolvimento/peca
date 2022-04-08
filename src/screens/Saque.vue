@@ -157,7 +157,7 @@ export default {
 
       const withDrawalValue = {
         loja: parseInt(this.loja),
-        value: this.saque.split('R$ ')[1],
+        value: this.saque,
         notAdd: true,
       }
 
