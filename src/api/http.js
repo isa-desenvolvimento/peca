@@ -1,6 +1,6 @@
 import axios from 'axios'
-export const URL = 'https://prbko.dev.lpbc.com.br' // dev
-// export const URL = 'https://prbko.pecararabrecho.com.br' // prod
+// export const URL = 'https://prbko.dev.lpbc.com.br' // dev
+export const URL = 'https://prbko.pecararabrecho.com.br' // prod
 
 export const http_api = axios.create({
   baseURL: URL,
