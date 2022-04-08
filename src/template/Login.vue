@@ -28,7 +28,7 @@
         class="mt-8 space-y-6"
         action="#"
         method="POST"
-        @submit="submit"
+        @submit="() => submit()"
         @keyup.enter="() => submit()"
       >
         <div

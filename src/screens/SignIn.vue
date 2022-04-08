@@ -74,10 +74,14 @@ export default {
     login(e) {
       e.preventDefault()
 
+      if (this.pwd) {
+        sessionStorage.pwd = this.pwd
+      }
+
       this.$store
         .dispatch('auth/login', {
           doc: this.doc || sessionStorage.doc,
-          pwd: this.pwd,
+          pwd: this.pwd || sessionStorage.pwd,
         })
         .then(() => {
           this.router.push({ path: '/' })
