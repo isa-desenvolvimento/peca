@@ -2,25 +2,28 @@
   <translation name="fade">
     <div class="bg-orange h-screen p-8 relative overflow-y-auto">
       <Header :title="title" />
-      <div class="relative grid grid-rows-7 md:w-6/12 md:mx-auto">
+      <div class="grid grid-rows-7 md:mx-auto">
         <div
-          class="row-span-6 my-8 md:w-11/12 md:mx-auto overflow-y-auto px-6"
+          class="row-span-6 my-8 md:w-8/12 mx-auto overflow-y-auto"
           @scroll="
             () => {
               showmore = true
             }
           "
         >
-          <Carousel
-            v-if="hasCarousel"
-            id="jump_to_me"
-            :slides="lojas"
-            icon="bg-icon-marcador-menu"
-            :onclick="(slide) => setId(slide)"
-            :type="type"
-            :color="color"
-          />
-
+          <div class="relative">
+            <div class="px-6 md:px-8 mx-auto">
+              <Carousel
+                v-if="hasCarousel"
+                id="jump_to_me"
+                :slides="lojas"
+                icon="bg-icon-marcador-menu"
+                :onclick="(slide) => setId(slide)"
+                :type="type"
+                :color="color"
+              />
+            </div>
+          </div>
           <hr
             v-if="hasCarousel"
             class="col-span-2 text-yellow opacity-20 my-4"

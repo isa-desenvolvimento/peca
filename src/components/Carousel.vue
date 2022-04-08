@@ -9,7 +9,7 @@
   >
     <Slide v-for="(slide, index) in slides" :key="slide">
       <div
-        class="carousel__item w-full grid grid-cols-3 place-content-center py-2"
+        class="carousel__item w-full grid grid-cols-3 place-content-center py-2 "
         :class="color"
         @click="() => onClickSlide(slide, index)"
       >
@@ -93,7 +93,7 @@ export default {
 
 <style>
 .carousel__item {
-  min-height: 8rem;
+  /* min-height: 4rem; */
   /* font-size: 20px;
   display: flex;
   justify-content: center;

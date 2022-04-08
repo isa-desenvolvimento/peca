@@ -3,23 +3,27 @@
     <div class="bg-orange h-screen p-8 relative overflow-y-auto">
       <Header :title="title" />
 
-      <div class="relative grid grid-rows-7 md:w-6/12 md:mx-auto">
+      <div class="grid grid-rows-7 md:mx-auto">
         <div
-          class="row-span-6 my-8 md:w-11/12 md:mx-auto overflow-y-auto px-6"
+          class="row-span-6 my-8 md:w-8/12 mx-auto overflow-y-auto"
           @scroll="
             () => {
               showmore = true
             }
           "
         >
-          <Carousel
-            id="jump_to_me"
-            :slides="lojas"
-            icon="bg-icon-marcador-menu"
-            :onclick="(slide) => setFilter('id', slide)"
-            :type="type"
-            color="bg-red"
-          />
+          <div class="relative">
+            <div class="px-6 md:px-8 mx-auto">
+              <Carousel
+                id="jump_to_me"
+                :slides="lojas"
+                icon="bg-icon-marcador-menu"
+                onclick="(slide) => setFilter('id', slide)"
+                :type="type"
+                color="bg-red"
+              />
+            </div>
+          </div>
 
           <hr
             v-if="!hasBalance"
