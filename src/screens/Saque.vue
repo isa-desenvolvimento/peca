@@ -2,7 +2,7 @@
   <div class="bg-orange h-screen grid grid-rows-7 p-8 relative">
     <Header :title="$t('WITHDRAWAL_REQUEST')" />
 
-    <div class="overflow-hidden row-span-6 my-8 md:w-6/12 md:mx-auto relative">
+    <div class="row-span-6 my-8 md:w-6/12 md:mx-auto relative">
       <section>
         <div
           class="col-span-4 f mt-4 uppercase bg-orange font-manrope py-2 border-red placeholder-red text-red text-left text-md font-bold"
