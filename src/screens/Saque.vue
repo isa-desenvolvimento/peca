@@ -80,7 +80,6 @@
         />
         <input
           v-model="saque"
-          v-mask="'R$ ####,##'"
           name="money"
           type="num"
           required
