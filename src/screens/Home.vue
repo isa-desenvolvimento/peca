@@ -3,7 +3,7 @@
     class="grid grid-rows-3 item-center bg-home-mobile bg-contain w-full bg-no-repeat bg-center lg:bg-left-center bg-scroll h-screen overflow-hidden ease-in duration-30"
   >
     <div
-      class="mx-auto h-24 w-[75%] bg-logo-mobile bg-contain bg-no-repeat bg-left text-white mt-8 row-span-1"
+      class="mx-auto h-24 lg:h-28 w-[75%] bg-logo-mobile bg-contain bg-no-repeat bg-left text-white mt-8 row-span-1"
     >
       <div class="ml-auto w-20" @click="() => goToNext('/profile')">
         <file-avatar
