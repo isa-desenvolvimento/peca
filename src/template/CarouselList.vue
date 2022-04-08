@@ -4,7 +4,7 @@
       <Header :title="title" />
 
       <div
-        class="row-span-6 my-8 md:w-6/12 md:mx-auto"
+        class="row-span-6 my-8 md:w-6/12 md:mx-auto relative"
         :class="
           showmore
             ? 'overflow-y-auto'
