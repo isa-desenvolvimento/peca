@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-orange h-screen grid p-8">
+  <div class="bg-orange h-screen grid p-8 overflow-y-auto">
     <Header :title="$t('PROFILE')" />
     <div class="mx-auto" uppercase>
       <form
