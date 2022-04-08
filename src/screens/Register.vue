@@ -360,12 +360,13 @@ export default {
         value: this.value,
         type: 'fornecedor',
       }).then(() => {
+        debugger
         sessionStorage.setItem(
           'fornecedor',
           JSON.stringify({ email: this.value.email, tel: this.value.tel })
         )
 
-        messagesFetch('success', this.$t('MESSAGE.SUCCESS_CREATE'))
+        messagesFetch('success', window.$t('MESSAGE.SUCCESS_CREATE'))
         this.$router.push({
           path: '/termo',
           params: {
