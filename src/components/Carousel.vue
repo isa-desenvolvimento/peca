@@ -32,8 +32,19 @@
       </div>
     </Slide>
 
-    <template #addons="{ slidesCount }">
-      <Navigation v-if="slidesCount > 1" />
+    <template #addons="{ slidesCount, currentSlide }">
+      <Navigation v-if="slidesCount > 1">
+        <template #next>
+          <button @click="() => onclick(slides[currentSlide + 1].id)">
+            {{ '>' }}
+          </button>
+        </template>
+        <template #prev>
+          <button @click="() => onclick(slides[currentSlide - 1].id)">
+            {{ '<' }}
+          </button>
+        </template>
+      </Navigation>
     </template>
   </Carousel>
 </template>

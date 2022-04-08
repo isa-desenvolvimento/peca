@@ -10,7 +10,7 @@
           v-if="hasCarousel"
           :slides="lojas"
           icon="bg-icon-marcador-menu"
-          :onclick="(slide) => setFilter('id', slide)"
+          :onclick="(slide) => setId(slide)"
           :type="type"
           :color="color"
         />
