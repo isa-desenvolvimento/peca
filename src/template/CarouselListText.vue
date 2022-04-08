@@ -4,7 +4,7 @@
       <Header :title="title" />
       <div class="grid grid-rows-7 md:mx-auto">
         <div
-          class="row-span-6 my-8 md:w-8/12 mx-auto overflow-y-auto"
+          class="row-span-6 my-8 md:w-6/12 mx-auto overflow-y-auto"
           @scroll="
             () => {
               showmore = true
