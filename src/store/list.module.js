@@ -9,11 +9,11 @@ export const list = {
   state: initialState,
   actions: {
     getLojas({ commit }, type) {
-      this.dispatch('form/loading')
+      this.dispatch('form/setLoading')
       return getLojas(type).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: 'lojas' })
-          this.dispatch('form/loading')
+          this.dispatch('form/setLoading')
 
           return Promise.resolve(payload.data)
         },
@@ -24,12 +24,12 @@ export const list = {
       )
     },
     getList({ commit }, type) {
-      this.dispatch('form/loading')
+      this.dispatch('form/setLoading')
 
       return getList(type).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type })
-          this.dispatch('form/loading')
+          this.dispatch('form/setLoading')
 
           return Promise.resolve(payload.data)
         },
@@ -40,12 +40,12 @@ export const list = {
       )
     },
     getFilter({ commit }, value) {
-      this.dispatch('form/loading')
+      this.dispatch('form/setLoading')
 
       return getFilter(value).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: value.type })
-          this.dispatch('form/loading')
+          this.dispatch('form/setLoading')
 
           return Promise.resolve(payload.data)
         },
@@ -56,12 +56,12 @@ export const list = {
       )
     },
     getListEstoque({ commit }, value) {
-      this.dispatch('form/loading')
+      this.dispatch('form/setLoading')
 
       return getListEstoque(value).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: value.type })
-          this.dispatch('form/loading')
+          this.dispatch('form/setLoading')
 
           return Promise.resolve(payload.data)
         },

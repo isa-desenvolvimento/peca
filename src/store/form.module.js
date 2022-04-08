@@ -14,12 +14,12 @@ export const form = {
   state: initialState,
   actions: {
     create({ commit }, { value, type }) {
-      this.dispatch('form/loading')
+      commit('form/loading')
 
       return create(type, value).then(
         (payload) => {
           commit('sucess', payload)
-          this.dispatch('form/loading')
+          commit('form/loading')
 
           return Promise.resolve(payload)
         },
@@ -30,12 +30,12 @@ export const form = {
       )
     },
     update({ commit }, { value, type }) {
-      this.dispatch('form/loading')
+      commit('form/loading')
 
       return update(type, value).then(
         (payload) => {
           commit('sucess', payload)
-          this.dispatch('form/loading')
+          commit('form/loading')
 
           messagesFetch('success', window.$t('MESSAGE.SUCCESS_UPDATE'))
           return Promise.resolve(payload)
@@ -52,7 +52,7 @@ export const form = {
       )
       commit('toast', payload)
     },
-    isLoading({ commit }) {
+    setLoading({ commit }) {
       commit('loading')
     },
   },
