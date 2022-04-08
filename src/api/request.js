@@ -56,5 +56,8 @@ export const fetchtCityDropdown = async (uf) => {
 
 export const fetchtCep = async (cep) => {
   const response = await http_cep(`?code=${cep}`)
+
+  if (response.data.status !== 200)
+    return messagesFetch('danger', response.data.message)
   return response.status == 200 && response.data
 }

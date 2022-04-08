@@ -336,8 +336,8 @@ export default {
       })
     },
     getAddress(e) {
-      this.dispatch('dropdown/getCep', e.target.value)
-        .then(async (response) => {
+      this.dispatch('dropdown/getCep', e.target.value).then(
+        async (response) => {
           const ufIndex = this.dropdownUF.findIndex(
             (uf) => uf.cod === response.state
           )
@@ -348,10 +348,8 @@ export default {
           this.value.uf = this.dropdownUF[ufIndex].id
           this.value.logradouro = response.address
           this.value.bairro = response.district
-        })
-        .catch((err) => {
-          messagesFetch('danger', err.message)
-        })
+        }
+      )
     },
 
     submit(e) {
