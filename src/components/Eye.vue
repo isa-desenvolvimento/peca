@@ -1,5 +1,5 @@
 <template>
-  <div class="self-center" @click="toggle">
+  <div class="self-center cursor-pointer" @click="toggle">
     <div
       v-if="!visible"
       class="mx-auto h-3 w-10 bg-icon-easy bg-contain bg-no-repeat bg-center text-white transition-linear duration-100"
