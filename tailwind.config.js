@@ -33,7 +33,7 @@ module.exports = {
       'yellow-ligth': '#fedba1',
     },
     fontSize: {
-      xs: '.75rem',
+      xs: '.700rem',
       sm: '.875rem',
       base: '1rem',
       md: '1.5rem',

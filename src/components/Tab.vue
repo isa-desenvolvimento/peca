@@ -9,14 +9,14 @@
         <li
           v-for="(tab, index) in tabs"
           :key="tab"
-          class="nav-item text-red font-manrope text-xs font-bold focus:bg-yellow-ligth focus:text-red active:text-red"
+          class="nav-item text-red font-manrope font-bold focus:bg-yellow-ligth focus:text-red active:text-red"
           role="presentation"
           :aria-current="index === 0"
         >
           <a
             :id="`button_tap_${index}`"
             href="#"
-            class="nav-link w-full break-normal block text-red font-manrope text-sm leading-snug uppercase font-bold leading-tight uppercase py-3 my-2 px-4"
+            class="nav-link w-full break-normal block text-red font-manrope text-xs leading-snug uppercase font-bold leading-tight uppercase py-3 my-2 px-4"
             data-bs-toggle="pill"
             :data-bs-target="`button_tap_${index}`"
             role="tab"
@@ -34,7 +34,7 @@
           <a
             id="button_tap"
             href="#"
-            class="nav-link w-full break-normal block text-red font-manrope text-sm leading-snug uppercase font-bold leading-tight uppercase py-3 my-2 px-2"
+            class="nav-link w-full break-normal block text-red font-manrope text-xs leading-snug uppercase font-bold leading-tight uppercase py-3 my-2 px-2"
             data-bs-toggle="pill"
             role="tab"
             data-bs-target="#modalPeriod"
