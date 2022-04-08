@@ -148,7 +148,7 @@
               :placeholder="$t('UF')"
               class="form-select form-select-sm placeholder-red appearance-none font-manrope col-span-1 block w-full appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               aria-label=".form-select-sm example"
-              @change="() => getCities(value.uf.id)"
+              @change="() => getCities()"
             >
               <option v-for="op in dropdownUF" :key="op.cod" :value="op.id">
                 {{ op.cod }}
@@ -325,9 +325,9 @@ export default {
   }),
 
   methods: {
-    getCities(id, name = '') {
+    getCities(id = this.value.uf, name = '') {
       this.dispatch('dropdown/getCityDropdown', id).then(() => {
-        if (this.dropdownCidade.length) {
+        if (this.dropdownCidade.length && name !== '') {
           const cityIndex = this.dropdownCidade.findIndex(
             (city) => city.nome === name
           )
