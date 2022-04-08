@@ -71,7 +71,7 @@
             />
             <input
               v-model="value.tel"
-              v-mask="'(##) ####-####'"
+              v-mask="'(##) # ####-####'"
               name="tel"
               type="tel"
               required
@@ -229,7 +229,7 @@
             />
 
             <input
-              v-model="value.pix"
+              v-model="value.chave_pix"
               name="pix"
               type="text"
               required

@@ -158,6 +158,15 @@
               class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red text-sm"
               :placeholder="$t('ACCOUNT')"
             />
+
+            <input
+              v-model="user.dados_fornecedor.dados_bancarios.chave_pix"
+              name="pix"
+              type="text"
+              required
+              class="appearance-none uppercase col-span-4 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              :placeholder="$t('PIX')"
+            />
           </div>
         </div>
 
