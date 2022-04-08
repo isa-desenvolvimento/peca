@@ -6,7 +6,7 @@
       <div
         class="row-span-6 my-8 md:w-6/12 md:mx-auto relative"
         :class="
-          showmore
+          showmore || !lists?.movimentos?.length
             ? 'overflow-y-auto'
             : 'overflow-y-hidden  h-[calc(100vh_-_17rem)]'
         "
