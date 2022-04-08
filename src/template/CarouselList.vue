@@ -52,7 +52,7 @@
           />
           <List v-if="lists?.movimentos?.length" :lists="lists?.movimentos" />
 
-          <span v-else class="text-red text-sm font-regular">
+          <span v-else class="text-red text-sm font-regular uppercase">
             {{ $t('NOT_DATA_SELECT') }}
           </span>
 

@@ -35,7 +35,7 @@
             >
               {{ $t(index.toUpperCase()) }}
             </span>
-            <span v-else class="text-red text-sm font-regular">
+            <span v-else class="text-red text-sm font-regular uppercase">
               {{ $t('THERE_ARE_NO_PRODUCTS') }}
             </span>
 

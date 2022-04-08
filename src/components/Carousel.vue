@@ -4,12 +4,12 @@
     :items-to-show="3"
     :wrap-around="true"
     :style="{
-      position:'inherit !important',
+      position: 'inherit !important',
     }"
   >
     <Slide v-for="(slide, index) in slides" :key="slide">
       <div
-        class="carousel__item w-full grid grid-cols-3 place-content-center py-2 "
+        class="carousel__item w-full grid grid-cols-3 place-content-center py-2"
         :class="color"
         @click="() => onClickSlide(slide, index)"
       >
