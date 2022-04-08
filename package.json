@@ -1,7 +1,7 @@
 {
-  "name": "vite-project",
+  "name": "peca-rara",
   "private": true,
-  "version": "0.1.5",
+  "version": "0.2.5",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
