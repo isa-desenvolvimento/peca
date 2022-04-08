@@ -69,6 +69,8 @@ export default {
     document.title = 'Clube Peça Rara | Home'
 
     dispatch('list/getList', 'auth')
+
+    return { dispatch }
   },
   computed: {
     avatar() {
@@ -77,6 +79,7 @@ export default {
   },
   methods: {
     goToNext(screen) {
+      this.dispatch('form/setLoading')
       this.$router.push(screen)
     },
   },

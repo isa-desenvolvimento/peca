@@ -15,5 +15,8 @@ export default {
   setup() {
     document.title = 'Clube Peça Rara | Devolução'
   },
+  mounted() {
+    this.$store.dispatch('form/setLoading')
+  },
 }
 </script>

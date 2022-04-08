@@ -46,7 +46,7 @@
 } */
 
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -54,14 +54,14 @@
 }
 
 ::-webkit-scrollbar-track:hover {
-  background: var(--bg-yellow-ligth);
+  background: var(--bg-red);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-yellow-ligth);
-  border-radius: 2px;
+  background: var(--bg-red);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--bg-yellow-ligth);
+  background: var(--bg-red);
 }

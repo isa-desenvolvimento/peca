@@ -48,5 +48,8 @@ export default {
       //window.open(link, '_blank')
     },
   },
+  mounted() {
+    this.$store.dispatch('form/setLoading')
+  },
 }
 </script>

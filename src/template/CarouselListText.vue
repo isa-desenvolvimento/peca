@@ -1,16 +1,16 @@
 <template>
   <translation name="fade">
-    <div class="bg-orange h-screen p-8 relative overflow-y-auto">
+    <div
+      class="bg-orange h-screen p-8 relative overflow-y-auto"
+      @scroll="
+        () => {
+          showmore = true
+        }
+      "
+    >
       <Header :title="title" />
       <div class="grid grid-rows-7 md:mx-auto">
-        <div
-          class="row-span-6 my-8 md:w-6/12 mx-auto overflow-y-auto"
-          @scroll="
-            () => {
-              showmore = true
-            }
-          "
-        >
+        <div class="row-span-6 my-8 md:w-6/12 mx-auto">
           <div class="relative">
             <div class="px-6 md:px-8 mx-auto">
               <Carousel
