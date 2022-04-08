@@ -16,18 +16,22 @@
         >
           {{ periodo.dia }} {{ periodo.mes }}
         </div>
-        <div
-          :class="`col-span-7 grid-rows-${periodo?.itens.length}`"
-          @click="onclick"
-        >
-          <TitleSub
-            v-for="item in periodo?.itens"
-            :key="item.id"
-            :title="item.valor"
-            :description="formtDescription(item.descricao, item.loja)"
-            :icon-plus="item.valor >= 0"
-            is-money
-          />
+        <div :class="`col-span-7 grid-rows-${periodo?.itens.length}`">
+          <div v-for="item in periodo?.itens" :key="item.id" class="relative">
+            <TitleSub
+              :title="item.valor"
+              :description="formtDescription(item.descricao, item.loja)"
+              :icon-plus="item.valor >= 0"
+              is-money
+            />
+
+            <input
+              v-if="hasCheckbox"
+              disabled
+              type="checkbox"
+              class="ml-auto absolute inset-x-0 inset-y-0 form-check-input appearance-none h-4 w-4 border border-red bg-transparent checked:bg-red checked:border-red focus:bg-red focus:border-red focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+            />
+          </div>
         </div>
       </div>
     </template>
@@ -42,6 +46,7 @@ export default {
     title: { type: String, required: true },
     lists: { type: String, required: true },
     onclick: { type: Function, required: false },
+    hasCheckbox: { type: Boolean, required: false, default: false },
   },
   data() {
     return { limit: 1 }

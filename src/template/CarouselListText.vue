@@ -20,7 +20,6 @@
         <div
           v-for="(list, index) in lists"
           :key="index"
-          class="relative"
           :class="showmore ? 'overflow-y-auto' : 'overflow-y-hidden  h-96'"
         >
           <span
@@ -34,7 +33,11 @@
           </span>
 
           <div class="pb-8">
-            <List :lists="list" :onclick="setItem" />
+            <List
+              :lists="list"
+              :onclick="setItem"
+              :has-checkbox="type == 'devolucao'"
+            />
           </div>
 
           <a v-if="hasShowMore" href="#jump_to_me">
@@ -66,6 +69,20 @@
         <span class="text-red text-sm font-bold">
           {{ $t('SOLD_RETURNED_CANCELED') }}
         </span>
+      </div>
+      <div
+        v-if="type == 'devolucao'"
+        class="mt-8 cursor-pointer"
+        @click="$router.push(`/product/${id_loja}`)"
+      >
+        <button
+          disabled
+          type="button"
+          class="appearance-none rounded-md uppercase font-manrope font-bold bg-red mx-auto group relative leading-normal flex justify-center mt-8 py-2 px-10 text-xs text-orange disabled:opacity-50 disabled:cursor-not-allowed"
+          @click="send"
+        >
+          {{ $t('SEND_DONATIVOS') }}
+        </button>
       </div>
     </div>
   </translation>
@@ -154,6 +171,8 @@ export default {
     setItem() {
       this.$router.push(`/product/${this.id_loja}`)
     },
+
+    send() {},
   },
 }
 </script>
