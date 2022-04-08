@@ -12,7 +12,7 @@
           <div class="grid mx-auto">
             <Title
               :title="title"
-              classe="text-orange   text-lg leading-[2.5rem]  lg:text-6xl lg:leading-[3.5rem] w-full "
+              classe="text-orange   text-lg leading-[3rem]  lg:text-6xl lg:leading-[4.3rem] w-full "
             >
               <div class="break-word w-20">{{ subtitle }}</div>
             </Title>
