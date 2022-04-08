@@ -100,6 +100,7 @@
   "SOLD_RETURNED_CANCELED": "VENDIDOS/DEVOLVIDOS/CANCELADOS >",
   "YOUR_PASSWORD_ACCESS": "INFORME A SUA SENHA DE ACESSO",
   "YOUR_PASSWORD_ACCESS_NOT": "ESQUECEU SUA SENHA?",
+  "NOT_DATA_SELECT": "Não existem movimentos para o perído selecionado.",
   "MESSAGE": {
     "DANGER_NOT_REGISTER": "Fornecedor não tem cadastro em nenhuma loja.",
     "DANGER_NOT_PAWSSORD": "Usuário ainda não criou seu usuário para acesso ao sistema. Novo Link enviado por email ao usuário.",

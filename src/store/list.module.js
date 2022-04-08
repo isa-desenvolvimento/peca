@@ -41,7 +41,7 @@ export const list = {
     },
     getFilter({ commit }, value) {
       this.dispatch('form/setLoading')
-
+      this.state.list[value.type] = {}
       return getFilter(value).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: value.type })

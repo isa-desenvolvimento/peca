@@ -34,10 +34,21 @@
 
           <div class="pb-8">
             <List
+              v-if="lists?.movimentos.length"
               :lists="list"
               :onclick="setItem"
               :has-checkbox="type == 'devolucao'"
             />
+
+            <div
+              v-else
+              class="mt-8 cursor-pointer"
+              @click="$router.push(`/product/${id_loja}`)"
+            >
+              <span class="text-red text-xs font-bold uppercase">
+                {{ $t('NOT_DATA_SELECT') }}
+              </span>
+            </div>
           </div>
 
           <a v-if="hasShowMore" href="#jump_to_me">

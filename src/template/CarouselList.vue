@@ -45,7 +45,16 @@
           :type="type"
           @click="(filter) => setFilter('periodo', filter)"
         />
-        <List :lists="lists?.movimentos" />
+        <List v-if="lists?.movimentos?.length" :lists="lists?.movimentos" />
+        <div
+          v-else
+          class="mt-8 cursor-pointer"
+          @click="$router.push(`/product/${id_loja}`)"
+        >
+          <span class="text-red text-xs font-bold uppercase">
+            {{ $t('NOT_DATA_SELECT') }}
+          </span>
+        </div>
 
         <a v-if="hasShowMore" href="#jump_to_me">
           <svg
@@ -113,15 +122,17 @@ export default {
       return this.$store.state.list[this.type]
     },
     hasShowMore() {
+      if (!this.lists) return false
+      if (!this.lists.movimentos) return false
+      if (!this.lists.movimentos.length) return false
       if (
-        this.lists?.movimentos.length > 1 ||
-        this.lists?.movimentos[0].periodos.length > 2 ||
-        this.lists?.movimentos[0].periodos[0].itens.length > 2
-      ) {
-        return true
-      }
+        this.lists.movimentos === 1 &&
+        this.lists.movimentos[0].periodos.length < 2 &&
+        this.lists.movimentos[0].periodos[0].itens.length < 2
+      )
+        return false
 
-      return false
+      return true
     },
   },
   mounted() {
