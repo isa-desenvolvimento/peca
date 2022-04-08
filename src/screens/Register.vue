@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-orange h-screen grid items-center w-full">
+  <div class="bg-orange h-screen grid items-center w-full overflow-y-auto">
     <div class="mx-auto" uppercase>
       <h3
         class="text-red text-md font-gotham w-[17rem] text-left font-bold ml-10"
