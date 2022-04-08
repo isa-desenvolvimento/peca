@@ -6,7 +6,10 @@
       class="mx-auto h-24 w-[75%] bg-logo-mobile bg-contain bg-no-repeat bg-left text-white mt-8 row-span-1"
     >
       <div class="ml-auto w-20" @click="() => goToNext('/profile')">
-        <file-avatar :value="avatar" classe="w-12 h-12 my-6 ml-auto" />
+        <file-avatar
+          :value="avatar"
+          classe="w-12 h-12 my-6 ml-auto md:w-18 md:h-18 lg:w-12 lg:h-12"
+        />
       </div>
     </div>
 
