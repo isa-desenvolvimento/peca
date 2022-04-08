@@ -4,7 +4,7 @@
     :items-to-show="3"
     :wrap-around="true"
     :style="{
-      position: slides?.length > 1 ? 'inherit !important' : 'relative',
+      position:'inherit !important',
     }"
   >
     <Slide v-for="(slide, index) in slides" :key="slide">
