@@ -69,6 +69,7 @@ module.exports = {
         'icon-home': "url('@/assets/icons/home.svg')",
         'icon-back': "url('@/assets/icons/back.svg')",
         'icon-prancheta': "url('@/assets/prancheta.svg')",
+        'icon-nota': "url('@/assets/icons/nota.png')",
       }),
     },
   },

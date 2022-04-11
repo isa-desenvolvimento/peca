@@ -34,6 +34,9 @@ export default {
   computed: mapState({
     list: (state) => state.list.contrato,
   }),
+  mounted() {
+    this.$store.dispatch('form/setLoading')
+  },
   methods: {
     download(pdf) {
       const arquivo = `${URL}/storage/upload/contratos/${pdf}`
@@ -47,9 +50,6 @@ export default {
       link.click()
       //window.open(link, '_blank')
     },
-  },
-  mounted() {
-    this.$store.dispatch('form/setLoading')
   },
 }
 </script>

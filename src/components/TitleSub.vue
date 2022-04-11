@@ -1,20 +1,32 @@
 <template>
-  <div class="col-span-6 ml-5 row-span-1">
-    <div v-if="isMoney">
-      <span v-if="iconPlus" class="text-green text-xs"> + </span>
-      <span v-else class="text-red text-xs"> - </span>
+  <div class="col-span-6 ml-5 row-span-1 grid grid-cols-4 items-center">
+    <div class="col-span-3">
+      <div v-if="isMoney">
+        <span v-if="iconPlus" class="text-green text-xs"> + </span>
+        <span v-else class="text-red text-xs"> - </span>
 
-      <span class="text-red text-sm font-bold font-manrope">
-        {{ `R$ ${Math.abs(title).toFixed(2) || 0}` }}
-      </span>
+        <span class="text-red text-sm font-bold font-manrope">
+          {{ `R$ ${Math.abs(title).toFixed(2) || 0}` }}
+        </span>
+      </div>
+      <div
+        v-if="subtitle"
+        class="text-red text-xs leading-3 break-words font-manrope mt-2"
+      >
+        {{ subtitle }}
+      </div>
+      <div
+        v-if="description"
+        class="text-red text-xs leading-3 break-words font-manrope mt-1"
+      >
+        {{ description }}
+      </div>
     </div>
-    <div class="text-red text-xs leading-3 break-words font-manrope mt-2">
-      {{ subtitle }}
-    </div>
-    <div class="text-red text-xs leading-3 break-words font-manrope mt-1">
-      {{ description }}
-    </div>
-    <hr class="col-span-2 text-yellow opacity-25 my-2" />
+    <div
+      v-if="!iconPlus"
+      class="col-span-1 mx-auto h-5 w-5 bg-contain bg-no-repeat bg-center text-white transition-linear duration-100 bg-icon-nota"
+    ></div>
+    <hr class="col-span-6 text-yellow opacity-25 my-2" />
   </div>
 </template>
 
