@@ -20,7 +20,8 @@
           <div v-for="item in periodo?.itens" :key="item.id" class="relative">
             <TitleSub
               :title="item.valor"
-              :description="formtDescription(item.descricao, item.loja)"
+              :subtitle="item.loja"
+              :description="item.descricao"
               :icon-plus="item.valor >= 0"
               is-money
             />
@@ -51,15 +52,7 @@ export default {
   data() {
     return { limit: 1 }
   },
-  // computed: {
-  //   computedObj() {
-  //     return this.limit ? this.lists.slice(0, this.limit) : this.lists
-  //   },
-  // },
   methods: {
-    formtDescription(description, store) {
-      return `${store} - ${description}`
-    },
     showmore() {
       this.limit = this.limit === this.lists.length ? 1 : this.lists.length
     },

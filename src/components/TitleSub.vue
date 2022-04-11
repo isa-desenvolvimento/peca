@@ -8,9 +8,12 @@
         {{ `R$ ${Math.abs(title).toFixed(2) || 0}` }}
       </span>
     </div>
-    <span class="text-red text-xs leading-3 break-words font-manrope">
+    <div class="text-red text-xs leading-3 break-words font-manrope mt-2">
+      {{ subtitle }}
+    </div>
+    <div class="text-red text-xs leading-3 break-words font-manrope mt-1">
       {{ description }}
-    </span>
+    </div>
     <hr class="col-span-2 text-yellow opacity-25 my-2" />
   </div>
 </template>
@@ -21,6 +24,7 @@ export default {
     title: { type: String, required: true },
     iconPlus: { type: Boolean, required: false, default: false },
     isMoney: { type: Boolean, required: false, default: false },
+    subtitle: { type: String, required: false },
     description: { type: String, required: false },
   },
 }
