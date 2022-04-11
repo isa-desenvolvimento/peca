@@ -6,7 +6,7 @@
   >
     <router-view />
   </div>
-  <Loading v-else-if="loading" />
+  <Loading v-if="loggedIn && loading" />
   <div v-else>
     <sign-in />
   </div>
