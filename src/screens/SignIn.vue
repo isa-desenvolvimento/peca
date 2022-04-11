@@ -68,7 +68,7 @@ export default {
             this.router.push('/feedback')
             sessionStorage.doc = this.doc
           } else {
-            messagesFetch('danger', 'MESSAGE.DANGER_CPG_INVALID')
+            messagesFetch('danger', this.$t('MESSAGE.DANGER_CPG_INVALID'))
           }
         })
     },
