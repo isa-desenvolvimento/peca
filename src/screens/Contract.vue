@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-orange h-screen overflow-hidden p-4">
+  <div class="bg-orange h-screen w-full overflow-y-auto p-6">
     <Header :title="$t('CONTRACT')" />
 
     <h3 class="text-base w-60 mt-8 my-2 text-red">
