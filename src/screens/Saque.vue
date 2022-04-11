@@ -66,7 +66,7 @@
           <TitleSubtitle
             :title="$t('BALANCE_ON')"
             :subtitle="`R$ ${
-              list.fornecedor?.sado_disponivel?.saldo_liberado.toFixed(2) ||
+              list?.fornecedor?.sado_disponivel?.saldo_liberado.toFixed(2) ||
               '0,00'
             }`"
             class="col-span-2"
