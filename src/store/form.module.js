@@ -55,6 +55,9 @@ export const form = {
     setLoading({ commit }) {
       commit('loading')
     },
+    setLoadingFalse({ commit }) {
+      commit('loading')
+    },
   },
   mutations: {
     sucess(state, payload) {
@@ -70,6 +73,10 @@ export const form = {
     },
     loading(state) {
       state.loading = !state.loading
+    },
+    loadingFalse() {
+      this.state.loading = false
+      this.user = {}
     },
   },
 }

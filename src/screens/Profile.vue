@@ -276,6 +276,7 @@ export default {
 
       this.dispatch('auth/logout')
       this.$router.push('/login')
+      this.dispatch('form/setLoadingFalse')
     },
 
     submit(e) {

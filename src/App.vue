@@ -1,15 +1,15 @@
 <template>
   <div
-    v-if="loggedIn || (isPublicPages && !loading)"
+    v-if="!loading && (isPublicPages || loggedIn)"
     name="fade"
     class="bg-gradient-to-t from-pink3 via-pink2 to-pink4"
   >
     <router-view />
   </div>
-  <Loading v-if="loggedIn && loading" />
-  <div v-else>
+  <div v-if="!loading && !isPublicPages & !loggedIn">
     <sign-in />
   </div>
+  <Loading v-if="loading" />
 </template>
 
 <script>
@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     loggedIn() {
-      return this.$store.state.auth.status.loggedIn
+      return this.$store.state.auth.loggedIn
     },
     loading() {
       return this.$store.state.form.loading
@@ -43,7 +43,7 @@ export default {
 
         if (this.loggedIn) {
           const user = JSON.parse(sessionStorage.getItem('user'))
-          setupAxiosToken(user.token)
+          setupAxiosToken(user?.token)
         }
       }
     )
