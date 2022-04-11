@@ -37,7 +37,6 @@
             class="nav-link w-full break-normal block text-red font-manrope text-xs leading-snug uppercase font-bold leading-tight uppercase py-3 my-2 px-2"
             data-bs-toggle="pill"
             role="tab"
-            data-bs-target="#modalPeriod"
             @click="(e) => getOthers(e)"
           >
             <a data-bs-toggle="modal" data-bs-target="#modalPeriod">

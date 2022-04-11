@@ -13,7 +13,7 @@
         @submit="withDrawal"
       >
         <div
-          class="modal-header col-span-1 flex flex-shrink-0 items-center justify-between p-4 border-b border-white rounded-t-md"
+          class="modal-header col-span-1 flex flex-shrink-0 items-center justify-between p-4 rounded-t-md"
         >
           <h5
             id="exampleModalLabel"
@@ -22,11 +22,15 @@
             {{ $t('CONFIRMATION') }}
           </h5>
         </div>
+        <hr class="w-full text-yellow opacity-25" />
+
         <div class="modal-body relative p-4 text-red font-medium font-manrope">
           Será cobrado uma taxa de {{ taxa }} para realizar o saque.
         </div>
+        <hr class="w-full text-yellow opacity-25" />
+
         <div
-          class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-white rounded-b-md"
+          class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 b rounded-b-md"
         >
           <button
             type="submit"
