@@ -3358,6 +3358,11 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
+v-money3@^3.21.0:
+  version "3.21.0"
+  resolved "https://registry.yarnpkg.com/v-money3/-/v-money3-3.21.0.tgz#a7510768c2069e6c54c86ed984ca4fdc8f422d36"
+  integrity sha512-sSUiaCeNWZopF9swOd8YaIwDRr1IemE9j24y5Jqk6S5xq3eEF6VgOX2YIPBJyFo+pOePBV+ReUxWDCwAWOFzCw==
+
 v8-compile-cache-lib@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache-lib/-/v8-compile-cache-lib-3.0.0.tgz#0582bcb1c74f3a2ee46487ceecf372e46bce53e8"

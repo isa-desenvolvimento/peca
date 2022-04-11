@@ -5,6 +5,7 @@ import VueTheMask from 'vue-the-mask'
 import moshaToast from 'mosha-vue-toastify'
 import Popper from 'vue3-popper'
 import Markdown from 'vue3-markdown-it'
+import money from 'v-money3'
 
 import App from './App.vue'
 import router from './router'
@@ -21,6 +22,7 @@ createApp(App)
   .use(store)
   .use(moshaToast)
   .use(Markdown)
+  .use(money)
   .component('Popper', Popper)
   .use(VueTheMask)
   .use(VueAxios, axios)

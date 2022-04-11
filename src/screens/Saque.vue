@@ -78,12 +78,18 @@
           subtitle=""
           class="col-span-2"
         />
-        <input
-          v-model="saque"
-          name="money"
-          type="num"
+        <!-- <input
+          v-model.lazy="saque"
+          v-money3="config"
           required
-          placeholder="R$ 0,00"
+          class="appearance-none uppercase w-full lg:w-60 border bg-orange font-manrope mt-[-2rem] px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+          @input="disable"
+        /> -->
+
+        <money3
+          v-model="saque"
+          v-bind="config"
+          required
           class="appearance-none uppercase w-full lg:w-60 border bg-orange font-manrope mt-[-2rem] px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
           @input="disable"
         />
@@ -113,14 +119,21 @@
 <script>
 import Header from '@/components/Header.vue'
 import ModalConfirmation from '@/components/ModalConfirmation.vue'
+import TitleSubtitle from '@/components/TitleSubtitle.vue'
 
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
-import TitleSubtitle from '@/components/TitleSubtitle.vue'
+import { Money3Component } from 'v-money3'
+
 import { messagesFetch } from '@/util/toast.js'
 
 export default {
-  components: { Header, TitleSubtitle, ModalConfirmation },
+  components: {
+    Header,
+    TitleSubtitle,
+    ModalConfirmation,
+    money3: Money3Component,
+  },
   props: {
     title: { type: String, required: true },
     hasCarousel: { type: Boolean, required: false, default: true },
@@ -136,10 +149,21 @@ export default {
     const { dispatch } = useStore()
     dispatch('list/getList', type)
 
-    return { loja, dispatch, type, saque: null }
+    return { loja, dispatch, type }
   },
   data() {
-    return { disabled: true }
+    return {
+      disabled: true,
+      saque: '0,00',
+      config: {
+        decimal: ',',
+        thousands: '.',
+        prefix: 'R$ ',
+        suffix: '',
+        precision: 2,
+        masked: false /* doesn't work with directive */,
+      },
+    }
   },
   computed: {
     list() {
