@@ -88,7 +88,7 @@ export default {
           this.router.push({ path: '/' })
         })
         .catch(() =>
-          messagesFetch('danger', window.$t('MESSAGE.DANGER_PASSWORD_INVALID'))
+          messagesFetch('danger', window.$t('MESSAGE.DANGER_CPG_INVALID'))
         )
     },
     reset() {
