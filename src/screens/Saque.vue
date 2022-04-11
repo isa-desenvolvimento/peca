@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-orange h-screen grid grid-rows-7 p-8 relative">
+  <div class="bg-orange h-screen grid grid-rows-7 p-8 relative overflow-y-auto">
     <Header :title="$t('WITHDRAWAL_REQUEST')" />
 
     <div class="row-span-6 my-8 md:w-6/12 md:mx-auto relative">
