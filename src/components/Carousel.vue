@@ -1,7 +1,7 @@
 <template>
   <Carousel
     ref="nav"
-    :items-to-show="3"
+    :items-to-show="2.5"
     :wrap-around="true"
     :style="{
       position: 'inherit !important',
@@ -36,12 +36,20 @@
     <template #addons="{ slidesCount, currentSlide }">
       <Navigation v-if="slidesCount > 1">
         <template #next>
-          <button @click="() => onclick(lojas[currentSlide + 1].id)">
+          <button
+            @click="
+              () => onClickSlide(lojas[currentSlide + 1], currentSlide + 1)
+            "
+          >
             {{ '>' }}
           </button>
         </template>
         <template #prev>
-          <button @click="() => onclick(lojas[currentSlide - 1].id)">
+          <button
+            @click="
+              () => onClickSlide(lojas[currentSlide - 1], currentSlide - 1)
+            "
+          >
             {{ '<' }}
           </button>
         </template>
@@ -90,6 +98,17 @@ export default {
       }
     },
     onClickSlide(slide, index) {
+      switch (true) {
+        case this.lojas.length === index:
+          index = 0
+          slide = this.lojas.at(0)
+          break
+        case index == -1:
+          index = this.lojas.length
+          slide = this.lojas.at(-1)
+          break
+      }
+
       this.nav.slideTo(index)
       this.onclick(slide.id)
     },
@@ -137,5 +156,10 @@ export default {
   background: transparent !important;
   border: none;
   color: #ffa301 !important;
+}
+
+.carousel__prev--in-active,
+.carousel__next--in-active {
+  display: none;
 }
 </style>
