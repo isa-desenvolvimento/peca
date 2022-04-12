@@ -18,20 +18,18 @@ import { PUBLIC_PAGES } from '@/router'
 import { setupAxiosToken } from '@/api/http.js'
 
 import Loading from '@/components/Loading.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: { SignIn, Loading },
   data() {
     return { isPublicPages: false }
   },
-  computed: {
-    loggedIn() {
-      return this.$store.state.auth.loggedIn
-    },
-    loading() {
-      return this.$store.state.form.loading
-    },
-  },
+  computed: mapState({
+    loggedIn: (state) => state.auth.loggedIn,
+    loading: (state) => state.form.loading,
+  }),
+
   created() {
     window.$t = this.$t
     this.$watch(

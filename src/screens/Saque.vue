@@ -122,7 +122,7 @@ import ModalConfirmation from '@/components/ModalConfirmation.vue'
 import TitleSubtitle from '@/components/TitleSubtitle.vue'
 
 import { useRoute } from 'vue-router'
-import { useStore } from 'vuex'
+import { useStore, mapState } from 'vuex'
 import { Money3Component } from 'v-money3'
 
 import { messagesFetch } from '@/util/toast.js'
@@ -165,11 +165,10 @@ export default {
       },
     }
   },
-  computed: {
-    list() {
-      return this.$store.state.list[this.type]
-    },
-  },
+
+  computed: mapState({
+    list: (state) => state.list[this.type],
+  }),
 
   methods: {
     disable() {

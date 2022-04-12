@@ -106,7 +106,7 @@ import Header from '@/components/Header.vue'
 import List from '@/components/List.vue'
 
 import { useRoute } from 'vue-router'
-import { useStore } from 'vuex'
+import { useStore, mapState } from 'vuex'
 
 export default {
   components: { Carousel, List, Header },
@@ -138,26 +138,10 @@ export default {
   data() {
     return { showmore: false }
   },
-  computed: {
-    lojas() {
-      return this.$store.state.list?.lojas
-    },
-    lists() {
-      return this.$store.state.list[this.type]
-    },
-
-    // hasShowMore() {
-    //   if (
-    //     this.lists?.movimentos.length > 1 ||
-    //     this.lists?.movimentos[0].periodos.length > 2 ||
-    //     this.lists?.movimentos[0].periodos[0].itens.length > 2
-    //   ) {
-    //     return true
-    //   }
-
-    //   return false
-    // },
-  },
+  computed: mapState({
+    lojas: (state) => state.list?.lojas,
+    lists: (state) => state.list[this.type],
+  }),
   mounted() {
     const interval = setInterval(() => {
       if (this.lojas?.length) {

@@ -57,7 +57,7 @@ import ButtonMenu from '@/components/ButtonMenu.vue'
 import { URL } from '@/api/http.js'
 import FileAvatar from '@/components/FileAvatar.vue'
 
-import { useStore } from 'vuex'
+import { useStore, mapState } from 'vuex'
 
 export default {
   components: {
@@ -72,11 +72,11 @@ export default {
 
     return { dispatch }
   },
-  computed: {
-    avatar() {
-      return URL + this.$store.state.list.auth.profile_img
-    },
-  },
+
+  computed: mapState({
+    avatar: (state) => URL + state.list.auth.profile_img,
+  }),
+
   methods: {
     goToNext(screen) {
       this.$router.push(screen)

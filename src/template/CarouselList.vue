@@ -88,7 +88,7 @@ import { periodoDate } from '@/util/date'
 import TitleSub from '@/components/TitleSub.vue'
 
 import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
+import { useStore, mapState } from 'vuex'
 
 export default {
   components: { Carousel, Balance, Tabe, List, Header, TitleSub },
@@ -112,27 +112,10 @@ export default {
   data() {
     return { showmore: false, interval: null }
   },
-  computed: {
-    lojas() {
-      return this.$store.state.list?.lojas
-    },
-    lists() {
-      return this.$store.state.list[this.type]
-    },
-    // hasShowMore() {
-    //   if (!this.lists) return false
-    //   if (!this.lists.movimentos) return false
-    //   if (!this.lists.movimentos.length) return false
-    //   if (
-    //     this.lists.movimentos === 1 &&
-    //     this.lists.movimentos[0].periodos.length < 2 &&
-    //     this.lists.movimentos[0].periodos[0].itens.length < 4
-    //   )
-    //     return false
-
-    //   return true
-    // },
-  },
+  computed: mapState({
+    lojas: (state) => state.list?.lojas,
+    lists: (state) => state.list[this.type],
+  }),
   mounted() {
     const tab0 = document.getElementById(`button_tap_0`)
 
