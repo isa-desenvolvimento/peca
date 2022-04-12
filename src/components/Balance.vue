@@ -57,13 +57,12 @@ import Eye from '@/components/Eye.vue'
 export default {
   components: { Eye },
   props: {
-    name: { type: String, required: true },
     description: { type: String, required: false },
-    classe: { type: String, required: true },
-    icon: { type: String, required: true },
-    id: { type: String, required: true },
-    balance: { type: Object, required: true },
-    onclick: { type: Function, required: true },
+    classe: { type: String, required: false },
+    icon: { type: String, required: false },
+    id: { type: Number, required: false },
+    balance: { type: Object, required: false },
+    onclick: { type: Function, required: false },
   },
   data() {
     return {

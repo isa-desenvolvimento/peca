@@ -91,7 +91,7 @@ export default {
   },
   setup(props) {
     const { dispatch } = useStore()
-    const id_loja = null
+    const id_loja = 0
     const periodo = {}
 
     self.props = props
@@ -105,14 +105,23 @@ export default {
     lists: (state) => state.list[self.props.type],
   }),
   mounted() {
-    if (this.lojas?.length) {
-      if (this.type === 'extrato') {
-        const _dates = periodoDate(7)
-        this.setPeriodo(_dates)
-      }
+    const tab0 = document.getElementById(`button_tap_0`)
 
-      this.setId(this.lojas[0].id)
-    }
+    this.interval = setInterval(() => {
+      if (tab0 && this.lojas?.length) {
+        clearInterval(this.interval)
+
+        if (this.type === 'extrato') {
+          const _dates = periodoDate(7)
+          this.setPeriodo(_dates)
+        }
+
+        this.setId(this.lojas[0].id)
+
+        tab0.click()
+        // tab0.focus()
+      }
+    }, 100)
   },
   unmounted() {
     clearInterval(this.interval)

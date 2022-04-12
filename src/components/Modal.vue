@@ -83,7 +83,7 @@
 <script>
 export default {
   props: {
-    idLoja: { type: String, required: true },
+    idLoja: { type: Number, required: true },
     type: { type: String, required: true },
   },
   setup() {

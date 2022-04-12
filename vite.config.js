@@ -27,7 +27,7 @@ export default defineConfig({
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.md', '.json', '.vue'],
   },
   build: {
-    sourcemap: true,
+    sourcemap: false,
     target: ['es2020'],
     chunkSizeWarningLimit: 15000,
     rollupOptions: {

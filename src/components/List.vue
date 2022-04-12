@@ -44,7 +44,7 @@ import TitleSub from '@/components/TitleSub.vue'
 export default {
   components: { TitleSub },
   props: {
-    title: { type: String, required: true },
+    title: { type: String, required: false },
     lists: { type: String, required: true },
     onclick: { type: Function, required: false },
     hasCheckbox: { type: Boolean, required: false, default: false },
