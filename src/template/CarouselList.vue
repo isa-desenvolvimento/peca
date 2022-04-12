@@ -15,10 +15,9 @@
           <div class="relative">
             <div class="px-6 md:px-8 mx-auto">
               <Carousel
-                :slides="lojas"
                 icon="bg-icon-marcador-menu"
                 :onclick="(slide) => setFilter('id', slide)"
-                :type="type"
+                type="extrato"
                 color="bg-red"
               />
             </div>
@@ -31,22 +30,15 @@
           <Balance
             v-if="hasBalance"
             :id="id_loja"
-            :type="type"
+            type="extrato"
             :balance="lists?.saldoatual"
             :onclick="() => onclickWithDraw(id_loja)"
-          />
-
-          <TitleSub
-            v-else
-            title="item.valor"
-            description="item.descricao ? item.descricao : ''"
-            class="my-6"
           />
 
           <Tabe
             v-if="hasPeriodo"
             :id-loja="id_loja"
-            :type="type"
+            type="extrato"
             @click="(filter) => setFilter('periodo', filter)"
           />
           <List v-if="lists?.movimentos?.length" :lists="lists?.movimentos" />
@@ -85,13 +77,11 @@ import Balance from '@/components/Balance.vue'
 import Tabe from '@/components/Tab.vue'
 import List from '@/components/List.vue'
 import { periodoDate } from '@/util/date'
-import TitleSub from '@/components/TitleSub.vue'
 
-import { useRouter } from 'vue-router'
 import { useStore, mapState } from 'vuex'
 
 export default {
-  components: { Carousel, Balance, Tabe, List, Header, TitleSub },
+  components: { Carousel, Balance, Tabe, List, Header },
   props: {
     type: { type: String, required: true },
     title: { type: String, required: true },
@@ -100,22 +90,18 @@ export default {
     onclickWithDraw: { type: Function, required: false },
   },
   setup(props) {
-    const router = useRouter()
     const { dispatch } = useStore()
     const id_loja = null
-    const isFirst = true
     const periodo = {}
 
     self.props = props
 
-    dispatch('list/getLojas', props.type)
-    return { router, id_loja, periodo, dispatch, isFirst }
+    return { id_loja, periodo, dispatch }
   },
   data() {
     return { showmore: false, interval: null }
   },
   computed: mapState({
-    lojas: (state) => state.list?.lojas,
     lists: (state) => state.list[self.props.type],
   }),
   mounted() {
@@ -132,28 +118,14 @@ export default {
     clearInterval(this.interval)
   },
   methods: {
-    format() {
-      switch (this.type) {
-        case 'extrato':
-          return this.lists?.movimentos
-        case 'estoque':
-          return this.lists?.estoque
-        default:
-          break
-      }
-    },
     setFilter(item, value) {
-      // const tab0 = document.getElementById(`button_tap_0`)
       this.showmore = false
 
       switch (item) {
         case 'id':
-          // tab0.focus()
-          this.isFirst = true
           this.setId(value)
           break
         default:
-          this.isFirst = true
           this.setPeriodo(value)
           break
       }
@@ -166,8 +138,7 @@ export default {
       this.periodo = periodo
     },
     getFilter() {
-      if (this.isFirst && this.periodo.data_inicio && this.periodo.data_fim) {
-        this.isFirst = false
+      if (this.periodo.data_inicio && this.periodo.data_fim) {
         this.dispatch('list/getFilter', {
           type: this.type,
           id_loja: this.id_loja,

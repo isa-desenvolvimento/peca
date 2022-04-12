@@ -16,7 +16,6 @@
               <Carousel
                 v-if="hasCarousel"
                 id="jump_to_me"
-                :slides="lojas"
                 icon="bg-icon-marcador-menu"
                 :onclick="(slide) => setId(slide)"
                 :type="type"
@@ -129,8 +128,6 @@ export default {
         id_loja: id_loja,
         estoque: props.estoque,
       })
-    } else {
-      dispatch('list/getLojas', props.type)
     }
 
     return { id_loja, dispatch }
@@ -140,7 +137,6 @@ export default {
   },
   computed: {
     ...mapState({
-      lojas: (state) => state.list?.lojas,
       lists: (state) => state.list[self.props.type],
     }),
   },

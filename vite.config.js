@@ -25,6 +25,7 @@ export default defineConfig({
     },
   },
   build: {
+    sourcemap: true,
     target: ['es2020'],
     chunkSizeWarningLimit: 15000,
     rollupOptions: {

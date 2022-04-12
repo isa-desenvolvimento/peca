@@ -7,7 +7,7 @@
       position: 'inherit !important',
     }"
   >
-    <Slide v-for="(slide, index) in slides" :key="slide">
+    <Slide v-for="(slide, index) in lojas" :key="slide">
       <div
         class="carousel__item w-full grid grid-cols-3 place-content-center py-2"
         :class="color"
@@ -33,19 +33,8 @@
       </div>
     </Slide>
 
-    <template #addons="{ slidesCount, currentSlide }">
-      <Navigation v-if="slidesCount > 1">
-        <template #next>
-          <button @click="() => onclick(slides[currentSlide + 1].id)">
-            {{ '>' }}
-          </button>
-        </template>
-        <template #prev>
-          <button @click="() => onclick(slides[currentSlide - 1].id)">
-            {{ '<' }}
-          </button>
-        </template>
-      </Navigation>
+    <template #addons="{ slidesCount }">
+      <Navigation v-if="slidesCount > 1"> </Navigation>
     </template>
   </Carousel>
 </template>
@@ -55,6 +44,7 @@ import { Carousel, Navigation, Slide } from 'vue3-carousel'
 import { inject } from 'vue'
 
 import 'vue3-carousel/dist/carousel.css'
+import { useStore, mapState } from 'vuex'
 
 export default {
   components: {
@@ -63,17 +53,22 @@ export default {
     Navigation,
   },
   props: {
-    slides: { type: Array, required: true },
     onclick: { type: Function, required: true },
     type: { type: String, required: true },
     color: { type: String, required: false },
     icon: { type: String, required: true, default: 'con-marcador-menu' },
   },
-  setup() {
+  setup(props) {
+    const { dispatch } = useStore()
+    dispatch('list/getLojas', props.type)
+
     const nav = inject('nav', {})
 
     return { nav }
   },
+  computed: mapState({
+    lojas: (state) => state.list?.lojas || [],
+  }),
   methods: {
     format(value) {
       switch (this.type) {
@@ -92,14 +87,6 @@ export default {
 </script>
 
 <style>
-.carousel__item {
-  /* min-height: 4rem; */
-  /* font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
-}
-
 .carousel__slide {
   padding: 10px;
 }
