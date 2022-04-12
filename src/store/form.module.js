@@ -14,36 +14,36 @@ export const form = {
   state: initialState,
   actions: {
     create({ commit }, { value, type }) {
-      commit('loading')
+      commit('loadingFalse')
 
       return useCreate(type, value).then(
         (payload) => {
           commit('sucess', payload)
-          commit('loading')
+          commit('loadingFalse')
 
           return Promise.resolve(payload)
         },
         (error) => {
           commit('failure', error.response.data.errors)
-          commit('loading')
+          commit('loadingFalse')
           return Promise.reject(error)
         }
       )
     },
     update({ commit }, { value, type }) {
-      commit('loading')
+      commit('loadingFalse')
 
       return useUpdate(type, value).then(
         (payload) => {
           commit('sucess', payload)
-          commit('loading')
+          commit('loadingFalse')
 
           messagesFetch('success', window.$t('MESSAGE.SUCCESS_UPDATE'))
           return Promise.resolve(payload)
         },
         (error) => {
           commit('failure', error.response.data.errors)
-          commit('loading')
+          commit('loadingFalse')
           return Promise.reject(error)
         }
       )
@@ -56,9 +56,6 @@ export const form = {
     },
     setLoading({ commit }) {
       commit('loadingToggle')
-    },
-    setLoadingFalse({ commit }) {
-      commit('loadingFalse')
     },
   },
   mutations: {
@@ -75,9 +72,6 @@ export const form = {
     },
     loadingToggle(state) {
       state.loading = !state.loading
-    },
-    loadingFalse() {
-      this.state.loading = false
     },
   },
 }

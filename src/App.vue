@@ -9,7 +9,7 @@
   <div v-if="!loading && !isPublicPages && !loggedIn">
     <sign-in />
   </div>
-  <Loading v-if="loading" />
+  <Loading v-if="$store.state.list.loading" />
 </template>
 
 <script>

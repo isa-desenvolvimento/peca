@@ -17,6 +17,8 @@ Object.keys(initialState).map((key) => {
     : {}
 })
 
+initialState.loading = false
+
 const { useGetLojas, useGetList, useGetFilter, useGetListEstoque } = useList()
 
 export const list = {
@@ -24,66 +26,86 @@ export const list = {
   state: initialState,
   actions: {
     getLojas({ commit }, type) {
+      commit('loadingToggle')
       return useGetLojas(type).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: 'lojas' })
+          commit('loadingToggle')
 
           return Promise.resolve(payload.data)
         },
         (error) => {
           commit('failure')
+          commit('loadingToggle')
           return Promise.reject(error)
         }
       )
     },
     getList({ commit }, type) {
+      commit('loadingToggle')
       return useGetList(type).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type })
+          commit('loadingToggle')
           return Promise.resolve(payload.data)
         },
         (error) => {
           commit('failure')
+          commit('loadingToggle')
           return Promise.reject(error)
         }
       )
     },
     getAuth({ commit }) {
+      commit('loadingToggle')
+
       return useGetList('auth').then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: 'auth' })
-          return Promise.resolve(payload.data)
-        },
-        (error) => {
-          commit('failure')
-          return Promise.reject(error)
-        }
-      )
-    },
-    getFilter({ commit }, value) {
-      this.state.list[value.type] = {}
-      return useGetFilter(value).then(
-        (payload) => {
-          commit('sucess', { payload: payload.data, type: value.type })
+          commit('loadingToggle')
 
           return Promise.resolve(payload.data)
         },
         (error) => {
           commit('failure')
+          commit('loadingToggle')
+
+          return Promise.reject(error)
+        }
+      )
+    },
+    getFilter({ commit }, value) {
+      commit('loadingToggle')
+
+      this.state.list[value.type] = {}
+      return useGetFilter(value).then(
+        (payload) => {
+          commit('sucess', { payload: payload.data, type: value.type })
+          commit('loadingToggle')
+
+          return Promise.resolve(payload.data)
+        },
+        (error) => {
+          commit('failure')
+          commit('loadingToggle')
 
           return Promise.reject(error)
         }
       )
     },
     getListEstoque({ commit }, value) {
+      commit('loadingToggle')
+
       return useGetListEstoque(value).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: value.type })
+          commit('loadingToggle')
 
           return Promise.resolve(payload.data)
         },
         (error) => {
           commit('failure')
+          commit('loadingToggle')
 
           return Promise.reject(error)
         }
@@ -97,6 +119,9 @@ export const list = {
     },
     failure(state) {
       state.list = []
+    },
+    loadingToggle(state) {
+      state.loading = !state.loading
     },
   },
 }
