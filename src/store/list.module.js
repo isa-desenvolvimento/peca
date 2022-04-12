@@ -2,6 +2,7 @@ import useList from '@/composables/useList'
 
 const initialState = {
   extrato: {},
+  lojas: [],
   contrato: {},
   devolucao: {},
   estoque: {},

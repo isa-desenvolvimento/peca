@@ -32,7 +32,6 @@
         </div>
       </div>
     </Slide>
-
     <template #addons="{ slidesCount, currentSlide }">
       <Navigation v-if="slidesCount > 1">
         <template #next>
@@ -78,7 +77,7 @@ export default {
     return { nav }
   },
   computed: mapState({
-    lojas: (state) => state.list?.lojas,
+    lojas: (state) => state.list.lojas,
   }),
   methods: {
     format(value) {
@@ -99,7 +98,14 @@ export default {
 
 <style>
 .carousel__slide {
-  padding: 10px;
+  padding: 0.8rem;
+  min-width: 50%;
+}
+
+@media only screen and (min-width: 1200px) {
+  .carousel__slide {
+    min-width: 25%;
+  }
 }
 
 .carousel__prev {
