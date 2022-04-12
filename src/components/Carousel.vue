@@ -32,15 +32,16 @@
         </div>
       </div>
     </Slide>
+
     <template #addons="{ slidesCount, currentSlide }">
       <Navigation v-if="slidesCount > 1">
         <template #next>
-          <button @click="() => onclick(slides[currentSlide + 1].id)">
+          <button @click="() => onclick(lojas[currentSlide + 1].id)">
             {{ '>' }}
           </button>
         </template>
         <template #prev>
-          <button @click="() => onclick(slides[currentSlide - 1].id)">
+          <button @click="() => onclick(lojas[currentSlide - 1].id)">
             {{ '<' }}
           </button>
         </template>
