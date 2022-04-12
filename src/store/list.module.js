@@ -26,17 +26,27 @@ export const list = {
     },
     getList({ commit }, type) {
       this.dispatch('form/setLoading')
-
       return getList(type).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type })
           this.dispatch('form/setLoading')
-
           return Promise.resolve(payload.data)
         },
         (error) => {
           commit('failure')
           this.dispatch('form/setLoading')
+          return Promise.reject(error)
+        }
+      )
+    },
+    getAuth({ commit }) {
+      return getList('auth').then(
+        (payload) => {
+          commit('sucess', { payload: payload.data, type: 'auth' })
+          return Promise.resolve(payload.data)
+        },
+        (error) => {
+          commit('failure')
           return Promise.reject(error)
         }
       )

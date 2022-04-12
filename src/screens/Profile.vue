@@ -227,7 +227,7 @@ export default {
     //     },
     //   },
     // })
-    dispatch('list/getList', 'auth')
+    dispatch('list/getAuth')
     dispatch('dropdown/getDropdown', 'bancos')
     dispatch('dropdown/getDropdown', 'ufs')
 

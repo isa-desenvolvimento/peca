@@ -68,7 +68,7 @@ export default {
     const { dispatch } = useStore()
     document.title = 'Clube Peça Rara | Home'
 
-    dispatch('list/getList', 'auth')
+    dispatch('list/getAuth')
 
     return { dispatch }
   },
@@ -79,7 +79,6 @@ export default {
   },
   methods: {
     goToNext(screen) {
-      this.dispatch('form/setLoading')
       this.$router.push(screen)
     },
   },
