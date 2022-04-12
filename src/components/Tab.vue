@@ -55,13 +55,12 @@ import { periodoDate } from '@/util/date'
 import Modal from '@/components/Modal.vue'
 
 export default {
-  emits: ['click'],
-
   components: { Modal },
   props: {
     idLoja: { type: Number, required: true },
     type: { type: String, required: true },
   },
+  emits: ['click'],
   setup() {
     return {
       tabs: [7, 15, 30],

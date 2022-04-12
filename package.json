@@ -12,7 +12,8 @@
     "commit": "prettier .  --write && git add .  && git-cz",
     "serve": "vite preview --port 8080",
     "start": "node server.js --host",
-    "postinstall": "vite build"
+    "postinstall": "vite build",
+    "clear": "rm -Rf node_modules/ && yarn && yarn build && yarn serve"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",

@@ -108,21 +108,17 @@ export default {
     const tab0 = document.getElementById(`button_tap_0`)
 
     this.interval = setInterval(() => {
-      if (tab0 && this.lojas?.length) {
+      if (tab0) {
         clearInterval(this.interval)
 
-        if (this.type === 'extrato') {
-          const _dates = periodoDate(7)
-          this.setPeriodo(_dates)
-        }
-
-        this.setId(this.lojas[0].id)
+        const _dates = periodoDate(7)
+        this.setPeriodo(_dates)
 
         tab0.click()
-        // tab0.focus()
       }
     }, 100)
   },
+
   unmounted() {
     clearInterval(this.interval)
   },

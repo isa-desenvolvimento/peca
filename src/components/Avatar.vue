@@ -22,7 +22,6 @@ export default {
   },
   methods: {
     created() {
-      debugger
       this.$refs.image.src = this.value
     },
     saveClicked() {

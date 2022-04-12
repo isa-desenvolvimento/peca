@@ -11,7 +11,7 @@
       <div
         class="carousel__item w-full grid grid-cols-3 place-content-center py-2"
         :class="color"
-        @click="() => onClickSlide(slide, index)"
+        @click="() => slideTo(slide, index)"
       >
         <div
           class="mx-auto h-10 w-10 bg-contain bg-no-repeat bg-center col-span-3"
@@ -37,18 +37,14 @@
       <Navigation v-if="slidesCount > 1">
         <template #next>
           <button
-            @click="
-              () => onClickSlide(lojas[currentSlide + 1], currentSlide + 1)
-            "
+            @click="() => slideTo(lojas[currentSlide + 1], currentSlide + 1)"
           >
             {{ '>' }}
           </button>
         </template>
         <template #prev>
           <button
-            @click="
-              () => onClickSlide(lojas[currentSlide - 1], currentSlide - 1)
-            "
+            @click="() => slideTo(lojas[currentSlide - 1], currentSlide - 1)"
           >
             {{ '<' }}
           </button>
@@ -88,6 +84,14 @@ export default {
   computed: mapState({
     lojas: (state) => state.list.lojas,
   }),
+  mounted() {
+    const interval = setInterval(() => {
+      if (this.lojas?.length) {
+        clearInterval(interval)
+        this.slideTo(this.lojas[0].id, 0)
+      }
+    }, 100)
+  },
   methods: {
     format(value) {
       switch (this.type) {
@@ -97,7 +101,7 @@ export default {
           return `${value} peça(s)`
       }
     },
-    onClickSlide(slide, index) {
+    slideTo(slide, index) {
       switch (true) {
         case this.lojas.length === index:
           index = 0
@@ -109,8 +113,8 @@ export default {
           break
       }
 
-      this.nav.slideTo(index)
       this.onclick(slide.id)
+      this.nav.slideTo(index)
     },
   },
 }

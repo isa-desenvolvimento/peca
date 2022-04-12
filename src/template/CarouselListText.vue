@@ -140,14 +140,14 @@ export default {
       lists: (state) => state.list[self.props.type],
     }),
   },
-  mounted() {
-    const interval = setInterval(() => {
-      if (this.lojas?.length) {
-        clearInterval(interval)
-        this.setId(this.lojas[0].id)
-      }
-    }, 100)
-  },
+  // mounted() {
+  //   const interval = setInterval(() => {
+  //     if (this.lojas?.length) {
+  //       clearInterval(interval)
+  //       this.setId(this.lojas[0].id)
+  //     }
+  //   }, 100)
+  // },
   methods: {
     setId(id) {
       this.id_loja = id
