@@ -129,8 +129,8 @@ export default {
 .carousel__prev,
 .carousel__next {
   box-sizing: content-box;
-  background: transparent;
+  background: transparent !important;
   border: none;
-  color: #ffa301;
+  color: #ffa301 !important;
 }
 </style>
