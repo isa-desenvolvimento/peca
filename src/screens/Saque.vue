@@ -145,9 +145,11 @@ export default {
     const route = useRoute()
     const loja = route.params.loja || null
     const type = `saque/pontual/${loja}`
-
     const { dispatch } = useStore()
+
     dispatch('list/getList', type)
+
+    self.type = type
 
     return { loja, dispatch, type }
   },
@@ -167,7 +169,7 @@ export default {
   },
 
   computed: mapState({
-    list: (state) => state.list[this.type],
+    list: (state) => state.list[self.type],
   }),
 
   methods: {

@@ -33,6 +33,31 @@
     transition: background-color 5000s ease-in-out 0s;
     color: var(--bg-white);
   }
+
+  ::-webkit-calendar-picker-indicator {
+    background-image: url('@/assets/calendar.svg');
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track:hover {
+    background: var(--bg-red);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--bg-red);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-red);
+  }
 }
 
 @font-face {
@@ -44,24 +69,3 @@
   font-family: 'Manrope';
   src: url('@/assets/fonts/Manrope/Manrope-ExtraLight.ttf');
 } */
-
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-track:hover {
-  background: var(--bg-red);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--bg-red);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--bg-red);
-}
