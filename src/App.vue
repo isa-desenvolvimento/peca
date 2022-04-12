@@ -6,7 +6,7 @@
   >
     <router-view />
   </div>
-  <div v-if="!loading && !isPublicPages & !loggedIn">
+  <div v-if="!loading && !isPublicPages && !loggedIn">
     <sign-in />
   </div>
   <Loading v-if="loading" />

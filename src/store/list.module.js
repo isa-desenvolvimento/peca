@@ -19,6 +19,7 @@ export const list = {
         },
         (error) => {
           commit('failure')
+          this.dispatch('form/setLoading')
           return Promise.reject(error)
         }
       )
@@ -35,6 +36,7 @@ export const list = {
         },
         (error) => {
           commit('failure')
+          this.dispatch('form/setLoading')
           return Promise.reject(error)
         }
       )
@@ -51,6 +53,7 @@ export const list = {
         },
         (error) => {
           commit('failure')
+          this.dispatch('form/setLoading')
           return Promise.reject(error)
         }
       )
@@ -67,6 +70,7 @@ export const list = {
         },
         (error) => {
           commit('failure')
+          this.dispatch('form/setLoading')
           return Promise.reject(error)
         }
       )

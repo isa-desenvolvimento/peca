@@ -25,6 +25,7 @@ export const form = {
         },
         (error) => {
           commit('failure', error.response.data.errors)
+          commit('loading')
           return Promise.reject(error)
         }
       )
@@ -42,6 +43,7 @@ export const form = {
         },
         (error) => {
           commit('failure', error.response.data.errors)
+          commit('loading')
           return Promise.reject(error)
         }
       )
@@ -53,10 +55,10 @@ export const form = {
       commit('toast', payload)
     },
     setLoading({ commit }) {
-      commit('loading')
+      commit('loadingToggle')
     },
     setLoadingFalse({ commit }) {
-      commit('loading')
+      commit('loadingFalse')
     },
   },
   mutations: {
@@ -71,12 +73,11 @@ export const form = {
     toast(state, payload) {
       messagesFetch(payload.status, payload.message)
     },
-    loading(state) {
-      state.loading = !state.loading
+    loadingToggle(state) {
+      // state.loading = !state.loading
     },
     loadingFalse() {
       this.state.loading = false
-      this.user = {}
     },
   },
 }

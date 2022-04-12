@@ -28,8 +28,7 @@
         class="mt-8 space-y-6"
         action="#"
         method="POST"
-        @submit="(e) => submit(e)"
-        @keyup.enter="(e) => submit(e)"
+        @submit.prevent="() => submit()"
       >
         <div
           class="font-manrope font-bold text-center text-white grid justify-center"

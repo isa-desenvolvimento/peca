@@ -54,8 +54,7 @@ export default {
       state.user.error.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')),
   }),
   methods: {
-    submitCPF(e) {
-      e.preventDefault()
+    submitCPF() {
       this.$store
         .dispatch('user/postValidDoc', { doc: this.doc })
         .then(() => {
@@ -72,9 +71,7 @@ export default {
           }
         })
     },
-    login(e) {
-      e.preventDefault()
-
+    login() {
       if (this.pwd) {
         sessionStorage.pwd = this.pwd
       }
@@ -85,11 +82,13 @@ export default {
           pwd: this.pwd || sessionStorage.pwd,
         })
         .then(() => {
-          this.router.push({ path: '/' })
+          this.$store.dispatch('form/setLoadingFalse')
+          this.router.push('/')
         })
-        .catch(() =>
+        .catch(() => {
           messagesFetch('danger', window.$t('MESSAGE.DANGER_PASSWORD_INVALID'))
-        )
+          this.$store.dispatch('form/setLoadingFalse')
+        })
     },
     reset() {
       this.$store
