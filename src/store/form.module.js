@@ -73,7 +73,7 @@ export const form = {
     toast(state, payload) {
       messagesFetch(payload.status, payload.message)
     },
-    loadingToggle(state) {
+    loadingToggle() {
       // state.loading = !state.loading
     },
     loadingFalse() {
