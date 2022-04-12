@@ -74,7 +74,8 @@ export default {
   },
 
   computed: mapState({
-    avatar: (state) => URL + state.list.auth.profile_img,
+    avatar: (state) =>
+      state.list.auth.profile_img ? URL + state.list.auth.profile_img : null,
   }),
 
   methods: {

@@ -120,7 +120,7 @@ export default {
   setup(props) {
     const route = useRoute()
     const id_loja = route.params.id_loja || null
-
+    self.props = props
     const { dispatch } = useStore()
 
     if (id_loja) {
@@ -138,10 +138,12 @@ export default {
   data() {
     return { showmore: false }
   },
-  computed: mapState({
-    lojas: (state) => state.list?.lojas,
-    lists: (state) => state.list[this.type],
-  }),
+  computed: {
+    ...mapState({
+      lojas: (state) => state.list?.lojas,
+      lists: (state) => state.list[self.props.type],
+    }),
+  },
   mounted() {
     const interval = setInterval(() => {
       if (this.lojas?.length) {

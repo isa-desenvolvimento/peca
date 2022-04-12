@@ -1,6 +1,20 @@
 import useList from '@/composables/useList'
 
-const initialState = {}
+const initialState = {
+  extrato: {},
+  contrato: {},
+  devolucao: {},
+  estoque: {},
+  auth: {
+    profile_img: null,
+  },
+}
+
+Object.keys(initialState).map((key) => {
+  initialState[key] = sessionStorage.getItem(key)
+    ? JSON.parse(sessionStorage.getItem(key))
+    : {}
+})
 
 const { useGetLojas, useGetList, useGetFilter, useGetListEstoque } = useList()
 
@@ -77,7 +91,7 @@ export const list = {
   },
   mutations: {
     sucess(state, { payload, type }) {
-      sessionStorage.setItem(type, payload)
+      sessionStorage.setItem(type, JSON.stringify(payload))
       state[type] = payload
     },
     failure(state) {

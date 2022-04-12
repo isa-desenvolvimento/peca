@@ -84,10 +84,12 @@ export default {
         .then(() => {
           this.$store.dispatch('form/setLoadingFalse')
           this.router.push('/')
+          delete sessionStorage.pwd
         })
         .catch(() => {
           messagesFetch('danger', window.$t('MESSAGE.DANGER_PASSWORD_INVALID'))
           this.$store.dispatch('form/setLoadingFalse')
+          delete sessionStorage.pwd
         })
     },
     reset() {

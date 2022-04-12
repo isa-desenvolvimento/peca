@@ -106,6 +106,8 @@ export default {
     const isFirst = true
     const periodo = {}
 
+    self.props = props
+
     dispatch('list/getLojas', props.type)
     return { router, id_loja, periodo, dispatch, isFirst }
   },
@@ -114,7 +116,7 @@ export default {
   },
   computed: mapState({
     lojas: (state) => state.list?.lojas,
-    lists: (state) => state.list[this.type],
+    lists: (state) => state.list[self.props.type],
   }),
   mounted() {
     const tab0 = document.getElementById(`button_tap_0`)
