@@ -6,14 +6,14 @@ const initialState = userLocalStorage
   ? { loggedIn: true, publicPages: false }
   : { loggedIn: false, publicPages: false }
 
-const { login, logoutUse } = useAuth()
+const { useLogin, logoutUse } = useAuth()
 
 export const auth = {
   namespaced: true,
   state: initialState,
   actions: {
     login({ commit }, value) {
-      return login(value).then(
+      return useLogin(value).then(
         (user) => {
           commit('success', user)
 

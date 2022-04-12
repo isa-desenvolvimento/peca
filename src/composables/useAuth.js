@@ -1,7 +1,7 @@
 import { fetchtAuth, fetchtValidDoc } from '@/api/auth'
 
 export default function useAuth() {
-  const login = async (user) => {
+  const useLogin = async (user) => {
     const auth = await fetchtAuth(user)
     if (auth && auth.api_token) {
       const user = JSON.parse(sessionStorage.user)
@@ -24,7 +24,7 @@ export default function useAuth() {
   }
 
   return {
-    login,
+    useLogin,
     logoutUse,
     validDoc,
   }

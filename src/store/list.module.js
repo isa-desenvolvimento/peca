@@ -2,14 +2,14 @@ import useList from '@/composables/useList'
 
 const initialState = {}
 
-const { getLojas, getList, getFilter, getListEstoque } = useList()
+const { useGetLojas, useGetList, useGetFilter, useGetListEstoque } = useList()
 
 export const list = {
   namespaced: true,
   state: initialState,
   actions: {
     getLojas({ commit }, type) {
-      return getLojas(type).then(
+      return useGetLojas(type).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: 'lojas' })
 
@@ -22,7 +22,7 @@ export const list = {
       )
     },
     getList({ commit }, type) {
-      return getList(type).then(
+      return useGetList(type).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type })
           return Promise.resolve(payload.data)
@@ -34,7 +34,7 @@ export const list = {
       )
     },
     getAuth({ commit }) {
-      return getList('auth').then(
+      return useGetList('auth').then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: 'auth' })
           return Promise.resolve(payload.data)
@@ -47,7 +47,7 @@ export const list = {
     },
     getFilter({ commit }, value) {
       this.state.list[value.type] = {}
-      return getFilter(value).then(
+      return useGetFilter(value).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: value.type })
 
@@ -61,7 +61,7 @@ export const list = {
       )
     },
     getListEstoque({ commit }, value) {
-      return getListEstoque(value).then(
+      return useGetListEstoque(value).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: value.type })
 

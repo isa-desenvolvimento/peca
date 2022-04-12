@@ -63,10 +63,10 @@ export default {
     Navigation,
   },
   props: {
-    slides: { type: Array },
-    onclick: { type: Function },
-    type: { type: String },
-    color: { type: String },
+    slides: { type: Array, required: true },
+    onclick: { type: Function, required: true },
+    type: { type: String, required: true },
+    color: { type: String, required: false },
     icon: { type: String, required: true, default: 'con-marcador-menu' },
   },
   setup() {

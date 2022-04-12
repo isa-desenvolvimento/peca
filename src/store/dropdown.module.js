@@ -2,14 +2,14 @@ import useDropdown from '@/composables/useDropdown'
 
 const initialState = {}
 
-const { getDropdown, getCep, getCityDropdown } = useDropdown()
+const { useGetDropdown, useGetCep, useGetCityDropdown } = useDropdown()
 
 export const dropdown = {
   namespaced: true,
   state: initialState,
   actions: {
     getDropdown({ commit }, type) {
-      return getDropdown(type).then(
+      useGetDropdown(type).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type })
           return Promise.resolve(payload.data)
@@ -21,7 +21,7 @@ export const dropdown = {
       )
     },
     getCep({ commit }, cep) {
-      return getCep(cep).then(
+      useGetCep(cep).then(
         (payload) => {
           commit('sucess', { payload: payload, type: 'address' })
           return Promise.resolve(payload)
@@ -34,7 +34,7 @@ export const dropdown = {
     },
 
     getCityDropdown({ commit }, uf) {
-      return getCityDropdown(uf).then(
+      useGetCityDropdown(uf).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: 'cidades' })
           return Promise.resolve(payload)

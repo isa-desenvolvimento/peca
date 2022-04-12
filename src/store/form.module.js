@@ -7,7 +7,7 @@ const initialState = {
   loading: false,
 }
 
-const { create, update } = useForm()
+const { useCreate, useUpdate } = useForm()
 
 export const form = {
   namespaced: true,
@@ -16,7 +16,7 @@ export const form = {
     create({ commit }, { value, type }) {
       commit('loading')
 
-      return create(type, value).then(
+      return useCreate(type, value).then(
         (payload) => {
           commit('sucess', payload)
           commit('loading')
@@ -33,7 +33,7 @@ export const form = {
     update({ commit }, { value, type }) {
       commit('loading')
 
-      return update(type, value).then(
+      return useUpdate(type, value).then(
         (payload) => {
           commit('sucess', payload)
           commit('loading')

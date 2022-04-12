@@ -110,7 +110,7 @@ export default {
     return { router, id_loja, periodo, dispatch, isFirst }
   },
   data() {
-    return { showmore: false }
+    return { showmore: false, interval: null }
   },
   computed: {
     lojas() {
@@ -136,9 +136,9 @@ export default {
   mounted() {
     const tab0 = document.getElementById(`button_tap_0`)
 
-    const interval = setInterval(() => {
+    this.interval = setInterval(() => {
       if (tab0 && this.lojas?.length) {
-        clearInterval(interval)
+        clearInterval(this.interval)
 
         if (this.type === 'extrato') {
           const _dates = periodoDate(7)
@@ -151,6 +151,9 @@ export default {
         // tab0.focus()
       }
     }, 100)
+  },
+  unmounted() {
+    clearInterval(this.interval)
   },
   methods: {
     format() {
