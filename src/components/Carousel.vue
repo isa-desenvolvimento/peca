@@ -78,7 +78,7 @@ export default {
     return { nav }
   },
   computed: mapState({
-    lojas: (state) => state.list?.lojas || [],
+    lojas: (state) => state.list?.lojas,
   }),
   methods: {
     format(value) {

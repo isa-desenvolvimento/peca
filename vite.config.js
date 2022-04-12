@@ -18,11 +18,13 @@ export default defineConfig({
   ],
   define: {
     'process.env': process.env,
+    __isBrowser__: true,
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.md', '.json', '.vue'],
   },
   build: {
     sourcemap: true,

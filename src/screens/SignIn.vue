@@ -61,13 +61,18 @@ export default {
           sessionStorage.doc = this.doc
         })
         .catch((err) => {
-          if (err.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER'))) {
-            err.map((err) => messagesFetch('danger', err))
-            this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
-            this.router.push('/feedback')
-            sessionStorage.doc = this.doc
-          } else {
-            messagesFetch('danger', this.$t('MESSAGE.DANGER_CPG_INVALID'))
+          switch (err[0]) {
+            case this.$t('MESSAGE.DANGER_NOT_REGISTER'):
+              this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
+              this.router.push('/feedback')
+              sessionStorage.doc = this.doc
+              break
+            case this.$t('MESSAGE.DANGER_NOT_PAWSSORD'):
+              messagesFetch('danger', this.$t('MESSAGE.DANGER_NOT_PAWSSORD'))
+              break
+            default:
+              messagesFetch('danger', this.$t('MESSAGE.DANGER_CPG_INVALID'))
+              break
           }
         })
     },
