@@ -78,7 +78,7 @@ export default {
     format(value) {
       switch (this.type) {
         case 'extrato':
-          return `R$ ${value.toFixed(2)}`
+          return `R$ ${value}`
         default:
           return `${value} peça(s)`
       }

@@ -11,7 +11,6 @@
           :key="tab"
           class="nav-item text-red font-manrope font-bold focus:bg-yellow-ligth focus:text-red active:text-red"
           role="presentation"
-          :aria-current="index === 0"
         >
           <a
             :id="`button_tap_${index}`"
@@ -22,6 +21,7 @@
             role="tab"
             :aria-controls="`button_tap_${index}`"
             :aria-selected="index === 0"
+            :class="index === 0 ? 'active' : ''"
             @click="() => getPeriodo(tab)"
           >
             {{ tab }} {{ $t('DAY') }}</a
