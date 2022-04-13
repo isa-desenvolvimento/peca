@@ -8,6 +8,6 @@ module.exports = {
     // "vue/no-unused-vars": "error",
     'vue/require-explicit-emits': 'off',
     'vue/multi-word-component-names': 'off',
-    'no-debugger': 'on',
+    'no-debugger': 'off',
   },
 }
