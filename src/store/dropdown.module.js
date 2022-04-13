@@ -9,7 +9,7 @@ export const dropdown = {
   state: initialState,
   actions: {
     getDropdown({ commit }, type) {
-      useGetDropdown(type).then(
+      return useGetDropdown(type).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type })
           return Promise.resolve(payload.data)
@@ -21,7 +21,7 @@ export const dropdown = {
       )
     },
     getCep({ commit }, cep) {
-      useGetCep(cep).then(
+      return useGetCep(cep).then(
         (payload) => {
           commit('sucess', { payload: payload, type: 'address' })
           return Promise.resolve(payload)
@@ -34,7 +34,7 @@ export const dropdown = {
     },
 
     getCityDropdown({ commit }, uf) {
-      useGetCityDropdown(uf).then(
+      return useGetCityDropdown(uf).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: 'cidades' })
           return Promise.resolve(payload)
