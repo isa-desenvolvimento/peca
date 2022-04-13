@@ -257,8 +257,6 @@ import { ref } from 'vue'
 import { mapState, useStore } from 'vuex'
 import { stringFormartUS } from '@/util/date'
 
-import { messagesFetch } from '@/util/toast.js'
-
 export default {
   setup() {
     const value = ref({
@@ -356,23 +354,14 @@ export default {
       e.preventDefault()
       this.value.data_nascimento = stringFormartUS(this.data_nascimento)
 
-      this.dispatch('form/create', {
-        value: this.value,
-        type: 'fornecedor',
-      }).then(() => {
-        sessionStorage.setItem(
-          'fornecedor',
-          JSON.stringify({ email: this.value.email, tel: this.value.tel })
-        )
+      sessionStorage.setItem('fornecedor', JSON.stringify(this.value))
 
-        messagesFetch('success', window.$t('MESSAGE.SUCCESS_CREATE'))
-        this.$router.push({
-          path: '/termo',
-          params: {
-            email: this.email,
-            tel: this.tel,
-          },
-        })
+      this.$router.push({
+        path: '/termo',
+        params: {
+          email: this.email,
+          tel: this.tel,
+        },
       })
     },
   },

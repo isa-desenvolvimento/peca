@@ -26,7 +26,7 @@
           <button
             type="button"
             class="appearance-none rounded-md uppercase font-manrope font-bold bg-red leading-normal justify-center py-2 px-10 text-xs text-orange"
-            @click="$router.push('/lack-little')"
+            @click="submitForm"
           >
             {{ $t('CONTINUE') }}
           </button>
@@ -40,6 +40,7 @@
 import Markdown from 'vue3-markdown-it'
 import Termo from '@/assets/Termo.md'
 import Politica from '@/assets/Termo.md'
+import { messagesFetch } from '@/util/toast.js'
 
 export default {
   components: {
@@ -58,6 +59,18 @@ export default {
     getMDFile() {
       this.fileContentTermo = Termo
       this.fileContentPolitica = Politica
+    },
+
+    submitForm() {
+      this.$store
+        .dispatch('form/create', {
+          value: JSON.parse(sessionStorage.getItem('fornecedor')),
+          type: 'fornecedor',
+        })
+        .then(() => {
+          messagesFetch('success', window.$t('MESSAGE.SUCCESS_CREATE'))
+          this.$router.push('/lack-little')
+        })
     },
   },
 }
