@@ -7,7 +7,7 @@
           classe="text-orange lg:ml-8  w-64 text-lg leading-[2.5rem]"
         />
         <Description
-          classe="text-orange text-sm  w-full text-left lg:ml-[2.3rem] font-manrope  "
+          classe="text-orange text-sm  w-full text-left lg:ml-[2.3rem] font-manrope  mt-2 leading-[1rem]"
         >
           {{ $t('VERIFY_SEND_EMAIL') }}
         </Description>

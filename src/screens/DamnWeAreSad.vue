@@ -6,7 +6,7 @@
         classe="text-orange lg:text-center lg:ml-8 text-lg leading-[2.5rem]  lg:text-6xl lg:leading-[3.5rem] lg:w-[30rem]"
       />
       <Description
-        classe="text-orange text-md  w-full text-left lg:mx-auto font-manrope  mt-[-.5rem] "
+        classe="text-orange text-md  w-full text-left lg:mx-auto font-manrope"
       >
         {{ $t('WE_ARE_SAD') }}
       </Description>

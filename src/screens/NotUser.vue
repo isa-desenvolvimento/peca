@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-screen grid items-center w-full bg-red ease-linear duration-300 delay-75"
+    class="h-screen grid items-center w-full bg-red ease-linear duration-300 delay-75 overflow-y-auto"
   >
     <div class="lg:mx-auto">
       <div class="grid gap-2 lg:mx-auto ml-20">
@@ -10,7 +10,7 @@
         />
 
         <Description
-          classe="lg:mx-auto  col-row-2 text-orange  leading-[1rem] text-base w-80 text-left mt-[-1rem] lg:mt-2"
+          classe="lg:mx-auto  col-row-2 text-orange  leading-[1rem] text-base w-80 text-left  lg:mt-4"
         >
           {{ $t('NOT_SUPPLIER') }}</Description
         >
