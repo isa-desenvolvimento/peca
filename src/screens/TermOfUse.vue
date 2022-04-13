@@ -12,8 +12,8 @@
           class="font-manrope border text-red font-light text-sm break-words p-2 overflow-auto"
         >
           <div>
-            <Markdown :source="fileContentTermo" />
-            <Markdown :source="fileContentPolitica" />
+            <Termo />
+            <Politica />
           </div>
         </div>
         <div
@@ -37,30 +37,13 @@
 </template>
 
 <script>
-import Markdown from 'vue3-markdown-it'
-import Termo from '@/assets/Termo.md'
-import Politica from '@/assets/Termo.md'
 import { messagesFetch } from '@/util/toast.js'
+import Termo from '@/components/Termo.vue'
+import Politica from '@/components/Politica.vue'
 
 export default {
-  components: {
-    Markdown,
-  },
-  data() {
-    return {
-      fileContentTermo: '',
-      fileContentPolitica: '',
-    }
-  },
-  mounted() {
-    this.getMDFile()
-  },
+  components: { Termo, Politica },
   methods: {
-    getMDFile() {
-      this.fileContentTermo = Termo
-      this.fileContentPolitica = Politica
-    },
-
     submitForm() {
       this.$store
         .dispatch('form/create', {

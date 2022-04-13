@@ -2,29 +2,20 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import eslintPlugin from 'vite-plugin-eslint'
-import markdownRawPlugin from 'vite-raw-plugin'
 
 // import svgLoader from 'vite-svg-loader'
 // const fs = require('fs')
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    eslintPlugin(),
-    markdownRawPlugin({
-      fileRegex: /\.md$/,
-    }),
-  ],
+  plugins: [vue(), eslintPlugin()],
   define: {
     'process.env': process.env,
-    __isBrowser__: true,
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
-    extensions: ['.mjs', '.js', '.ts', '.jsx', '.md', '.json', '.vue'],
   },
   build: {
     sourcemap: false,
