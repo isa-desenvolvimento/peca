@@ -59,7 +59,7 @@ const routes = [
     component: () => import('@/screens/Token.vue'),
   },
   {
-    path: '/welcome/:token',
+    path: '/welcome',
     name: 'Welcome',
     component: () => import('@/screens/Welcome.vue'),
   },
@@ -106,7 +106,10 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const authRequired = !PUBLIC_PAGES.includes(to.path)
+  let uri = window.location.search.substring(1)
+
+  const authRequired =
+    !PUBLIC_PAGES.includes(to.path) && uri.pathname !== '/welcome'
   const user = JSON.parse(sessionStorage.getItem('user'))
   const loggedIn = user?.token && !!user.token
 

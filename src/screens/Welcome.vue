@@ -60,7 +60,11 @@ export default {
   components: { Description, Title },
   setup() {
     const route = useRoute()
-    const token = route.params.token || null
+    const token = route.query.token || null
+
+    // let uri = window.location.search.substring(1);
+    // let params = new URLSearchParams(uri);
+    // console.log(params.get("token"));
 
     return { token }
   },
