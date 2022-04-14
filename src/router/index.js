@@ -59,7 +59,7 @@ const routes = [
     component: () => import('@/screens/Token.vue'),
   },
   {
-    path: '/welcome',
+    path: '/welcome/:token',
     name: 'Welcome',
     component: () => import('@/screens/Welcome.vue'),
   },
