@@ -37,7 +37,6 @@
             class="nav-link w-full break-normal block text-red font-manrope text-xs leading-snug uppercase font-bold leading-tight uppercase py-3 my-2 px-2"
             data-bs-toggle="pill"
             role="tab"
-            @click="(e) => getOthers(e)"
           >
             <a data-bs-toggle="modal" data-bs-target="#modalPeriod">
               {{ $t('OTHERS') }}
@@ -47,7 +46,7 @@
       </ul>
     </div>
   </div>
-  <Modal :id-loja="idLoja" :type="type" />
+  <Modal :id-loja="idLoja" :type="type" ref="modal" @submit="getOthers"/>
 </template>
 
 <script>
@@ -60,7 +59,6 @@ export default {
     idLoja: { type: Number, required: true },
     type: { type: String, required: true },
   },
-  emits: ['click'],
   setup() {
     return {
       tabs: [7, 15, 30],
@@ -68,10 +66,10 @@ export default {
   },
   methods: {
     getPeriodo(periodo) {
-      this.$emit('click', periodoDate(periodo))
+      this.$emit('submit', periodoDate(periodo))
     },
     getOthers(periodo) {
-      this.$emit('click', periodo)
+      this.$emit('submit', periodo)
     },
   },
 }

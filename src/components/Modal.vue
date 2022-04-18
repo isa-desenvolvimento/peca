@@ -98,11 +98,7 @@ export default {
   methods: {
     apply(e) {
       e.preventDefault()
-      this.$store.dispatch('list/getFilter', {
-        type: this.type,
-        id_loja: this.idLoja,
-        ...this.value,
-      })
+      this.$emit('submit', this.value)
     },
   },
 }

@@ -39,7 +39,7 @@
             v-if="hasPeriodo"
             :id-loja="id_loja"
             type="extrato"
-            @click="(filter) => setFilter('periodo', filter)"
+            @submit="(filter) => setFilter('periodo', filter)"
           />
           <List v-if="lists?.movimentos?.length" :lists="lists?.movimentos" />
 
@@ -91,15 +91,12 @@ export default {
   },
   setup(props) {
     const { dispatch } = useStore()
-    const id_loja = 0
-    const periodo = {}
-
     self.props = props
 
-    return { id_loja, periodo, dispatch }
+    return { dispatch }
   },
   data() {
-    return { showmore: false, interval: null }
+    return { showmore: false, interval: null, periodo:{data_inicio: null, data_fim: null}, id_loja: 0 }
   },
   computed: mapState({
     lists: (state) => state.list[self.props.type],
@@ -130,6 +127,7 @@ export default {
       switch (item) {
         case 'id':
           this.setId(value)
+          this.setPeriodo(false)
           break
         default:
           this.setPeriodo(value)
@@ -141,6 +139,12 @@ export default {
       this.id_loja = id
     },
     setPeriodo(periodo) {
+       if(periodo.data_inicio && periodo.data_fim) {
+         sessionStorage.setItem('periodo', JSON.stringify(periodo))
+       }else {
+         periodo = JSON.parse(sessionStorage.getItem('periodo'))
+       }
+
       this.periodo = periodo
     },
     getFilter() {

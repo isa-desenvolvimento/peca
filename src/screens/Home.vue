@@ -9,7 +9,6 @@
         <file-avatar
           :value="avatar"
           classe="w-12 h-12 my-6 ml-auto md:w-20 md:h-20 lg:w-12 lg:h-12"
-          v-if="hasAuth"
         />
       </div>
     </div>
@@ -75,7 +74,6 @@ export default {
 
   computed: mapState({
     avatar: (state) => state.list.auth.profile_img,
-    hasAuth: (state) => !!state.list.auth,
   }),
 
   methods: {
