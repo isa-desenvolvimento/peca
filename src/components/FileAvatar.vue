@@ -39,6 +39,11 @@ export default {
   mounted() {
     this.previewImage = this.value || null
   },
+  updated() {
+    if (this.previewImage === null) {
+      this.previewImage = this.value
+    }
+  },
   methods: {
     selectImage() {
       this.update = false
@@ -50,11 +55,7 @@ export default {
       if (file && file[0]) {
         let reader = new FileReader()
         reader.onload = (e) => {
-          const user = JSON.parse(sessionStorage.getItem('user'))
           this.previewImage = e.target.result
-          user.avatar = e.target.result
-
-          sessionStorage.user = JSON.stringify(user)
           this.$emit('update:modelValue', e.target.result)
         }
         reader.readAsDataURL(file[0])

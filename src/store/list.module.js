@@ -6,9 +6,7 @@ const initialState = {
   contrato: {},
   devolucao: {},
   estoque: {},
-  auth: {
-    profile_img: null,
-  },
+  auth: {},
 }
 
 Object.keys(initialState).map((key) => {
@@ -61,7 +59,11 @@ export const list = {
 
       return useGetList('auth').then(
         (payload) => {
-          commit('sucess', { payload: payload.data, type: 'auth' })
+          const data = {
+            ...payload.data,
+            profile_img: process.env.VITE_API + payload.data.profile_img,
+          }
+          commit('sucess', { payload: data, type: 'auth' })
           commit('loadingToggle')
 
           return Promise.resolve(payload.data)

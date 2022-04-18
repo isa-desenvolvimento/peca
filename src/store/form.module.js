@@ -14,36 +14,36 @@ export const form = {
   state: initialState,
   actions: {
     create({ commit }, { value, type }) {
-      commit('loadingFalse')
+      commit('loadingToggle')
 
       return useCreate(type, value).then(
         (payload) => {
           commit('sucess', payload)
-          commit('loadingFalse')
+          commit('loadingToggle')
 
           return Promise.resolve(payload)
         },
         (error) => {
           commit('failure', error.response.data.errors)
-          commit('loadingFalse')
+          commit('loadingToggle')
           return Promise.reject(error)
         }
       )
     },
     update({ commit }, { value, type }) {
-      commit('loadingFalse')
+      commit('loadingToggle')
 
       return useUpdate(type, value).then(
         (payload) => {
           commit('sucess', payload)
-          commit('loadingFalse')
+          commit('loadingToggle')
 
           messagesFetch('success', window.$t('MESSAGE.SUCCESS_UPDATE'))
           return Promise.resolve(payload)
         },
         (error) => {
           commit('failure', error.response.data.errors)
-          commit('loadingFalse')
+          commit('loadingToggle')
           return Promise.reject(error)
         }
       )

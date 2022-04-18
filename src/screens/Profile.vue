@@ -243,18 +243,7 @@ export default {
     dropdownCidade: (state) => {
       return state.dropdown.cidades || []
     },
-    user: (state) => {
-      if (state.list.auth) {
-        const fornecedor = { ...state.list.auth }
-        const link = fornecedor?.profile_img.slice(0, 9)
-        if (link === '/storage/') {
-          fornecedor.profile_img = process.env.VITE_API + fornecedor.profile_img
-        }
-        return fornecedor
-      }
-
-      return []
-    },
+    user: (state) => state.list.auth,
   }),
 
   methods: {
@@ -274,7 +263,6 @@ export default {
 
       this.dispatch('auth/logout')
       this.$router.push('/login')
-      this.dispatch('form/setLoadingFalse')
     },
 
     submit(e) {
@@ -287,6 +275,8 @@ export default {
 
       this.dispatch('form/update', {
         value: data,
+      }).then(() => {
+        this.dispatch('list/getAuth')
       })
     },
   },
