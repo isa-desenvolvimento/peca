@@ -14,6 +14,25 @@
     --bg-yellow: #ffa301;
     --bg-yellow-ligth: #fedba1;
     --bg-gray: #8492a6;
+
+    --vs-border-width: none !important;
+    --vs-border-style: none !important;
+    --vs-border-color: transparent;
+    --vs-actions-padding: transparent;
+    --vs-controls-color: var(--bg-red) !important;
+    --vs-selected-color: var(--bg-red) !important;
+    --vs-search-input-color: var(--bg-red) !important;
+    --vs-dropdown-color: var(--bg-red) !important;
+    --vs-dropdown-option--active-bg: var(--bg-yellow-ligth) !important;
+    --vs-dropdown-option--active-color: var(--bg-red) !important;
+    --vs-dropdown-bg: var(--bg-orange) !important;
+    --vs-dropdown-max-height: 8rem !important;
+    --vs-dropdown-max-width: 5rem !important;
+  }
+
+  .v-select,
+  .v-select * {
+    font-family: 'Manrope' !important;
   }
 
   /* Change Autocomplete styles in Chrome*/
@@ -39,7 +58,8 @@
   }
 
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 3px;
+    height: 3px;
   }
 
   ::-webkit-scrollbar-track {

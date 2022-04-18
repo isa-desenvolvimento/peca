@@ -6,6 +6,7 @@ import moshaToast from 'mosha-vue-toastify'
 import Popper from 'vue3-popper'
 import Markdown from 'vue3-markdown-it'
 import money from 'v-money3'
+import vSelect from 'vue-select'
 
 import App from './App.vue'
 import router from './router'
@@ -16,6 +17,7 @@ import './index.css'
 import 'mosha-vue-toastify/dist/style.css'
 import 'tw-elements'
 import 'highlight.js/styles/monokai.css'
+import 'vue-select/dist/vue-select.css'
 
 createApp(App)
   .use(router)
@@ -24,6 +26,7 @@ createApp(App)
   .use(Markdown)
   .use(money)
   .component('Popper', Popper)
+  .component('v-select', vSelect)
   .use(VueTheMask)
   .use(VueAxios, axios)
   .use(i18n)

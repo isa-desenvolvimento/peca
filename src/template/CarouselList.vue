@@ -11,7 +11,7 @@
       <Header :title="title" />
 
       <div class="grid grid-rows-7 md:mx-auto">
-        <div class="row-span-6 my-8 md:w-6/12  mx-auto">
+        <div class="row-span-6 my-8 md:w-6/12 mx-auto">
           <div class="relative">
             <div class="px-6 md:px-8 mx-auto max-w-lg min-w-min">
               <Carousel
@@ -96,7 +96,12 @@ export default {
     return { dispatch }
   },
   data() {
-    return { showmore: false, interval: null, periodo:{data_inicio: null, data_fim: null}, id_loja: 0 }
+    return {
+      showmore: false,
+      interval: null,
+      periodo: { data_inicio: null, data_fim: null },
+      id_loja: 0,
+    }
   },
   computed: mapState({
     lists: (state) => state.list[self.props.type],
@@ -139,11 +144,11 @@ export default {
       this.id_loja = id
     },
     setPeriodo(periodo) {
-       if(periodo.data_inicio && periodo.data_fim) {
-         sessionStorage.setItem('periodo', JSON.stringify(periodo))
-       }else {
-         periodo = JSON.parse(sessionStorage.getItem('periodo'))
-       }
+      if (periodo.data_inicio && periodo.data_fim) {
+        sessionStorage.setItem('periodo', JSON.stringify(periodo))
+      } else {
+        periodo = JSON.parse(sessionStorage.getItem('periodo'))
+      }
 
       this.periodo = periodo
     },

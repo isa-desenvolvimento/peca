@@ -74,7 +74,6 @@
               v-mask="'(##) # ####-####'"
               name="tel"
               type="tel"
-              required
               class="appearance-none uppercase col-span-2 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('TELEPHONE')"
             />
@@ -169,7 +168,6 @@
               v-model="value.complemento"
               name="complement"
               type="text"
-              required
               class="appearance-none uppercase col-span-4 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
               :placeholder="$t('COMPLEMENT')"
             />
@@ -198,15 +196,22 @@
               {{ $t('BANK_DATA') }}
             </div>
 
-            <select
+            <v-select
               v-model="value.banco"
-              class="form-select form-select-sm appearance-none col-span-4 block w-full font-manrope appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
-              aria-label=".form-select-sm example"
+              class="appearance-none col-span-4 block w-full font-manrope appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-white text-sm"
+              :options="dropdownBanco"
+              :reduce="(option) => option.cod"
+              label="title"
             >
-              <option v-for="op in dropdownBanco" :key="op.id" :value="op.id">
-                {{ op.cod }} - {{ op.nome }}
-              </option>
-            </select>
+              <template #search="{ attributes, events }">
+                <input
+                  class="vs__search"
+                  :required="!value.banco"
+                  v-bind="attributes"
+                  v-on="events"
+                />
+              </template>
+            </v-select>
 
             <input
               v-model="value.agencia"
@@ -275,7 +280,7 @@ export default {
       cidade: '',
       uf: '',
       cep: '',
-      banco: '',
+      banco: null,
       agencia: '',
       conta: '',
     })
@@ -312,7 +317,16 @@ export default {
   },
   computed: mapState({
     dropdownBanco: (state) => {
-      return state.dropdown.bancos || []
+      if (!state.dropdown?.bancos) return []
+
+      const bancos = state.dropdown?.bancos?.map((item) => {
+        return {
+          title: `${item.cod} - ${item.nome}`,
+          cod: item.cod,
+        }
+      })
+
+      return bancos
     },
     dropdownUF: (state) => {
       return state.dropdown.ufs || []

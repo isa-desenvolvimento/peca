@@ -107,7 +107,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   let uri = window.location.search.substring(1)
-  
+
   const authRequired =
     !PUBLIC_PAGES.includes(to.path) && uri.pathname !== '/welcome'
   const user = JSON.parse(sessionStorage.getItem('user'))
