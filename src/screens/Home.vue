@@ -54,7 +54,6 @@
 
 <script>
 import ButtonMenu from '@/components/ButtonMenu.vue'
-import { URL } from '@/api/http.js'
 import FileAvatar from '@/components/FileAvatar.vue'
 
 import { useStore, mapState } from 'vuex'
@@ -74,8 +73,7 @@ export default {
   },
 
   computed: mapState({
-    avatar: (state) =>
-      state.list.auth.profile_img ? URL + state.list.auth.profile_img : null,
+    avatar: (state) => process.env.VITE_API + state.list.auth.profile_img,
   }),
 
   methods: {

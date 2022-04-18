@@ -195,8 +195,6 @@ import { mapState, useStore } from 'vuex'
 import FileAvatar from '@/components/FileAvatar.vue'
 import Header from '@/components/Header.vue'
 
-import { URL } from '@/api/http.js'
-
 export default {
   components: { FileAvatar, Header },
 
@@ -250,7 +248,7 @@ export default {
         const fornecedor = { ...state.list.auth }
         const link = fornecedor?.profile_img.slice(0, 9)
         if (link === '/storage/') {
-          fornecedor.profile_img = URL + fornecedor.profile_img
+          fornecedor.profile_img = process.env.VITE_API + fornecedor.profile_img
         }
         return fornecedor
       }

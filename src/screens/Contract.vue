@@ -21,7 +21,6 @@
 import Header from '@/components/Header.vue'
 import ButtonItem from '@/components/ButtonItem.vue'
 import { useStore, mapState } from 'vuex'
-import { URL } from '@/api/http.js'
 
 export default {
   components: { ButtonItem, Header },
@@ -36,7 +35,7 @@ export default {
   }),
   methods: {
     download(pdf) {
-      const arquivo = `${URL}/storage/upload/contratos/${pdf}`
+      const arquivo = `${process.env.VITE_API}/storage/upload/contratos/${pdf}`
       // var blob = new Blob([arquivo], { type: 'application/octetstream' })
 
       // let blob = new Blob([arquivo], { type: 'text/plain;charset=utf-8;' })

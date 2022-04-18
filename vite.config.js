@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import eslintPlugin from 'vite-plugin-eslint'
@@ -7,32 +7,36 @@ import eslintPlugin from 'vite-plugin-eslint'
 // const fs = require('fs')
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue(), eslintPlugin()],
-  define: {
-    'process.env': process.env,
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
+export default defineConfig(({ mode }) => {
+  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
+
+  return {
+    plugins: [vue(), eslintPlugin()],
+    define: {
+      'process.env': process.env,
     },
-  },
-  build: {
-    sourcemap: false,
-    target: ['es2020'],
-    chunkSizeWarningLimit: 15000,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return id
-              .toString()
-              .split('node_modules/')[1]
-              .split('/')[0]
-              .toString()
-          }
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+      },
+    },
+    build: {
+      sourcemap: false,
+      target: ['es2020'],
+      chunkSizeWarningLimit: 15000,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              return id
+                .toString()
+                .split('node_modules/')[1]
+                .split('/')[0]
+                .toString()
+            }
+          },
         },
       },
     },
-  },
+  }
 })

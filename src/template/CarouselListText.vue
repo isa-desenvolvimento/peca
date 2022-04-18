@@ -150,7 +150,7 @@ export default {
     getFilter() {
       this.dispatch('list/getListEstoque', {
         type: this.type,
-        id_loja: this.id_loja,
+        id_loja: this.id_loja || 0,
         estoque: this.estoque,
       })
     },

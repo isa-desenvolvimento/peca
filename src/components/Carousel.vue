@@ -20,15 +20,9 @@
         <div class="col-span-3 text-orange font-manrope text-xs">
           {{ slide.nome }}
         </div>
-        <hr
-          v-if="slide.valor_consolidado"
-          class="col-span-3 text-yellow-ligth my-4 opacity-25"
-        />
-        <div
-          v-if="slide.valor_consolidado"
-          class="col-span-3 opacity-15 text-orange font-manrope text-xs"
-        >
-          {{ format(slide.valor_consolidado) }}
+        <hr class="col-span-3 text-yellow-ligth my-4 opacity-25" />
+        <div class="col-span-3 opacity-15 text-orange font-manrope text-xs">
+          {{ format(slide.valor_consolidado || 0) }}
         </div>
       </div>
     </Slide>
@@ -96,9 +90,9 @@ export default {
     format(value) {
       switch (this.type) {
         case 'extrato':
-          return `R$ ${value}`
+          return `R$ ${value || '0,00'}`
         default:
-          return `${value} peça(s)`
+          return `${value || 0} peça(s)`
       }
     },
     slideTo(slide, index) {

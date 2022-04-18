@@ -98,6 +98,10 @@ export default {
             type: 'updpwd',
           })
           .then(() => {
+            this.$store.dispatch('form/setToast', {
+              status: 'success',
+              type: 'CREATE',
+            })
             this.$router.push('/')
           })
           .catch(() => {})
