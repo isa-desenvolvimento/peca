@@ -113,6 +113,7 @@ export default {
 
         const _dates = periodoDate(7)
         this.setPeriodo(_dates)
+        this.setId(0)
 
         tab0.click()
       }

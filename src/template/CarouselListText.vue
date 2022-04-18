@@ -118,11 +118,11 @@ export default {
   },
   setup(props) {
     const route = useRoute()
-    const id_loja = route.params.id_loja || null
+    const id_loja = route.params.id_loja || 0
     self.props = props
     const { dispatch } = useStore()
 
-    if (id_loja) {
+    if (route.params.id_loja) {
       dispatch('list/getListEstoque', {
         type: props.type,
         id_loja: id_loja,
@@ -140,14 +140,6 @@ export default {
       lists: (state) => state.list[self.props.type],
     }),
   },
-  // mounted() {
-  //   const interval = setInterval(() => {
-  //     if (this.lojas?.length) {
-  //       clearInterval(interval)
-  //       this.setId(this.lojas[0].id)
-  //     }
-  //   }, 100)
-  // },
   methods: {
     setId(id) {
       this.id_loja = id
