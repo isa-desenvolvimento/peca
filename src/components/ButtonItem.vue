@@ -28,13 +28,13 @@
 
 <script>
 export default {
-  data() {
-    return { VITE_API: process.env.VITE_API }
-  },
   props: {
     title: { type: String, required: true },
     icon: { type: String, required: true },
     arquivo: { type: String, required: true },
+  },
+  data() {
+    return { VITE_API: process.env.VITE_API }
   },
 }
 </script>

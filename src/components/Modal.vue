@@ -49,7 +49,7 @@
             }}</label>
             <input
               v-model="value.data_fim"
-              :min="value.de"
+              :min="value.data_inicio"
               name="date_until"
               type="date"
               required
@@ -69,7 +69,7 @@
             {{ $t('APPLY') }}
           </button>
           <button
-            type="button"
+            type="reset"
             class="px-6 py-2.5 bg-transparent text-red font-manrope font-bold text-xs leading-tight uppercase rounded hover:bg-purple-700 focus:outline-none focus:ring-0transition duration-150 ease-in-out"
           >
             {{ $t('CLEAR') }}
@@ -86,7 +86,7 @@ export default {
     idLoja: { type: Number, required: true },
     type: { type: String, required: true },
   },
-  setup() {
+  data() {
     return {
       value: {
         data_inicio: null,
@@ -96,12 +96,6 @@ export default {
     }
   },
   methods: {
-    clear() {
-      this.value = {
-        data_inicio: null,
-        data_fim: null,
-      }
-    },
     apply(e) {
       e.preventDefault()
       this.$store.dispatch('list/getFilter', {
