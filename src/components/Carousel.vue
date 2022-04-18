@@ -7,7 +7,7 @@
       position: 'inherit !important',
     }"
   >
-    <Slide v-for="(slide, index) in lojas" :key="slide">
+    <Slide v-for="(slide, index) in lojas" :key="slide" >
       <div
         class="carousel__item w-full grid grid-cols-3 place-content-center py-2"
         :class="color"
@@ -117,13 +117,8 @@ export default {
 <style>
 .carousel__slide {
   padding: 0.8rem;
-  min-width: 50%;
-}
-
-@media only screen and (min-width: 1200px) {
-  .carousel__slide {
-    min-width: 25%;
-  }
+  /* max-height: 6rem;
+  min-width: 50%; */
 }
 
 .carousel__prev {

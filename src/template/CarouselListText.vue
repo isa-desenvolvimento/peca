@@ -12,7 +12,7 @@
       <div class="grid grid-rows-7 md:mx-auto">
         <div class="row-span-6 my-8 md:w-6/12 mx-auto">
           <div class="relative">
-            <div class="px-6 md:px-8 mx-auto">
+            <div class="px-6 md:px-8 mx-auto max-w-lg min-w-min">
               <Carousel
                 v-if="hasCarousel"
                 id="jump_to_me"
