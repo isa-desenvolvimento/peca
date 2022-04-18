@@ -1,7 +1,10 @@
 <template>
-  <button
+  <a
+    download="Recibo.pdf"
     aria-current="true"
+    target="_blank"
     type="button"
+    :href="`${VITE_API}/storage/upload/contratos/${arquivo}`"
     class="inline-block leading-tight hover:bg-opacity-5 text-center px-6 py-2 w-full cursor-pointer grid items-center hover:bg-yellow-light focus:bg-yellow-light"
   >
     <div
@@ -20,14 +23,18 @@
     >
       {{ $t('DOWNLOAD') }}
     </div>
-  </button>
+  </a>
 </template>
 
 <script>
 export default {
+  data() {
+    return { VITE_API: process.env.VITE_API }
+  },
   props: {
     title: { type: String, required: true },
     icon: { type: String, required: true },
+    arquivo: { type: String, required: true },
   },
 }
 </script>

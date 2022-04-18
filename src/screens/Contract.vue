@@ -10,8 +10,8 @@
         v-for="(item, key) in list"
         :key="key"
         :title="item.nome_fantasia"
+        :arquivo="item.arquivo"
         icon="bg-icon-prancheta"
-        @click="download(item.arquivo)"
       />
     </div>
   </div>
@@ -33,19 +33,5 @@ export default {
   computed: mapState({
     list: (state) => state.list.contrato,
   }),
-  methods: {
-    download(pdf) {
-      const arquivo = `${process.env.VITE_API}/storage/upload/contratos/${pdf}`
-      // var blob = new Blob([arquivo], { type: 'application/octetstream' })
-
-      // let blob = new Blob([arquivo], { type: 'text/plain;charset=utf-8;' })
-      const link = window.document.createElement('a')
-      link.href = arquivo
-      link.download = pdf
-      window.URL.revokeObjectURL(link.href)
-      link.click()
-      //window.open(link, '_blank')
-    },
-  },
 }
 </script>
