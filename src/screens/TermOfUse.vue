@@ -3,13 +3,13 @@
     <div class="h-screen flex bg-orange p-10">
       <div class="grid lg:justify-center mx-auto">
         <div
-          class="uppercase bg-orange font-manrope border-red placeholder-red text-red text-center text-md font-bold my-10"
+          class="leading-[1.3rem] font-gotham font-bold uppercase w-full border-red placeholder-red text-red text-center text-md my-10"
         >
           {{ $t('TERMS_OF_USE') }}
         </div>
 
         <div
-          class="border font-light break-words p-2 overflow-auto prose max-w-none text-red mx-auto prose-li:text-red p-4"
+          class="border font-light break-words leading-[1.3rem] overflow-auto prose max-w-none text-red mx-auto prose-li:text-red p-4"
         >
           <div class="">
             <h1 class="text-red text-md">
