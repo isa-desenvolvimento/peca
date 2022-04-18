@@ -40,7 +40,7 @@
       </div>
     </div>
     <button
-      v-if="id !== 0 && balance?.disponivel > 0"
+      v-if="id !== 0 && id !== undefined && balance?.disponivel > 0"
       class="inline-block text-left mt-2 px-6 py-2 w-24 border border-yellow text-yellow font-manrope font-medium text-xs leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-outr"
       :class="classe"
       @click="onclick"
