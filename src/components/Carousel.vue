@@ -90,7 +90,7 @@ export default {
     format(value) {
       switch (this.type) {
         case 'extrato':
-          return `R$ ${value || '0,00'}`
+          return `R$ ${value.toFixed(2) || '0,00'}`
         default:
           return `${value || 0} peça(s)`
       }
