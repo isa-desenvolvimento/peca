@@ -10,7 +10,7 @@
     "format": "prettier .  --write",
     "prepare": "husky install",
     "commit": "prettier .  --write && git add .  && git-cz",
-    "serve": "vite preview --port 8080",
+    "serve": "vite preview --host",
     "start": "node server.js --host",
     "postinstall": "vite build",
     "clear": "rm -Rf node_modules/ && yarn && yarn build && yarn serve"

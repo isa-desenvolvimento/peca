@@ -46,7 +46,7 @@
       </ul>
     </div>
   </div>
-  <Modal :id-loja="idLoja" :type="type" ref="modal" @submit="getOthers" />
+  <Modal :id-loja="idLoja" :type="type" @submit="getOthers" />
 </template>
 
 <script>

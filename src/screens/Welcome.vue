@@ -40,7 +40,7 @@
         <div>
           <button
             type="submit"
-            class="appearance-none tracking-[.08em] rounded-md uppercase bg-red mx-auto group relative w-20 leading-normal flex justify-center mt-8 py-2 px-16 text-xs font-manrope text-orange bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="appearance-none tracking-[.08em] rounded-md uppercase bg-red mx-auto group relative w-20 leading-normal flex justify-center mt-8 py-2 px-16 text-xs font-manrope text-orange bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:border-red focus:ring-offset-2 focus:ring-transparent"
           >
             {{ $t('CONTINUE') }}
           </button>

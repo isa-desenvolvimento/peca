@@ -15,6 +15,8 @@
     --bg-yellow-ligth: #fedba1;
     --bg-gray: #8492a6;
 
+    --tw-ring-color: currentcolor !important;
+    --tw-ring-shadow: none !important;
     --vs-border-width: none !important;
     --vs-border-style: none !important;
     --vs-border-color: transparent;

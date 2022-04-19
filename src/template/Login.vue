@@ -42,7 +42,7 @@
             :type="inputType"
             :autocomplete="inputType"
             required=""
-            class="appearance-none border bg-yellow w-60 px-3 py-2 border-white placeholder-white text-center text-white focus:outline-none focus:border-white sm:text-sm"
+            class="appearance-none border bg-yellow w-60 px-3 py-2 border-white placeholder-white text-center text-white focus:outline-none focus:border-white focus:ring-transparent sm:text-sm"
             @change="$emit('update:modelValue', $event.target.value)"
           />
 
@@ -53,7 +53,7 @@
               :type="inputType2"
               :autocomplete="inputType"
               required=""
-              class="appearance-none border bg-yellow col-span-6 px-3 py-2 border-white placeholder-white text-white focus:outline-none focus:border-white sm:text-sm"
+              class="appearance-none border bg-yellow col-span-6 px-3 py-2 border-white placeholder-white text-white focus:outline-none focus:border-white focus:ring-transparent sm:text-sm"
               @change="$emit('update:modelValue', $event.target.value)"
             />
 
