@@ -7,8 +7,7 @@
         {{ $t('YOUR_REGISTER') }}
       </h3>
       <form
-        class="overflow-y-auto"
-        uppercase
+        class="overflow-y-auto uppercase"
         action="#"
         method="POST"
         @submit="submit"
@@ -128,19 +127,11 @@
               class="form-select form-select-sm appearance-none font-manrope col-span-3 block w-full appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
               aria-label=".form-select-sm example"
             >
+              <option value="" disabled selected>{{ $t('CITY') }}</option>
               <option v-for="op in dropdownCidade" :key="op.id" :value="op.id">
                 {{ op.nome }}
               </option>
             </select>
-
-            <!-- <input
-              v-model="value.cidade"
-              name="city"
-              type="text"
-              required
-              class="appearance-none uppercase col-span-3 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
-              :placeholder="$t('CITY')"
-            /> -->
 
             <select
               v-model="value.uf"
@@ -149,20 +140,11 @@
               aria-label=".form-select-sm example"
               @change="() => getCities()"
             >
+              <option value="" disabled selected>{{ $t('UF') }}</option>
               <option v-for="op in dropdownUF" :key="op.cod" :value="op.id">
                 {{ op.cod }}
               </option>
             </select>
-
-            <!-- <input
-              v-model="value.uf"
-              name="uf"
-              type="text"
-              maxlength="2"
-              required
-              class="appearance-none uppercase col-span-1 border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
-              :placeholder="$t('UF')"
-            /> -->
 
             <input
               v-model="value.complemento"
@@ -196,24 +178,15 @@
               {{ $t('BANK_DATA') }}
             </div>
 
-            <div class="border border-red col-span-4 block w-full">
-              <v-select
-                v-model="value.banco"
-                class="appearance-none font-manrope appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
+            <div class="col-span-4">
+              <Select
+                :value="value.banco"
                 :options="dropdownBanco"
-                :reduce="(option) => option.cod"
+                :reduce="(option) => option.id"
                 label="title"
                 :placeholder="$t('BANK')"
-              >
-                <template #search="{ attributes, events }">
-                  <input
-                    class="vs__search"
-                    :required="!value.banco"
-                    v-bind="attributes"
-                    v-on="events"
-                  />
-                </template>
-              </v-select>
+                @input="(val) => (value.banco = val)"
+              />
             </div>
 
             <input
@@ -265,9 +238,12 @@ import { ref } from 'vue'
 import { mapState, useStore } from 'vuex'
 import { stringFormartUS } from '@/util/date'
 
+import Select from '@/components/Select.vue'
+
 export default {
+  components: { Select },
   setup() {
-    const value = ref({
+    const param = {
       doc: sessionStorage.doc,
       nome: '',
       sobrenome: '',
@@ -286,27 +262,13 @@ export default {
       banco: null,
       agencia: '',
       conta: '',
-    })
-    // const value = ref({
-    //   doc: '046.083.004-80',
-    //   nome: 'Andressa',
-    //   sobrenome: 'Novaes',
-    //   rg: '42409649',
-    //   data_nascimento: '11/11/1111',
-    //   tel: '(21) 3 4108-933',
-    //   cel: '(61) 9 9917-1744',
-    //   email: 'izzaandressa@gmail.com',
-    //   logradouro: 'Avenida Parque Águas Claras',
-    //   num: '45',
-    //   complemento: 'Ed. Macaúba',
-    //   bairro: 'Aguas claras',
-    //   cidade: 'RIO DE JANEIRO',
-    //   uf: 'df',
-    //   cep: '22.783-116',
-    //   banco: '1',
-    //   agencia: '1222-2',
-    //   conta: '122233-2',
-    // })
+    }
+
+    const fornecedor = sessionStorage.getItem('fornecedor')
+      ? JSON.parse(sessionStorage.getItem('fornecedor'))
+      : param
+    const value = ref(fornecedor)
+
     const store = useStore()
     store.dispatch('dropdown/getDropdown', 'bancos')
     store.dispatch('dropdown/getDropdown', 'ufs')
@@ -325,7 +287,7 @@ export default {
       const bancos = state.dropdown?.bancos?.map((item) => {
         return {
           title: `${item.cod} - ${item.nome}`,
-          cod: item.cod,
+          id: item.id,
         }
       })
 
