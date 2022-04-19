@@ -111,6 +111,7 @@
     "DANGER_PASSWORD_INVALID": "Senha inválida!",
     "SUCCESS_PASSWORD": "Senha resetada com sucesso!",
     "SUCCESS_WITHDRAWAL": "Operação realizada! Em até 7 dias você receberá na conta corrente cadastrada",
-    "DANGER_CPG_INVALID": "CPF/CNPJ Inválido"
+    "DANGER_CPG_INVALID": "CPF/CNPJ Inválido",
+    "DANGER_TOKEN_INVALID": "Token não encontrado."
   }
 }

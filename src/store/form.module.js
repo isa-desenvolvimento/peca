@@ -24,7 +24,7 @@ export const form = {
           return Promise.resolve(payload)
         },
         (error) => {
-          commit('failure', error.response.data.errors)
+          commit('failure', error.response.data)
           commit('loadingToggle')
           return Promise.reject(error)
         }

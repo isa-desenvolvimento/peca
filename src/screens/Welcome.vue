@@ -104,7 +104,12 @@ export default {
             })
             this.$router.push('/')
           })
-          .catch(() => {})
+          .catch(() => {
+            this.$store.dispatch('form/setToast', {
+              status: 'danger',
+              type: 'TOKEN_INVALID',
+            })
+          })
       }
     },
   },
