@@ -24,6 +24,7 @@
               :description="item.descricao"
               :icon-plus="item.valor >= 0"
               is-money
+              :arquivo="item.imagem_recibo"
             />
 
             <input

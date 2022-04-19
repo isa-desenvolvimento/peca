@@ -10,6 +10,7 @@
     <sign-in />
   </div>
   <Loading v-if="loading" />
+  <div class="absolute bottom-0 right-2 text-white font-manrope opacity-25 uppercase text-xs"> versão - {{ version }}</div>
 </template>
 
 <script>
@@ -23,7 +24,7 @@ import { mapState } from 'vuex'
 export default {
   components: { SignIn, Loading },
   data() {
-    return { isPublicPages: false }
+    return { isPublicPages: false, version: process.env.npm_package_version }
   },
   computed: mapState({
     loggedIn: (state) => state.auth.loggedIn,

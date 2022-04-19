@@ -4,7 +4,7 @@
     aria-current="true"
     target="_blank"
     type="button"
-    :href="`${VITE_API}/storage/upload/contratos/${arquivo}`"
+    :href="`${VITE_STORE_PDF}/${arquivo}`"
     class="inline-block leading-tight hover:bg-opacity-5 text-center px-6 py-2 w-full cursor-pointer grid items-center hover:bg-yellow-light focus:bg-yellow-light"
   >
     <div
@@ -34,7 +34,7 @@ export default {
     arquivo: { type: String, required: true },
   },
   data() {
-    return { VITE_API: process.env.VITE_API }
+    return { VITE_STORE_PDF: process.env.VITE_STORE_PDF }
   },
 }
 </script>

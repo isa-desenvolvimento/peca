@@ -22,10 +22,19 @@
         {{ description }}
       </div>
     </div>
+
+      <a
+        v-if="!iconPlus"
+        download="Recibo.pdf"
+        target="_blank"
+        type="button"
+        :href="arquivo"
+        class="text-sm font-regular text-red uppercase mt-[-3rem] font-manrope"
+      >
     <div
-      v-if="!iconPlus"
       class="col-span-1 mx-auto h-5 w-5 bg-contain bg-no-repeat bg-center text-white transition-linear duration-100 bg-icon-nota"
     ></div>
+   </a>
     <hr class="col-span-6 text-yellow opacity-25 my-2" />
   </div>
 </template>
@@ -38,6 +47,7 @@ export default {
     isMoney: { type: Boolean, required: false, default: false },
     subtitle: { type: String, required: false },
     description: { type: String, required: false },
+    arquivo: { type: String, required: false },
   },
 }
 </script>
