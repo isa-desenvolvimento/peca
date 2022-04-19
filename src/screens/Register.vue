@@ -202,6 +202,7 @@
               :options="dropdownBanco"
               :reduce="(option) => option.cod"
               label="title"
+              :placeholder="$t('BANK')"
             >
               <template #search="{ attributes, events }">
                 <input
