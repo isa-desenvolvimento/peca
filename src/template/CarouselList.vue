@@ -153,14 +153,10 @@ export default {
       this.periodo = periodo
     },
     getFilter() {
-      if (
-        this.periodo?.data_inicio &&
-        this.periodo?.data_fim &&
-        this.id_loja !== undefined
-      ) {
+      if (this.periodo?.data_inicio && this.periodo?.data_fim) {
         this.dispatch('list/getFilter', {
           type: this.type,
-          id_loja: this.id_loja,
+          id_loja: this.id_loja || 0,
           ...this.periodo,
         })
       }
