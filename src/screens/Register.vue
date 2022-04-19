@@ -196,23 +196,25 @@
               {{ $t('BANK_DATA') }}
             </div>
 
-            <v-select
-              v-model="value.banco"
-              class="appearance-none col-span-4 block w-full font-manrope appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
-              :options="dropdownBanco"
-              :reduce="(option) => option.cod"
-              label="title"
-              :placeholder="$t('BANK')"
-            >
-              <template #search="{ attributes, events }">
-                <input
-                  class="vs__search"
-                  :required="!value.banco"
-                  v-bind="attributes"
-                  v-on="events"
-                />
-              </template>
-            </v-select>
+            <div class="border border-red col-span-4 block w-full">
+              <v-select
+                v-model="value.banco"
+                class="appearance-none font-manrope appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
+                :options="dropdownBanco"
+                :reduce="(option) => option.cod"
+                label="title"
+                :placeholder="$t('BANK')"
+              >
+                <template #search="{ attributes, events }">
+                  <input
+                    class="vs__search"
+                    :required="!value.banco"
+                    v-bind="attributes"
+                    v-on="events"
+                  />
+                </template>
+              </v-select>
+            </div>
 
             <input
               v-model="value.agencia"
