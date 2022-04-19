@@ -3,7 +3,7 @@
     v-if="!apelido"
     v-model="doc"
     :input-name="$t('CPF')"
-    input-type="text"
+    input-type="tel"
     :btn-name="$t('OK')"
     :submit="submitCPF"
     mask="###.###.###-##"
