@@ -154,8 +154,8 @@ export default {
     },
     getFilter() {
       if (
-        this.periodo.data_inicio &&
-        this.periodo.data_fim &&
+        this.periodo?.data_inicio &&
+        this.periodo?.data_fim &&
         this.id_loja !== undefined
       ) {
         this.dispatch('list/getFilter', {
