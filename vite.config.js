@@ -7,7 +7,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 // import svgLoader from 'vite-svg-loader'
 // const fs = require('fs')
 const pwaOptions = {
-  mode: 'development',
+  mode: 'production',
   base: '/',
   includeAssets: ['favicon.ico'],
   manifest: {

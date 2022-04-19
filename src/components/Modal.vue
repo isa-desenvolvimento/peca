@@ -39,7 +39,7 @@
               name="date_from"
               type="date"
               required
-              class="appearance-none w-full uppercase col-span-4 border bg-orange font-manrope font-medium px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent  text-sm"
+              class="appearance-none w-full uppercase col-span-4 border bg-orange font-manrope font-medium px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
             />
           </div>
 

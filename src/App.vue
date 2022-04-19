@@ -10,7 +10,11 @@
     <sign-in />
   </div>
   <Loading v-if="loading" />
-  <div class="absolute bottom-0 right-2 text-white font-manrope opacity-25 uppercase text-xs"> versão - {{ version }}</div>
+  <div
+    class="absolute bottom-0 right-2 text-white font-manrope opacity-25 uppercase text-xs"
+  >
+    versão - {{ version }}
+  </div>
 </template>
 
 <script>
