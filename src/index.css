@@ -36,6 +36,8 @@
   .v-select * {
     font-family: 'Manrope' !important;
     background-color: var(--bg-orange) !important;
+    border-color: none !important;
+    padding: 0 !important;
   }
 
   /* Change Autocomplete styles in Chrome*/
