@@ -72,11 +72,7 @@
           </div>
         </div>
       </div>
-      <div
-        v-if="estoque == 1"
-        class="mt-8 cursor-pointer"
-        @click="$router.push(`/product/${id_loja}`)"
-      >
+      <div v-if="estoque == 1" class="mt-8 cursor-pointer" @click="goToNext">
         <span class="text-red text-sm font-bold">
           {{ $t('SOLD_RETURNED_CANCELED') }}
         </span>
@@ -84,7 +80,7 @@
       <div
         v-if="type == 'devolucao'"
         class="mt-8 cursor-pointer"
-        @click="$router.push(`/product/${id_loja}`)"
+        @click="goToNext"
       >
         <button
           disabled
@@ -118,7 +114,10 @@ export default {
   },
   setup(props) {
     const route = useRoute()
-    const id_loja = route.params.id_loja || 0
+    const id_loja =
+      !route.params.id_loja || route.params.id_loja === 'undefined'
+        ? 0
+        : route.params.id_loja
     self.props = props
     const { dispatch } = useStore()
 
@@ -157,6 +156,10 @@ export default {
 
     setItem() {
       this.$router.push(`/product/${this.id_loja}`)
+    },
+    goToNext() {
+      const loja = this.id_loja || 0
+      this.$router.push(`/product/${loja}`)
     },
 
     send() {},
