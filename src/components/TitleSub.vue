@@ -29,7 +29,7 @@
       target="_blank"
       type="button"
       :href="arquivo"
-      class="text-sm font-regular text-red uppercase mt-[-3rem] font-manrope"
+      class="text-sm font-regular text-red uppercase mt-[-1rem] font-manrope"
     >
       <div
         class="col-span-1 mx-auto h-5 w-5 bg-contain bg-no-repeat bg-center text-white transition-linear duration-100 bg-icon-nota"

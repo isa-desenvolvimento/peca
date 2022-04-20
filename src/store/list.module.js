@@ -1,8 +1,17 @@
 import useList from '@/composables/useList'
 
+export const LOJA_OBJ = [
+  {
+    cnpj: '00000000000000',
+    id: 0,
+    nome: 'TODAS',
+    valor_consolidado: 0,
+  },
+]
+
 const initialState = {
   extrato: {},
-  lojas: [],
+  lojas: LOJA_OBJ,
   contrato: {},
   devolucao: {},
   estoque: {},
@@ -24,7 +33,7 @@ export const list = {
   state: initialState,
   actions: {
     getLojas({ commit }, type) {
-      this.state.list.lojas = []
+      this.state.list.lojas = LOJA_OBJ
       commit('loadingToggle')
       return useGetLojas(type).then(
         (payload) => {

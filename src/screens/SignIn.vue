@@ -87,6 +87,7 @@ export default {
           pwd: this.pwd || sessionStorage.pwd,
         })
         .then(() => {
+          sessionStorage.removeItem('auth')
           this.router.push('/')
           delete sessionStorage.pwd
         })

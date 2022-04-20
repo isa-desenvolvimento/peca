@@ -17,7 +17,9 @@
           class="mx-auto h-10 w-10 bg-contain bg-no-repeat bg-center col-span-3"
           :class="icon"
         ></div>
-        <div class="col-span-3 text-orange font-manrope text-xs">
+        <div
+          class="col-span-3 text-orange font-manrope text-xs text-clip text-ellipsis"
+        >
           {{ slide.nome }}
         </div>
         <hr class="col-span-3 text-yellow-ligth my-4 opacity-25" />
@@ -54,6 +56,7 @@ import { inject } from 'vue'
 
 import 'vue3-carousel/dist/carousel.css'
 import { useStore, mapState } from 'vuex'
+import { LOJA_OBJ } from '@/store/list.module.js'
 
 export default {
   components: {
@@ -76,7 +79,7 @@ export default {
     return { nav }
   },
   computed: mapState({
-    lojas: (state) => state.list.lojas,
+    lojas: (state) => state.list.lojas || LOJA_OBJ,
   }),
   mounted() {
     const interval = setInterval(() => {
