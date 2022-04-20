@@ -69,11 +69,7 @@ export const list = {
 
       return useGetList('auth').then(
         (payload) => {
-          const data = {
-            ...payload.data,
-            profile_img: process.env.VITE_API + payload.data.profile_img,
-          }
-          commit('sucess', { payload: data, type: 'auth' })
+          commit('sucess', { payload: payload.data, type: 'auth' })
           commit('loadingToggle')
 
           return Promise.resolve(payload.data)
