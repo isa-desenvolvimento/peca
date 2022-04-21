@@ -69,7 +69,11 @@ export const list = {
 
       return useGetList('auth').then(
         (payload) => {
-          commit('sucess', { payload: payload.data, type: 'auth' })
+          const data = {
+            ...payload.data,
+            profile_img: `${process.env.VITE_STORE_PROFILE}/${payload.data.profile_img}`,
+          }
+          commit('sucess', { payload: data, type: 'auth' })
           commit('loadingToggle')
 
           return Promise.resolve(payload.data)
