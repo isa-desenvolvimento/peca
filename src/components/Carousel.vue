@@ -17,11 +17,11 @@
           class="mx-auto h-10 w-10 bg-contain bg-no-repeat bg-center col-span-3"
           :class="icon"
         ></div>
-        <div
-          class="col-span-3 text-orange font-manrope text-xs text-clip text-ellipsis"
+        <spa
+          class="col-span-3 text-orange font-manrope text-xs text-clip line-clamp-2 px-2 mt-2 leading-[0.8rem]"
         >
           {{ slide.nome }}
-        </div>
+        </spa>
         <hr class="col-span-3 text-yellow-ligth my-4 opacity-25" />
         <div class="col-span-3 opacity-15 text-orange font-manrope text-xs">
           {{ format(slide.valor_consolidado || 0) }}
@@ -120,8 +120,6 @@ export default {
 <style>
 .carousel__slide {
   padding: 0.8rem;
-  /* max-height: 6rem;
-  min-width: 50%; */
 }
 
 .carousel__prev {
