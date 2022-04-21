@@ -155,7 +155,8 @@ export default {
     },
 
     setItem() {
-      this.$router.push(`/product/${this.id_loja}`)
+      const loja = this.id_loja || 0
+      this.$router.push(`/product/${loja}`)
     },
     goToNext() {
       const loja = this.id_loja || 0

@@ -87,7 +87,7 @@ export default {
         clearInterval(interval)
         this.slideTo(this.lojas[0].id, 0)
       }
-    }, 100)
+    }, 0)
   },
   methods: {
     format(value) {
@@ -111,7 +111,7 @@ export default {
       }
 
       this.onclick(slide.id)
-      this.nav.slideTo(index)
+      this.nav.slideTo(index || 0)
     },
   },
 }
