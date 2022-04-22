@@ -82,12 +82,9 @@ export default {
     lojas: (state) => state.list.lojas || LOJA_OBJ,
   }),
   mounted() {
-    const interval = setInterval(() => {
-      if (this.lojas?.length) {
-        clearInterval(interval)
-        this.slideTo(this.lojas[0].id, 0)
-      }
-    }, 0)
+    setTimeout(() => {
+      this.slideTo(0, 0)
+    }, 100)
   },
   methods: {
     format(value) {

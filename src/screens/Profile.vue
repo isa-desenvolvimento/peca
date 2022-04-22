@@ -180,6 +180,8 @@ import FileAvatar from '@/components/FileAvatar.vue'
 import Header from '@/components/Header.vue'
 import Select from '@/components/Select.vue'
 
+// import { base64Regex } from '@/util/util.js'
+
 export default {
   components: { FileAvatar, Header, Select },
 
@@ -261,8 +263,11 @@ export default {
       e.preventDefault()
 
       const data = {
-        profile_img: this.user.profile_img,
         dados_fornecedor: this.user.dados_fornecedor,
+      }
+
+      if (this.isBase64(this.user.profile_img)) {
+        data.profile_img = this.user.profile_img
       }
 
       this.dispatch('form/update', {
@@ -270,6 +275,15 @@ export default {
       }).then(() => {
         this.dispatch('list/getAuth')
       })
+    },
+    isBase64(str) {
+      // const databse = str.include(0, 'data:image/png;base64,')
+      // return base64Regex.test(str);
+
+      return (
+        str.includes(0, 'data:image/png;base64,') ||
+        str.includes('data:image/jpeg;base64,')
+      )
     },
   },
 }
