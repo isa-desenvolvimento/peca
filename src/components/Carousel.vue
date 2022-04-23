@@ -80,7 +80,12 @@ export default {
     return { nav }
   },
   computed: mapState({
-    lojas: (state) => state.list[`${self.props.type}Lojas`] || LOJA_OBJ,
+    lojas: (state) => {
+      const lojas = state.list[`${self.props.type}Lojas`][0]
+        ? state.list[`${self.props.type}Lojas`]
+        : LOJA_OBJ
+      return lojas
+    },
   }),
   mounted() {
     const interval = setInterval(() => {
@@ -88,7 +93,7 @@ export default {
         clearInterval(interval)
         this.slideTo(0, 0)
       }
-    }, 100)
+    }, 0)
   },
   methods: {
     slideTo(slide, index) {
