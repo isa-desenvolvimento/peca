@@ -140,7 +140,7 @@ export default {
     }),
   },
   methods: {
-    setId(id) {
+    setId(id = 0) {
       this.id_loja = id
       this.getFilter()
       this.showmore = false
