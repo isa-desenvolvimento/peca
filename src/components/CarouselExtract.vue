@@ -56,7 +56,6 @@ import { inject } from 'vue'
 
 import 'vue3-carousel/dist/carousel.css'
 import { useStore, mapState } from 'vuex'
-import { LOJA_OBJ } from '@/store/list.module.js'
 
 export default {
   components: {
@@ -79,7 +78,7 @@ export default {
     return { nav }
   },
   computed: mapState({
-    lojas: (state) => state.list.extratoLojas || LOJA_OBJ,
+    lojas: (state) => state.list.extratoLojas,
   }),
   mounted() {
     const interval = setInterval(() => {

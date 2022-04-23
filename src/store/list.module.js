@@ -35,7 +35,7 @@ export const list = {
   state: initialState,
   actions: {
     getLojas({ commit }, type) {
-      this.state.list.lojas = LOJA_OBJ
+      this.state.list[`${type}Lojas`] = LOJA_OBJ
       commit('loadingToggle')
       return useGetLojas(type).then(
         (payload) => {
