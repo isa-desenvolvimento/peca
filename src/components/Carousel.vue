@@ -24,7 +24,7 @@
         </spa>
         <hr class="col-span-3 text-yellow-ligth my-4 opacity-25" />
         <div class="col-span-3 opacity-15 text-orange font-manrope text-xs">
-          {{ `${value || 0} peça(s)` }}
+          {{ format(slide.valor_consolidado) }}
         </div>
       </div>
     </Slide>
@@ -93,9 +93,12 @@ export default {
         clearInterval(interval)
         this.slideTo(0, 0)
       }
-    }, 0)
+    }, 100)
   },
   methods: {
+    format(value) {
+      return value ? `${value} peça(s)` : '0 peça(s)'
+    },
     slideTo(slide, index) {
       switch (true) {
         case this.lojas.length === index:
