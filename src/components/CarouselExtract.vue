@@ -24,7 +24,7 @@
         </spa>
         <hr class="col-span-3 text-yellow-ligth my-4 opacity-25" />
         <div class="col-span-3 opacity-15 text-orange font-manrope text-xs">
-          {{ `${value || 0} peça(s)` }}
+          {{ format(slide.valor_consolidado || 0) }}
         </div>
       </div>
     </Slide>
@@ -73,14 +73,13 @@ export default {
   setup(props) {
     const { dispatch } = useStore()
     dispatch('list/getLojas', props.type)
-    self.props = props
 
     const nav = inject('nav', {})
 
     return { nav }
   },
   computed: mapState({
-    lojas: (state) => state.list[`${self.props.type}Lojas`] || LOJA_OBJ,
+    lojas: (state) => state.list.extratoLojas || LOJA_OBJ,
   }),
   mounted() {
     const interval = setInterval(() => {
@@ -88,9 +87,12 @@ export default {
         clearInterval(interval)
         this.slideTo(0, 0)
       }
-    }, 100)
+    }, 0)
   },
   methods: {
+    format(value) {
+      return `R$ ${value.toFixed(2) || '0,00'}`
+    },
     slideTo(slide, index) {
       switch (true) {
         case this.lojas.length === index:

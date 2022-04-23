@@ -11,7 +11,9 @@ export const LOJA_OBJ = [
 
 const initialState = {
   extrato: {},
-  lojas: LOJA_OBJ,
+  extratoLojas: LOJA_OBJ,
+  devolucaoLojas: LOJA_OBJ,
+  estoqueLojas: LOJA_OBJ,
   contrato: {},
   devolucao: {},
   estoque: {},
@@ -37,7 +39,7 @@ export const list = {
       commit('loadingToggle')
       return useGetLojas(type).then(
         (payload) => {
-          commit('sucess', { payload: payload.data, type: 'lojas' })
+          commit('sucess', { payload: payload.data, type: `${type}Lojas` })
           commit('loadingToggle')
 
           return Promise.resolve(payload.data)

@@ -14,7 +14,7 @@
         <div class="row-span-6 my-8 md:w-6/12 mx-auto">
           <div class="relative">
             <div class="px-6 md:px-8 mx-auto max-w-lg min-w-min">
-              <Carousel
+              <CarouselExtract
                 icon="bg-icon-marcador-menu"
                 :onclick="(slide) => setFilter('id', slide)"
                 type="extrato"
@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import Carousel from '@/components/Carousel.vue'
+import CarouselExtract from '@/components/CarouselExtract.vue'
 import Header from '@/components/Header.vue'
 import Balance from '@/components/Balance.vue'
 import Tabe from '@/components/Tab.vue'
@@ -81,7 +81,7 @@ import { periodoDate } from '@/util/date'
 import { useStore, mapState } from 'vuex'
 
 export default {
-  components: { Carousel, Balance, Tabe, List, Header },
+  components: { CarouselExtract, Balance, Tabe, List, Header },
   props: {
     type: { type: String, required: true },
     title: { type: String, required: true },
