@@ -90,6 +90,8 @@ export default {
 
       if (list.length > 1 && this.init) {
         this.slideTo(list[0].id, 0)
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.init = false
       }
 
       return lojas
@@ -121,7 +123,6 @@ export default {
 
       this.onclick(slide.id)
       this.nav.slideTo(index || 0)
-      this.init = false
     },
   },
 }
