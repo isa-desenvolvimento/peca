@@ -55,7 +55,7 @@ import { Carousel, Navigation, Slide } from 'vue3-carousel'
 import { inject } from 'vue'
 
 import 'vue3-carousel/dist/carousel.css'
-import { useStore, mapState } from 'vuex'
+import { useStore } from 'vuex'
 import { LOJA_OBJ } from '@/store/list.module.js'
 
 export default {
@@ -64,6 +64,7 @@ export default {
     Slide,
     Navigation,
   },
+
   props: {
     onclick: { type: Function, required: true },
     type: { type: String, required: true },
@@ -79,14 +80,21 @@ export default {
 
     return { nav }
   },
-  computed: mapState({
-    lojas: (state) => {
-      const lojas = state.list[`${self.props.type}Lojas`][0]
-        ? state.list[`${self.props.type}Lojas`]
-        : LOJA_OBJ
+  data() {
+    return { init: true }
+  },
+  computed: {
+    lojas() {
+      const list = this.$store.state.list[`${self.props.type}Lojas`]
+      const lojas = list[0] ? list : LOJA_OBJ
+
+      if (list.length > 1 && this.init) {
+        this.slideTo(list[0].id, 0)
+      }
+
       return lojas
     },
-  }),
+  },
   mounted() {
     const interval = setInterval(() => {
       if (this.lojas?.length) {
@@ -113,6 +121,7 @@ export default {
 
       this.onclick(slide.id)
       this.nav.slideTo(index || 0)
+      this.init = false
     },
   },
 }
