@@ -89,37 +89,37 @@ export const list = {
       )
     },
     getFilter({ commit }, value) {
-      commit('loadingToggle')
+      // commit('loadingToggle')
 
       this.state.list[value.type] = {}
       return useGetFilter(value).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: value.type })
-          commit('loadingToggle')
+          // commit('loadingToggle')
 
           return Promise.resolve(payload.data)
         },
         (error) => {
           commit('failure')
-          commit('loadingToggle')
+          // commit('loadingToggle')
 
           return Promise.reject(error)
         }
       )
     },
     getListEstoque({ commit }, value) {
-      commit('loadingToggle')
+      // commit('loadingToggle')
 
       return useGetListEstoque(value).then(
         (payload) => {
           commit('sucess', { payload: payload.data, type: value.type })
-          commit('loadingToggle')
+          // commit('loadingToggle')
 
           return Promise.resolve(payload.data)
         },
         (error) => {
           commit('failure')
-          commit('loadingToggle')
+          // commit('loadingToggle')
 
           return Promise.reject(error)
         }

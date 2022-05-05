@@ -26,7 +26,7 @@ export default {
   props: {
     options: { type: Array, required: true },
     reduce: { type: Function, required: true },
-    value: { type: Object, required: true },
+    value: { type: Number, required: true },
     title: { type: String, required: false, default: 'title' },
     placeholder: { type: String, required: false, default: '' },
   },

@@ -5,7 +5,7 @@
     <div
       class="mx-auto h-24 lg:h-28 w-[75%] bg-logo-mobile bg-contain bg-no-repeat bg-left text-white mt-2 lg:mt-8 row-span-1"
     >
-      <div class="ml-auto w-20" @click="() => goToNext('/profile')">
+      <div class="ml-auto w-20" @click="() => goToNext('profile')">
         <file-avatar
           :value="avatar"
           classe="w-12 h-12 my-6 ml-auto md:w-20 md:h-20 lg:w-12 lg:h-12"
@@ -25,13 +25,13 @@
         <ButtonMenu
           classe="col-span-2 row-start-1 row-end-4"
           :name="$t('EXTRATC')"
-          :onclick="() => goToNext('/extract')"
+          :onclick="() => goToNext('extract')"
           icon="bg-icon-extrato"
         />
         <ButtonMenu
           classe="col-span-2 row-start-1 row-end-6"
           :name="$t('PRODUCT')"
-          :onclick="() => goToNext('/product')"
+          :onclick="() => goToNext('product')"
           icon="bg-icon-produto"
         />
 
@@ -39,12 +39,12 @@
           classe="col-span-2 row-start-4 row-end-7"
           :name="$t('DEVOLUTION')"
           icon="bg-icon-devolucao"
-          :onclick="() => goToNext('/devolution')"
+          :onclick="() => goToNext('devolution')"
         />
         <ButtonMenu
           classe="col-span-2 row-span-1 row-start-6 row-end-7 pt-2 pb-4"
           :name="$t('CONTRACT')"
-          :onclick="() => goToNext('/contract')"
+          :onclick="() => goToNext('contract')"
           icon="bg-icon-contrato"
         />
       </div>
