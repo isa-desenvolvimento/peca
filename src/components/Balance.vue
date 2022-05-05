@@ -14,7 +14,7 @@
           v-if="balance_on_visible"
           class="col-span-4 col-start-3 lg:col-start-2 text-left text-yellow font-manrope"
         >
-          {{ `R$ ${balance?.disponivel || '0,00'}` }}
+          {{ `R$ ${Math.abs(balance?.disponivel).toFixed(2) || '0,00'}` }}
         </span>
         <span v-else class="col-span-1 text-left text-yellow">-</span>
       </div>
@@ -34,7 +34,7 @@
           v-if="balance_off_visible"
           class="col-span-4 col-start-4 lg:col-start-7 text-left text-yellow font-manrope"
         >
-          {{ `R$ ${balance?.bloqueado || '0,00'}` }}
+          {{ `R$ ${Math.abs(balance?.bloqueado).toFixed(2) || '0,00'}` }}
         </span>
         <span v-else class="col-span-1 text-left text-yellow">-</span>
       </div>
