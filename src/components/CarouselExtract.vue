@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     format(value) {
-      return `R$ ${value.toFixed(2) || '0,00'}`
+      return `R$ ${Math.abs(value).toFixed(2) || '0,00'}`
     },
     slideTo(slide, index) {
       switch (true) {
