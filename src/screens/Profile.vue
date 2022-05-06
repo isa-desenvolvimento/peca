@@ -36,7 +36,7 @@
               name="cep"
               type="text"
               required
-              class="appearance-none col-span-2 uppercase border bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
+              class="appearance-none col-span-2 uppercase bg-orange px-3 py-2 font-manrope border-red border border-b-0 border-r-0 placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
               :placeholder="$t('CEP')"
               @change="getAddress"
             />
@@ -46,14 +46,14 @@
               name="logradouro"
               type="text"
               required
-              class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
+              class="appearance-none uppercase col-span-2 border border-b-0 bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
               :placeholder="$t('PLACE')"
             />
 
             <select
               v-model="user.dados_fornecedor.endereco.end_uf_cidade_id"
               :placeholder="$t('CITY')"
-              class="form-select form-select-sm appearance-none font-manrope col-span-3 block w-full appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
+              class="form-select form-select-sm appearance-none font-manrope col-span-3 block w-full appearance-none uppercase border border-b-0 border-r-0 bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
               aria-label=".form-select-sm example"
             >
               <option value="" disabled selected>{{ $t('CITY') }}</option>
@@ -66,7 +66,7 @@
             <select
               v-model="user.dados_fornecedor.endereco.end_uf_id"
               :placeholder="$t('UF')"
-              class="form-select form-select-sm placeholder-red appearance-none font-manrope col-span-1 block w-full appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
+              class="form-select form-select-sm placeholder-red appearance-none font-manrope col-span-1 block w-full appearance-none uppercase border border-b-0 bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
               aria-label=".form-select-sm example"
               @change="() => getCities()"
             >
@@ -81,7 +81,7 @@
               v-model="user.dados_fornecedor.endereco.end_complemento"
               name="complement"
               type="text"
-              class="appearance-none uppercase col-span-4 border bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
+              class="appearance-none uppercase col-span-4 border border-b-0 bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
               :placeholder="$t('COMPLEMENT')"
             />
 
@@ -90,7 +90,7 @@
               name="number"
               type="text"
               required
-              class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
+              class="appearance-none uppercase col-span-2 border border-r-0 bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
               :placeholder="$t('NUMBER')"
             />
 
@@ -129,7 +129,7 @@
               name="ag"
               type="text"
               required
-              class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
+              class="appearance-none uppercase col-span-2 border border-t-0 border-b-0 border-r-0 bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
               :placeholder="$t('AGENCY')"
             />
 
@@ -139,7 +139,7 @@
               name="conta"
               type="text"
               required
-              class="appearance-none uppercase col-span-2 border bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
+              class="appearance-none uppercase col-span-2 border border-t-0 border-b-0 bg-orange px-3 py-2 font-manrope border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent focus:border-red text-sm"
               :placeholder="$t('ACCOUNT')"
             />
 

@@ -2,7 +2,7 @@
   <div class="border border-red block w-full">
     <v-select
       v-model="vmodel"
-      class="appearance-none font-manrope appearance-none uppercase border bg-orange font-manrope px-3 py-2 border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
+      class="appearance-none font-manrope appearance-none uppercase border bg-orange font-manrope px-3 py-px border-red placeholder-red text-red focus:outline-none focus:border-red focus:ring-transparent text-sm"
       :options="options"
       :reduce="reduce"
       :label="title"
