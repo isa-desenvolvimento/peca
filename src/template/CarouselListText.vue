@@ -69,12 +69,16 @@
             </a>
           </div>
         </div>
+        <div
+          v-if="estoque == 1"
+          class="text-center mt-8 cursor-pointer"
+          @click="goToNext"
+        >
+          <span class="text-red text-sm font-bold">
+            {{ $t('SOLD_RETURNED_CANCELED') }}
+          </span>
+        </div>
       </div>
-    </div>
-    <div v-if="estoque == 1" class="mt-8 cursor-pointer" @click="goToNext">
-      <span class="text-red text-sm font-bold">
-        {{ $t('SOLD_RETURNED_CANCELED') }}
-      </span>
     </div>
     <div
       v-if="type == 'devolucao'"
