@@ -17,14 +17,14 @@
           class="mx-auto h-10 w-10 bg-contain bg-no-repeat bg-center col-span-3"
           :class="icon"
         ></div>
-        <spa
+        <span
           class="col-span-3 text-orange font-manrope text-xs text-clip line-clamp-2 px-2 mt-2 leading-[0.8rem]"
         >
-          {{ slide.nome }}
-        </spa>
+          {{ slide?.nome }}
+        </span>
         <hr class="col-span-3 text-yellow-ligth my-4 opacity-25" />
         <div class="col-span-3 opacity-15 text-orange font-manrope text-xs">
-          {{ format(slide.valor_consolidado || 0) }}
+          {{ format(slide?.valor_consolidado || 0) }}
         </div>
       </div>
     </Slide>
@@ -85,6 +85,9 @@ export default {
         : LOJA_OBJ
       return lojas
     },
+    loading: (state) => {
+      return state.list.loading
+    },
   }),
   mounted() {
     const interval = setInterval(() => {
@@ -96,7 +99,7 @@ export default {
   },
   methods: {
     format(value) {
-      return `R$ ${value.toFixed(2) || '0,00'}`
+      return `R$ ${Math.abs(value).toFixed(2) || '0,00'}`
     },
     slideTo(slide, index) {
       switch (true) {

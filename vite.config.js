@@ -11,9 +11,9 @@ const pwaOptions = {
   base: '/',
   includeAssets: ['favicon.ico'],
   manifest: {
-    short_name: 'PRApp',
-    name: 'Peça Rara Fornecedores',
-    description: 'Aplicativo para fornecedores Peça Rara',
+    short_name: 'Clube Peça Rara',
+    name: 'Clube Peça Rara',
+    description: 'Clube Peça Rara',
     lang: 'pt-br',
     dir: 'ltr',
     theme_color: '#ffffff',

@@ -41,7 +41,11 @@
             type="extrato"
             @submit="(filter) => setFilter('periodo', filter)"
           />
-          <List v-if="lists?.movimentos?.length" :lists="lists?.movimentos" />
+          <List
+            v-if="lists?.movimentos?.length"
+            :lists="lists?.movimentos"
+            :type="type"
+          />
 
           <span v-else class="text-red text-sm font-regular uppercase">
             {{ $t('NOT_DATA_SELECT') }}

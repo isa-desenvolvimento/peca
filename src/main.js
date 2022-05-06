@@ -25,7 +25,7 @@ const updateSW = registerSW({
     r &&
       setInterval(() => {
         r.update()
-      }, 60 * 60 * 1000 /* 1 hour: timeout in milliseconds */)
+      }, 60 /* 60 * 60 * 1000  1 hour: timeout in milliseconds */)
   },
 })
 updateSW()

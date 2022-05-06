@@ -19,8 +19,9 @@
         <div :class="`col-span-7 grid-rows-${periodo?.itens.length}`">
           <div v-for="item in periodo?.itens" :key="item.id" class="relative">
             <TitleSub
-              :title="item.valor"
+              :title="`${item.valor}`"
               :subtitle="item.loja"
+              :type="type"
               :description="item.descricao"
               :icon-plus="item.valor >= 0"
               is-money
@@ -46,7 +47,8 @@ export default {
   components: { TitleSub },
   props: {
     title: { type: String, required: false },
-    lists: { type: String, required: true },
+    type: { type: String, required: false },
+    lists: { type: Array, required: true },
     onclick: { type: Function, required: false },
     hasCheckbox: { type: Boolean, required: false, default: false },
   },

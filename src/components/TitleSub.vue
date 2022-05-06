@@ -2,8 +2,10 @@
   <div class="col-span-6 ml-5 row-span-1 grid grid-cols-4 items-center">
     <div class="col-span-3">
       <div v-if="isMoney">
-        <span v-if="iconPlus" class="text-green text-xs"> + </span>
-        <span v-else class="text-red text-xs"> - </span>
+        <span v-if="iconPlus && type == 'extrato'" class="text-green text-xs">
+          +
+        </span>
+        <span v-if="!iconPlus" class="text-red text-xs"> - </span>
 
         <span class="text-red text-sm font-bold font-manrope">
           {{ `R$ ${Math.abs(title).toFixed(2) || 0}` }}
@@ -43,6 +45,7 @@
 export default {
   props: {
     title: { type: String, required: true },
+    type: { type: String, required: true },
     iconPlus: { type: Boolean, required: false, default: false },
     isMoney: { type: Boolean, required: false, default: false },
     subtitle: { type: String, required: false },
