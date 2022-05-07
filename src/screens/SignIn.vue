@@ -61,7 +61,6 @@ export default {
           sessionStorage.doc = this.doc
         })
         .catch((errors) => {
-          debugger
           if (typeof errors[0] === 'object') {
             messagesFetch('danger', this.$t('MESSAGE.DANGER_CPG_INVALID'))
           } else {
