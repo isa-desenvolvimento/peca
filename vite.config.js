@@ -58,16 +58,17 @@ const pwaOptions = {
         sizes: '192x192',
         type: 'image/png',
         density: '4.0',
+        purpose: 'any maskable',
       },
     ],
     screenshots: [
       {
-        src: '/assets/img/screenshot1.png',
+        src: '/assets/img/screenshoot01.png',
         type: 'image/png',
         sizes: '540x720',
       },
       {
-        src: '/assets/img/screenshot2.png',
+        src: '/assets/img/screenshoot02.png',
         type: 'image/jpg',
         sizes: '540x720',
       },
