@@ -60,20 +60,27 @@ export default {
         .then(() => {
           sessionStorage.doc = this.doc
         })
-        .catch((err) => {
-          switch (err[0]) {
-            case this.$t('MESSAGE.DANGER_NOT_REGISTER'):
-              this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
-              this.router.push('/feedback')
-              sessionStorage.doc = this.doc
-              break
-            case this.$t('MESSAGE.DANGER_NOT_PAWSSORD'):
-              messagesFetch('danger', this.$t('MESSAGE.DANGER_NOT_PAWSSORD'))
-              break
-            default:
-              messagesFetch('danger', this.$t('MESSAGE.DANGER_CPG_INVALID'))
-              break
-          }
+        .catch((errors) => {
+          errors.map((err) => {
+            messagesFetch('danger', err)
+          })
+          // switch (err[0]) {
+          //   case this.$t('MESSAGE.DANGER_NOT_REGISTER'):
+          //     this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
+          //     this.router.push('/feedback')
+          //     sessionStorage.doc = this.doc
+          //     break
+          //   case this.$t('MESSAGE.DANGER_NOT_PAWSSORD'):
+          //     messagesFetch('danger', this.$t('MESSAGE.DANGER_NOT_PAWSSORD'))
+          //     break
+          //   default:
+          //     messagesFetch('danger', this.$t('MESSAGE.DANGER_CPG_INVALID'))
+          //     break
+          // }
+
+          //           "_DANGER_USER_NOT_FOUND": "Obrigatório informar o número do documento.",
+          // "_DANGER_USER_NOT_FOUND": "Nova senha enviada ao usuário.",
+          // "_DANGER_USER_NOT_FOUND": "Fornecedor não tem login cadastrado na plataforma."
         })
     },
     login() {
