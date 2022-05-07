@@ -61,9 +61,14 @@ export default {
           sessionStorage.doc = this.doc
         })
         .catch((errors) => {
-          errors.map((err) => {
-            messagesFetch('danger', err)
-          })
+          debugger
+          if (typeof errors[0] === 'object') {
+            messagesFetch('danger', this.$t('MESSAGE.DANGER_CPG_INVALID'))
+          } else {
+            errors.map((err) => {
+              messagesFetch('danger', err)
+            })
+          }
           // switch (err[0]) {
           //   case this.$t('MESSAGE.DANGER_NOT_REGISTER'):
           //     this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
