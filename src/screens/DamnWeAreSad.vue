@@ -1,5 +1,7 @@
 <template>
-  <div class="h-screen grid items-center w-full bg-pink ease-in duration-300">
+  <div
+    class="h-screen grid items-center w-full bg-pink ease-in duration-300 overflow-y-auto"
+  >
     <div class="grid lg:justify-center lg:mx-auto ml-20">
       <Title
         :title="$t('POXA')"

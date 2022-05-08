@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-screen grid items-center justify-center w-full bg-yellow ease-in duration-300"
+    class="h-screen grid items-center justify-center w-full bg-yellow ease-in duration-300 overflow-y-auto"
   >
     <div>
       <div class="grid mx-auto">

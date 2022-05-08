@@ -1,19 +1,19 @@
 <template>
-  <transition name="slide-fade" :duration="{ enter: 500, leave: 800 }">
-    <div class="h-screen flex items-center bg-pink pl-12 lg:pl-0">
-      <div class="grid lg:justify-center lg:mx-auto">
-        <Title
-          :title="$t('SEND_EMAIL')"
-          classe="text-orange lg:ml-8  w-64 text-lg leading-[2.5rem]"
-        />
-        <Description
-          classe="text-orange text-sm  w-full text-left lg:ml-[2.3rem] font-manrope  mt-2 leading-[1rem]"
-        >
-          {{ $t('VERIFY_SEND_EMAIL') }}
-        </Description>
-      </div>
+  <div
+    class="h-screen flex items-center bg-pink pl-12 lg:pl-0 ease-in duration-300 overflow-y-auto"
+  >
+    <div class="grid lg:justify-center lg:mx-auto">
+      <Title
+        :title="$t('SEND_EMAIL')"
+        classe="text-orange lg:ml-8  w-64 text-lg leading-[2.5rem]"
+      />
+      <Description
+        classe="text-orange text-sm  w-full text-left lg:ml-[2.3rem] font-manrope  mt-2 leading-[1rem]"
+      >
+        {{ $t('VERIFY_SEND_EMAIL') }}
+      </Description>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>

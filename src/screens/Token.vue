@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-orange h-screen grid items-center">
+  <div
+    class="bg-orange h-screen grid items-center ease-in duration-300 overflow-y-auto"
+  >
     <form action="#" class="w-full mx-auto grid gap-16" @submit="submit">
       <div>
         <h3 class="mx-auto text-red text-md w-[17rem] text-left font-bold">
