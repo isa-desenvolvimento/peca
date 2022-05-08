@@ -23,7 +23,7 @@ export const user = {
         },
         (error) => {
           commit('failure', error.response.data.errors)
-          return Promise.reject(error.response.data.errors)
+          return Promise.reject(error.response.data)
         }
       )
     },

@@ -114,7 +114,7 @@
     "SUCCESS_WITHDRAWAL": "Operação realizada! Em até 7 dias você receberá na conta corrente cadastrada",
     "DANGER_CPG_INVALID": "CPF/CNPJ Inválido",
     "DANGER_USER_NOT_FOUND": "USUÁRIO NÃO ENCONTRADO/BLOQUEADO.",
-    "DANGER_NOT_LOGIN": "Fornecedor não tem cadastro em nenhuma loja.",
+    "DANGER_NOT_LOGIN": "Fornecedor não tem login cadastrado na plataforma.",
     "DANGER_TOKEN_INVALID": "Token não encontrado."
   }
 }

@@ -42,6 +42,7 @@ export default {
       router,
       doc: '',
       pwd: '',
+      contatos: { email: '', tel: '' },
       logoMobile: '/assets/logo_completa_monile.png',
     }
   },
@@ -60,32 +61,39 @@ export default {
         .then(() => {
           sessionStorage.doc = this.doc
         })
-        .catch((errors) => {
+        .catch(({ data, errors }) => {
+          if (data?.contatos) this.contatos = data.contatos
+
           if (typeof errors[0] === 'object') {
             messagesFetch('danger', this.$t('MESSAGE.DANGER_CPG_INVALID'))
           } else {
             errors.map((err) => {
               messagesFetch('danger', err)
+              this.redirect(err)
             })
           }
-          // switch (err[0]) {
-          //   case this.$t('MESSAGE.DANGER_NOT_REGISTER'):
-          //     this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
-          //     this.router.push('/feedback')
-          //     sessionStorage.doc = this.doc
-          //     break
-          //   case this.$t('MESSAGE.DANGER_NOT_PAWSSORD'):
-          //     messagesFetch('danger', this.$t('MESSAGE.DANGER_NOT_PAWSSORD'))
-          //     break
-          //   default:
-          //     messagesFetch('danger', this.$t('MESSAGE.DANGER_CPG_INVALID'))
-          //     break
-          // }
-
-          //           "_DANGER_USER_NOT_FOUND": "Obrigatório informar o número do documento.",
-          // "_DANGER_USER_NOT_FOUND": "Nova senha enviada ao usuário.",
-          // "_DANGER_USER_NOT_FOUND": "Fornecedor não tem login cadastrado na plataforma."
         })
+    },
+    redirect(err) {
+      switch (err) {
+        case this.$t('MESSAGE.DANGER_NOT_REGISTER'):
+          this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
+          sessionStorage.doc = this.doc
+          this.router.push('/feedback')
+          break
+        case this.$t('MESSAGE.DANGER_NOT_LOGIN'):
+          sessionStorage.setItem(
+            'fornecedor',
+            JSON.stringify({
+              email: this.contatos.email,
+              tel: this.contatos.celular,
+            })
+          )
+          this.router.push('/send-email')
+          break
+        default:
+          break
+      }
     },
     login() {
       if (this.pwd) {
