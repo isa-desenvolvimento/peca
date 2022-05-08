@@ -64,10 +64,17 @@ export default {
         .catch(({ data, errors }) => {
           if (data?.contatos) this.contatos = data.contatos
 
-          if (typeof errors[0] === 'object') {
+          if (typeof errors === 'object') {
             messagesFetch('danger', this.$t('MESSAGE.DANGER_CPG_INVALID'))
           } else {
             errors.map((err) => {
+              if (typeof err === 'string') {
+                messagesFetch('danger', err)
+                this.redirect(err)
+              } else {
+                messagesFetch('danger', this.$t('MESSAGE.DANGER_CPG_INVALID'))
+              }
+
               messagesFetch('danger', err)
               this.redirect(err)
             })
