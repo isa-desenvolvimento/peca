@@ -1,5 +1,7 @@
 <template>
-  <div class="h-screen grid items-center w-full bg-yellow ease-in duration-300">
+  <div
+    class="h-screen grid items-center w-full bg-yellow ease-in duration-300 overflow-y-auto"
+  >
     <div class="max-w-md w-full mx-auto">
       <div class="mx-auto">
         <!-- <img class="mx-auto h-12 w-auto" :src="logo" alt="Workflow" /> -->
