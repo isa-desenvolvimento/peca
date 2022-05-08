@@ -93,7 +93,7 @@ export default {
               tel: this.contatos.celular,
             })
           )
-          this.router.push('/send-email')
+          this.router.push('/lack-little')
           break
         default:
           break

@@ -9,12 +9,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 const pwaOptions = {
   mode: 'production',
   base: '/',
-  includeAssets: [
-	'favicon.ico',
-	'.htaccess',
-	'favicons',
-	'img'
-  ],
+  includeAssets: ['favicon.ico', '.htaccess', 'favicons', 'img'],
   manifest: {
     short_name: 'Clube Peça Rara',
     name: 'Clube Peça Rara',
@@ -28,55 +23,50 @@ const pwaOptions = {
     display: 'standalone',
     orientation: 'natural',
     related_applications: [],
-	  prefer_related_applications: false,
-    features: [
-		  "Cross Platform",
-		  "low-latency inking",
-		  "fast",
-		  "useful AI"
-    ],
+    prefer_related_applications: false,
+    features: ['Cross Platform', 'low-latency inking', 'fast', 'useful AI'],
     icons: [
       {
         src: '/favicons/android-icon-36x36.png',
         sizes: '36x36',
         type: 'image/png',
         density: '0.75',
-		purpose: "any"
+        purpose: 'any',
       },
       {
         src: '/favicons/android-icon-48x48.png',
         sizes: '48x48',
         type: 'image/png',
         density: '1.0',
-		purpose: "any"
+        purpose: 'any',
       },
       {
         src: '/favicons/android-icon-72x72.png',
         sizes: '72x72',
         type: 'image/png',
         density: '1.5',
-		purpose: "any"
+        purpose: 'any',
       },
       {
         src: '/favicons/android-icon-96x96.png',
         sizes: '96x96',
         type: 'image/png',
         density: '2.0',
-		purpose: "any"
+        purpose: 'any',
       },
       {
         src: '/favicons/android-icon-144x144.png',
         sizes: '144x144',
         type: 'image/png',
         density: '3.0',
-		purpose: "any"
+        purpose: 'any',
       },
       {
         src: '/favicons/android-icon-152x152.png',
         sizes: '152x152',
         type: 'image/png',
         density: '3.5',
-		purpose: "any"
+        purpose: 'any',
       },
       {
         src: '/favicons/android-icon-192x192.png',
@@ -113,19 +103,19 @@ const pwaOptions = {
       },
     ],
     shortcuts: [
-		{
-			name: 'Clube Peça Rara',
-			short_name: 'Clube Peça Rara',
-			description: 'Sistema de Gestão de Fornecedores',
-			url: "/",
-			icons: [
-				{
-					src: '/favicons/android-icon-192x192.png',
-					sizes: '192x192'
-				}
-			]
-		}
-	],
+      {
+        name: 'Clube Peça Rara',
+        short_name: 'Clube Peça Rara',
+        description: 'Sistema de Gestão de Fornecedores',
+        url: '/',
+        icons: [
+          {
+            src: '/favicons/android-icon-192x192.png',
+            sizes: '192x192',
+          },
+        ],
+      },
+    ],
   },
   devOptions: {
     enabled: process.env.SW_DEV === 'true',
