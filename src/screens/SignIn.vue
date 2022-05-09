@@ -55,7 +55,10 @@ export default {
       state.user.error.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')),
   }),
   beforeMount() {
-    window.location.reload(true)
+    if (process.env.npm_package_version !== localStorage.version) {
+      localStorage.version = process.env.npm_package_version
+      window.location.reload(true)
+    }
   },
   methods: {
     submitCPF() {
