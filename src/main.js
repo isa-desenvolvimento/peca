@@ -20,15 +20,15 @@ import 'tw-elements'
 import 'highlight.js/styles/monokai.css'
 import 'vue-select/dist/vue-select.css'
 
-const updateSW = registerSW({
-  onRegistered(r) {
-    r &&
-      setInterval(() => {
-        r.update()
-      }, 60 /* 60 * 60 * 1000  1 hour: timeout in milliseconds */)
-  },
-})
-updateSW()
+// const updateSW = registerSW({
+//   onRegistered(r) {
+//     r &&
+//       setInterval(() => {
+//         r.update()
+//       }, 60 /* 60 * 60 * 1000  1 hour: timeout in milliseconds */)
+//   },
+// })
+// updateSW()
 
 createApp(App)
   .use(router)
