@@ -13,7 +13,13 @@ const pwaOptions = {
   workbox: {
     cleanupOutdatedCaches: true
   },
-  includeAssets: ['favicon.ico', '.htaccess', 'favicons', 'img'],
+  includeAssets: [
+    'favicon.ico',
+    'safari-pinned-tab.svg',
+    '.htaccess', 
+    'favicons', 
+    'img'
+  ],
   manifest: {
     short_name: 'Clube Peça Rara',
     name: 'Clube Peça Rara',
