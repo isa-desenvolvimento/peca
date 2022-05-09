@@ -83,7 +83,7 @@ const pwaOptions = {
         sizes: '192x192',
         type: 'image/png',
         density: '4.0',
-        purpose: 'any',
+        purpose: 'any maskable',
       },
       {
         src: '/favicons/android-icon-384x384.png',
@@ -97,7 +97,7 @@ const pwaOptions = {
         sizes: '512x512',
         type: 'image/png',
         density: '4.5',
-        purpose: 'any',
+        purpose: 'any maskable',
       },
     ],
     screenshots: [
