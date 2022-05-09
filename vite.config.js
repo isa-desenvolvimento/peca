@@ -11,15 +11,15 @@ const pwaOptions = {
   base: '/',
   registerType: 'autoUpdate',
   workbox: {
-    cleanupOutdatedCaches: true
+    cleanupOutdatedCaches: true,
   },
   includeAssets: [
     'favicon.ico',
     'safari-pinned-tab.svg',
     'apple-touch-icon.png',
-    '.htaccess', 
-    'favicons', 
-    'img'
+    '.htaccess',
+    'favicons',
+    'img',
   ],
   manifest: {
     short_name: 'Clube Peça Rara',
