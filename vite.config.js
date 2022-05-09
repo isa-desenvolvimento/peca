@@ -16,6 +16,7 @@ const pwaOptions = {
   includeAssets: [
     'favicon.ico',
     'safari-pinned-tab.svg',
+    'apple-touch-icon.png',
     '.htaccess', 
     'favicons', 
     'img'
