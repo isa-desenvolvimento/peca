@@ -54,6 +54,9 @@ export default {
       state.user?.error &&
       state.user.error.includes(this.$t('MESSAGE.DANGER_NOT_REGISTER')),
   }),
+  beforeMount() {
+    window.location.reload(true)
+  },
   methods: {
     submitCPF() {
       this.$store
