@@ -79,10 +79,9 @@ export default {
         })
     },
     redirect(err) {
+      sessionStorage.doc = this.doc
       switch (err) {
         case this.$t('MESSAGE.DANGER_NOT_REGISTER'):
-          this.$store.dispatch('auth/postValidDoc', { doc: this.doc })
-          sessionStorage.doc = this.doc
           this.router.push('/feedback')
           break
         case this.$t('MESSAGE.DANGER_NOT_LOGIN'):
