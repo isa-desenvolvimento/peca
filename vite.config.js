@@ -10,6 +10,9 @@ const pwaOptions = {
   mode: 'production',
   base: '/',
   registerType: 'autoUpdate',
+  workbox: {
+    cleanupOutdatedCaches: true
+  },
   includeAssets: ['favicon.ico', '.htaccess', 'favicons', 'img'],
   manifest: {
     short_name: 'Clube Peça Rara',
