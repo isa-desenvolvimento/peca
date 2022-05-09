@@ -9,6 +9,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 const pwaOptions = {
   mode: 'production',
   base: '/',
+  registerType: 'autoUpdate',
   includeAssets: ['favicon.ico', '.htaccess', 'favicons', 'img'],
   manifest: {
     short_name: 'Clube Peça Rara',
