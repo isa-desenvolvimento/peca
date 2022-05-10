@@ -135,7 +135,7 @@
 
             <input
               v-model="user.dados_fornecedor.dados_bancarios.banco_cc"
-              v-mask="'######-#'"
+              v-mask="'############-#'"
               name="conta"
               type="text"
               required
