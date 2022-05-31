@@ -103,6 +103,8 @@
   "YOUR_PASSWORD_ACCESS": "INFORME A SUA SENHA DE ACESSO",
   "YOUR_PASSWORD_ACCESS_NOT": "ESQUECEU SUA SENHA?",
   "NOT_DATA_SELECT": "Não existem movimentos para o período informado",
+  "PRODUCT_SEND_DONATION": "Produtos enviados para doação",
+  "DONATION": "Doação",
   "MESSAGE": {
     "DANGER_NOT_REGISTER": "Fornecedor não tem cadastro em nenhuma loja.",
     "DANGER_NOT_PAWSSORD": "Usuário ainda não criou seu usuário para acesso ao sistema. Novo Link enviado por email ao usuário.",
@@ -115,6 +117,7 @@
     "DANGER_CPG_INVALID": "CPF/CNPJ Inválido",
     "DANGER_USER_NOT_FOUND": "USUÁRIO NÃO ENCONTRADO/BLOQUEADO.",
     "DANGER_NOT_LOGIN": "Fornecedor não tem login cadastrado na plataforma.",
-    "DANGER_TOKEN_INVALID": "Token não encontrado."
+    "DANGER_TOKEN_INVALID": "Token não encontrado.",
+    "DANGER_DONATION_INVALID": "Produtos não enviados para doação."
   }
 }

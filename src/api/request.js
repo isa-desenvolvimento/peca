@@ -54,6 +54,11 @@ export const fetchtCityDropdown = async (uf) => {
   return response.status == 200 && response.data
 }
 
+export const fetchDonation = async (idLoja, donations) => {
+  const response = await http_api.post(`/donation/${idLoja}`, donations)
+  return response.status == 200 && response.data
+}
+
 export const fetchtCep = async (cep) => {
   const response = await http_cep(`?code=${cep}`)
 

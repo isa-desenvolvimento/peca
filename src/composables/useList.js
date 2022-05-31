@@ -4,6 +4,7 @@ import {
   fetchList,
   fetchFilter,
   fetchListEstoque,
+  fetchDonation,
 } from '@/api/request'
 
 export default function useList() {
@@ -27,11 +28,16 @@ export default function useList() {
     return await fetchListEstoque(value)
   }
 
+  const sendDonation = async (idLoja, value) => {
+    return await fetchDonation(idLoja, value)
+  }
+
   return {
     useGetDropdown,
     useGetLojas,
     useGetList,
     useGetFilter,
     useGetListEstoque,
+    sendDonation,
   }
 }

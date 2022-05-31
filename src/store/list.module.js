@@ -17,6 +17,7 @@ const initialState = {
   contrato: {},
   devolucao: {},
   estoque: {},
+  donationList: [],
   auth: {},
 }
 
@@ -28,7 +29,13 @@ Object.keys(initialState).map((key) => {
 
 initialState.loading = false
 
-const { useGetLojas, useGetList, useGetFilter, useGetListEstoque } = useList()
+const {
+  useGetLojas,
+  useGetList,
+  useGetFilter,
+  useGetListEstoque,
+  sendDonation,
+} = useList()
 
 export const list = {
   namespaced: true,
@@ -125,6 +132,21 @@ export const list = {
         }
       )
     },
+    sendDonation({ state }, idLoja) {
+      return sendDonation(idLoja, state.donationList).then(
+        (payload) => {
+          // commit('sucess', value)
+          return Promise.resolve(payload.data)
+        },
+        (error) => {
+          // commit('failure')
+          return Promise.reject(error)
+        }
+      )
+    },
+    setDonation({ commit }, value) {
+      return commit('donations', value)
+    },
   },
   mutations: {
     sucess(state, { payload, type }) {
@@ -136,6 +158,10 @@ export const list = {
     },
     loadingToggle(state) {
       state.loading = !state.loading
+    },
+    donations(state, payload) {
+      state.donationList = payload
+      sessionStorage.setItem('donationList', JSON.stringify(payload))
     },
   },
 }

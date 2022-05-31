@@ -98,6 +98,11 @@ const routes = [
     name: 'CONTRACT',
     component: () => import('@/screens/Contract.vue'),
   },
+  {
+    path: '/donation',
+    name: 'Donation',
+    component: () => import('@/screens/SendDonation.vue'),
+  },
 ]
 
 const router = createRouter({

@@ -30,9 +30,11 @@
 
             <input
               v-if="hasCheckbox"
-              disabled
+              @change="toggle(item?.id)"
+              :checked="checked(item?.id)"
+              :disabled="validButton"
               type="checkbox"
-              class="ml-auto absolute inset-x-0 inset-y-0 form-check-input appearance-none h-4 w-4 border border-red bg-transparent checked:bg-red checked:border-red focus:bg-red focus:border-red focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+              class="ml-auto absolute text-red focus:ring-transparent inset-x-0 inset-y-0 form-check-input appearance-none h-4 w-4 border border-red bg-transparent focus:text-red active:bg-red hover:text-red checked:bg-red checked:border-red focus:bg-red focus:border-red focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
         </div>
@@ -53,11 +55,35 @@ export default {
     hasCheckbox: { type: Boolean, required: false, default: false },
   },
   data() {
-    return { limit: 1 }
+    return { limit: 1, donation: [] }
+  },
+  computed: {
+    validButton() {
+      return this.type === 'devolucao' && this.selected.length !== 0
+    },
+    donationList() {
+      const donationState = this.$store.state.list?.donationList
+      const list = Array.isArray(donationState) ? donationState : []
+
+      return list
+    },
   },
   methods: {
     showmore() {
       this.limit = this.limit === this.lists.length ? 1 : this.lists.length
+    },
+    checked(id) {
+      return this.donationList?.indexOf(id) !== -1
+    },
+    toggle(id) {
+      const index = this.donation.indexOf(id)
+      if (index !== -1) {
+        this.donation.splice(index, 1)
+      } else {
+        this.donation.push(id)
+      }
+
+      this.$store.dispatch('list/setDonation', this.donation)
     },
   },
 }

@@ -80,13 +80,9 @@
         </div>
       </div>
     </div>
-    <div
-      v-if="type == 'devolucao'"
-      class="mt-8 cursor-pointer"
-      @click="goToNext"
-    >
+    <div v-if="type == 'devolucao'" class="mt-8 cursor-pointer">
       <button
-        disabled
+        :disabled="!donationList.length"
         type="button"
         class="appearance-none rounded-md uppercase font-manrope font-bold bg-red mx-auto group relative leading-normal flex justify-center py-2 px-4 text-xs text-orange disabled:opacity-50 disabled:cursor-not-allowed"
         @click="send"
@@ -105,6 +101,7 @@ import Loading from '@/components/Loading.vue'
 
 import { useRoute } from 'vue-router'
 import { useStore, mapState } from 'vuex'
+import { messagesFetch } from '@/util/toast.js'
 
 export default {
   components: { Carousel, List, Header, Loading },
@@ -143,6 +140,7 @@ export default {
     ...mapState({
       lists: (state) => state.list[self.props.type],
       loading: (state) => state.list.loading,
+      donationList: (state) => state.list.donationList,
     }),
   },
 
@@ -174,7 +172,16 @@ export default {
       this.$router.push(`/product/${loja}`)
     },
 
-    send() {},
+    send() {
+      // this.$router.push('/donation')
+      this.dispatch('list/sendDonation', this.id_loja || 0)
+        .then(() => {
+          messagesFetch('success', this.$t('PRODUCT_SEND_DONATION'))
+        })
+        .catch(() => {
+          messagesFetch('danger', this.$t('MESSAGE.DANGER_DONATION_INVALID'))
+        })
+    },
   },
 }
 </script>

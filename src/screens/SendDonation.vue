@@ -1,5 +1,5 @@
 <template>
-  <Message :title="$t('SEND_EMAIL')" :description="$t('VERIFY_SEND_EMAIL')" />
+  <Message :title="$t('DONATION')" :description="$t('PRODUCT_SEND_DONATION')" />
 </template>
 
 <script>

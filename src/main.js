@@ -21,7 +21,7 @@ import 'highlight.js/styles/monokai.css'
 import 'vue-select/dist/vue-select.css'
 
 const updateSW = registerSW({
-  onOfflineReady() {}
+  onOfflineReady() {},
 })
 updateSW()
 

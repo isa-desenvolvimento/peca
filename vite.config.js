@@ -12,7 +12,7 @@ const pwaOptions = {
   registerType: 'autoUpdate',
   workbox: {
     cleanupOutdatedCaches: true,
-    sourcemap: true
+    sourcemap: true,
   },
   includeAssets: [
     'favicon.ico',
@@ -309,7 +309,7 @@ const pwaOptions = {
         type: 'image/png',
         density: '3.5',
         purpose: 'any',
-      }
+      },
     ],
     screenshots: [
       {
