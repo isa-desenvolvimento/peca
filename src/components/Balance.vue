@@ -14,7 +14,7 @@
           v-if="balance_on_visible"
           class="col-span-4 col-start-3 lg:col-start-2 text-left text-yellow font-manrope"
         >
-          {{ `R$ ${Math.abs(balance?.disponivel).toFixed(2) || '0,00'}` }}
+          {{ formatMoney(balance?.disponivel || 0) }}
         </span>
         <span v-else class="col-span-1 text-left text-yellow">-</span>
       </div>
@@ -34,7 +34,7 @@
           v-if="balance_off_visible"
           class="col-span-4 col-start-4 lg:col-start-7 text-left text-yellow font-manrope"
         >
-          {{ `R$ ${Math.abs(balance?.bloqueado).toFixed(2) || '0,00'}` }}
+          {{ formatMoney(balance?.bloqueado || 0) }}
         </span>
         <span v-else class="col-span-1 text-left text-yellow">-</span>
       </div>
@@ -53,6 +53,7 @@
 
 <script>
 import Eye from '@/components/Eye.vue'
+import { formatMoney } from '@/util/util'
 
 export default {
   components: { Eye },
@@ -68,6 +69,7 @@ export default {
     return {
       balance_on_visible: false,
       balance_off_visible: false,
+      formatMoney,
     }
   },
 }

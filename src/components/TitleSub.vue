@@ -8,7 +8,7 @@
         <span v-if="!iconPlus" class="text-red text-xs"> - </span>
 
         <span class="text-red text-sm font-bold font-manrope">
-          {{ `R$ ${Math.abs(title).toFixed(2) || 0}` }}
+          {{ formatMoney(Math.abs(title) || 0) }}
         </span>
       </div>
       <div
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import { formatMoney } from '@/util/util'
+
 export default {
   props: {
     title: { type: String, required: true },
@@ -51,6 +53,9 @@ export default {
     subtitle: { type: String, required: false },
     description: { type: String, required: false },
     arquivo: { type: String, required: false },
+  },
+  data() {
+    return { formatMoney }
   },
 }
 </script>
